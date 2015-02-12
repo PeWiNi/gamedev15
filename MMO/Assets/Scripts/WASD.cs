@@ -23,15 +23,22 @@ public class WASD : MonoBehaviour {
 	private Vector3 gravity;
 	private Quaternion rotation;
 	private int currentRotationFace;
+	private bool holding = false;
+	GameObject coconut;// = GameObject.Find("Coconut");
+	Coconut nut;// = coconut.GetComponent<Coconut>();
 	// Use this for initialization
 	void Start () {
-	
+		coconut = GameObject.Find ("Coconut");
+		nut = coconut.GetComponent<Coconut> ();
 	}
 
 	void keepSteady(){ 
 		//rotation.y = transform.rotation.y;
 		//transform.rotation = rotation;
 		
+	}
+	public int getFacing(){
+		return currentRotationFace;
 	}
 
 	void jump(){
@@ -197,7 +204,35 @@ public class WASD : MonoBehaviour {
 		
 	}
 	void OnCollisionEnter(Collision coll){ // Working!!
-		jumping = false;
+		if (coll.gameObject.name.Equals ("Terrain")) { 
+			jumping = false;
+		}
+		if (coll.gameObject.name.Equals ("Coconut")) {
+		Debug.Log ("Coconut Crash!");
+			Debug.Log (nut.isHeldAtm());
+		}
+		if (Input.GetKey(KeyCode.E)) {
+
+			if (coll.gameObject.name.Equals ("Coconut")) {
+				Debug.Log("E is pressed");
+				if(!nut.isHeldAtm()){
+				   nut.setCapture(this.gameObject);
+					// Debug.Log
+				}
+			}
+
+		}
+		if(Input.GetKey(KeyCode.Q)){
+			Debug.Log("q pressed");
+			if(nut.getHolder() != null){
+				Debug.Log("Has Holder");
+				if(nut.getHolder().Equals(this.gameObject)){
+					nut.removeCapture(this.gameObject);
+					Debug.Log("Holder Removed");
+				}
+			}
+		}
+
 		//position.y = coll.gameObject.transform.position.y;
 		//transform.position = position;
 	}
