@@ -39,11 +39,11 @@ public class MovementScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-				if (gravity.y > -900.0f) {
+				/*if (gravity.y > -900.0f) {
 						gravity.y -= 9.81f;
 				} else {
 						gravity.y = -10.0f;
-				}
+				}*/
 				keepSteady ();
 				bool changed = false;
 				Vector3 camPos;
@@ -112,11 +112,11 @@ public class MovementScript : MonoBehaviour {
 			//mainCam.gameObject.transform.Rotate (new Vector3(0.0f,Input.GetAxis("Vertical"), -1.0f));
 		}
 		if (jumping || transform.position.y >= 0) {
-			rigidbody.velocity = gravity;
+			//rigidbody.velocity = gravity;
 		}
 		else {
-			gravity.y = -10.0f;
-			rigidbody.velocity = gravity;
+			//gravity.y = -10.0f;
+			//rigidbody.velocity = gravity;
 		}
 			
 		//if (changed) {
