@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System;
 
 public class WASD : MonoBehaviour {
 
@@ -27,10 +28,20 @@ public class WASD : MonoBehaviour {
 	private bool holding = false;
 	GameObject coconut;// = GameObject.Find("Coconut");
 	Coconut nut;// = coconut.GetComponent<Coconut>();
+	//AudioSource
+	AudioSource soundPlayer;
+	// Audioclips
+	public AudioClip boomnanathrowclip;
+	public AudioClip jumpclip;
+	public AudioClip movementclip;
+
+	private float timeSinceLastBoom;
 	// Use this for initialization
 	void Start () {
+		timeSinceLastBoom = Time.time * 1000;
 		coconut = GameObject.Find ("Coconut");
 		nut = coconut.GetComponent<Coconut> ();
+		soundPlayer = gameObject.audio;
 		//Debug.Log (nut.name + "  " + coconut.name);
 	}
 
@@ -119,49 +130,65 @@ public class WASD : MonoBehaviour {
 
 		position = transform.position; 
 		if(Input.GetKeyDown(KeyCode.Mouse0)){ // Mouse0 = Left Click
-			GameObject boom = Instantiate(Resources.Load("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
-			new Vector3(transform.position.x + 20, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
-			Boomnana boomscript = boom.GetComponent<Boomnana>();
-			// set position, add velocity.
-			// if return after x sec, unless OnCollision triggers.
-			Vector3 startPos = new Vector3();
-			Vector3 startDir = new Vector3();
-			switch(currRotStr){
-			case "N": // Angles might be oposite....
-				startPos = new Vector3(transform.position.x, transform.position.y, transform.position.z+10);
-				startDir = new Vector3(0, 0, 100); 
-				break;
-			case "NE":
-				startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z+10);
-				startDir = new Vector3(100, 0, 100);
-				break;
-			case "E":
-				startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z);
-				startDir = new Vector3(100, 0, 0);
-				break;
-			case "SE":
-				startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z-10);
-				startDir = new Vector3(100, 0, -100);
-				break;
-			case "S":
-				startPos = new Vector3(transform.position.x, transform.position.y, transform.position.z-10);
-				startDir = new Vector3(0, 0, -100);
-				break;
-			case "SW":
-				startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z-10);
-				startDir = new Vector3(-100, 0, -100);
-				break;
-			case "W":
-				startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z);
-				startDir = new Vector3(-100, 0, 0);
-				break;
-			case "NW":
-				startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z+10);
-				startDir = new Vector3(-100, 0, 100);
-				break;
+			//Debug.Log("Player pos: "+transform.position);
+			Camera cam = Camera.main;//.Find("Main Camera");
+			//Debug.Log(cam.name);
+			Vector3 p = cam.ScreenToWorldPoint(new Vector3(100, 100, cam.nearClipPlane));
+			//Debug.Log("Projectile dir: "+p);
+			//Debug.Log(p);
+			//Gizmos.color = Color.yellow;
+			//Gizmos.DrawSphere(p, 0.1F);
+
+			//Vector3 mousePos = Camera.ScreenToWorldPoint (Input.mousePosition);
+			//Debug.Log(mousePos);
+			if(((Time.time*1000)-timeSinceLastBoom) >= 1500){
+				GameObject boom = Instantiate(Resources.Load("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
+				new Vector3(transform.position.x + 20, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+				Boomnana boomscript = boom.GetComponent<Boomnana>();
+				// set position, add velocity.
+				// if return after x sec, unless OnCollision triggers.
+				Vector3 startPos = new Vector3();
+				Vector3 startDir = new Vector3();
+				switch(currRotStr){
+				case "N": // Angles might be oposite....
+					startPos = new Vector3(transform.position.x, transform.position.y, transform.position.z+10);
+					startDir = new Vector3(0, 0, 100); 
+					break;
+				case "NE":
+					startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z+10);
+					startDir = new Vector3(100, 0, 100);
+					break;
+				case "E":
+					startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z);
+					startDir = new Vector3(100, 0, 0);
+					break;
+				case "SE":
+					startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z-10);
+					startDir = new Vector3(100, 0, -100);
+					break;
+				case "S":
+					startPos = new Vector3(transform.position.x, transform.position.y, transform.position.z-10);
+					startDir = new Vector3(0, 0, -100);
+					break;
+				case "SW":
+					startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z-10);
+					startDir = new Vector3(-100, 0, -100);
+					break;
+				case "W":
+					startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z);
+					startDir = new Vector3(-100, 0, 0);
+					break;
+				case "NW":
+					startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z+10);
+					startDir = new Vector3(-100, 0, 100);
+					break;
+				}
+				Vector3 dir = new Vector3(p.x - startPos.x, 0, p.z - startPos.z);
+				boomscript.spawn(this.gameObject, boom,  startPos
+				                 , startDir);
+				timeSinceLastBoom = Time.time * 1000;
+				//soundPlayer.PlayOneShot(boomnanathrowclip);
 			}
-			boomscript.spawn(this.gameObject, boom,  startPos
-			                 , startDir);
 			//boomscript.
 		}
 
@@ -208,7 +235,9 @@ public class WASD : MonoBehaviour {
 			//changed = true;
 		}
 		if (Input.GetKeyDown (KeyCode.Space) && !jumping) {
-			jump ();		
+			jump ();
+			//Plays Jumping sound.
+			//soundPlayer.PlayOneShot(jumpclip);
 		}
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0) {
 			zoom -= 20.0f;

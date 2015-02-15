@@ -1,0 +1,21 @@
+Implementation list:
+
+BoomNana:
+	Stun if self-hit
+	Sound for stun
+	Damage
+	Animation
+	
+Melee Atk:
+	Dmg
+	Sound
+	Animation
+
+AOE:
+	Effects ( dmg, stun, etc.)
+	Animation
+	Sound
+	
+Bases:
+	Spawn locations
+	capture points
