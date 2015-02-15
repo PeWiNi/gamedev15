@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\GroundScript.cs" />
      <Compile Include="Assets\Scripts\Boomnana.cs" />
+     <Compile Include="Assets\Scripts\CaptureScript.cs" />
      <Compile Include="Assets\Scripts\Coconut.cs" />
      <Compile Include="Assets\Scripts\CombatScript.cs" />
      <Compile Include="Assets\Scripts\MovementScript.cs" />

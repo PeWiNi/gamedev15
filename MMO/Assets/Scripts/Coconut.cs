@@ -5,9 +5,11 @@ public class Coconut : MonoBehaviour {
 
 	private bool isHeld = false;
 	private GameObject go = null;
+	public Vector3 startPos;
 	// Use this for initialization
 	void Start () {
 		isHeld = false;
+		startPos = transform.position;
 	}
 
 	public bool isHeldAtm(){
@@ -38,7 +40,7 @@ public class Coconut : MonoBehaviour {
 		this.go = go;
 		isHeld = true;
 	}
-	public void removeCapture(GameObject go){
+	public void removeCapture(){
 		this.go = null;
 		isHeld = false;
 		Vector3 dropPos = new Vector3 (transform.position.x, transform.position.y - 5, transform.position.z);

@@ -7,6 +7,8 @@ public class WASD : MonoBehaviour {
 	/*TODO: Make state controller, so you don't connect/split during combat.
 	 * 
 	 * */
+
+	public int teamNumber;
 	
 	public KeyCode moveUp;// = KeyCode.W;
 	public KeyCode moveDown;// = KeyCode.S;
@@ -299,7 +301,7 @@ public class WASD : MonoBehaviour {
 		if (Input.GetKey(KeyCode.E)) {
 
 			if (coll.gameObject.name.Equals ("Coconut")) {
-				Debug.Log("E is pressed");
+				//Debug.Log("E is pressed");
 				nut = coll.gameObject.GetComponent<Coconut>();
 				if(!nut.isHeldAtm()){
 				   nut.setCapture(this.gameObject);
@@ -309,12 +311,12 @@ public class WASD : MonoBehaviour {
 
 		}
 		if(Input.GetKey(KeyCode.Q)){
-			Debug.Log("q pressed");
+			//Debug.Log("q pressed");
 			if(nut.getHolder() != null){
-				Debug.Log("Has Holder");
+				//Debug.Log("Has Holder");
 				if(nut.getHolder().Equals(this.gameObject)){
-					nut.removeCapture(this.gameObject);
-					Debug.Log("Holder Removed");
+					nut.removeCapture();
+					//Debug.Log("Holder Removed");
 				}
 			}
 		}
