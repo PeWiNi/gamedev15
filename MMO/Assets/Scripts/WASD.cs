@@ -8,7 +8,7 @@ public class WASD : MonoBehaviour {
 	 * 
 	 * */
 
-	public int teamNumber;
+	public int teamNumber; 
 	
 	public KeyCode moveUp;// = KeyCode.W;
 	public KeyCode moveDown;// = KeyCode.S;
@@ -30,18 +30,34 @@ public class WASD : MonoBehaviour {
 	private string currRotStr = "N";
 	private bool holding = false;
 	private bool moving = false;
+	private bool stunned = false;
+	private float stunnedTimer = 4.0f;
+	private float stunnedStart;
 	GameObject coconut;// = GameObject.Find("Coconut");
 	Coconut nut;// = coconut.GetComponent<Coconut>();
 	//AudioSource
 	AudioSource soundPlayer;
+	AudioSource movementPlayer;
+	AudioSource jumpPlayer;
+	AudioSource stunnedPlayer;
 	// Audioclips
 	public AudioClip boomnanathrowclip;
 	public AudioClip jumpclip;
 	public AudioClip movementclip;
+	public AudioClip stunnedclip; 
 
 	private float timeSinceLastBoom;
 	// Use this for initialization
 	void Start () {
+		GameObject jP = Instantiate(Resources.Load("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
+		                              new Vector3(-1000, 0, -1000), Quaternion.identity) as GameObject;
+		jumpPlayer = jP.audio;
+		GameObject bP = Instantiate(Resources.Load("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
+		                            new Vector3(-1000, 0, -1000), Quaternion.identity) as GameObject;
+		movementPlayer = bP.audio;
+		GameObject sP = Instantiate(Resources.Load("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
+		                            new Vector3(-1000, 0, -1000), Quaternion.identity) as GameObject;
+		stunnedPlayer = sP.audio;
 		timeSinceLastBoom = Time.time * 1000;
 		coconut = GameObject.Find ("Coconut");
 		nut = coconut.GetComponent<Coconut> ();
@@ -196,7 +212,7 @@ public class WASD : MonoBehaviour {
 			//boomscript.
 		}
 
-		if (Input.GetKey (moveUp)) {
+		if (Input.GetKey (moveUp) && !stunned) {
 			up = true;
 			if (Input.GetKey (sprint)) {
 				position.z += sprintspeed;
@@ -208,7 +224,7 @@ public class WASD : MonoBehaviour {
 		//	changed = true;
 		}
 
-		if (Input.GetKey (moveDown)) {
+		if (Input.GetKey (moveDown) && !stunned) {
 			down = true;
 			if(Input.GetKey(sprint)){
 				position.z -= sprintspeed;
@@ -220,7 +236,7 @@ public class WASD : MonoBehaviour {
 			//changed = true;
 		}
 
-		if (Input.GetKey (moveRight)) {
+		if (Input.GetKey (moveRight) && !stunned) {
 			right = true;
 			if(Input.GetKey (sprint)){
 				position.x += sprintspeed;
@@ -231,7 +247,7 @@ public class WASD : MonoBehaviour {
 			//StateController.isMoving = true;
 			//changed = true;
 		}
-		if (Input.GetKey (moveLeft)) {
+		if (Input.GetKey (moveLeft) && !stunned) {
 			left = true;
 			if(Input.GetKey (sprint)){
 				position.x -= sprintspeed;
@@ -242,10 +258,11 @@ public class WASD : MonoBehaviour {
 			//StateController.isMoving = true;
 			//changed = true;
 		}
-		if (Input.GetKeyDown (KeyCode.Space) && !jumping) {
+		if (Input.GetKeyDown (KeyCode.Space) && !jumping && !stunned) {
 			jump ();
 			//Plays Jumping sound.
-			soundPlayer.PlayOneShot(jumpclip);
+			// GameObject.Find("SoundMgr");
+			jumpPlayer.PlayOneShot(jumpclip);
 		}
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0) {
 			zoom -= 20.0f;
@@ -259,11 +276,23 @@ public class WASD : MonoBehaviour {
 			moving = false;
 			//StateController.isMoving = false;
 		}
-		if (moving && !soundPlayer.isPlaying) {
-			soundPlayer.clip = movementclip;
-			soundPlayer.Play();
-		}if(!moving){
-			soundPlayer.Stop();
+		if (moving && !movementPlayer.isPlaying) {
+			movementPlayer.clip = movementclip;
+			movementPlayer.Play();
+		}if(!moving && movementPlayer.clip == movementclip && movementPlayer.isPlaying){
+			movementPlayer.Stop();
+		}
+		if (stunned){// && (Time.time - stunnedStart)<= stunnedTimer) {
+			if((Time.time - stunnedStart)<= stunnedTimer && !stunnedPlayer.isPlaying){//if(!stunnedPlayer.isPlaying){
+				stunnedPlayer.clip = stunnedclip;
+				stunnedPlayer.Play ();
+			}else if(Time.time - stunnedStart >= stunnedTimer){
+				stunned = false;
+			}
+
+		}if (!stunned && stunnedPlayer.clip == stunnedclip) {
+			stunnedPlayer.Stop ();
+			//stunned = false;
 		}
 		//if(statecontroller.isMoving){
 		//soundPlayer.clip = movementclip;
@@ -317,6 +346,7 @@ public class WASD : MonoBehaviour {
 		
 	}
 	void OnCollisionEnter(Collision coll){ // Working!!
+		//Debug.Log (coll.gameObject.name);
 		if (coll.gameObject.name.Equals ("Terrain")) { 
 			jumping = false;
 		}
@@ -331,6 +361,13 @@ public class WASD : MonoBehaviour {
 				}
 			}
 
+		}
+		if (coll.gameObject.name.Equals ("Boomnana(Clone)")) {
+			//Debug.Log("Hit with BoomNana");
+			if(coll.gameObject.GetComponent<Boomnana>().owner == this.gameObject){
+				stunned = true;
+				stunnedStart = Time.time;
+			}
 		}
 		if(Input.GetKey(KeyCode.Q)){
 			//Debug.Log("q pressed");

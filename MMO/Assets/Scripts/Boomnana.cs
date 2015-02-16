@@ -52,6 +52,7 @@ public class Boomnana : MonoBehaviour {
 			}
 		} else if (col.gameObject != GameObject.Find ("Coconut") && col.gameObject != GameObject.Find ("Terrain") && col.gameObject != owner) {
 			// if(!teammate) -> col.GetComponent<WASD>().damage(boomdmg);
+			Debug.Log(owner.name); 
 			Destroy(thisObj);
 		}
 		//Destroy (thisObj);
