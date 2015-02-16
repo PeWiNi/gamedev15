@@ -28,7 +28,6 @@ public class Boomnana : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () { 
-		float currTime = Time.time * 1000;
 		if (transform.position == endpoint) {
 			movingBack = true;
 		}
@@ -57,10 +56,6 @@ public class Boomnana : MonoBehaviour {
 		}
 		//Destroy (thisObj);
 		// Damage col.  Destroy this.o		bject
-	}
-	void split(){
-		GameObject newChar = Instantiate(Resources.Load("Prefabs/PlayerObject", typeof(GameObject)) as GameObject,
-		new Vector3(transform.position.x + 20, transform.position.y, transform.position.z + 20), Quaternion.identity) as GameObject;
 	}
 
 }

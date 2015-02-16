@@ -16,6 +16,7 @@ public class WASD : MonoBehaviour {
 	public KeyCode moveLeft;// = KeyCode.A;
 	private KeyCode sprint = KeyCode.LeftShift;
 	public Vector3 position;
+	public int boomnanaRange;
 	private bool jumping = false;
 	private float zoom = 200.0f;
 	private int ms = 1;
@@ -28,6 +29,7 @@ public class WASD : MonoBehaviour {
 	private int currentRotationFace;
 	private string currRotStr = "N";
 	private bool holding = false;
+	private bool moving = false;
 	GameObject coconut;// = GameObject.Find("Coconut");
 	Coconut nut;// = coconut.GetComponent<Coconut>();
 	//AudioSource
@@ -154,42 +156,42 @@ public class WASD : MonoBehaviour {
 				switch(currRotStr){
 				case "N": // Angles might be oposite....
 					startPos = new Vector3(transform.position.x, transform.position.y, transform.position.z+10);
-					startDir = new Vector3(0, 0, 100); 
+					startDir = new Vector3(0, 0, boomnanaRange); 
 					break;
 				case "NE":
 					startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z+10);
-					startDir = new Vector3(100, 0, 100);
+					startDir = new Vector3((float)(Math.Cos (45)*boomnanaRange), 0, (float)(Math.Cos (45)*boomnanaRange));
 					break;
 				case "E":
 					startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z);
-					startDir = new Vector3(100, 0, 0);
+					startDir = new Vector3(boomnanaRange, 0, 0);
 					break;
 				case "SE":
 					startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z-10);
-					startDir = new Vector3(100, 0, -100);
+					startDir = new Vector3((float)(Math.Cos(45)*boomnanaRange), 0,(float)(Math.Cos (45)*-boomnanaRange));
 					break;
 				case "S":
 					startPos = new Vector3(transform.position.x, transform.position.y, transform.position.z-10);
-					startDir = new Vector3(0, 0, -100);
+					startDir = new Vector3(0, 0, -boomnanaRange);
 					break;
 				case "SW":
 					startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z-10);
-					startDir = new Vector3(-100, 0, -100);
+					startDir = new Vector3((float)(Math.Cos (45)*-boomnanaRange), 0, (float)(Math.Cos (45)*-boomnanaRange));
 					break;
 				case "W":
 					startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z);
-					startDir = new Vector3(-100, 0, 0);
+					startDir = new Vector3(-boomnanaRange, 0, 0);
 					break;
 				case "NW":
 					startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z+10);
-					startDir = new Vector3(-100, 0, 100);
+					startDir = new Vector3((float)(Math.Cos (45)*-boomnanaRange), 0, (float)(Math.Cos (45)*boomnanaRange));
 					break;
 				}
 				Vector3 dir = new Vector3(p.x - startPos.x, 0, p.z - startPos.z);
 				boomscript.spawn(this.gameObject, boom,  startPos
 				                 , startDir);
 				timeSinceLastBoom = Time.time * 1000;
-				//soundPlayer.PlayOneShot(boomnanathrowclip);
+				soundPlayer.PlayOneShot(boomnanathrowclip);
 			}
 			//boomscript.
 		}
@@ -201,7 +203,8 @@ public class WASD : MonoBehaviour {
 			} else { 
 				position.z += ms;
 			}
-			
+			moving = true;
+			//StateController.isMoving = true;
 		//	changed = true;
 		}
 
@@ -212,7 +215,8 @@ public class WASD : MonoBehaviour {
 			}else{
 				position.z -= ms;
 			}
-			
+			moving = true;
+			//StateController.isMoving = true;
 			//changed = true;
 		}
 
@@ -223,7 +227,8 @@ public class WASD : MonoBehaviour {
 			}else{
 				position.x += ms;
 			}
-			
+			moving = true;
+			//StateController.isMoving = true;
 			//changed = true;
 		}
 		if (Input.GetKey (moveLeft)) {
@@ -233,13 +238,14 @@ public class WASD : MonoBehaviour {
 			}else{
 				position.x -= ms;
 			}
-			
+			moving = true;
+			//StateController.isMoving = true;
 			//changed = true;
 		}
 		if (Input.GetKeyDown (KeyCode.Space) && !jumping) {
 			jump ();
 			//Plays Jumping sound.
-			//soundPlayer.PlayOneShot(jumpclip);
+			soundPlayer.PlayOneShot(jumpclip);
 		}
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0) {
 			zoom -= 20.0f;
@@ -248,6 +254,22 @@ public class WASD : MonoBehaviour {
 		if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
 			zoom += 20.0f;
 		}
+
+		if (!Input.GetKey (moveLeft) && !Input.GetKey (moveRight) && !Input.GetKey (moveUp) && !Input.GetKey (moveDown)) {
+			moving = false;
+			//StateController.isMoving = false;
+		}
+		if (moving && !soundPlayer.isPlaying) {
+			soundPlayer.clip = movementclip;
+			soundPlayer.Play();
+		}if(!moving){
+			soundPlayer.Stop();
+		}
+		//if(statecontroller.isMoving){
+		//soundPlayer.clip = movementclip;
+		//soundPlayer.Play ();
+		//		}else{soundPlayer.Stop();}
+
 		/*if (Input.GetKey (KeyCode.Q)) {  
 			rotation.y -= 10; 
 			transform.rotation = Quaternion.AngleAxis(rotation.y ,Vector3.up);//rotation;

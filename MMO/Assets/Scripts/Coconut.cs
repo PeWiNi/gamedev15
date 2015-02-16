@@ -24,7 +24,7 @@ public class Coconut : MonoBehaviour {
 		if (isHeld) {
 			//Debug.Log("It is held!");
 			WASD wasd = go.GetComponent<WASD> ();
-			int a = wasd.getFacing();
+			//int a = wasd.getFacing();
 			Vector3 position = 
 				new Vector3 (wasd.gameObject.transform.position.x, wasd.gameObject.transform.position.y + 15,
 				            wasd.gameObject.transform.position.z);
