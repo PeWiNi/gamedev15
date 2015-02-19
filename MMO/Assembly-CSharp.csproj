@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_6_0;UNITY_4_6;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_0;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -52,13 +52,49 @@
      <Compile Include="Assets\Scripts\Coconut.cs" />
      <Compile Include="Assets\Scripts\CombatScript.cs" />
      <Compile Include="Assets\Scripts\MovementScript.cs" />
-     <Compile Include="Assets\Scripts\Networking\LANObject01.cs" />
-     <Compile Include="Assets\Scripts\Networking\LaNetwork.cs" />
-     <Compile Include="Assets\Scripts\Networking\SpawnPlayerObject02.cs" />
+     <Compile Include="Assets\Scripts\Networking\Menu.cs" />
+     <Compile Include="Assets\Scripts\Networking\NetworkCallbacks.cs" />
+     <Compile Include="Assets\Scripts\Networking\PlayerObjectBehaviour.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\WASD.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltDebugStart.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltDebugStartSettings.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltInit.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltLauncher.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltNetworkUtils.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltShutdownPoll.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltUnityDebugDrawer.cs" />
+     <Compile Include="Assets\bolt\scripts\aoi\BoltAOI.cs" />
+     <Compile Include="Assets\bolt\scripts\aoi\BoltPOI.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\DotNet\DotNetInterface.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\DotNet\DotNetPlatform.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\DotNet\DotNetSocket.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\Native\NativePInvoke.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\Native\NativePlatform.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\Native\NativeSocket.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\Null\NullPlatform.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\Null\NullSocket.cs" />
+     <Compile Include="Assets\bolt\scripts\upnp\BoltUPnP.cs" />
+     <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
+     <None Include="Assets\bolt\resources\backgrounds\ATTRIBUTION.txt" />
+     <None Include="Assets\bolt\assemblies\upnp\Mono.Nat.LICENSE.txt" />
+     <None Include="Assets\bolt\documentation\DOCUMENTATION.txt" />
+     <None Include="Assets\bolt\resources\BoltShaderPOI.shader" />
+     <None Include="Assets\bolt\resources\icons\ATTRIBUTION.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="bolt">
+ <HintPath>C:/Users/Marc/Documents/GitHub/gamedev15/MMO/Assets/bolt/assemblies/bolt.dll</HintPath>
+ </Reference>
+ <Reference Include="bolt.user">
+ <HintPath>C:/Users/Marc/Documents/GitHub/gamedev15/MMO/Assets/bolt/assemblies/bolt.user.dll</HintPath>
+ </Reference>
+ <Reference Include="udpkit.common">
+ <HintPath>C:/Users/Marc/Documents/GitHub/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.common.dll</HintPath>
+ </Reference>
+ <Reference Include="udpkit">
+ <HintPath>C:/Users/Marc/Documents/GitHub/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
