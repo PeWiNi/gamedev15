@@ -28,7 +28,6 @@ public class Boomnana : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () { 
-		float currTime = Time.time * 1000;
 		if (transform.position == endpoint) {
 			movingBack = true;
 		}
@@ -53,14 +52,11 @@ public class Boomnana : MonoBehaviour {
 			}
 		} else if (col.gameObject != GameObject.Find ("Coconut") && col.gameObject != GameObject.Find ("Terrain") && col.gameObject != owner) {
 			// if(!teammate) -> col.GetComponent<WASD>().damage(boomdmg);
+			Debug.Log(owner.name); 
 			Destroy(thisObj);
 		}
 		//Destroy (thisObj);
 		// Damage col.  Destroy this.o		bject
-	}
-	void split(){
-		GameObject newChar = Instantiate(Resources.Load("Prefabs/PlayerObject", typeof(GameObject)) as GameObject,
-		new Vector3(transform.position.x + 20, transform.position.y, transform.position.z + 20), Quaternion.identity) as GameObject;
 	}
 
 }
