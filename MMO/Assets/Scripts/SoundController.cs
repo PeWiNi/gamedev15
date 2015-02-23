@@ -13,7 +13,7 @@ public class SoundController : MonoBehaviour {
 	public AudioClip movementclip;
 	public AudioClip stunnedclip; 
 
-	// Use this for initialization
+	// Use this for initialization 
 	void Start () {
 		GameObject jP = Instantiate(Resources.Load("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
 		                            new Vector3(-1000, 0, -1000), Quaternion.identity) as GameObject;

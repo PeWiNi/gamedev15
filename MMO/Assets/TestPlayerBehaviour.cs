@@ -17,7 +17,6 @@ public class TestPlayerBehaviour : Bolt.EntityEventListener<ITestPlayerState>
 				state.AddCallback ("TestPlayerColor", ColorChanged);
 
 		}
-
 		public override void SimulateOwner ()
 		{
 
@@ -48,12 +47,12 @@ public class TestPlayerBehaviour : Bolt.EntityEventListener<ITestPlayerState>
 				renderer.material.color = state.TestPlayerColor;
 		}
 
-		void OnGUI ()
+		/*void OnGUI ()
 		{
 				if (entity.isOwner) {
 						GUI.color = state.TestPlayerColor;
 						GUILayout.Label ("@@@");
 						GUI.color = Color.white;
 				}
-		}
+		}*/
 }

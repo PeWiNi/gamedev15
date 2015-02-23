@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CombatScript : MonoBehaviour {
-
+	 
 	// Use this for initialization
 	void Start () {
 	 

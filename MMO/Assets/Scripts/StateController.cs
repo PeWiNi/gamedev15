@@ -115,8 +115,8 @@ public class StateController : MonoBehaviour {
 				currentSpeed = movementspeed * buffMultiplier;
 			}else{
 				currentSpeed = movementspeed;
-			}
-		}
+			} 
+		} 
 	}
 
 	void checkBuffTimer (){

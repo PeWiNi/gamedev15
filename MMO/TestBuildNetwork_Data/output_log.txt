@@ -1,0 +1,555 @@
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 850M      (ID=0x1391)
+    Vendor:   NVIDIA
+    VRAM:     1972 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\bolt.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\bolt.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\bolt.user.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\bolt.user.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\udpkit.common.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\udpkit.common.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\udpkit.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\udpkit.dll into Unity Child Domain
+- Completed reload, in  0.214 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 850M      (ID=0x1391)
+    Vendor:   NVIDIA
+    VRAM:     1972 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\bolt.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\bolt.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\bolt.user.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\bolt.user.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\udpkit.common.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\udpkit.common.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\udpkit.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\udpkit.dll into Unity Child Domain
+- Completed reload, in  0.045 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\System.dll (this message is harmless)
+Starting at 60 fps (0.01666667 fixed frame delta)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'BoltConsole'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'BoltPoll'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'BoltSend'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'BoltSceneLoader'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:20 PM: socket created
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'NetworkCallbacks'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'ServerCallBacks'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback RegisterStreamChannels
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Loading Bolt.SceneLoadState (Scene1Test)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:20 PM: Binding physical socket using platform 'DotNetPlatform'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback SceneLoadLocalBegin
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:20 PM: Socket bound to [EndPoint 127.0.0.1:27000 | 9151314447111842168]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:20 PM: Physical socket bound to [EndPoint 127.0.0.1:27000 | 9151314447111842168]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/TestBuildNetwork_Data/Mono/libc
+Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/TestBuildNetwork_Data/Mono/.\libc
+Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/TestBuildNetwork_Data/Mono/libc
+2/23/2015 4:17:20 PM: 10.25.195.152 10.25.0.1,130.226.142.2,130.226.142.3,10.25.195.1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:20 PM: 192.168.56.1 0.0.0.0,192.168.56.1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:20 PM: LAN endpoint resolved as [EndPoint 10.25.195.152:27000 | 727827872399518072]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:20 PM: physical socket started
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+UnloadTime: 0.192135 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 301.
+Total: 3.281909 ms (FindLiveObjects: 0.014369 ms CreateObjectMapping: 0.007389 ms MarkObjects: 2.299471 ms  DeleteObjects: 0.324331 ms)
+
+Invoking callback BoltStarted
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+Found 0 Scene Objects
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback SceneLoadLocalDone
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityAttached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-1] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\TestBuildNetwork_Data\Managed\System.dll (this message is harmless)
+Starting at 60 fps (0.01666667 fixed frame delta)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'BoltConsole'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'BoltPoll'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'BoltSend'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'BoltSceneLoader'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: socket created
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating Global Behaviour: 'NetworkCallbacks'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback RegisterStreamChannels
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: Binding physical socket using platform 'DotNetPlatform'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: Socket bound to [EndPoint 0.0.0.0:53923 | 53923]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: Physical socket bound to [EndPoint 0.0.0.0:53923 | 53923]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/TestBuildNetwork_Data/Mono/libc
+Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/TestBuildNetwork_Data/Mono/.\libc
+Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/TestBuildNetwork_Data/Mono/libc
+Invoking callback BoltStarted
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: 52.128.183.55 10.25.0.1,52.128.183.1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: Could not resolve a possible LAN address by inspecting local network interfaces
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: physical socket started
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: Connecting to [EndPoint 127.0.0.1:27000 | 9151314447111842168]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback ConnectAttempt
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: [EndPoint 127.0.0.1:53923 | 9151314447111869091] connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: Connect to [EndPoint 127.0.0.1:27000 | 9151314447111842168] accepted
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: Correct connection id #2 received from server
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/2015 4:17:25 PM: [EndPoint 127.0.0.1:27000 | 9151314447111842168] connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Assigned id 2 from server
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Assigned id 2 from server
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGeneratId/Unnvyoking callback Connected
+ 
+
+(Filename: C:/BuildAgent/work/d63dfc63I5nvoking ralifacts/Standctled
+ 
+(Filenamr: tC:/BnityEngineDebuk/.c6p Line63 49)
+9
+0b60/artifacts/StandalonePlayerGeneratIdnUvoking callback Connected
+ 
+)Fi
+
+name: C:/BuildAgent/work/d63dfc6385190I6nvoking casllback ConnPectedene
+rated/UnityE:/gBuildAgent/workn/d63d)63
+85190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-1-0-0-0-1] TestPlayerState] on [Connection [EndPoint 127.0.0.1:53923 | 9151314447111869091]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [LogEvent Message=[EndPoint 127.0.0.1:53923 | 9151314447111869091] connected]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [LogEvent Message=[EndPoint 127.0.0.1:53923 | 9151314447111869091] connected]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Loading Bolt.SceneLoadState (Scene1Test)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [LogEvent Message=[EndPoint 127.0.0.1:53923 | 9151314447111869091] connected]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [LogEvent Message=[EndPoint 127.0.0.1:53923 | 9151314447111869091] connected]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback SceneLoadLocalBegin
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+UnloadTime: 0.243454 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 315.
+Total: 4.799289 ms (FindLiveObjects: 0.016832 ms CreateObjectMapping: 0.010674 ms MarkObjects: 3.442843 ms  DeleteObjects: 0.367028 ms)
+
+FRAME RESET: 17
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+FRAME RESET: -8
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 10
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Found 0 Scene Objects
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback SceneLoadLocalDone
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityAttached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback SceneLoadRemoteDone
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState] on [Connection [EndPoint 127.0.0.1:27000 | 9151314447111842168]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating instance of [PrefabId:3]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityAttached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState] from [Connection [EndPoint 127.0.0.1:53923 | 9151314447111869091]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityReceived
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback SceneLoadRemoteDone
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at WASD.OnCollisionEnter (UnityEngine.Collision coll) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Creating instance of [PrefabId:3]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityAttached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-1] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received [Entity [NetworkId 0-0-0-1-0-0-0-1] TestPlayerState] from [Connection [EndPoint 127.0.0.1:27000 | 9151314447111842168]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityReceived
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at WASD.OnCollisionEnter (UnityEngine.Collision coll) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+FRAME FORWARD: 10
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback BoltShutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-1] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Behaviour not available in this dispatcher, ignoring call to Remove.
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+2/23/201524:/0:21 PM: [EndPoinPt 127.0.0.1t:27000 | 1:939251 | 9351144471418411182168] disconnected
+ 
+(Fiillename: :/B:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlerGenerated/UnityEngineDebug.cppc LiLnne: :9) 
+
+49)
+
+Invoking callback Disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [LogEvent Message=[EndPoint 127.0.0.1:53923 | 9151314447111869091] disconnected]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+PlayerObject3d(Clone)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback BoltShutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-1] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Behaviour not available in this dispatcher, ignoring call to Remove.
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Behaviour not available in this dispatcher, ignoring call to Remove.
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+

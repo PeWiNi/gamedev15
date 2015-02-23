@@ -21,7 +21,7 @@ public class InputHandler : MonoBehaviour {
 	public KeyCode vomitKey;
 	public KeyCode buffKey;
 
-	public Camera mainCam;
+	Camera mainCam;
 
 	private float timeSinceLastBoom;
 	private float currentRotationFace;
@@ -37,7 +37,14 @@ public class InputHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find("PlayerObject3d");
+		player = this.gameObject;
+		GameObject camObj = Instantiate(Resources.Load("Prefabs/PlayerCam", typeof(GameObject)) as GameObject,
+		                      new Vector3(1000, 200,1000), Quaternion.identity) as GameObject;
+		mainCam = camObj.camera;
+		Vector3 newPos = new Vector3 (1000,200,1000);
+		mainCam.transform.position = newPos;
+		mainCam.transform.LookAt (this.transform.position);
+		//Debug.Log ("player = "+player);
 		wasd = gameObject.GetComponent<WASD>();
 		timeSinceLastBoom = Time.time;
 		sc = gameObject.GetComponent<StateController> ();
@@ -46,16 +53,17 @@ public class InputHandler : MonoBehaviour {
 	}
 
 	void checkCameraAngle (){
-		mainCam.gameObject.transform.position = transform.position;
-		camPos.z = transform.position.z-50; 
-		camPos.x = transform.position.x;
+		mainCam.gameObject.transform.position = player.transform.position;
+		camPos.z = player.transform.position.z-100; 
+		camPos.x = player.transform.position.x;
 		if (zoom < 50.0f) {
 			zoom = 50.0f;
 		}
 		if (zoom > 200.0f) {
 			zoom = 200.0f;
 		}
-		camPos.y = transform.position.y + zoom ;
+		camPos.y = player.transform.position.y + zoom ;
+
 		mainCam.gameObject.transform.position= camPos;
 		mainCam.gameObject.transform.LookAt (transform.position);
 	}
@@ -68,7 +76,7 @@ public class InputHandler : MonoBehaviour {
 		left = false;
 		right = false;
 		
-		Vector3 position = transform.position;  
+		Vector3 position = player.transform.position;  
 		if(Input.GetKeyDown(boomNanaKey)){ // Mouse0 = Left Click
 			//Debug.Log("Player pos: "+transform.position);
 			//Camera cam = Camera.main;//.Find("Main Camera");
@@ -83,7 +91,7 @@ public class InputHandler : MonoBehaviour {
 			//Debug.Log(mousePos);
 			if(((Time.time*1000)-timeSinceLastBoom) >= 1500){
 				GameObject boom = Instantiate(Resources.Load("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
-				                              new Vector3(transform.position.x + 20, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+				                              new Vector3(player.transform.position.x + 20, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
 				Boomnana boomscript = boom.GetComponent<Boomnana>();
 				// set position, add velocity.
 				// if return after x sec, unless OnCollision triggers.
@@ -91,35 +99,35 @@ public class InputHandler : MonoBehaviour {
 				Vector3 startDir = new Vector3();
 				switch(currRotStr){
 				case "N": // Angles might be oposite....
-					startPos = new Vector3(transform.position.x, transform.position.y, transform.position.z+10);
+					startPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z+10);
 					startDir = new Vector3(0, 0, ps.boomnanaRange); 
 					break;
 				case "NE":
-					startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z+10);
+					startPos = new Vector3(player.transform.position.x+10, player.transform.position.y, player.transform.position.z+10);
 					startDir = new Vector3((float)(Math.Cos (45)*ps.boomnanaRange), 0, (float)(Math.Cos (45)*ps.boomnanaRange));
 					break;
 				case "E":
-					startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z);
+					startPos = new Vector3(player.transform.position.x+10, player.transform.position.y, player.transform.position.z);
 					startDir = new Vector3(ps.boomnanaRange, 0, 0);
 					break;
 				case "SE":
-					startPos = new Vector3(transform.position.x+10, transform.position.y, transform.position.z-10);
+					startPos = new Vector3(player.transform.position.x+10, player.transform.position.y, player.transform.position.z-10);
 					startDir = new Vector3((float)(Math.Cos(45)*ps.boomnanaRange), 0,(float)(Math.Cos (45)*-ps.boomnanaRange));
 					break;
 				case "S":
-					startPos = new Vector3(transform.position.x, transform.position.y, transform.position.z-10);
+					startPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z-10);
 					startDir = new Vector3(0, 0, -ps.boomnanaRange);
 					break;
 				case "SW":
-					startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z-10);
+					startPos = new Vector3(player.transform.position.x-10, player.transform.position.y, player.transform.position.z-10);
 					startDir = new Vector3((float)(Math.Cos (45)*-ps.boomnanaRange), 0, (float)(Math.Cos (45)*-ps.boomnanaRange));
 					break;
 				case "W":
-					startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z);
+					startPos = new Vector3(player.transform.position.x-10, player.transform.position.y, player.transform.position.z);
 					startDir = new Vector3(-ps.boomnanaRange, 0, 0);
 					break;
 				case "NW":
-					startPos = new Vector3(transform.position.x-10, transform.position.y, transform.position.z+10);
+					startPos = new Vector3(player.transform.position.x-10, player.transform.position.y, player.transform.position.z+10);
 					startDir = new Vector3((float)(Math.Cos (45)*-ps.boomnanaRange), 0, (float)(Math.Cos (45)*ps.boomnanaRange));
 					break;
 				}
@@ -206,7 +214,7 @@ public class InputHandler : MonoBehaviour {
 		}if (!sc.isStunned && sound.getStunnedPlayer().clip == sound.stunnedclip) {
 			sound.getStunnedPlayer().Stop ();
 		}
-		transform.position = position;
+		player.transform.position = position;
 		checkCameraAngle (); 
 		setRotation (up, down, left, right);
 		right = false;
@@ -251,12 +259,12 @@ public class InputHandler : MonoBehaviour {
 			//transform.rotation = Quaternion.AngleAxis(270 ,Vector3.up);//rotation;
 		}
 		
-		transform.rotation = Quaternion.AngleAxis(currentRotationFace ,Vector3.up);//rotation;		
+		player.transform.rotation = Quaternion.AngleAxis(currentRotationFace ,Vector3.up);//rotation;		
 	}
 
 	void jump(){
 		gravity.y = ps.jumpHeight;
-		rigidbody.velocity = gravity;
+		player.transform.rigidbody.velocity = gravity;
 	    sc.isJumping = true;
 	}
 
