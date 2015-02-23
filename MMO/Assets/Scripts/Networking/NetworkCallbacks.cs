@@ -11,7 +11,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		{
 				var pos = new Vector3 (Random.Range (-4, 4), 0, Random.Range (-4, 4));
 
-				BoltNetwork.Instantiate (BoltPrefabs.PlayerLANObject, pos, Quaternion.identity);
+				BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d, pos, Quaternion.identity);
 		}
 
 		public override void OnEvent (LogEvent evnt)
