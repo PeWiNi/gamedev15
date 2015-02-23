@@ -37,7 +37,7 @@ public class PlayerObjectBehaviour : Bolt.EntityEventListener<IPlayerState>
 						for (int i = 0; i < state.AbilityArray.Length; ++i) {
 								state.AbilityArray [i].AbilityId = Random.Range (0, AbilityObjects.Length);
 						}
-						state.AbilityActiveIndex = -1;
+						state.AbilityActiveIndex = 0;
 				}
 
 				state.AddCallback ("PlayerColor", ColorChanged);
@@ -49,6 +49,7 @@ public class PlayerObjectBehaviour : Bolt.EntityEventListener<IPlayerState>
 		public override void SimulateOwner ()
 		{
 
+				
 //				if (Input.GetKey (KeyCode.E)) {
 //						
 //						boomscript.spawn (owner, thisObj, start, direction);
@@ -73,11 +74,13 @@ public class PlayerObjectBehaviour : Bolt.EntityEventListener<IPlayerState>
 						transform.position = transform.position + (mpos.normalized * ms * BoltNetwork.frameDeltaTime);
 				}
 
-				if (Input.GetKeyDown (KeyCode.Alpha1))
+				if (Input.GetKeyDown (KeyCode.Alpha1)) {
 						state.AbilityActiveIndex = 0;
-
-				if (Input.GetKeyDown (KeyCode.Alpha2))
+				}
+				if (Input.GetKeyDown (KeyCode.Alpha2)) {
 						state.AbilityActiveIndex = 1;
+				}
+				
 
 				if (Input.GetKeyDown (KeyCode.F)) {
 						var flash = FlashColorEvent.Create (entity);
