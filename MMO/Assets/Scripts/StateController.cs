@@ -3,20 +3,30 @@ using System.Collections;
 
 public class StateController : MonoBehaviour {
 
-	bool inCombat = false;
-	float combatEnteredTime;
-	bool isDead = false;
-	bool isMoving = false;
-	float lastAttack;
-	float lastCombat;
-	float combatCooldownTime;
-	float hp;
-	float movementspeed;
-	//Combat Speed Reduction?
-	float combatSpeedReduction;
-	float currentSpeed;
-	float respawnTime;
+	public bool inCombat = false;
+	public bool isDead = false;
+	public bool isMoving = false;
+	public bool isStunned = false;
+	public bool isHolding = false;
+	public bool isJumping = false;
+	public bool isBuffed = false;
 
+	public float combatEnteredTime; 
+	public float lastAttack;
+	public float lastCombat;
+	public float combatCooldownTime;
+	private float buffStartTime = 0;
+	public float buffCoolDownTime;
+	public float hp;
+	public float movementspeed;
+	//Combat Speed Reduction?
+	public float combatSpeedReduction;
+	public float coconutSpeedReduction;
+	public float currentSpeed;
+	public float respawnTime;
+	public float stunnedTimer;
+	
+	public float buffMultiplier;
 
 	public float getSpeed(){
 		return currentSpeed;
@@ -25,17 +35,41 @@ public class StateController : MonoBehaviour {
 	public void initiateCombat (){
 		lastCombat = Time.time;
 		inCombat = true;
-		currentSpeed = movementspeed - combatSpeedReduction;
+		if (!isHolding) {
+			if(isBuffed){
+				currentSpeed = (movementspeed - combatSpeedReduction)*buffMultiplier;
+			}else{
+				currentSpeed = movementspeed - combatSpeedReduction;
+			}
+		}else{
+			if(isBuffed){
+				currentSpeed = (movementspeed - coconutSpeedReduction)*buffMultiplier;
+			}else{
+				currentSpeed = movementspeed - coconutSpeedReduction;
+			}
+		}
 	}
 
 	public void attack(){
 		initiateCombat ();
+	} 
+
+	public bool isAbleToBuff(){
+		if (buffStartTime == 0) {
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	public void checkCombatTime(){
-		if ((Time.time - lastCombat) >= combatCooldownTime) {
+		if (lastCombat != 0 && (Time.time - lastCombat) >= combatCooldownTime) {
 			inCombat = false;
-			currentSpeed = movementspeed;
+			if(isBuffed){
+				currentSpeed = movementspeed;
+			}else{
+				currentSpeed = movementspeed * buffMultiplier;
+			}
 		}
 	}
 
@@ -47,11 +81,61 @@ public class StateController : MonoBehaviour {
 		currentSpeed = movementspeed;
 	}
 
-	// Update is called once per frame
+	void checkIfHolding (){
+		if(isHolding){
+			if(isBuffed){
+				currentSpeed = (movementspeed - coconutSpeedReduction)*buffMultiplier; 
+			}else{
+				currentSpeed = movementspeed - coconutSpeedReduction;
+			}
+		}
+	}
+
+	public void buff(){
+		buffStartTime = Time.time;
+		currentSpeed *= buffMultiplier;
+		isBuffed = true;
+	}
+
+	void originalSpeeds(){
+		if(isHolding){
+			if(isBuffed){
+				currentSpeed = (movementspeed - coconutSpeedReduction)*buffMultiplier; 
+			}else{
+				currentSpeed = movementspeed - coconutSpeedReduction;
+			}
+		}else if(inCombat){
+			if(isBuffed){
+				currentSpeed = (movementspeed - combatSpeedReduction )* buffMultiplier;
+			}else{
+				currentSpeed = movementspeed - combatSpeedReduction;
+			}
+		}else{
+			if(isBuffed){
+				currentSpeed = movementspeed * buffMultiplier;
+			}else{
+				currentSpeed = movementspeed;
+			}
+		}
+	}
+
+	void checkBuffTimer (){
+		if ((Time.time - buffStartTime) >= GetComponent<PlayerStats> ().buffDuration) {
+			isBuffed = false;
+			if((Time.time - buffStartTime) >= buffCoolDownTime){
+				buffStartTime = 0;
+			}
+			originalSpeeds();
+		}
+	}
+
+	void updateMovementSpeed(){
+		currentSpeed = currentSpeed * buffMultiplier;
+	}
+
 	void Update () {
+		checkBuffTimer ();
 		checkCombatTime ();
+		checkIfHolding ();
 	}
 }
-/*
- Isn't it just keeping track of how long it has been since you last attacked or took damage and then choose enum or bool accordingly?
-*/

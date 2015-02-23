@@ -8,76 +8,59 @@ public class WASD : MonoBehaviour {
 	 * 
 	 * */
 
-	public int teamNumber; 
-	
-	public KeyCode moveUp;// = KeyCode.W;
-	public KeyCode moveDown;// = KeyCode.S;
-	public KeyCode moveRight;// = KeyCode.D;
-	public KeyCode moveLeft;// = KeyCode.A;
-	private KeyCode sprint = KeyCode.LeftShift;
-	public Vector3 position;
-	public int boomnanaRange;
-	private bool jumping = false;
-	private float zoom = 200.0f;
-	private int ms = 1;
-	public Camera mainCam;
-	private float jumpHeight = 200.0f; 
-	private int sprintspeed = 2;
-	Vector3 camPos;
-	private Vector3 gravity;
-	private Quaternion rotation;
-	private int currentRotationFace;
-	private string currRotStr = "N";
-	private bool holding = false;
-	private bool moving = false;
-	private bool stunned = false;
-	private float stunnedTimer = 4.0f;
-	private float stunnedStart;
-	GameObject coconut;// = GameObject.Find("Coconut");
-	Coconut nut;// = coconut.GetComponent<Coconut>();
-	//AudioSource
-	AudioSource soundPlayer;
-	AudioSource movementPlayer;
-	AudioSource jumpPlayer;
-	AudioSource stunnedPlayer;
-	// Audioclips
-	public AudioClip boomnanathrowclip;
-	public AudioClip jumpclip;
-	public AudioClip movementclip;
-	public AudioClip stunnedclip; 
+	public float stunnedStart;
+	GameObject coconut;
+	Coconut nut;
+	StateController sc;
 
-	private float timeSinceLastBoom;
 	// Use this for initialization
 	void Start () {
-		GameObject jP = Instantiate(Resources.Load("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
-		                              new Vector3(-1000, 0, -1000), Quaternion.identity) as GameObject;
-		jumpPlayer = jP.audio;
-		GameObject bP = Instantiate(Resources.Load("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
-		                            new Vector3(-1000, 0, -1000), Quaternion.identity) as GameObject;
-		movementPlayer = bP.audio;
-		GameObject sP = Instantiate(Resources.Load("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
-		                            new Vector3(-1000, 0, -1000), Quaternion.identity) as GameObject;
-		stunnedPlayer = sP.audio;
-		timeSinceLastBoom = Time.time * 1000;
 		coconut = GameObject.Find ("Coconut");
 		nut = coconut.GetComponent<Coconut> ();
-		soundPlayer = gameObject.audio;
-		//Debug.Log (nut.name + "  " + coconut.name);
+		sc = this.gameObject.GetComponent<StateController> ();
 	}
 
-	public string getRotStr(){
-		return currRotStr;
-	}
-	void keepSteady(){ 
-		//rotation.y = transform.rotation.y;
-		//transform.rotation = rotation;
-		
-	}
-	public int getFacing(){
-		return currentRotationFace;
+	// Update is called once per frame
+	void Update () {
 	}
 
-	void jump(){
+	void OnCollisionEnter(Collision coll){ // Working!!
+		if (coll.gameObject.name.Equals ("Terrain")) { 
+			sc.isJumping = false;
+		}
+
+		if (Input.GetKey(KeyCode.E)) {
+			if (coll.gameObject.name.Equals ("Coconut")) {
+				nut = coll.gameObject.GetComponent<Coconut>();
+				if(!nut.isHeldAtm()){
+				   nut.setCapture(this.gameObject);
+					sc.isHolding = true;
+				}
+			}
+		}
+
+		if (coll.gameObject.name.Equals ("Boomnana(Clone)")) {
+			if(coll.gameObject.GetComponent<Boomnana>().owner == this.gameObject){
+				sc.isStunned = true;
+				stunnedStart = Time.time;
+			}
+		}
+
+		if(Input.GetKey(KeyCode.Q)){
+			if(nut.getHolder() != null){
+				if(nut.getHolder().Equals(this.gameObject)){
+					nut.removeCapture();
+					sc.isHolding = false;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+/*void jump(){
 			gravity.y = jumpHeight;
 			rigidbody.velocity = gravity;
 			jumping = true;
@@ -137,10 +120,17 @@ public class WASD : MonoBehaviour {
 		 * W = 270 deg
 		 * NW = 315 deg
 		 */
-	
-	// Update is called once per frame
-	void Update () {
-		bool up, down, left, right;
+
+/*void keepSteady(){ 
+		//rotation.y = transform.rotation.y;
+		//transform.rotation = rotation;
+		
+	}*/
+
+
+// INSIDE UPDATE
+//////////////////////
+/*bool up, down, left, right;
 		up = false;
 		down = false;
 		left = false;
@@ -151,14 +141,14 @@ public class WASD : MonoBehaviour {
 		position = transform.position; 
 		if(Input.GetKeyDown(KeyCode.Mouse0)){ // Mouse0 = Left Click
 			//Debug.Log("Player pos: "+transform.position);
-			Camera cam = Camera.main;//.Find("Main Camera");
+			//Camera cam = Camera.main;//.Find("Main Camera");
 			//Debug.Log(cam.name);
-			Vector3 p = cam.ScreenToWorldPoint(new Vector3(100, 100, cam.nearClipPlane));
+			//Vector3 p = cam.ScreenToWorldPoint(new Vector3(100, 100, cam.nearClipPlane));
 			//Debug.Log("Projectile dir: "+p);
 			//Debug.Log(p);
 			//Gizmos.color = Color.yellow;
 			//Gizmos.DrawSphere(p, 0.1F);
-
+ 
 			//Vector3 mousePos = Camera.ScreenToWorldPoint (Input.mousePosition);
 			//Debug.Log(mousePos);
 			if(((Time.time*1000)-timeSinceLastBoom) >= 1500){
@@ -203,7 +193,7 @@ public class WASD : MonoBehaviour {
 					startDir = new Vector3((float)(Math.Cos (45)*-boomnanaRange), 0, (float)(Math.Cos (45)*boomnanaRange));
 					break;
 				}
-				Vector3 dir = new Vector3(p.x - startPos.x, 0, p.z - startPos.z);
+				//Vector3 dir = new Vector3(p.x - startPos.x, 0, p.z - startPos.z);
 				boomscript.spawn(this.gameObject, boom,  startPos
 				                 , startDir);
 				timeSinceLastBoom = Time.time * 1000;
@@ -308,21 +298,7 @@ public class WASD : MonoBehaviour {
 			transform.rotation = Quaternion.AngleAxis(rotation.y ,Vector3.up);//
 		}*/
 
-
-
-		/* TODO:
-		 * Make it so that the rotation of the character changes depending on which direction 
-		 * it is going.
-		 * 8 directions -> N, NE, E, SE, S, SW, W, NW
-		 * N = 0 degrees
-		 * NE = 45 deg
-		 * E = 90 deg
-		 * SE = 135 deg
-		 * S = 180 deg
-		 * SW = 225 deg
-		 * W = 270 deg
-		 * NW = 315 deg
-		 */
+/*
 
 		transform.position = position;
 		mainCam.gameObject.transform.position = transform.position;
@@ -342,45 +318,8 @@ public class WASD : MonoBehaviour {
 		right = false;
 		left = false;
 		up = false;
-		down = false;
-		
-	}
-	void OnCollisionEnter(Collision coll){ // Working!!
-		//Debug.Log (coll.gameObject.name);
-		if (coll.gameObject.name.Equals ("Terrain")) { 
-			jumping = false;
-		}
-		if (Input.GetKey(KeyCode.E)) {
+		down = false;*/
 
-			if (coll.gameObject.name.Equals ("Coconut")) {
-				//Debug.Log("E is pressed");
-				nut = coll.gameObject.GetComponent<Coconut>();
-				if(!nut.isHeldAtm()){
-				   nut.setCapture(this.gameObject);
-					// Debug.Log
-				}
-			}
+//////////////
 
-		}
-		if (coll.gameObject.name.Equals ("Boomnana(Clone)")) {
-			//Debug.Log("Hit with BoomNana");
-			if(coll.gameObject.GetComponent<Boomnana>().owner == this.gameObject){
-				stunned = true;
-				stunnedStart = Time.time;
-			}
-		}
-		if(Input.GetKey(KeyCode.Q)){
-			//Debug.Log("q pressed");
-			if(nut.getHolder() != null){
-				//Debug.Log("Has Holder");
-				if(nut.getHolder().Equals(this.gameObject)){
-					nut.removeCapture();
-					//Debug.Log("Holder Removed");
-				}
-			}
-		}
 
-		//position.y = coll.gameObject.transform.position.y;
-		//transform.position = position;
-	}
-}
