@@ -47,15 +47,19 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\GroundScript.cs" />
+     <Compile Include="Assets\Scripts\BaseStats.cs" />
      <Compile Include="Assets\Scripts\Boomnana.cs" />
      <Compile Include="Assets\Scripts\CaptureScript.cs" />
      <Compile Include="Assets\Scripts\Coconut.cs" />
      <Compile Include="Assets\Scripts\CombatScript.cs" />
+     <Compile Include="Assets\Scripts\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Networking\Menu.cs" />
      <Compile Include="Assets\Scripts\Networking\NetworkCallbacks.cs" />
      <Compile Include="Assets\Scripts\Networking\PlayerObjectBehaviour.cs" />
      <Compile Include="Assets\Scripts\Networking\ServerCallbacks.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\SoundController.cs" />
+     <Compile Include="Assets\Scripts\StatSplitter.cs" />
      <Compile Include="Assets\Scripts\StateController.cs" />
      <Compile Include="Assets\Scripts\WASD.cs" />
      <Compile Include="Assets\bolt\scripts\BoltDebugStart.cs" />
