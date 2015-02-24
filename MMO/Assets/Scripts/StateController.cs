@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+ 
 public class StateController : MonoBehaviour {
 
 	public bool inCombat = false;
@@ -11,7 +11,7 @@ public class StateController : MonoBehaviour {
 	public bool isJumping = false;
 	public bool isBuffed = false;
 
-	public float combatEnteredTime; 
+	public float combatEnteredTime;  
 	public float lastAttack;
 	public float lastCombat;
 	public float combatCooldownTime;
@@ -25,6 +25,7 @@ public class StateController : MonoBehaviour {
 	public float currentSpeed;
 	public float respawnTime;
 	public float stunnedTimer;
+	public int teamNumber;
 	
 	public float buffMultiplier;
 

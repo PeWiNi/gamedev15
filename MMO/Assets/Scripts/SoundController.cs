@@ -5,7 +5,7 @@ public class SoundController : MonoBehaviour {
 
 	private AudioSource soundPlayer;
 	private AudioSource movementPlayer;
-	private AudioSource jumpPlayer;
+	private AudioSource jumpPlayer; 
 	private AudioSource stunnedPlayer;
 	// Audioclips
 	public AudioClip boomnanathrowclip;

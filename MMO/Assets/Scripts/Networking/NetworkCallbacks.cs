@@ -14,8 +14,9 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		//GameObject player = Instantiate(Resources.Load("Prefabs/PlayerObject3d", typeof(GameObject)) as GameObject,
 		                             // new Vector3(1000, 5, 1000), Quaternion.identity) as GameObject;
 		var pos = new Vector3 (Random.Range (-100, 100)+1000, 5, Random.Range (-100,100)+ 1000);
-
-				BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d, pos, Quaternion.identity);
+		BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d, pos, Quaternion.identity);
+		//var pos = new Vector3 (Random.Range (-4,4), 0, Random.Range (-4, 4));
+		//BoltNetwork.Instantiate (BoltPrefabs.PlayerLANObject, pos, Quaternion.identity);
 	//	Destroy (player);
 		}
 

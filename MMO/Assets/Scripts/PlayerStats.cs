@@ -11,8 +11,8 @@ public class PlayerStats : MonoBehaviour {
 	
 	float movementSpeed;
 	//Damages
-	float tailSlapDamage;
-	float boomNanaDamage;
+	public float tailSlapDamage;
+	public float boomNanaDamage;
 	//Ranges
 	public float boomnanaRange;
 	public float jumpHeight;

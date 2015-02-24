@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CaptureScript : MonoBehaviour {
 	public GameObject theNut;
-	GameObject theHolder;
+//	GameObject theHolder;
 	// Use this for initialization
 	void Start () {
 	 
@@ -19,7 +19,7 @@ public class CaptureScript : MonoBehaviour {
 		if (coll.gameObject.name == "Coconut") {
 			//Debug.Log("IT MATCHES");
 			Coconut nutScript = coll.GetComponent<Coconut>();
-			theHolder = nutScript.getHolder();
+//			theHolder = nutScript.getHolder();
 			Vector3 origin = nutScript.startPos;
 			//setScore +1 for ScoreScript.score(theHolder.teamNumber, 1);
 			nutScript.removeCapture();

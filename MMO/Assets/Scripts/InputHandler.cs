@@ -53,16 +53,16 @@ public class InputHandler : MonoBehaviour {
 	}
 
 	void checkCameraAngle (){
-		mainCam.gameObject.transform.position = player.transform.position;
-		camPos.z = player.transform.position.z-100; 
-		camPos.x = player.transform.position.x;
+		mainCam.gameObject.transform.position = transform.position;
+		camPos.z = transform.position.z-100; 
+		camPos.x = transform.position.x;
 		if (zoom < 50.0f) {
 			zoom = 50.0f;
 		}
 		if (zoom > 200.0f) {
 			zoom = 200.0f;
 		}
-		camPos.y = player.transform.position.y + zoom ;
+		camPos.y = transform.position.y + zoom ;
 
 		mainCam.gameObject.transform.position= camPos;
 		mainCam.gameObject.transform.LookAt (transform.position);
@@ -259,12 +259,12 @@ public class InputHandler : MonoBehaviour {
 			//transform.rotation = Quaternion.AngleAxis(270 ,Vector3.up);//rotation;
 		}
 		
-		player.transform.rotation = Quaternion.AngleAxis(currentRotationFace ,Vector3.up);//rotation;		
+		transform.rotation = Quaternion.AngleAxis(currentRotationFace ,Vector3.up);//rotation;		
 	}
 
 	void jump(){
 		gravity.y = ps.jumpHeight;
-		player.transform.rigidbody.velocity = gravity;
+		transform.rigidbody.velocity = gravity;
 	    sc.isJumping = true;
 	}
 

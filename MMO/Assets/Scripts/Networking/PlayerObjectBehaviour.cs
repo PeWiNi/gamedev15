@@ -63,7 +63,7 @@ public class PlayerObjectBehaviour : Bolt.EntityEventListener<IPlayerState>
 				if (Input.GetKey (KeyCode.S)) {
 						mpos.z -= 1;
 				}
-				if (Input.GetKey (KeyCode.A)) {
+				if (Input.GetKey (KeyCode.A)) { 
 						mpos.x -= 1;
 						
 				}

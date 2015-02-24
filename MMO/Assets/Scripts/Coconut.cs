@@ -1,11 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class Coconut : MonoBehaviour {
+using System;
+public class Coconut : Bolt.EntityEventListener<ICoconutState> {
 
 	private bool isHeld = false;
 	private GameObject go = null;
 	public Vector3 startPos;
+	private int startup = 0;
+
+
+	public override void Attached ()
+		{
+				state.CoconutTransform.SetTransforms (transform);
+		}
+	public override void SimulateOwner ()
+	{
+				
+		if (startup == 0) {
+			Start ();
+		}	
+
+		startup = 1;
+	}
+
+
+
 	// Use this for initialization
 	void Start () {
 		isHeld = false;
@@ -41,6 +60,7 @@ public class Coconut : MonoBehaviour {
 		isHeld = true;
 	}
 	public void removeCapture(){
+		go.GetComponent<StateController> ().isHolding = false;
 		this.go = null;
 		isHeld = false;
 		Vector3 dropPos = new Vector3 (transform.position.x, transform.position.y - 5, transform.position.z);

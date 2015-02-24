@@ -10,7 +10,8 @@ public class Menu : MonoBehaviour
 
 				if (GUILayout.Button ("Start server", GUILayout.ExpandWidth (true), GUILayout.ExpandHeight (true))) {
 						BoltLauncher.StartServer (UdpKit.UdpEndPoint.Parse ("127.0.0.1:27000"));
-						BoltNetwork.LoadScene ("Scene1Test");
+						//BoltNetwork.LoadScene ("NetworkScene01");
+						BoltNetwork.LoadScene("Scene1Test");
 				}
 
 				if (GUILayout.Button ("Start Client", GUILayout.ExpandWidth (true), GUILayout.ExpandHeight (true))) {

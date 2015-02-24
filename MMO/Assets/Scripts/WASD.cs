@@ -12,12 +12,13 @@ public class WASD : MonoBehaviour {
 	GameObject coconut;
 	Coconut nut;
 	StateController sc;
-
+	PlayerStats ps;
 	// Use this for initialization
 	void Start () {
 		coconut = GameObject.Find ("Coconut");
 		nut = coconut.GetComponent<Coconut> ();
-		sc = this.gameObject.GetComponent<StateController> ();
+		sc = gameObject.GetComponent<StateController> ();
+		ps = gameObject.GetComponent<PlayerStats> ();
 	}
 
 	// Update is called once per frame
@@ -43,6 +44,7 @@ public class WASD : MonoBehaviour {
 			if(coll.gameObject.GetComponent<Boomnana>().owner == this.gameObject){
 				sc.isStunned = true;
 				stunnedStart = Time.time;
+				Destroy(coll.gameObject); 
 			}
 		}
 
@@ -55,6 +57,21 @@ public class WASD : MonoBehaviour {
 			}
 		}
 	}
+	void OnTriggerStay(Collider coll) {
+		// If attack (melee), deal damage to that enemy
+		if(Input.GetKey(transform.gameObject.GetComponent<TestPlayerBehaviour>().tailSlapKey)){
+			if (coll.gameObject.name.Equals ("PlayerObject3d")) {
+				if (coll.gameObject.GetComponent<StateController> ().teamNumber != sc.teamNumber) {
+					coll.gameObject.GetComponent<StateController> ().initiateCombat();
+					//If hit
+					coll.gameObject.GetComponent<StateController> ().hp -= ps.tailSlapDamage;
+					//ANIMATE TAILSLAP!
+				}
+			}
+		}
+	}
+
+
 }
 
 

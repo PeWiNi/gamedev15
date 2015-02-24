@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\StatSplitter.cs" />
      <Compile Include="Assets\Scripts\StateController.cs" />
      <Compile Include="Assets\Scripts\WASD.cs" />
+     <Compile Include="Assets\SnowScript.cs" />
      <Compile Include="Assets\TestPlayerBehaviour.cs" />
      <Compile Include="Assets\bolt\scripts\BoltDebugStart.cs" />
      <Compile Include="Assets\bolt\scripts\BoltDebugStartSettings.cs" />
