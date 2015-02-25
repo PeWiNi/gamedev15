@@ -2,74 +2,88 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class WASD : MonoBehaviour {
+public class WASD : MonoBehaviour
+{
 
-	/*TODO: Make state controller, so you don't connect/split during combat.
+		/*TODO: Make state controller, so you don't connect/split during combat.
 	 * 
 	 * */
 
-	public float stunnedStart;
-	GameObject coconut;
-	Coconut nut;
-	StateController sc;
-	PlayerStats ps;
-	// Use this for initialization
-	void Start () {
-		coconut = GameObject.Find ("Coconut");
-		nut = coconut.GetComponent<Coconut> ();
-		sc = gameObject.GetComponent<StateController> ();
-		ps = gameObject.GetComponent<PlayerStats> ();
-	}
-
-	// Update is called once per frame
-	void Update () {
-	}
-
-	void OnCollisionEnter(Collision coll){ // Working!!
-		if (coll.gameObject.name.Equals ("Terrain")) { 
-			sc.isJumping = false;
+		public float stunnedStart;
+		GameObject coconut;
+		Coconut nut;
+		StateController sc;
+		PlayerStats ps;
+		// Use this for initialization
+		void Start ()
+		{
+				coconut = BoltNetwork.FindEntity (Bolt) as GameObject;//GameObject.Find ("Coconut 1(Clone)");
+				nut = coconut.GetComponent<Coconut> ();
+				sc = gameObject.GetComponent<StateController> ();
+				ps = gameObject.GetComponent<PlayerStats> ();
 		}
 
-		if (Input.GetKey(KeyCode.E)) {
-			if (coll.gameObject.name.Equals ("Coconut")) {
-				nut = coll.gameObject.GetComponent<Coconut>();
-				if(!nut.isHeldAtm()){
-				   nut.setCapture(this.gameObject);
-					sc.isHolding = true;
+		// Update is called once per frame
+		void Update ()
+		{
+		}
+
+		void OnCollisionEnter (Collision coll)
+		{ // Working!!
+				if (coll.gameObject.name.Equals ("Terrain")) { 
+						sc.isJumping = false;
 				}
-			}
-		}
 
-		if (coll.gameObject.name.Equals ("Boomnana(Clone)")) {
-			if(coll.gameObject.GetComponent<Boomnana>().owner == this.gameObject){
-				sc.isStunned = true;
-				stunnedStart = Time.time;
-				Destroy(coll.gameObject); 
-			}
-		}
+				if (Input.GetKey (KeyCode.E)) {
+						if (coll.gameObject.name.Equals ("Coconut 1(Clone)")) {
 
-		if(Input.GetKey(KeyCode.Q)){
-			if(nut.getHolder() != null){
-				if(nut.getHolder().Equals(this.gameObject)){
-					nut.removeCapture();
-					sc.isHolding = false;
+								nut = coll.gameObject.GetComponent<Coconut> ();
+								if (!nut.isHeldAtm ()) {
+										nut.setCapture (this.gameObject);
+										sc.isHolding = true;
+										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
+												evnt.isPickedUp = true;
+												evnt.CoconutPosition = transform.position;
+										}
+								}
+						}
 				}
-			}
-		}
-	}
-	void OnTriggerStay(Collider coll) {
-		// If attack (melee), deal damage to that enemy
-		if(Input.GetKey(transform.gameObject.GetComponent<TestPlayerBehaviour>().tailSlapKey)){
-			if (coll.gameObject.name.Equals ("PlayerObject3d")) {
-				if (coll.gameObject.GetComponent<StateController> ().teamNumber != sc.teamNumber) {
-					coll.gameObject.GetComponent<StateController> ().initiateCombat();
-					//If hit
-					coll.gameObject.GetComponent<StateController> ().hp -= ps.tailSlapDamage;
-					//ANIMATE TAILSLAP!
+
+				if (coll.gameObject.name.Equals ("Boomnana(Clone)")) {
+						if (coll.gameObject.GetComponent<Boomnana> ().owner == this.gameObject) {
+								sc.isStunned = true;
+								stunnedStart = Time.time;
+								Destroy (coll.gameObject); 
+						}
 				}
-			}
+
+				if (Input.GetKey (KeyCode.Q)) {
+						if (nut.getHolder () != null) {
+								if (nut.getHolder ().Equals (this.gameObject)) {
+										nut.removeCapture ();
+										sc.isHolding = false;
+										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
+												evnt.isPickedUp = false;
+												evnt.CoconutPosition = transform.position;
+										}
+								}
+						}
+				}
 		}
-	}
+		void OnTriggerStay (Collider coll)
+		{
+				// If attack (melee), deal damage to that enemy
+				if (Input.GetKey (transform.gameObject.GetComponent<TestPlayerBehaviour> ().tailSlapKey)) {
+						if (coll.gameObject.name.Equals ("PlayerObject3d")) {
+								if (coll.gameObject.GetComponent<StateController> ().teamNumber != sc.teamNumber) {
+										coll.gameObject.GetComponent<StateController> ().initiateCombat ();
+										//If hit
+										coll.gameObject.GetComponent<StateController> ().hp -= ps.tailSlapDamage;
+										//ANIMATE TAILSLAP!
+								}
+						}
+				}
+		}
 
 
 }
