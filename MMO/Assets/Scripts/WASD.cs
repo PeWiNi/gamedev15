@@ -8,7 +8,8 @@ public class WASD : MonoBehaviour
 		/*TODO: Make state controller, so you don't connect/split during combat.
 	 * 
 	 * */
-
+		Bolt.EntityEventListener<ICoconutState> state;
+		BoltEntity entity;
 		public float stunnedStart;
 		GameObject coconut;
 		Coconut nut;
@@ -17,7 +18,10 @@ public class WASD : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				coconut = BoltNetwork.FindEntity (Bolt) as GameObject;//GameObject.Find ("Coconut 1(Clone)");
+				
+				//coconut = BoltNetwork.Attach (BoltPrefabs.Coconut_1) as GameObject;
+				//GameObject.Find ("Coconut 1(Clone)");
+				coconut = GameObject.Find ("Coconut 1(Clone)");
 				nut = coconut.GetComponent<Coconut> ();
 				sc = gameObject.GetComponent<StateController> ();
 				ps = gameObject.GetComponent<PlayerStats> ();
@@ -31,7 +35,7 @@ public class WASD : MonoBehaviour
 		void OnCollisionEnter (Collision coll)
 		{ // Working!!
 				if (coll.gameObject.name.Equals ("Terrain")) { 
-						sc.isJumping = false;
+						//	sc.isJumping = false;
 				}
 
 				if (Input.GetKey (KeyCode.E)) {

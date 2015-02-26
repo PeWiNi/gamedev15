@@ -46,7 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\GroundScript.cs" />
+     <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\NewBehaviourScript1.cs" />
      <Compile Include="Assets\Scripts\BaseStats.cs" />
      <Compile Include="Assets\Scripts\Boomnana.cs" />
      <Compile Include="Assets\Scripts\CaptureScript.cs" />
@@ -55,16 +56,19 @@
      <Compile Include="Assets\Scripts\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Networking\Menu.cs" />
      <Compile Include="Assets\Scripts\Networking\NetworkCallbacks.cs" />
+     <Compile Include="Assets\Scripts\Networking\PlayerCallbacks.cs" />
+     <Compile Include="Assets\Scripts\Networking\PlayerObject.cs" />
      <Compile Include="Assets\Scripts\Networking\PlayerObjectBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Networking\PlayerObjectReg.cs" />
      <Compile Include="Assets\Scripts\Networking\SelectTeamMenu.cs" />
      <Compile Include="Assets\Scripts\Networking\ServerCallbacks.cs" />
+     <Compile Include="Assets\Scripts\Networking\TestPlayerBehaviour.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\SnowScript.cs" />
      <Compile Include="Assets\Scripts\SoundController.cs" />
      <Compile Include="Assets\Scripts\StatSplitter.cs" />
      <Compile Include="Assets\Scripts\StateController.cs" />
      <Compile Include="Assets\Scripts\WASD.cs" />
-     <Compile Include="Assets\SnowScript.cs" />
-     <Compile Include="Assets\TestPlayerBehaviour.cs" />
      <Compile Include="Assets\bolt\scripts\BoltDebugStart.cs" />
      <Compile Include="Assets\bolt\scripts\BoltDebugStartSettings.cs" />
      <Compile Include="Assets\bolt\scripts\BoltInit.cs" />
@@ -83,6 +87,7 @@
      <Compile Include="Assets\bolt\scripts\udpkit\Null\NullPlatform.cs" />
      <Compile Include="Assets\bolt\scripts\udpkit\Null\NullSocket.cs" />
      <Compile Include="Assets\bolt\scripts\upnp\BoltUPnP.cs" />
+     <Compile Include="Assets\bolt_tutorial\scripts\Player\PlayerCam.cs" />
      <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
      <None Include="Assets\bolt\resources\backgrounds\ATTRIBUTION.txt" />
      <None Include="Assets\bolt\assemblies\upnp\Mono.Nat.LICENSE.txt" />
