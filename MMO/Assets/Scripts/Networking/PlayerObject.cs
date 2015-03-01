@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerObject : MonoBehaviour
+public class PlayerObject
 {
 		public BoltEntity character;
 		public BoltConnection connection;
@@ -19,17 +19,19 @@ public class PlayerObject : MonoBehaviour
 				//character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
 				if (!character) {
 						
-						character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d, new Vector3 (1050, 5, 1050), Quaternion.identity);
-			
+						character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
+
 						if (isServer) {
+								//character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
 								character.TakeControl ();
-						} else {
+						} else if (isClient) {
+								//	character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
 								character.AssignControl (connection);
 						}
 				}
 		
 				// teleport entity to a random spawn position
-//				character.transform.position = RandomPosition ();
+				character.transform.position = RandomPosition ();
 		}
 	
 		Vector3 RandomPosition ()

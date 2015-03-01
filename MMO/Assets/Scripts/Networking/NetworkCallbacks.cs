@@ -2,22 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[BoltGlobalBehaviour]
-public class NetworkCallbacks : Bolt.GlobalEventListener
+//[BoltGlobalBehaviour]
+public class NetworkCallbacks : MonoBehaviour
 {
-		IList<string> logMessages = new List<string> ();
-		Bolt.EntityEventListener<ICoconutState> state;
-		Vector3 pos;
-		BoltEntity nut;
-		BoltConnection connection;
-	  
-		public bool isServer {
-				get { return connection == null; }
-		}
-	
-		public bool isClient {
-				get { return connection != null; }
-		}
+//		IList<string> logMessages = new List<string> ();
+//		Bolt.EntityEventListener<ICoconutState> state;
+//		Vector3 pos;
+//		BoltEntity nut;
+//		BoltConnection connection;
+//	  
+//		public bool isServer {
+//				get { return connection == null; }
+//		}
+//	
+//		public bool isClient {
+//				get { return connection != null; }
+//		}
 	
 //		public void Spawn ()
 //		{
@@ -55,21 +55,21 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 //				BoltNetwork.Instantiate (BoltPrefabs.Coconut_1, coconutPos, Quaternion.identity);
 //		}
 
-		public override void OnEvent (LogEvent evnt)
-		{
-				logMessages.Insert (0, evnt.Message);
-		}
-
-		public override void OnEvent (CoconutEvent evnt)
-		{
-			
-				if (evnt.isPickedUp == true) {
-						logMessages.Insert (0, evnt.CoconutPosition.ToString ());
-						
-						//gameObject.GetComponent ("Coconut 1").transform.position = evnt.CoconutPosition; 
-						//state.transform.position = evnt.CoconutPosition;
-				}
-		}
+//		public override void OnEvent (LogEvent evnt)
+//		{
+//				logMessages.Insert (0, evnt.Message);
+//		}
+//
+//		public override void OnEvent (CoconutEvent evnt)
+//		{
+//			
+//				if (evnt.isPickedUp == true) {
+//						logMessages.Insert (0, evnt.CoconutPosition.ToString ());
+//						
+//						//gameObject.GetComponent ("Coconut 1").transform.position = evnt.CoconutPosition; 
+//						//state.transform.position = evnt.CoconutPosition;
+//				}
+//		}
 
 //		void OnGUI ()
 //		{

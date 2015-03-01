@@ -5,7 +5,7 @@ using System.Linq;
 
 public static class PlayerObjectReg
 {
-		static List<PlayerObject> playerObjects = new List<PlayerObject> (); 
+		public static List<PlayerObject> playerObjects = new List<PlayerObject> (); 
 
 		static PlayerObject createPlayer (BoltConnection connection)
 		{
@@ -52,7 +52,8 @@ public static class PlayerObjectReg
 
 		public static void DestoryOnDisconnection (BoltConnection connection)
 		{
-				foreach (PlayerObject p in playerObjects) {
+			
+				foreach (PlayerObject p in playerObjects.ToArray()) {
 						if (p.connection == connection) {
 								//BoltNetwork.Destroy (p.gameObject);
 								playerObjects.Remove (p);

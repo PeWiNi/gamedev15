@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class TestPlayerBehaviour : Bolt.EntityEventListener<ITestPlayerState>
+public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 {
 		GameObject player;
 		WASD wasd;
@@ -20,7 +20,9 @@ public class TestPlayerBehaviour : Bolt.EntityEventListener<ITestPlayerState>
 		public KeyCode cprKey;
 		public KeyCode vomitKey;
 		public KeyCode buffKey = KeyCode.R;
-	
+		bool up, down, left, right;
+
+		Vector3 position;  
 		public GameObject mainCam;
 		public GameObject snow;
 	
@@ -52,8 +54,162 @@ public class TestPlayerBehaviour : Bolt.EntityEventListener<ITestPlayerState>
 				state.AddCallback ("TestPlayerColor", ColorChanged);
 
 		}
-		public override void SimulateOwner ()
+		public override void SimulateController ()
 		{
+				
+//				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
+//				snow.transform.position = snowPos;
+				position = player.transform.position;
+				if (Input.GetKeyDown (boomNanaKey)) { // Mouse0 = Left Click
+						//Debug.Log("Player pos: "+transform.position);
+						//Camera cam = Camera.main;//.Find("Main Camera");
+						//Debug.Log(cam.name);
+						//Vector3 p = cam.ScreenToWorldPoint(new Vector3(100, 100, cam.nearClipPlane));
+						//Debug.Log("Projectile dir: "+p);
+						//Debug.Log(p);
+						//Gizmos.color = Color.yellow;
+						//Gizmos.DrawSphere(p, 0.1F);
+			
+						//Vector3 mousePos = Camera.ScreenToWorldPoint (Input.mousePosition);
+						//Debug.Log(mousePos);
+						if (((Time.time * 1000) - timeSinceLastBoom) >= 1500) {
+								GameObject boom = Instantiate (Resources.Load ("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
+				                               new Vector3 (player.transform.position.x + 20, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
+								Boomnana boomscript = boom.GetComponent<Boomnana> ();
+								// set position, add velocity.
+								// if return after x sec, unless OnCollision triggers.
+								Vector3 startPos = new Vector3 ();
+								Vector3 startDir = new Vector3 ();
+								switch (currRotStr) {
+								case "N": // Angles might be oposite....
+										startPos = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z + 10);
+										startDir = new Vector3 (0, 0, ps.boomnanaRange); 
+										break;
+								case "NE":
+										startPos = new Vector3 (player.transform.position.x + 10, player.transform.position.y, player.transform.position.z + 10);
+										startDir = new Vector3 ((float)(Math.Cos (45) * ps.boomnanaRange), 0, (float)(Math.Cos (45) * ps.boomnanaRange));
+										break;
+								case "E":
+										startPos = new Vector3 (player.transform.position.x + 10, player.transform.position.y, player.transform.position.z);
+										startDir = new Vector3 (ps.boomnanaRange, 0, 0);
+										break;
+								case "SE":
+										startPos = new Vector3 (player.transform.position.x + 10, player.transform.position.y, player.transform.position.z - 10);
+										startDir = new Vector3 ((float)(Math.Cos (45) * ps.boomnanaRange), 0, (float)(Math.Cos (45) * -ps.boomnanaRange));
+										break;
+								case "S":
+										startPos = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z - 10);
+										startDir = new Vector3 (0, 0, -ps.boomnanaRange);
+										break;
+								case "SW":
+										startPos = new Vector3 (player.transform.position.x - 10, player.transform.position.y, player.transform.position.z - 10);
+										startDir = new Vector3 ((float)(Math.Cos (45) * -ps.boomnanaRange), 0, (float)(Math.Cos (45) * -ps.boomnanaRange));
+										break;
+								case "W":
+										startPos = new Vector3 (player.transform.position.x - 10, player.transform.position.y, player.transform.position.z);
+										startDir = new Vector3 (-ps.boomnanaRange, 0, 0);
+										break;
+								case "NW":
+										startPos = new Vector3 (player.transform.position.x - 10, player.transform.position.y, player.transform.position.z + 10);
+										startDir = new Vector3 ((float)(Math.Cos (45) * -ps.boomnanaRange), 0, (float)(Math.Cos (45) * ps.boomnanaRange));
+										break;
+								}
+								sc.initiateCombat ();
+								//Vector3 dir = new Vector3(p.x - startPos.x, 0, p.z - startPos.z);
+								boomscript.spawn (this.gameObject, boom, startPos
+				                  , startDir);
+								timeSinceLastBoom = Time.time * 1000;
+								sound.getSoundPlayer ().PlayOneShot (sound.boomnanathrowclip);
+						}
+						//boomscript.
+				}
+				
+				if (Input.GetKey (moveUp) && !sc.isStunned) {
+						up = true;
+						if (Input.GetKey (sprint)) {
+								position.z += sc.getSpeed ();
+						} else { 
+								position.z += sc.getSpeed ();
+						}
+						sc.isMoving = true;
+				}
+							
+				if (Input.GetKey (moveDown) && !sc.isStunned) {
+						down = true;
+						if (Input.GetKey (sprint)) {
+								position.z -= sc.getSpeed ();
+						} else {
+								position.z -= sc.getSpeed ();
+						}
+						sc.isMoving = true;
+				}
+							
+				if (Input.GetKey (moveRight) && !sc.isStunned) {
+						right = true;
+						if (Input.GetKey (sprint)) {
+								position.x += sc.getSpeed ();
+						} else {
+								position.x += sc.getSpeed ();
+						}
+						sc.isMoving = true;
+				}
+				if (Input.GetKey (moveLeft) && !sc.isStunned) {
+						left = true;
+						if (Input.GetKey (sprint)) {
+								position.x -= sc.getSpeed ();
+						} else {
+								position.x -= sc.getSpeed ();
+						}
+						sc.isMoving = true;
+				}
+				if (position != Vector3.zero) {
+						transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
+				}
+				if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff ()) {
+						buff ();
+				}
+				if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned) {
+						jump ();
+						sound.getJumpPlayer ().PlayOneShot (sound.jumpclip);
+				}
+				if (Input.GetAxis ("Mouse ScrollWheel") > 0) {
+						zoom -= 20.0f;
+			
+				}
+				if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
+						zoom += 20.0f;
+				}
+		
+				if (!Input.GetKey (moveLeft) && !Input.GetKey (moveRight) && !Input.GetKey (moveUp) && !Input.GetKey (moveDown)) {
+						sc.isMoving = false;
+				}
+				if (sc.isMoving && !sound.getMovementPlayer ().isPlaying) {
+						sound.getMovementPlayer ().clip = sound.movementclip;
+						sound.getMovementPlayer ().Play ();
+				}
+				if (!sc.isMoving && sound.getMovementPlayer ().clip == sound.movementclip && sound.getMovementPlayer ().isPlaying) {
+						sound.getMovementPlayer ().Stop ();
+				}
+				if (sc.isStunned) {// && (Time.time - stunnedStart)<= stunnedTimer) {
+						//Debug.Log(wasd.stunnedStart);
+						if ((Time.time - wasd.stunnedStart) <= sc.stunnedTimer && !sound.getStunnedPlayer ().isPlaying) {//if(!stunnedPlayer.isPlaying){
+								sound.getStunnedPlayer ().clip = sound.stunnedclip;
+								sound.getStunnedPlayer ().Play ();
+						} else if (Time.time - wasd.stunnedStart >= sc.stunnedTimer) {
+								sc.isStunned = false;
+						}
+			
+				}
+				if (!sc.isStunned && sound.getStunnedPlayer ().clip == sound.stunnedclip) {
+						sound.getStunnedPlayer ().Stop ();
+				}
+				player.transform.position = position;
+				checkCameraAngle (); 
+				setRotation (up, down, left, right);
+				right = false;
+				left = false;
+				up = false;
+				down = false;
 //				if (startup == 0) {
 //						Start ();
 //				}	
@@ -109,83 +265,171 @@ public class TestPlayerBehaviour : Bolt.EntityEventListener<ITestPlayerState>
 				mainCam.gameObject.transform.LookAt (transform.position);
 		}
 		
-		// Update is called once per frame
-		void Update ()
-		{ 
-				bool up, down, left, right;
+//		// Update is called once per frame
+//		void Update ()
+//		{ 
+//				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
+//				snow.transform.position = snowPos;
+//				position = player.transform.position;
+//				//snow.transform.rotation = new Quaternion(0, 0, 90, 0);
+//				//Vector3 position = player.transform.position;  
+//				if (Input.GetKeyDown (boomNanaKey)) { // Mouse0 = Left Click
+//						//Debug.Log("Player pos: "+transform.position);
+//						//Camera cam = Camera.main;//.Find("Main Camera");
+//						//Debug.Log(cam.name);
+//						//Vector3 p = cam.ScreenToWorldPoint(new Vector3(100, 100, cam.nearClipPlane));
+//						//Debug.Log("Projectile dir: "+p);
+//						//Debug.Log(p);
+//						//Gizmos.color = Color.yellow;
+//						//Gizmos.DrawSphere(p, 0.1F);
+//				
+//						//Vector3 mousePos = Camera.ScreenToWorldPoint (Input.mousePosition);
+//						//Debug.Log(mousePos);
+//						if (((Time.time * 1000) - timeSinceLastBoom) >= 1500) {
+//								GameObject boom = Instantiate (Resources.Load ("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
+//					                              new Vector3 (player.transform.position.x + 20, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
+//								Boomnana boomscript = boom.GetComponent<Boomnana> ();
+//								// set position, add velocity.
+//								// if return after x sec, unless OnCollision triggers.
+//								Vector3 startPos = new Vector3 ();
+//								Vector3 startDir = new Vector3 ();
+//								switch (currRotStr) {
+//								case "N": // Angles might be oposite....
+//										startPos = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z + 10);
+//										startDir = new Vector3 (0, 0, ps.boomnanaRange); 
+//										break;
+//								case "NE":
+//										startPos = new Vector3 (player.transform.position.x + 10, player.transform.position.y, player.transform.position.z + 10);
+//										startDir = new Vector3 ((float)(Math.Cos (45) * ps.boomnanaRange), 0, (float)(Math.Cos (45) * ps.boomnanaRange));
+//										break;
+//								case "E":
+//										startPos = new Vector3 (player.transform.position.x + 10, player.transform.position.y, player.transform.position.z);
+//										startDir = new Vector3 (ps.boomnanaRange, 0, 0);
+//										break;
+//								case "SE":
+//										startPos = new Vector3 (player.transform.position.x + 10, player.transform.position.y, player.transform.position.z - 10);
+//										startDir = new Vector3 ((float)(Math.Cos (45) * ps.boomnanaRange), 0, (float)(Math.Cos (45) * -ps.boomnanaRange));
+//										break;
+//								case "S":
+//										startPos = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z - 10);
+//										startDir = new Vector3 (0, 0, -ps.boomnanaRange);
+//										break;
+//								case "SW":
+//										startPos = new Vector3 (player.transform.position.x - 10, player.transform.position.y, player.transform.position.z - 10);
+//										startDir = new Vector3 ((float)(Math.Cos (45) * -ps.boomnanaRange), 0, (float)(Math.Cos (45) * -ps.boomnanaRange));
+//										break;
+//								case "W":
+//										startPos = new Vector3 (player.transform.position.x - 10, player.transform.position.y, player.transform.position.z);
+//										startDir = new Vector3 (-ps.boomnanaRange, 0, 0);
+//										break;
+//								case "NW":
+//										startPos = new Vector3 (player.transform.position.x - 10, player.transform.position.y, player.transform.position.z + 10);
+//										startDir = new Vector3 ((float)(Math.Cos (45) * -ps.boomnanaRange), 0, (float)(Math.Cos (45) * ps.boomnanaRange));
+//										break;
+//								}
+//								sc.initiateCombat ();
+//								//Vector3 dir = new Vector3(p.x - startPos.x, 0, p.z - startPos.z);
+//								boomscript.spawn (this.gameObject, boom, startPos
+//					                 , startDir);
+//								timeSinceLastBoom = Time.time * 1000;
+//								sound.getSoundPlayer ().PlayOneShot (sound.boomnanathrowclip);
+//						}
+//						//boomscript.
+//				}
+//				//movementInput ();
+////				if (Input.GetKey (moveUp) && !sc.isStunned) {
+////						up = true;
+////						if (Input.GetKey (sprint)) {
+////								position.z += sc.getSpeed ();
+////						} else { 
+////								position.z += sc.getSpeed ();
+////						}
+////						sc.isMoving = true;
+////				}
+////			
+////				if (Input.GetKey (moveDown) && !sc.isStunned) {
+////						down = true;
+////						if (Input.GetKey (sprint)) {
+////								position.z -= sc.getSpeed ();
+////						} else {
+////								position.z -= sc.getSpeed ();
+////						}
+////						sc.isMoving = true;
+////				}
+////			
+////				if (Input.GetKey (moveRight) && !sc.isStunned) {
+////						right = true;
+////						if (Input.GetKey (sprint)) {
+////								position.x += sc.getSpeed ();
+////						} else {
+////								position.x += sc.getSpeed ();
+////						}
+////						sc.isMoving = true;
+////				}
+////				if (Input.GetKey (moveLeft) && !sc.isStunned) {
+////						left = true;
+////						if (Input.GetKey (sprint)) {
+////								position.x -= sc.getSpeed ();
+////						} else {
+////								position.x -= sc.getSpeed ();
+////						}
+////						sc.isMoving = true;
+////				}
+//				if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff ()) {
+//						buff ();
+//				}
+//				if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned) {
+//						jump ();
+//						sound.getJumpPlayer ().PlayOneShot (sound.jumpclip);
+//				}
+//				if (Input.GetAxis ("Mouse ScrollWheel") > 0) {
+//						zoom -= 20.0f;
+//				
+//				}
+//				if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
+//						zoom += 20.0f;
+//				}
+//			
+//				if (!Input.GetKey (moveLeft) && !Input.GetKey (moveRight) && !Input.GetKey (moveUp) && !Input.GetKey (moveDown)) {
+//						sc.isMoving = false;
+//				}
+//				if (sc.isMoving && !sound.getMovementPlayer ().isPlaying) {
+//						sound.getMovementPlayer ().clip = sound.movementclip;
+//						sound.getMovementPlayer ().Play ();
+//				}
+//				if (!sc.isMoving && sound.getMovementPlayer ().clip == sound.movementclip && sound.getMovementPlayer ().isPlaying) {
+//						sound.getMovementPlayer ().Stop ();
+//				}
+//				if (sc.isStunned) {// && (Time.time - stunnedStart)<= stunnedTimer) {
+//						//Debug.Log(wasd.stunnedStart);
+//						if ((Time.time - wasd.stunnedStart) <= sc.stunnedTimer && !sound.getStunnedPlayer ().isPlaying) {//if(!stunnedPlayer.isPlaying){
+//								sound.getStunnedPlayer ().clip = sound.stunnedclip;
+//								sound.getStunnedPlayer ().Play ();
+//						} else if (Time.time - wasd.stunnedStart >= sc.stunnedTimer) {
+//								sc.isStunned = false;
+//						}
+//				
+//				}
+//				if (!sc.isStunned && sound.getStunnedPlayer ().clip == sound.stunnedclip) {
+//						sound.getStunnedPlayer ().Stop ();
+//				}
+//				player.transform.position = position;
+//				checkCameraAngle (); 
+//				setRotation (up, down, left, right);
+//				right = false;
+//				left = false;
+//				up = false;
+//				down = false;
+//			
+//		}
+
+		void movementInput ()
+		{
 				up = false;
 				down = false;
 				left = false;
 				right = false;
-				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
-				snow.transform.position = snowPos;
-
-				//snow.transform.rotation = new Quaternion(0, 0, 90, 0);
-				Vector3 position = player.transform.position;  
-				if (Input.GetKeyDown (boomNanaKey)) { // Mouse0 = Left Click
-						//Debug.Log("Player pos: "+transform.position);
-						//Camera cam = Camera.main;//.Find("Main Camera");
-						//Debug.Log(cam.name);
-						//Vector3 p = cam.ScreenToWorldPoint(new Vector3(100, 100, cam.nearClipPlane));
-						//Debug.Log("Projectile dir: "+p);
-						//Debug.Log(p);
-						//Gizmos.color = Color.yellow;
-						//Gizmos.DrawSphere(p, 0.1F);
-				
-						//Vector3 mousePos = Camera.ScreenToWorldPoint (Input.mousePosition);
-						//Debug.Log(mousePos);
-						if (((Time.time * 1000) - timeSinceLastBoom) >= 1500) {
-								GameObject boom = Instantiate (Resources.Load ("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
-					                              new Vector3 (player.transform.position.x + 20, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
-								Boomnana boomscript = boom.GetComponent<Boomnana> ();
-								// set position, add velocity.
-								// if return after x sec, unless OnCollision triggers.
-								Vector3 startPos = new Vector3 ();
-								Vector3 startDir = new Vector3 ();
-								switch (currRotStr) {
-								case "N": // Angles might be oposite....
-										startPos = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z + 10);
-										startDir = new Vector3 (0, 0, ps.boomnanaRange); 
-										break;
-								case "NE":
-										startPos = new Vector3 (player.transform.position.x + 10, player.transform.position.y, player.transform.position.z + 10);
-										startDir = new Vector3 ((float)(Math.Cos (45) * ps.boomnanaRange), 0, (float)(Math.Cos (45) * ps.boomnanaRange));
-										break;
-								case "E":
-										startPos = new Vector3 (player.transform.position.x + 10, player.transform.position.y, player.transform.position.z);
-										startDir = new Vector3 (ps.boomnanaRange, 0, 0);
-										break;
-								case "SE":
-										startPos = new Vector3 (player.transform.position.x + 10, player.transform.position.y, player.transform.position.z - 10);
-										startDir = new Vector3 ((float)(Math.Cos (45) * ps.boomnanaRange), 0, (float)(Math.Cos (45) * -ps.boomnanaRange));
-										break;
-								case "S":
-										startPos = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z - 10);
-										startDir = new Vector3 (0, 0, -ps.boomnanaRange);
-										break;
-								case "SW":
-										startPos = new Vector3 (player.transform.position.x - 10, player.transform.position.y, player.transform.position.z - 10);
-										startDir = new Vector3 ((float)(Math.Cos (45) * -ps.boomnanaRange), 0, (float)(Math.Cos (45) * -ps.boomnanaRange));
-										break;
-								case "W":
-										startPos = new Vector3 (player.transform.position.x - 10, player.transform.position.y, player.transform.position.z);
-										startDir = new Vector3 (-ps.boomnanaRange, 0, 0);
-										break;
-								case "NW":
-										startPos = new Vector3 (player.transform.position.x - 10, player.transform.position.y, player.transform.position.z + 10);
-										startDir = new Vector3 ((float)(Math.Cos (45) * -ps.boomnanaRange), 0, (float)(Math.Cos (45) * ps.boomnanaRange));
-										break;
-								}
-								sc.initiateCombat ();
-								//Vector3 dir = new Vector3(p.x - startPos.x, 0, p.z - startPos.z);
-								boomscript.spawn (this.gameObject, boom, startPos
-					                 , startDir);
-								timeSinceLastBoom = Time.time * 1000;
-								sound.getSoundPlayer ().PlayOneShot (sound.boomnanathrowclip);
-						}
-						//boomscript.
-				}
-			
+				position = player.transform.position;
 				if (Input.GetKey (moveUp) && !sc.isStunned) {
 						up = true;
 						if (Input.GetKey (sprint)) {
@@ -195,7 +439,7 @@ public class TestPlayerBehaviour : Bolt.EntityEventListener<ITestPlayerState>
 						}
 						sc.isMoving = true;
 				}
-			
+		
 				if (Input.GetKey (moveDown) && !sc.isStunned) {
 						down = true;
 						if (Input.GetKey (sprint)) {
@@ -205,7 +449,7 @@ public class TestPlayerBehaviour : Bolt.EntityEventListener<ITestPlayerState>
 						}
 						sc.isMoving = true;
 				}
-			
+		
 				if (Input.GetKey (moveRight) && !sc.isStunned) {
 						right = true;
 						if (Input.GetKey (sprint)) {
@@ -224,53 +468,7 @@ public class TestPlayerBehaviour : Bolt.EntityEventListener<ITestPlayerState>
 						}
 						sc.isMoving = true;
 				}
-				if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff ()) {
-						buff ();
-				}
-				if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned) {
-						jump ();
-						sound.getJumpPlayer ().PlayOneShot (sound.jumpclip);
-				}
-				if (Input.GetAxis ("Mouse ScrollWheel") > 0) {
-						zoom -= 20.0f;
-				
-				}
-				if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
-						zoom += 20.0f;
-				}
-			
-				if (!Input.GetKey (moveLeft) && !Input.GetKey (moveRight) && !Input.GetKey (moveUp) && !Input.GetKey (moveDown)) {
-						sc.isMoving = false;
-				}
-				if (sc.isMoving && !sound.getMovementPlayer ().isPlaying) {
-						sound.getMovementPlayer ().clip = sound.movementclip;
-						sound.getMovementPlayer ().Play ();
-				}
-				if (!sc.isMoving && sound.getMovementPlayer ().clip == sound.movementclip && sound.getMovementPlayer ().isPlaying) {
-						sound.getMovementPlayer ().Stop ();
-				}
-				if (sc.isStunned) {// && (Time.time - stunnedStart)<= stunnedTimer) {
-						//Debug.Log(wasd.stunnedStart);
-						if ((Time.time - wasd.stunnedStart) <= sc.stunnedTimer && !sound.getStunnedPlayer ().isPlaying) {//if(!stunnedPlayer.isPlaying){
-								sound.getStunnedPlayer ().clip = sound.stunnedclip;
-								sound.getStunnedPlayer ().Play ();
-						} else if (Time.time - wasd.stunnedStart >= sc.stunnedTimer) {
-								sc.isStunned = false;
-						}
-				
-				}
-				if (!sc.isStunned && sound.getStunnedPlayer ().clip == sound.stunnedclip) {
-						sound.getStunnedPlayer ().Stop ();
-				}
-				player.transform.position = position;
-				checkCameraAngle (); 
-				setRotation (up, down, left, right);
-				right = false;
-				left = false;
-				up = false;
-				down = false;
-			
-		}
+		} 
 		
 		void setRotation (bool up, bool down, bool left, bool right)
 		{

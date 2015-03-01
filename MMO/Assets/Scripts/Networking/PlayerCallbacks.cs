@@ -8,7 +8,7 @@ public class PlayerCallbacks : Bolt.GlobalEventListener
 		{
 				PlayerCam.Instantiate ();
 		}
-	
+
 		public override void ControlOfEntityGained (BoltEntity arg)
 		{
 				PlayerCam.instance.SetTarget (arg);

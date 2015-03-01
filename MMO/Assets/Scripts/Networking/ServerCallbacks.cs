@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[BoltGlobalBehaviour(BoltNetworkModes.Server, "Scene1Test")]
-public class ServerCallBacks : Bolt.GlobalEventListener
+[BoltGlobalBehaviour]
+public class ServerCallbacks : Bolt.GlobalEventListener
 {
-		BoltConnection connection;
+		//	BoltConnection connection;
 
 		void Awake ()
 		{
@@ -14,9 +14,11 @@ public class ServerCallBacks : Bolt.GlobalEventListener
 
 		public override void Connected (BoltConnection connection)
 		{
+				
 				Debug.Log ("connected");
 				PlayerObjectReg.createClientPlayerObject (connection);
-				this.connection = connection;
+
+				//this.connection = connection;
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} connected", connection.RemoteEndPoint);
 //				log.Send ();
@@ -24,6 +26,7 @@ public class ServerCallBacks : Bolt.GlobalEventListener
 	
 		public override void Disconnected (BoltConnection connection)
 		{
+			     
 				PlayerObjectReg.DestoryOnDisconnection (connection);
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} disconnected", connection.RemoteEndPoint);

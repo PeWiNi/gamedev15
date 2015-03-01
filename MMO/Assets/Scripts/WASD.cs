@@ -21,8 +21,8 @@ public class WASD : MonoBehaviour
 				
 				//coconut = BoltNetwork.Attach (BoltPrefabs.Coconut_1) as GameObject;
 				//GameObject.Find ("Coconut 1(Clone)");
-				coconut = GameObject.Find ("Coconut 1(Clone)");
-				nut = coconut.GetComponent<Coconut> ();
+				//	coconut = GameObject.Find ("Coconut 1(Clone)");
+				//	nut = coconut.GetComponent<Coconut> ();
 				sc = gameObject.GetComponent<StateController> ();
 				ps = gameObject.GetComponent<PlayerStats> ();
 		}
