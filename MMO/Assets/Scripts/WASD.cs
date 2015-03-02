@@ -8,7 +8,7 @@ public class WASD : MonoBehaviour
 		/*TODO: Make state controller, so you don't connect/split during combat.
 	 * 
 	 * */
-		Bolt.EntityEventListener<ICoconutState> state;
+		//Bolt.EntityEventListener<ICoconutState> state;
 		BoltEntity entity;
 		public float stunnedStart;
 		GameObject coconut;
@@ -21,35 +21,46 @@ public class WASD : MonoBehaviour
 				
 				//coconut = BoltNetwork.Attach (BoltPrefabs.Coconut_1) as GameObject;
 				//GameObject.Find ("Coconut 1(Clone)");
-                coconut = GameObject.Find("Coconut 1");
-                nut = coconut.GetComponent<Coconut>();
-                Debug.Log("Coconut: " + coconut + ", nutScript: " + nut);
-				sc = gameObject.GetComponent<StateController> ();
-				ps = gameObject.GetComponent<PlayerStats> ();
+				//coconut = GameObject.Find ("Coconut 1(Clone)");
+				//nut = coconut.GetComponent<Coconut> ();
+				//Debug.Log ("Coconut: " + coconut + ", nutScript: " + nut);
+				sc = this.gameObject.GetComponent<StateController> ();
+				ps = this.gameObject.GetComponent<PlayerStats> ();
 		}
 
 		// Update is called once per frame
 		void Update ()
 		{
+				if (coconut == null) {
+						try {
+								coconut = GameObject.Find ("Coconut 1(Clone)");
+
+								nut = coconut.GetComponent<Coconut> ();
+
+						} catch {
+						}
+				}
 		}
 
-		void OnCollisionEnter (Collision coll) 
+		void OnCollisionEnter (Collision coll)
 		{ // Working!!
 				if (coll.gameObject.name.Equals ("Terrain")) { 
 						sc.isJumping = false;
 				}
 
 				if (Input.GetKey (KeyCode.E)) {
-						if (coll.gameObject.name.Equals ("Coconut 1")) {
-                            Debug.Log(coll.gameObject.name); 
+						if (coll.gameObject.name.Equals ("Coconut 1(Clone)")) {
+								Debug.Log (coll.gameObject.name); 
 								nut = coll.gameObject.GetComponent<Coconut> ();
 								if (!nut.isHeldAtm ()) {
 										nut.setCapture (this.gameObject);
 										sc.isHolding = true;
-										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
-												evnt.isPickedUp = true;
-												evnt.CoconutPosition = transform.position;
-										}
+										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).isPickedUp = true;
+										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = transform.position;
+//										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
+//												evnt.isPickedUp = true;
+//												evnt.CoconutPosition = transform.position;
+//										}
 								}
 						}
 				}
@@ -67,34 +78,34 @@ public class WASD : MonoBehaviour
 								if (nut.getHolder ().Equals (this.gameObject)) {
 										nut.removeCapture ();
 										sc.isHolding = false;
-										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
-												evnt.isPickedUp = false;
-												evnt.CoconutPosition = transform.position;
-										}
+										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).isPickedUp = false;
+										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = transform.position;
+//										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
+//												evnt.isPickedUp = false;
+//												evnt.CoconutPosition = transform.position;
+//										}
 								}
 						}
 				}
 		}
 		void OnTriggerStay (Collider coll)
 		{
-            if (Input.GetKey(KeyCode.E))
-            {
-                if (coll.gameObject.name.Equals("Coconut 1"))
-                {
-                    Debug.Log(coll.gameObject.name);
-                    nut = coll.gameObject.GetComponent<Coconut>();
-                    if (!nut.isHeldAtm())
-                    {
-                        nut.setCapture(this.gameObject);
-                        sc.isHolding = true;
-                        using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone))
-                        {
-                            evnt.isPickedUp = true;
-                            evnt.CoconutPosition = transform.position;
-                        }
-                    }
-                }
-            }
+				if (Input.GetKey (KeyCode.E)) {
+						if (coll.gameObject.name.Equals ("Coconut 1(Clone)")) {
+								Debug.Log (coll.gameObject.name);
+								nut = coll.gameObject.GetComponent<Coconut> ();
+								if (!nut.isHeldAtm ()) {
+										nut.setCapture (this.gameObject);
+										sc.isHolding = true;
+										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).isPickedUp = true;
+										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = transform.position;
+										//										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
+										//												evnt.isPickedUp = true;
+										//												evnt.CoconutPosition = transform.position;
+										//										}
+								}
+						}
+				}
 				// If attack (melee), deal damage to that enemy
 				if (Input.GetKey (transform.gameObject.GetComponent<TestPlayerBehaviour> ().tailSlapKey)) {
 						if (coll.gameObject.name.Equals ("PlayerObject3d")) {

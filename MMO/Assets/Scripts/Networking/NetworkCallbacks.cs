@@ -1,16 +1,21 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [BoltGlobalBehaviour]
 public class NetworkCallbacks : Bolt.GlobalEventListener
 {
-		//		IList<string> logMessages = new List<string> ();
+		//IList<string> logMessages = new List<string> ();
 		BoltConnection connection;
+		
 
 		void Awake ()
 		{
+				//PlayerObjectReg.createCoconutObject ();//.Spawn ();
 				PlayerObjectReg.createServerPlayerObject ();
-				
+				//Coconut.Instantiate ();
+				//PlayerObjectReg.co.Spawn ();
+				//	PlayerObjectReg.createCoconutObject ().Spawn ();
 		}
 
 		public override void Connected (BoltConnection connection)
@@ -35,8 +40,11 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 		public override void SceneLoadLocalDone (string map)
 		{
+//				BoltNetwork.Instantiate (BoltPrefabs.Coconut_1, new Vector3 (1000f, 5f, 1000f), Quaternion.identity);
 				PlayerObjectReg.serverPlayerObject.Spawn ();
+				
 				PlayerObjectReg.getPlayerObject (connection).Spawn ();
+				//PlayerObjectReg.createCoconutObject ().Spawn ();
 		}
     
 		//public override void SceneLoadRemoteDone (BoltConnection connection)
@@ -45,16 +53,19 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		//				PlayerObjectReg.getPlayerObject (connection).Spawn ();
 		//		}
 
-		//public override void OnEvent (CoconutEvent evnt)
-		//		{
-		//			
-		//				if (evnt.isPickedUp == true) {
-		//						logMessages.Insert (0, evnt.CoconutPosition.ToString ());
-		//						
-		//						//gameObject.GetComponent ("Coconut 1").transform.position = evnt.CoconutPosition; 
-		//						//state.transform.position = evnt.CoconutPosition;
-		//				}
-		//		}
+//		public override void OnEvent (CoconutEvent evnt)
+//		{
+//					
+//				if (evnt.isPickedUp == true) {
+//						//logMessages.Insert (0, evnt.CoconutPosition.ToString ());
+//						
+//						//transform.gameObject.GetComponent<Coconut> ().Test ();
+//						transform.position = evnt.CoconutPosition;
+//						//evnt.		
+//						//gameObject.GetComponent ("Coconut 1").transform.position = evnt.CoconutPosition; 
+//						//state.transform.position = evnt.CoconutPosition;
+//				}
+//		}
 
 
 		//void OnGUI ()
