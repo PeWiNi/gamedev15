@@ -7,10 +7,10 @@ public class PlayerStats : MonoBehaviour {
 	// Use StatSplitter.cs
 
 	float playerHp; 
-	int teamNumber;
+	public int teamNumber;
 	
 	float movementSpeed;
-	//Damages
+	//Damages 
 	public float tailSlapDamage;
 	public float boomNanaDamage;
 	//Ranges

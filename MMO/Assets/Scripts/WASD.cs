@@ -21,8 +21,9 @@ public class WASD : MonoBehaviour
 				
 				//coconut = BoltNetwork.Attach (BoltPrefabs.Coconut_1) as GameObject;
 				//GameObject.Find ("Coconut 1(Clone)");
-				//	coconut = GameObject.Find ("Coconut 1(Clone)");
-				//	nut = coconut.GetComponent<Coconut> ();
+                coconut = GameObject.Find("Coconut 1");
+                nut = coconut.GetComponent<Coconut>();
+                Debug.Log("Coconut: " + coconut + ", nutScript: " + nut);
 				sc = gameObject.GetComponent<StateController> ();
 				ps = gameObject.GetComponent<PlayerStats> ();
 		}
@@ -32,15 +33,15 @@ public class WASD : MonoBehaviour
 		{
 		}
 
-		void OnCollisionEnter (Collision coll)
+		void OnCollisionEnter (Collision coll) 
 		{ // Working!!
 				if (coll.gameObject.name.Equals ("Terrain")) { 
-						//	sc.isJumping = false;
+						sc.isJumping = false;
 				}
 
 				if (Input.GetKey (KeyCode.E)) {
-						if (coll.gameObject.name.Equals ("Coconut 1(Clone)")) {
-
+						if (coll.gameObject.name.Equals ("Coconut 1")) {
+                            Debug.Log(coll.gameObject.name); 
 								nut = coll.gameObject.GetComponent<Coconut> ();
 								if (!nut.isHeldAtm ()) {
 										nut.setCapture (this.gameObject);
@@ -76,6 +77,24 @@ public class WASD : MonoBehaviour
 		}
 		void OnTriggerStay (Collider coll)
 		{
+            if (Input.GetKey(KeyCode.E))
+            {
+                if (coll.gameObject.name.Equals("Coconut 1"))
+                {
+                    Debug.Log(coll.gameObject.name);
+                    nut = coll.gameObject.GetComponent<Coconut>();
+                    if (!nut.isHeldAtm())
+                    {
+                        nut.setCapture(this.gameObject);
+                        sc.isHolding = true;
+                        using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone))
+                        {
+                            evnt.isPickedUp = true;
+                            evnt.CoconutPosition = transform.position;
+                        }
+                    }
+                }
+            }
 				// If attack (melee), deal damage to that enemy
 				if (Input.GetKey (transform.gameObject.GetComponent<TestPlayerBehaviour> ().tailSlapKey)) {
 						if (coll.gameObject.name.Equals ("PlayerObject3d")) {
