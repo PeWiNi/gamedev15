@@ -61,7 +61,6 @@
      <Compile Include="Assets\Scripts\Networking\PlayerObjectBehaviour.cs" />
      <Compile Include="Assets\Scripts\Networking\PlayerObjectReg.cs" />
      <Compile Include="Assets\Scripts\Networking\SelectTeamMenu.cs" />
-     <Compile Include="Assets\Scripts\Networking\ServerCallbacks.cs" />
      <Compile Include="Assets\Scripts\Networking\TestPlayerBehaviour.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\SnowScript.cs" />
