@@ -59,6 +59,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				
 //				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
 //				snow.transform.position = snowPos;
+				if (wasd != null) {
+				}
 				position = player.transform.position;
 				if (Input.GetKeyDown (boomNanaKey)) { // Mouse0 = Left Click
 						//Debug.Log("Player pos: "+transform.position);

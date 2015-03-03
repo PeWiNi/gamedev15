@@ -110,6 +110,13 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 //        pos = Vector3.SmoothDamp(transform.position, pos, ref _velocity, runningSmoothTime);
 //      }
 //
+            if (Input.GetAxis ("Mouse ScrollWheel") > 0) {
+						zoom -= 20.0f;
+			            
+				}
+				if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
+						zoom += 20.0f;
+				}
 //      transform.position = pos;
 //      transform.rotation = rot;
 //

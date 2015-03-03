@@ -7,7 +7,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 {
 		//IList<string> logMessages = new List<string> ();
 		BoltConnection connection;
-		
+		Vector3 position;
 
 		void Awake ()
 		{
@@ -42,16 +42,21 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		{
 //				BoltNetwork.Instantiate (BoltPrefabs.Coconut_1, new Vector3 (1000f, 5f, 1000f), Quaternion.identity);
 				PlayerObjectReg.serverPlayerObject.Spawn ();
-				
 				PlayerObjectReg.getPlayerObject (connection).Spawn ();
 				//PlayerObjectReg.createCoconutObject ().Spawn ();
 		}
+
+		public override void OnEvent (CoconutEvent evnt)
+		{
+				//Coconut.instance.TakingCoconut (evnt.CoconutId, position);
+		}
+				
     
-		//public override void SceneLoadRemoteDone (BoltConnection connection)
-		//		{
-		//				Debug.Log ("Spawning");
-		//				PlayerObjectReg.getPlayerObject (connection).Spawn ();
-		//		}
+//		public override void SceneLoadRemoteDone (BoltConnection connection)
+//		{
+//				//	Debug.Log ("Spawning");
+//				//	PlayerObjectReg.getPlayerObject (connection).Spawn ();
+//		}
 
 //		public override void OnEvent (CoconutEvent evnt)
 //		{

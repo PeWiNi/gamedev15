@@ -10,11 +10,13 @@ public class WASD : MonoBehaviour
 	 * */
 		//Bolt.EntityEventListener<ICoconutState> state;
 		BoltEntity entity;
+		BoltEntity me;
 		public float stunnedStart;
 		GameObject coconut;
 		Coconut nut;
 		StateController sc;
 		PlayerStats ps;
+		int nutId;
 		// Use this for initialization
 		void Start ()
 		{
@@ -26,18 +28,42 @@ public class WASD : MonoBehaviour
 				//Debug.Log ("Coconut: " + coconut + ", nutScript: " + nut);
 				sc = this.gameObject.GetComponent<StateController> ();
 				ps = this.gameObject.GetComponent<PlayerStats> ();
+				nutId = (GameObject.FindWithTag ("nut")as GameObject).GetInstanceID ();
+				coconut = GameObject.FindWithTag ("nut") as GameObject;
+				
+				
+
 		}
 
 		// Update is called once per frame
 		void Update ()
 		{
-				if (coconut == null) {
+				if (nut == null) {
+						//nutId = (GameObject.FindWithTag ("nut")as GameObject).GetInstanceID ();
+						nut = (GameObject.FindWithTag ("nut") as GameObject).GetComponent<Coconut> ();
+				}
+				if (coconut == null || nut == null) {
 						try {
-								coconut = GameObject.Find ("Coconut 1(Clone)");
+								coconut = GameObject.FindWithTag ("nut") as GameObject;
 
 								nut = coconut.GetComponent<Coconut> ();
 
 						} catch {
+						}
+				}
+				if (sc.isHolding) {
+						foreach (BoltEntity b in BoltNetwork.entities) {
+								GameObject bGo = b.gameObject;
+								if (bGo.tag == "player") {
+										if (bGo.FindComponent<WASD> ().isOwnerOfNut ()) {
+												//nut = b.gameObject.GetComponent<Coconut> ();
+												Vector3 newPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+												bGo.gameObject.GetComponent<WASD> ().updateNutPosWhenHeld (newPos);
+												//b.gameObject.GetComponent<WASD> ().setCapture (this.gameObject);
+												//sc.isHolding = true;
+										}
+								}
+				
 						}
 				}
 		}
@@ -48,22 +74,26 @@ public class WASD : MonoBehaviour
 						sc.isJumping = false;
 				}
 
-				if (Input.GetKey (KeyCode.E)) {
-						if (coll.gameObject.name.Equals ("Coconut 1(Clone)")) {
-								Debug.Log (coll.gameObject.name); 
-								nut = coll.gameObject.GetComponent<Coconut> ();
-								if (!nut.isHeldAtm ()) {
-										nut.setCapture (this.gameObject);
-										sc.isHolding = true;
-										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).isPickedUp = true;
-										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = transform.position;
-//										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
-//												evnt.isPickedUp = true;
-//												evnt.CoconutPosition = transform.position;
-//										}
-								}
-						}
-				}
+//				if (Input.GetKey (KeyCode.E)) {
+//						if (coll.gameObject.Equals (GameObject.FindWithTag ("nut") as GameObject)) {
+//								//Debug.Log (coll.gameObject.name); 
+//								nut = coll.gameObject.GetComponent<Coconut> ();
+//								if (!nut.isHeldAtm ()) {
+//										nut.setCapture (this.gameObject);
+//										sc.isHolding = true;
+//										//Apply grabbing to nutId
+//										//CoconutEvent.Create(
+//										//CoconutEvent.Create (Bolt.GlobalTargets.Everyone).isPickedUp = true;
+//										//CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = transform.position;
+////										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
+////												if (evnt.CoconutId == nutId) {
+////														evnt.isPickedUp = true;
+////														evnt.CoconutPosition = transform.position;
+////												}
+////										}
+//								}
+//						}
+//				}
 
 				if (coll.gameObject.name.Equals ("Boomnana(Clone)")) {
 						if (coll.gameObject.GetComponent<Boomnana> ().owner == this.gameObject) {
@@ -73,39 +103,98 @@ public class WASD : MonoBehaviour
 						}
 				}
 
-				if (Input.GetKey (KeyCode.Q)) {
-						if (nut.getHolder () != null) {
-								if (nut.getHolder ().Equals (this.gameObject)) {
-										nut.removeCapture ();
-										sc.isHolding = false;
-										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).isPickedUp = false;
-										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = transform.position;
-//										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
-//												evnt.isPickedUp = false;
-//												evnt.CoconutPosition = transform.position;
-//										}
-								}
-						}
-				}
+//				if (Input.GetKey (KeyCode.Q)) {
+//						if (nut.getHolder () != null) {
+//								if (nut.getHolder ().Equals (this.gameObject)) {
+//										nut.removeCapture ();
+//										sc.isHolding = false;
+////										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).isPickedUp = false;
+////										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = transform.position;
+////										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
+////												evnt.isPickedUp = false;
+////												evnt.CoconutPosition = transform.position;
+////										}
+//								}
+//						}
+//				}
 		}
+
+		public void updateNutPosWhenHeld (Vector3 pos)
+		{
+				this.nut.updateNutPositionRemote (pos);
+		}
+
+		public void updateNutPositionRemote (Vector3 newPos, GameObject go)
+		{
+				nut.updateNutPositionRemote (newPos);
+				nut.setCapture (go);
+		}
+		public void removeNutCapture (Vector3 pos)
+		{
+				nut.removeCapture (pos);
+		}
+
+		public bool isOwnerOfNut ()
+		{
+				return (GameObject.FindWithTag ("nut") as GameObject).GetComponent<Coconut> ().entity.isOwner;
+		}
+
 		void OnTriggerStay (Collider coll)
 		{
-				if (Input.GetKey (KeyCode.E)) {
-						if (coll.gameObject.name.Equals ("Coconut 1(Clone)")) {
-								Debug.Log (coll.gameObject.name);
-								nut = coll.gameObject.GetComponent<Coconut> ();
-								if (!nut.isHeldAtm ()) {
-										nut.setCapture (this.gameObject);
-										sc.isHolding = true;
-										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).isPickedUp = true;
-										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = transform.position;
-										//										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
-										//												evnt.isPickedUp = true;
-										//												evnt.CoconutPosition = transform.position;
-										//										}
-								}
+				if (Input.GetKeyDown (KeyCode.E)) {
+						if (coll.gameObject.Equals (GameObject.FindWithTag ("nut") as GameObject)) {
+								GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
+								coll.GetComponent<Coconut> ().setCapture (this.gameObject);
+//								foreach (BoltEntity b in BoltNetwork.entities) {
+//										GameObject bGo = b.gameObject;
+//										if (bGo.tag == "player") {
+//												if (bGo.FindComponent<WASD> ().isOwnerOfNut ()) {
+//														//nut = b.gameObject.GetComponent<Coconut> ();
+//														Vector3 newPos = new Vector3 (transform.position.x, transform.position.y + 5, transform.position.z);
+//														bGo.gameObject.GetComponent<WASD> ().updateNutPositionRemote (newPos, gameObject);
+//														//b.gameObject.GetComponent<WASD> ().setCapture (this.gameObject);
+//														sc.isHolding = true;
+//												}
+//										}
+//										
+//								}
+
+
+//								nut = coll.gameObject.GetComponent<Coconut> ();
+//								if (!nut.isHeldAtm ()) {
+//										nut.setCapture (this.gameObject);
+//										sc.isHolding = true;
+////										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).isPickedUp = true;
+////										CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = transform.position;
+////										using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
+////												evnt.isPickedUp = true;
+////												evnt.CoconutPosition = transform.position;
+////										}
+//								}
 						}
 				}
+
+				if (Input.GetKeyDown (KeyCode.Q)) {
+						if (coll.gameObject.Equals (GameObject.FindWithTag ("nut") as GameObject) && sc.isHolding) {
+								Debug.Log ("Q pressed");
+								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
+								coll.GetComponent<Coconut> ().removeCapture (new Vector3 ());
+								GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.ReleaseControl ();
+								this.gameObject.GetComponent<WASD> ().entity.TakeControl ();
+//								foreach (BoltEntity b in BoltNetwork.entities) {
+//										GameObject bGo = b.gameObject;
+//										if (bGo.tag == "player") {
+//												if (bGo.FindComponent<WASD> ().isOwnerOfNut ()) {
+//														//nut = b.GetComponent<Coconut> ();
+//														Vector3 newPos = new Vector3 (transform.position.x, transform.position.y + 5, transform.position.z);
+//														b.gameObject.GetComponent<WASD> ().removeNutCapture (newPos);
+//														sc.isHolding = false;
+//												}
+//										}						
+//								}
+						}
+				}
+				
 				// If attack (melee), deal damage to that enemy
 				if (Input.GetKey (transform.gameObject.GetComponent<TestPlayerBehaviour> ().tailSlapKey)) {
 						if (coll.gameObject.name.Equals ("PlayerObject3d")) {
