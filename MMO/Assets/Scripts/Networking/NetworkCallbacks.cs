@@ -48,9 +48,14 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 		public override void OnEvent (CoconutEvent evnt)
 		{
-				//Coconut.instance.TakingCoconut (evnt.CoconutId, position);
+				//Debug.Log ("AFSADADASD");
+				//Debug.Log ("I FOUND THE NAME!! READ ME!!!!:" + GameObject.FindGameObjectWithTag ("nut").name);
+				//Debug.Log ("TESTING..  She says: " + GameObject.FindGameObjectWithTag ("nut").GetComponent<CoconutManager> ().test ());
+				//GameObject.FindGameObjectWithTag ("nut").GetComponent<CoconutManager> ().ApplyMovementToNut (evnt.CoconutId, evnt.CoconutPosition);	
+				BoltSingletonPrefab<CoconutManager> cm = CoconutManager.instance;
+				cm.GetComponent<CoconutManager> ().ApplyMovementToNut (evnt.CoconutId, evnt.CoconutPosition);//.instance.ApplyMovementToNut (evnt.CoconutId, evnt.CoconutPosition);	
 		}
-				
+
     
 //		public override void SceneLoadRemoteDone (BoltConnection connection)
 //		{

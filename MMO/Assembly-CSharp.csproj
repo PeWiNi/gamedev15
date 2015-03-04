@@ -56,7 +56,8 @@
      <Compile Include="Assets\Scripts\CombatScript.cs" />
      <Compile Include="Assets\Scripts\CprScript.cs" />
      <Compile Include="Assets\Scripts\InputHandler.cs" />
-     <Compile Include="Assets\Scripts\Networking\CoconutObject.cs" />
+     <Compile Include="Assets\Scripts\Networking\CoconutController.cs" />
+     <Compile Include="Assets\Scripts\Networking\CoconutManager.cs" />
      <Compile Include="Assets\Scripts\Networking\Menu.cs" />
      <Compile Include="Assets\Scripts\Networking\NetworkCallbacks.cs" />
      <Compile Include="Assets\Scripts\Networking\PlayerCallbacks.cs" />
@@ -65,7 +66,9 @@
      <Compile Include="Assets\Scripts\Networking\PlayerObjectReg.cs" />
      <Compile Include="Assets\Scripts\Networking\SelectTeamMenu.cs" />
      <Compile Include="Assets\Scripts\Networking\ServerCallbacks.cs" />
+     <Compile Include="Assets\Scripts\Networking\TerrainController.cs" />
      <Compile Include="Assets\Scripts\Networking\TestPlayerBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Networking\coconutObjectOld.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\SnowScript.cs" />
      <Compile Include="Assets\Scripts\SoundController.cs" />

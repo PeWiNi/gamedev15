@@ -125,7 +125,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						}
 						//boomscript.
 				}
-				
 				if (Input.GetKey (moveUp) && !sc.isStunned) {
 						up = true;
 						if (Input.GetKey (sprint)) {

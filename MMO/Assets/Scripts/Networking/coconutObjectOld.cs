@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CoconutObject
+public class CoconutObjectOld
 {
 
 		public BoltEntity coconut;

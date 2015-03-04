@@ -5,11 +5,11 @@ public class Coconut : Bolt.EntityBehaviour<ICoconutState>
 {
 
 		public bool isHeld = false;
-		private GameObject go = null;
+		public GameObject go = null;
 		public Vector3 startPos;
 		private int startup = 0;
 		BoltEntity thisNut;
-		int coconutId;
+		public int coconutId;
 		BoltEntity owner;
 
 
@@ -19,6 +19,8 @@ public class Coconut : Bolt.EntityBehaviour<ICoconutState>
 				
 				//state.AddCallback("isHeld", )
 		}
+
+		
 
 //		public override void SimulateController ()
 //		{
@@ -69,7 +71,7 @@ public class Coconut : Bolt.EntityBehaviour<ICoconutState>
 				//state.CoconutIsHeld = false;
 				startPos = transform.position;
 				coconutId = gameObject.GetInstanceID ();
-				
+				//CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = new Vector3 (1000, 5, 1000);
 				//thisNut = BoltNetwork.FindEntity (state.CoconutNetworkId);
 		}
 
@@ -105,14 +107,19 @@ public class Coconut : Bolt.EntityBehaviour<ICoconutState>
 						Vector3 position = 
 					new Vector3 (wasd.gameObject.transform.position.x, wasd.gameObject.transform.position.y + 15,
 					             wasd.gameObject.transform.position.z);
-						transform.position = position;	
+						//transform.position = position;	
 						
 //						CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = position;
-//						using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
-//								evnt.isPickedUp = true;
-//								//state.CoconutTransform.Position = transform.position;
-//								evnt.CoconutPosition = transform.position;
-//						}
+						using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
+								evnt.isPickedUp = true;
+								//state.CoconutTransform.Position = transform.position;
+								if (go == null) {
+										evnt.CoconutPosition = this.gameObject.transform.position;
+								} else {
+										Debug.Log ("Owner Pos: " + go.transform.position);
+										evnt.CoconutPosition = go.transform.position; //set y
+								}
+						}
 						//Debug.Log("It is held!");
 //						WASD aa = go.GetComponent<WASD> ();
 //						//int a = wasd.getFacing();
@@ -120,8 +127,8 @@ public class Coconut : Bolt.EntityBehaviour<ICoconutState>
 //				            aa.gameObject.transform.position.z);
 //						transform.position = position;
 				} else {
-						Vector3 newVec = new Vector3 (positionAtm.x, positionAtm.y, positionAtm.z);
-						transform.position = newVec;	//state.CoconutTransform.Position;
+//						Vector3 newVec = new Vector3 (positionAtm.x, positionAtm.y, positionAtm.z);
+//						transform.position = newVec;	//state.CoconutTransform.Position;
 						//CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = transform.position;
 
 				}
@@ -198,8 +205,8 @@ public class Coconut : Bolt.EntityBehaviour<ICoconutState>
 				this.go = null;
 				//state.CoconutIsHeld = false;		
 				isHeld = false;
-				Vector3 dropPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
-				transform.position = dropPos;	
+//				Vector3 dropPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+//				transform.position = dropPos;	
 //				CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = dropPos;
 //				CoconutEvent.Create (Bolt.GlobalTargets.Everyone).isPickedUp = false;
 //				using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
@@ -215,9 +222,9 @@ public class Coconut : Bolt.EntityBehaviour<ICoconutState>
 								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
 //								coll.GetComponent<WASD> ();
 								
-								this.entity.ReleaseControl ();
+								//this.entity.ReleaseControl ();
 
-								owner.GetComponent<TestPlayerBehaviour> ().entity.TakeControl ();
+								//owner.GetComponent<TestPlayerBehaviour> ().entity.TakeControl ();
 								removeCapture (new Vector3 ());
 								//this.gameObject.GetComponent<WASD> ().entity.TakeControl ();
 								//								foreach (BoltEntity b in BoltNetwork.entities) {

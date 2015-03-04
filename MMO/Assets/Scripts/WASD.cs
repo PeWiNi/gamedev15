@@ -38,34 +38,34 @@ public class WASD : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				if (nut == null) {
-						//nutId = (GameObject.FindWithTag ("nut")as GameObject).GetInstanceID ();
-						nut = (GameObject.FindWithTag ("nut") as GameObject).GetComponent<Coconut> ();
-				}
-				if (coconut == null || nut == null) {
-						try {
-								coconut = GameObject.FindWithTag ("nut") as GameObject;
-
-								nut = coconut.GetComponent<Coconut> ();
-
-						} catch {
-						}
-				}
-				if (sc.isHolding) {
-						foreach (BoltEntity b in BoltNetwork.entities) {
-								GameObject bGo = b.gameObject;
-								if (bGo.tag == "player") {
-										if (bGo.FindComponent<WASD> ().isOwnerOfNut ()) {
-												//nut = b.gameObject.GetComponent<Coconut> ();
-												Vector3 newPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
-												bGo.gameObject.GetComponent<WASD> ().updateNutPosWhenHeld (newPos);
-												//b.gameObject.GetComponent<WASD> ().setCapture (this.gameObject);
-												//sc.isHolding = true;
-										}
-								}
-				
-						}
-				}
+//				if (nut == null) {
+//						//nutId = (GameObject.FindWithTag ("nut")as GameObject).GetInstanceID ();
+//						nut = (GameObject.FindWithTag ("nut") as GameObject).GetComponent<Coconut> ();
+//				}
+//				if (coconut == null || nut == null) {
+//						try {
+//								coconut = GameObject.FindWithTag ("nut") as GameObject;
+//
+//								nut = coconut.GetComponent<Coconut> ();
+//
+//						} catch {
+//						}
+//				}
+//				if (sc.isHolding) {
+//						foreach (BoltEntity b in BoltNetwork.entities) {
+//								GameObject bGo = b.gameObject;
+//								if (bGo.tag == "player") {
+//										if (bGo.FindComponent<WASD> ().isOwnerOfNut ()) {
+//												//nut = b.gameObject.GetComponent<Coconut> ();
+//												Vector3 newPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+//												bGo.gameObject.GetComponent<WASD> ().updateNutPosWhenHeld (newPos);
+//												//b.gameObject.GetComponent<WASD> ().setCapture (this.gameObject);
+//												//sc.isHolding = true;
+//										}
+//								}
+//				
+//						}
+//				}
 		}
 
 		void OnCollisionEnter (Collision coll)
@@ -143,7 +143,7 @@ public class WASD : MonoBehaviour
 		{
 				if (Input.GetKeyDown (KeyCode.E)) {
 						if (coll.gameObject.Equals (GameObject.FindWithTag ("nut") as GameObject)) {
-								GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
+								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
 								coll.GetComponent<Coconut> ().setCapture (this.gameObject);
 //								foreach (BoltEntity b in BoltNetwork.entities) {
 //										GameObject bGo = b.gameObject;
@@ -179,8 +179,8 @@ public class WASD : MonoBehaviour
 								Debug.Log ("Q pressed");
 								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
 								coll.GetComponent<Coconut> ().removeCapture (new Vector3 ());
-								GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.ReleaseControl ();
-								this.gameObject.GetComponent<WASD> ().entity.TakeControl ();
+								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.ReleaseControl ();
+								//this.gameObject.GetComponent<WASD> ().entity.TakeControl ();
 //								foreach (BoltEntity b in BoltNetwork.entities) {
 //										GameObject bGo = b.gameObject;
 //										if (bGo.tag == "player") {
