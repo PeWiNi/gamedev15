@@ -60,7 +60,7 @@ public class CoconutManager : BoltSingletonPrefab<CoconutManager>
 				//Debug.Log ("List Size = " + coconutObjectsList.Count);
 
 				Debug.Log ("SIZE OF THE DAMNED LIST!!! " + coconutObjects.Count);
-				coconutObjectsList [0].transform.position = position;
+				coconutObjectsList [0].transform.position = new Vector3(position.x,position.y + 22 , position.z); 
 //				CoconutObject coconutObject;
 //				if (coconutObjects.TryGetValue (nutId, out coconutObject) && coconutObjects.Count > 0 && coconutObjectsList.Count > 0) {
 //						coconutObjectsList [0].transform.position = coconutObject.cob.GetComponent<Coconut> ().getHolder ().transform.position;

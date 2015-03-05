@@ -12,5 +12,13 @@ public class ServerCallbacks : Bolt.GlobalEventListener
 				//Debug.Log (CoconutManager.instance == null);
 
 		}
+        //public override void ControlOfEntityGained(BoltEntity entity)
+        //{
+        //    if (BoltNetwork.isServer)
+        //    {
+        //        entity.TakeControl();
+        //    }
+           
+        //}
 		
 }

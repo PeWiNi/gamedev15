@@ -142,7 +142,7 @@ public class WASD : MonoBehaviour
 		void OnTriggerStay (Collider coll)
 		{
 				if (Input.GetKeyDown (KeyCode.E)) {
-						if (coll.gameObject.Equals (GameObject.FindWithTag ("nut") as GameObject)) {
+						if (coll.gameObject.tag == "nut") {
 								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
 								coll.GetComponent<Coconut> ().setCapture (this.gameObject);
 //								foreach (BoltEntity b in BoltNetwork.entities) {
@@ -153,7 +153,7 @@ public class WASD : MonoBehaviour
 //														Vector3 newPos = new Vector3 (transform.position.x, transform.position.y + 5, transform.position.z);
 //														bGo.gameObject.GetComponent<WASD> ().updateNutPositionRemote (newPos, gameObject);
 //														//b.gameObject.GetComponent<WASD> ().setCapture (this.gameObject);
-//														sc.isHolding = true;
+//														sc.isHolding = true; 
 //												}
 //										}
 //										
