@@ -5,9 +5,15 @@ using UdpKit;
 
 public class BoltInit : MonoBehaviour
 {
+		public static bool hasPickedTeamOne = false;
+		public static bool hasPickedTeamTwo = false;
+		bool isServer;
+		bool isClient;
+
 		enum State
 		{
 				SelectMode,
+				SelectTeam,
 				SelectMap,
 				EnterServerIp,
 				StartServer,
@@ -18,7 +24,7 @@ public class BoltInit : MonoBehaviour
 		State state;
 
 		string map;
-        string serverAddress = "169.254.81.104";//"127.0.0.1";//"169.254.185.152";
+		string serverAddress = "127.0.0.1";//"169.254.81.104";//"127.0.0.1";//"169.254.185.152";
 
 		int serverPort = 27000;
      
@@ -45,6 +51,9 @@ public class BoltInit : MonoBehaviour
 				case State.EnterServerIp:
 						State_EnterServerIp ();
 						break;
+				case State.SelectTeam:
+						State_SelectTeam ();
+						break;
 				case State.StartClient:
 						State_StartClient ();
 						break;
@@ -64,19 +73,47 @@ public class BoltInit : MonoBehaviour
 				serverAddress = GUILayout.TextField (serverAddress);
 
 				if (GUILayout.Button ("Connect")) {
-						state = State.StartClient;
+						state = State.SelectTeam;
+						//state = State.StartClient;
 				}
 
 				GUILayout.EndHorizontal ();
 		}
 
+		void State_SelectTeam ()
+		{
+				if (ExpandButton ("Team one")) {
+
+						hasPickedTeamOne = true;
+						if (isClient == true) {
+								state = State.StartClient;
+							
+						} else if (isServer == true) {
+								state = State.StartServer;
+								
+						}
+				}
+				if (ExpandButton ("Team two")) {
+					
+						hasPickedTeamTwo = true;
+						if (isClient == true) {
+								state = State.StartClient;
+							
+						} else if (isServer == true) {
+								state = State.StartServer;
+						
+						}
+				}
+		}
 
 		void State_SelectMode ()
 		{
 				if (ExpandButton ("Server")) {
+						isServer = true;
 						state = State.SelectMap;
 				}
 				if (ExpandButton ("Client")) {
+						isClient = true;
 						state = State.EnterServerIp;
 				}
 		}
@@ -87,7 +124,8 @@ public class BoltInit : MonoBehaviour
 						if (Application.loadedLevelName != value) {
 								if (ExpandButton (value)) {
 										map = value;
-										state = State.StartServer;
+										state = State.SelectTeam;
+										//state = State.StartServer;
 								}
 						}
 				}
@@ -111,4 +149,5 @@ public class BoltInit : MonoBehaviour
 		{
 				return GUILayout.Button (text, GUILayout.ExpandWidth (true), GUILayout.ExpandHeight (true));
 		}
+	
 }

@@ -8,6 +8,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		//IList<string> logMessages = new List<string> ();
 		BoltConnection connection;
 		Vector3 position;
+		TestPlayerBehaviour tpb;
 
 		void Awake ()
 		{
@@ -23,6 +24,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				
 				Debug.Log ("connected");
 				PlayerObjectReg.createClientPlayerObject (connection);
+
 				//this.connection = connection;
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} connected", connection.RemoteEndPoint);
@@ -31,8 +33,11 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	
 		public override void Disconnected (BoltConnection connection)
 		{
-			     
-				PlayerObjectReg.DestoryOnDisconnection (connection);
+				if (tpb.state.TeamMemberId == 1) {
+						PlayerObjectReg.DestoryTeamOnePlayerOnDisconnection (connection);
+				} else if (tpb.state.TeamMemberId == 2) {
+						PlayerObjectReg.DestoryTeamTwoPlayerOnDisconnection (connection);
+				}
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} disconnected", connection.RemoteEndPoint);
 //				log.Send ();
@@ -41,9 +46,17 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		public override void SceneLoadLocalDone (string map)
 		{
 //				BoltNetwork.Instantiate (BoltPrefabs.Coconut_1, new Vector3 (1000f, 5f, 1000f), Quaternion.identity);
-				PlayerObjectReg.serverPlayerObject.Spawn ();
+				if (BoltInit.hasPickedTeamOne) {
+						PlayerObjectReg.serverTeamOnePlayerObject.Spawn ();
+		
+				} else if (BoltInit.hasPickedTeamTwo) {
+						PlayerObjectReg.serverTeamTwoPlayerObject.Spawn ();
+				}
+				//	PlayerObjectReg.serverPlayerObject.Spawn ();
 				PlayerObjectReg.getPlayerObject (connection).Spawn ();
 				//PlayerObjectReg.createCoconutObject ().Spawn ();
+				Debug.Log (PlayerObjectReg.teamOnePlayerObjects.Count);
+				Debug.Log (PlayerObjectReg.teamTwoPlayerObjects.Count);
 		}
 
 		public override void OnEvent (CoconutEvent evnt)
