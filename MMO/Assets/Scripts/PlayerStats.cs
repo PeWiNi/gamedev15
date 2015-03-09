@@ -18,22 +18,24 @@ public class PlayerStats : MonoBehaviour
     public float boomnanaRange;
     public float jumpHeight;
     //Timers
-    float cc;
+    public float ccDuration;
     public float buffDuration;
     public float hp;
     //Resouces
-    public int cprBananas;
+    public int cprBananas; 
     //Cooldowns
     float globalCooldownCounter;
     public float tailSlapCooldown;
     public float boomNanaCooldown;
     public float cprCooldown;
-    public float aoeCooldown;
+    public float aoeCooldown; 
     public float ccCooldown;
     public float buffCooldown;
     //BuffAttributes
     public float buffCostFactor = 0.05f;
     public float buffDamageFactor = 1.2f;
+    //BuffedStuff
+    public bool buffed = false;
 
 
     // Use this for initialization

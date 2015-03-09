@@ -15,12 +15,12 @@ public class PlayerObject
 				get { return connection != null;}
 		}
 
-		public void Spawn ()
+		public void Spawn () 
 		{
 				//character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
 				if (!character) {
 						
-						character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
+						character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3dWithColliders);
 //						if (BoltInit.hasPickedTeamOne) {
 //								character.renderer.material.color = Color.red;
 //								teamId = 1;
