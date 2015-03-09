@@ -117,6 +117,7 @@ public class WASD : MonoBehaviour
 //								}
 //						}
 //				}
+<<<<<<< HEAD
 		}
 
 		public void updateNutPosWhenHeld (Vector3 pos)
@@ -139,12 +140,40 @@ public class WASD : MonoBehaviour
 				return (GameObject.FindWithTag ("nut") as GameObject).GetComponent<Coconut> ().entity.isOwner;
 		}
 
+=======
+		}
+
+		public void updateNutPosWhenHeld (Vector3 pos)
+		{
+				this.nut.updateNutPositionRemote (pos);
+		}
+
+		public void updateNutPositionRemote (Vector3 newPos, GameObject go)
+		{
+				nut.updateNutPositionRemote (newPos);
+				nut.setCapture (go);
+		}
+		public void removeNutCapture (Vector3 pos)
+		{
+				nut.removeCapture (pos);
+		}
+
+		public bool isOwnerOfNut ()
+		{
+				return (GameObject.FindWithTag ("nut") as GameObject).GetComponent<Coconut> ().entity.isOwner;
+		}
+
+>>>>>>> origin/master
 		void OnTriggerStay (Collider coll)
 		{
 				if (Input.GetKeyDown (KeyCode.E)) {
 						if (coll.gameObject.tag == "nut") {
 								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
 								coll.GetComponent<Coconut> ().setCapture (this.gameObject);
+<<<<<<< HEAD
+=======
+                                sc.isHolding = true;
+>>>>>>> origin/master
 //								foreach (BoltEntity b in BoltNetwork.entities) {
 //										GameObject bGo = b.gameObject;
 //										if (bGo.tag == "player") {
@@ -171,6 +200,7 @@ public class WASD : MonoBehaviour
 ////												evnt.CoconutPosition = transform.position;
 ////										}
 //								}
+<<<<<<< HEAD
 						}
 				}
 
@@ -204,8 +234,46 @@ public class WASD : MonoBehaviour
 										coll.gameObject.GetComponent<StateController> ().hp -= ps.tailSlapDamage;
 										//ANIMATE TAILSLAP!
 								}
+=======
+>>>>>>> origin/master
 						}
 				}
+
+				if (Input.GetKeyDown (KeyCode.Q)) {
+						if (coll.gameObject.tag == "nut" && sc.isHolding) {
+								Debug.Log ("Q pressed"); 
+								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
+								coll.GetComponent<Coconut> ().removeCapture (new Vector3 ());
+                                sc.isHolding = false;
+								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.ReleaseControl ();
+								//this.gameObject.GetComponent<WASD> ().entity.TakeControl ();
+//								foreach (BoltEntity b in BoltNetwork.entities) {
+//										GameObject bGo = b.gameObject;
+//										if (bGo.tag == "player") {
+//												if (bGo.FindComponent<WASD> ().isOwnerOfNut ()) {
+//														//nut = b.GetComponent<Coconut> ();
+//														Vector3 newPos = new Vector3 (transform.position.x, transform.position.y + 5, transform.position.z);
+//														b.gameObject.GetComponent<WASD> ().removeNutCapture (newPos);
+//														sc.isHolding = false;
+//												}
+//										}						
+//								}
+						} 
+				}
+				
+				// If attack (melee), deal damage to that enemy
+                //if (Input.GetKey (transform.gameObject.GetComponent<TestPlayerBehaviour> ().tailSlapKey)) {
+                //        if (coll.gameObject.tag == "player") { // USE TAG INSTEAD OF NAME
+                //                if (coll.gameObject.GetComponent<StateController> ().teamNumber != sc.teamNumber) {
+                //                    sc.attack(coll.gameObject, ps.tailSlapDamage);
+
+                //                        //coll.gameObject.GetComponent<StateController> ().initiateCombat ();
+                //                        ////If hit
+                //                        //coll.gameObject.GetComponent<StateController>().getHit(ps.tailSlapDamage);
+                //                        ////ANIMATE TAILSLAP!
+                //                }
+                //        }
+                //}
 		}
 
 

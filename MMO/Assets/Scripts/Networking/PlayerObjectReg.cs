@@ -6,8 +6,14 @@ using System.Linq;
 public static class PlayerObjectReg
 {
 		public static List<PlayerObject> playerObjects = new List<PlayerObject> (); 
+<<<<<<< HEAD
 //		public static CoconutObject co;
 
+=======
+//		public static List<PlayerObject> teamOnePlayerObjects = new List<PlayerObject> ();
+//		public static List<PlayerObject> teamTwoPlayerObjects = new List<PlayerObject> ();
+		
+>>>>>>> origin/master
 		static PlayerObject createPlayer (BoltConnection connection)
 		{
 				PlayerObject po;
@@ -18,15 +24,36 @@ public static class PlayerObjectReg
 				if (po.connection != null) {
 						po.connection.UserData = po;
 				}
-
 				playerObjects.Add (po);
-
+//				if (BoltInit.hasPickedTeamOne) {
+//						teamOnePlayerObjects.Add (po);
+//				} else if (BoltInit.hasPickedTeamTwo) {
+//						teamTwoPlayerObjects.Add (po);
+//				}
 				return po;
 		}
+
+//		public static IEnumerable<PlayerObject> allTeamOnePlayerObjects {
+//				get { return teamOnePlayerObjects; }
+//		}
+//
+//		public static IEnumerable<PlayerObject> allTeamTwoPlayerObjects {
+//				get { return teamTwoPlayerObjects; }
+//		}
 
 		public static IEnumerable<PlayerObject> allPlayerObjects {
 				get { return playerObjects; }
 		}
+
+//		public static PlayerObject serverTeamOnePlayerObject {
+//				get {
+//						return teamOnePlayerObjects.First (x => x.isServer);
+//				}
+//		}
+//
+//		public static PlayerObject serverTeamTwoPlayerObject {
+//				get { return teamTwoPlayerObjects.First (x => x.isServer); }
+//		}
 
 		public static PlayerObject serverPlayerObject {
 				get { return playerObjects.First (x => x.isServer); }
@@ -47,18 +74,37 @@ public static class PlayerObjectReg
 				if (connection == null) {
 						return serverPlayerObject;
 				}
-
 				return (PlayerObject)connection.UserData;
 		}
 
+//		public static void DestoryTeamOnePlayerOnDisconnection (BoltConnection connection)
+//		{
+//				foreach (PlayerObject p in teamOnePlayerObjects.ToArray()) {
+//						if (p.connection == connection) {
+//								//BoltNetwork.Destroy (p.gameObject);
+//								teamOnePlayerObjects.Remove (p);
+//						}
+//				}
+//		}
+//
+//
+//		public static void DestoryTeamTwoPlayerOnDisconnection (BoltConnection connection)
+//		{
+//				foreach (PlayerObject p in teamTwoPlayerObjects.ToArray()) {
+//						if (p.connection == connection) {
+//								//BoltNetwork.Destroy (p.gameObject);
+//								teamTwoPlayerObjects.Remove (p);
+//						}
+//				}
+//		}
+
+
 		public static void DestoryOnDisconnection (BoltConnection connection)
 		{
-			
 				foreach (PlayerObject p in playerObjects.ToArray()) {
 						if (p.connection == connection) {
 								//BoltNetwork.Destroy (p.gameObject);
 								playerObjects.Remove (p);
-
 						}
 				}
 		}

@@ -17,7 +17,6 @@ public class StateController : MonoBehaviour {
 	public float combatCooldownTime;
 	private float buffStartTime = 0;
 	public float buffCoolDownTime;
-	public float hp;
 	public float movementspeed;
 	//Combat Speed Reduction?
 	public float combatSpeedReduction;
@@ -26,9 +25,15 @@ public class StateController : MonoBehaviour {
 	public float respawnTime;
 	public float stunnedTimer;
 	public int teamNumber;
+    float stunnedStartFromCC;
+    float stunnedDurationFromCC;
 	
 	public float buffMultiplier;
 
+    void update()
+    {
+        checkIfDead();
+    }
 	public float getSpeed(){
 		return currentSpeed;
 	}
@@ -37,6 +42,7 @@ public class StateController : MonoBehaviour {
 		lastCombat = Time.time;
 		inCombat = true;
 		if (!isHolding) {
+            // REMOVE THE BUFF FOR MOVEMENTSPEED!
 			if(isBuffed){
 				currentSpeed = (movementspeed - combatSpeedReduction)*buffMultiplier;
 			}else{
@@ -59,12 +65,37 @@ public class StateController : MonoBehaviour {
     }
     public void getHit(float damage)
     {
+<<<<<<< HEAD
         hp -= damage;
         checkIfDead();
     }
     public bool checkIfDead()
     {
         if (hp <= 0)
+=======
+        if (isBuffed)
+        {
+            GetComponent<PlayerStats>().hp -= (damage/gameObject.GetComponent<PlayerStats>().buffDamageFactor);
+        }
+        else
+        {
+            GetComponent<PlayerStats>().hp -= damage;
+        }
+       
+        checkIfDead();
+    }
+
+    public void stun(GameObject target, float duration)
+    {
+        stunnedDurationFromCC = duration;
+        stunnedStartFromCC = Time.time;
+        isStunned = true;
+    }
+
+    public bool checkIfDead()
+    {
+        if (GetComponent<PlayerStats>().hp <= 0)
+>>>>>>> origin/master
         {
             isDead = true;
             isStunned = true;
@@ -158,9 +189,19 @@ public class StateController : MonoBehaviour {
 		currentSpeed = currentSpeed * buffMultiplier;
 	}
 
+    void checkCCStun()
+    {
+        if (Time.time - stunnedStartFromCC >= stunnedDurationFromCC)
+        {
+            isStunned = false;
+            stunnedDurationFromCC = 0;
+        }
+    }
+
 	void Update () {
 		checkBuffTimer ();
 		checkCombatTime ();
 		checkIfHolding ();
+        checkCCStun();
 	}
 }

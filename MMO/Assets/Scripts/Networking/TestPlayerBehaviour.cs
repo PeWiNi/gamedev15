@@ -9,7 +9,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		StateController sc;
 		PlayerStats ps;
 		SoundController sound;
-	
+		public int teamId;
+
 		public KeyCode moveUp = KeyCode.W;// = KeyCode.W;
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 		public KeyCode moveRight = KeyCode.D;
@@ -45,13 +46,39 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		public override void Attached ()
 		{
 				state.TestPlayerTransform.SetTransforms (transform);
-		
+				
+//				if (BoltInit.hasPickedTeamOne == true) {
+//						state.TeamMemberId = 1;
+//						Debug.Log (state.TeamMemberId.ToString ());
+//				}
+//				if (BoltInit.hasPickedTeamTwo == true) {
+//						state.TeamMemberId = 2;
+//						Debug.Log (state.TeamMemberId.ToString ());		
+//				}
+//				state.TeamMemberId = BoltInit.teamMemberId;
+				//Debug.Log ("team" + BoltInit.teamMemberId);
+				//state.TeamMemberId = gameObject.GetComponent<BoltInit> ().teamMemberId;
 				if (entity.isOwner) {
+<<<<<<< HEAD
 						//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
 
+=======
+						if (BoltInit.hasPickedTeamOne == true) {
+								state.TeamMemberId = 1;
+								state.TestPlayerColor = new Color (0, 1, 0, 1);
+								Debug.Log ("Team nr." + state.TeamMemberId.ToString ());
+						}
+						if (BoltInit.hasPickedTeamTwo == true) {
+								state.TeamMemberId = 2;
+								state.TestPlayerColor = new Color (1, 0, 0, 1);
+								Debug.Log ("Team nr." + state.TeamMemberId.ToString ());		
+						}	
+						//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
+						//state.TeamMemberId = BoltInit.teamMemberId;
+>>>>>>> origin/master
 				}  
-		
 				state.AddCallback ("TestPlayerColor", ColorChanged);
+				state.AddCallback ("TeamMemberId", TeamSelection);
 
 		}
 		public override void SimulateController ()
@@ -541,18 +568,22 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 ////			transform.position = transform.position + (mpos.normalized * ms * BoltNetwork.frameDeltaTime);
 ////		}
 
-        
-		
+		public void TeamSelection ()
+		{
+				teamId = state.TeamMemberId; 
+		}
     
 		public void ColorChanged ()
 		{
 				renderer.material.color = state.TestPlayerColor;
 		}
 
+
+		
 		/*void OnGUI ()
 		{
 				if (entity.isOwner) {
-						GUI.color = state.TestPlayerColor;
+					GUI.color = state.TestPlayerColor;
 						GUILayout.Label ("@@@");
 						GUI.color = Color.white;
 				}

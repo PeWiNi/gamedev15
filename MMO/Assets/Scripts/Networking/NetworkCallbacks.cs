@@ -8,6 +8,10 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		//IList<string> logMessages = new List<string> ();
 		BoltConnection connection;
 		Vector3 position;
+<<<<<<< HEAD
+=======
+		
+>>>>>>> origin/master
 
 		void Awake ()
 		{
@@ -23,6 +27,10 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				
 				Debug.Log ("connected");
 				PlayerObjectReg.createClientPlayerObject (connection);
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 				//this.connection = connection;
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} connected", connection.RemoteEndPoint);
@@ -31,8 +39,17 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	
 		public override void Disconnected (BoltConnection connection)
 		{
+<<<<<<< HEAD
 			     
 				PlayerObjectReg.DestoryOnDisconnection (connection);
+=======
+				PlayerObjectReg.DestoryOnDisconnection (connection);
+//				if (tpb.state.TeamMemberId == 1) {
+//						PlayerObjectReg.DestoryTeamOnePlayerOnDisconnection (connection);
+//				} else if (tpb.state.TeamMemberId == 2) {
+//						PlayerObjectReg.DestoryTeamTwoPlayerOnDisconnection (connection);
+//				}
+>>>>>>> origin/master
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} disconnected", connection.RemoteEndPoint);
 //				log.Send ();
@@ -41,9 +58,22 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		public override void SceneLoadLocalDone (string map)
 		{
 //				BoltNetwork.Instantiate (BoltPrefabs.Coconut_1, new Vector3 (1000f, 5f, 1000f), Quaternion.identity);
+<<<<<<< HEAD
 				PlayerObjectReg.serverPlayerObject.Spawn ();
 				PlayerObjectReg.getPlayerObject (connection).Spawn ();
 				//PlayerObjectReg.createCoconutObject ().Spawn ();
+=======
+//				if (BoltInit.hasPickedTeamOne && connection == null) {
+//						PlayerObjectReg.serverTeamOnePlayerObject.Spawn ();
+//		
+//				} else if (BoltInit.hasPickedTeamTwo && connection == null) {
+//						PlayerObjectReg.serverTeamTwoPlayerObject.Spawn ();
+//				}
+				//	PlayerObjectReg.serverPlayerObject.Spawn ();
+				PlayerObjectReg.getPlayerObject (connection).Spawn ();
+				//PlayerObjectReg.createCoconutObject ().Spawn ();
+				Debug.Log ("objects" + PlayerObjectReg.playerObjects.Count);
+>>>>>>> origin/master
 		}
 
 		public override void OnEvent (CoconutEvent evnt)
