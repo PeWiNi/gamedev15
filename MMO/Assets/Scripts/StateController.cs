@@ -65,14 +65,6 @@ public class StateController : MonoBehaviour {
     }
     public void getHit(float damage)
     {
-<<<<<<< HEAD
-        hp -= damage;
-        checkIfDead();
-    }
-    public bool checkIfDead()
-    {
-        if (hp <= 0)
-=======
         if (isBuffed)
         {
             GetComponent<PlayerStats>().hp -= (damage/gameObject.GetComponent<PlayerStats>().buffDamageFactor);
@@ -95,7 +87,6 @@ public class StateController : MonoBehaviour {
     public bool checkIfDead()
     {
         if (GetComponent<PlayerStats>().hp <= 0)
->>>>>>> origin/master
         {
             isDead = true;
             isStunned = true;

@@ -2,7 +2,13 @@ fileFormatVersion: 2
 guid: afdd48ed3edb9cf47b55d8f6ac8c0fd2
 ModelImporter:
   serializedVersion: 16
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Coconut_sphere
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0

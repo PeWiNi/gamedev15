@@ -77,7 +77,7 @@ public class VFXScript : MonoBehaviour
         if (Input.GetKeyDown(burdenKey))
         {
             holdingCoconut = !holdingCoconut;
-            if (holdingCoconut) 
+            if (holdingCoconut)
                 burdenEffect.particleSystem.Play();
             else
                 burdenEffect.particleSystem.Stop();
@@ -143,7 +143,7 @@ public class VFXScript : MonoBehaviour
         //"Scale" according to size of user
         boost.particleSystem.startLifetime += 0.2f * userSize.y; //Works, makes the particles last longer and therefore moves further in y-axis (scaling it accoding to height of mesh)
         boost.particleSystem.transform.localScale.Scale(user.transform.lossyScale); //doesn't work 
-//TODO: Make at least the radius of particle system (shape) scale with size of user
+        //TODO: Make at least the radius of particle system (shape) scale with size of user
         //Start and Deactivate (Initialize it without it being activated)
         boost.particleSystem.Play();
         boost.SetActive(false);

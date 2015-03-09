@@ -59,10 +59,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				//Debug.Log ("team" + BoltInit.teamMemberId);
 				//state.TeamMemberId = gameObject.GetComponent<BoltInit> ().teamMemberId;
 				if (entity.isOwner) {
-<<<<<<< HEAD
-						//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
-
-=======
 						if (BoltInit.hasPickedTeamOne == true) {
 								state.TeamMemberId = 1;
 								state.TestPlayerColor = new Color (0, 1, 0, 1);
@@ -75,7 +71,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						}	
 						//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
 						//state.TeamMemberId = BoltInit.teamMemberId;
->>>>>>> origin/master
 				}  
 				state.AddCallback ("TestPlayerColor", ColorChanged);
 				state.AddCallback ("TeamMemberId", TeamSelection);

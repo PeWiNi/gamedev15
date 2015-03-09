@@ -24,11 +24,7 @@ public class BoltInit : MonoBehaviour
 		State state;
 
 		string map;
-<<<<<<< HEAD
-        string serverAddress = "169.254.81.104";//"127.0.0.1";//"169.254.185.152";
-=======
 		string serverAddress = "127.0.0.1";//"169.254.81.104";//"127.0.0.1";//"169.254.185.152";
->>>>>>> origin/master
 
 		int serverPort = 27000;
      

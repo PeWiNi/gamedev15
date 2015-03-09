@@ -6,14 +6,9 @@ using System.Linq;
 public static class PlayerObjectReg
 {
 		public static List<PlayerObject> playerObjects = new List<PlayerObject> (); 
-<<<<<<< HEAD
-//		public static CoconutObject co;
-
-=======
 //		public static List<PlayerObject> teamOnePlayerObjects = new List<PlayerObject> ();
 //		public static List<PlayerObject> teamTwoPlayerObjects = new List<PlayerObject> ();
 		
->>>>>>> origin/master
 		static PlayerObject createPlayer (BoltConnection connection)
 		{
 				PlayerObject po;

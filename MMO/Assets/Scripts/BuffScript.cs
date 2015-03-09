@@ -3,11 +3,6 @@ using System.Collections;
 
 public class BuffScript : MonoBehaviour {
 
-<<<<<<< HEAD
-	// Use this for initialization
-	void Start () {
-	
-=======
  /*
  * Costs 5% of currentHP
  * Buffs 20% dmg and damage Reduction
@@ -34,16 +29,10 @@ public class BuffScript : MonoBehaviour {
 	void Start () {
         ps = gameObject.GetComponent<PlayerStats>();
         sc = gameObject.GetComponent<StateController>();
->>>>>>> origin/master
 	}
 	
 	// Update is called once per frame
 	void Update () {
-<<<<<<< HEAD
-	
-	}
-}
-=======
 
         if (Input.GetKeyDown(KeyCode.Z) && available)
         {
@@ -81,4 +70,3 @@ public class BuffScript : MonoBehaviour {
 	}
 }
  
->>>>>>> origin/master

@@ -1,22 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SimpleMovement : MonoBehaviour {
+public class SimpleMovement : MonoBehaviour
+{
 
     public float speed = 17f;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
     void Update()
     {
         Move(transform);
         if (Input.GetKey(KeyCode.R))
             transform.position = new Vector3(0, 0, 0);
-	}
+    }
 
     /// <summary>
     /// From http://arakawa.asia/2014/04/04/ - because didn't want to bother with making it :P
