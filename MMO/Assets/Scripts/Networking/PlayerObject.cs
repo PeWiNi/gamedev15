@@ -24,9 +24,11 @@ public class PlayerObject
 						if (isServer) {
 								//character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
 								character.TakeControl ();
+								//Coconut.Instantiate ();
 						} else if (isClient) {
 								//	character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
 								character.AssignControl (connection);
+								GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.AssignControl (connection);
 						}
 				}
 		

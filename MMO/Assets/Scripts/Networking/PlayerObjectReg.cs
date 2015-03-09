@@ -6,6 +6,7 @@ using System.Linq;
 public static class PlayerObjectReg
 {
 		public static List<PlayerObject> playerObjects = new List<PlayerObject> (); 
+//		public static CoconutObject co;
 
 		static PlayerObject createPlayer (BoltConnection connection)
 		{
@@ -61,4 +62,10 @@ public static class PlayerObjectReg
 						}
 				}
 		}
+
+//		public static CoconutObject createCoconutObject ()
+//		{
+//				co = new CoconutObject ();
+//				return co;
+//		}c
 }

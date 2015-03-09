@@ -1,50 +1,24 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-[BoltGlobalBehaviour]
+[BoltGlobalBehaviour(BoltNetworkModes.Server)]
 public class ServerCallbacks : Bolt.GlobalEventListener
 {
-		//	BoltConnection connection;
 
-		void Awake ()
-		{
-				PlayerObjectReg.createServerPlayerObject ();
-				
-		}
-
-		public override void Connected (BoltConnection connection)
-		{
-				
-				Debug.Log ("connected");
-				PlayerObjectReg.createClientPlayerObject (connection);
-
-				//this.connection = connection;
-//				var log = LogEvent.Create ();
-//				log.Message = string.Format ("{0} connected", connection.RemoteEndPoint);
-//				log.Send ();
-		}
-	
-		public override void Disconnected (BoltConnection connection)
-		{
-			     
-				PlayerObjectReg.DestoryOnDisconnection (connection);
-//				var log = LogEvent.Create ();
-//				log.Message = string.Format ("{0} disconnected", connection.RemoteEndPoint);
-//				log.Send ();
-		}
-
+		BoltEntity nut;
 		public override void SceneLoadLocalDone (string map)
 		{
-//				if (connection == null) {
-//						//BoltNetwork.Instantiate (BoltPrefabs.Coconut_1, new Vector3 (1000, 5, 1000), Quaternion.identity);
-				PlayerObjectReg.serverPlayerObject.Spawn ();
-//				} 
-		}
-	
-		public override void SceneLoadRemoteDone (BoltConnection connection)
-		{
-				Debug.Log ("Spawning");
-				PlayerObjectReg.getPlayerObject (connection).Spawn ();
-		}
+				CoconutManager.Instantiate ();
+				//Debug.Log (CoconutManager.instance == null);
 
+		}
+        //public override void ControlOfEntityGained(BoltEntity entity)
+        //{
+        //    if (BoltNetwork.isServer)
+        //    {
+        //        entity.TakeControl();
+        //    }
+           
+        //}
+		
 }

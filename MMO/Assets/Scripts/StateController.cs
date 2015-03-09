@@ -51,17 +51,41 @@ public class StateController : MonoBehaviour {
 		}
 	}
 
-	public void attack(){
-		initiateCombat ();
-	} 
-
-	public bool isAbleToBuff(){
-		if (buffStartTime == 0) {
-			return true;
-		}else{
-			return false;
-		}
-	}
+    public void attack(GameObject target, float damage)
+    {
+        initiateCombat();
+        StateController targetSC = target.GetComponent<StateController>();
+        targetSC.getHit(damage);
+    }
+    public void getHit(float damage)
+    {
+        hp -= damage;
+        checkIfDead();
+    }
+    public bool checkIfDead()
+    {
+        if (hp <= 0)
+        {
+            isDead = true;
+            isStunned = true;
+            return isDead;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public bool isAbleToBuff()
+    {
+        if (buffStartTime == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 	public void checkCombatTime(){
 		if (lastCombat != 0 && (Time.time - lastCombat) >= combatCooldownTime) {

@@ -47,7 +47,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				state.TestPlayerTransform.SetTransforms (transform);
 		
 				if (entity.isOwner) {
-						state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
+						//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
 
 				}  
 		
@@ -59,6 +59,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				
 //				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
 //				snow.transform.position = snowPos;
+				if (wasd != null) {
+				}
 				position = player.transform.position;
 				if (Input.GetKeyDown (boomNanaKey)) { // Mouse0 = Left Click
 						//Debug.Log("Player pos: "+transform.position);
@@ -123,7 +125,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						}
 						//boomscript.
 				}
-				
 				if (Input.GetKey (moveUp) && !sc.isStunned) {
 						up = true;
 						if (Input.GetKey (sprint)) {
