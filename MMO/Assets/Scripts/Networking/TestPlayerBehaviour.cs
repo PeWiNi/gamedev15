@@ -9,7 +9,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		StateController sc;
 		PlayerStats ps;
 		SoundController sound;
-		public int teamId;
 
 		public KeyCode moveUp = KeyCode.W;// = KeyCode.W;
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
@@ -565,7 +564,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 
 		public void TeamSelection ()
 		{
-				teamId = state.TeamMemberId; 
+				this.gameObject.GetComponent<PlayerStats> ().teamNumber = state.TeamMemberId; 
 		}
     
 		public void ColorChanged ()
