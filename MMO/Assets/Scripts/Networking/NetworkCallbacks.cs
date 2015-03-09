@@ -8,7 +8,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		//IList<string> logMessages = new List<string> ();
 		BoltConnection connection;
 		Vector3 position;
-		TestPlayerBehaviour tpb;
+		
 
 		void Awake ()
 		{
@@ -33,11 +33,12 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	
 		public override void Disconnected (BoltConnection connection)
 		{
-				if (tpb.state.TeamMemberId == 1) {
-						PlayerObjectReg.DestoryTeamOnePlayerOnDisconnection (connection);
-				} else if (tpb.state.TeamMemberId == 2) {
-						PlayerObjectReg.DestoryTeamTwoPlayerOnDisconnection (connection);
-				}
+				PlayerObjectReg.DestoryOnDisconnection (connection);
+//				if (tpb.state.TeamMemberId == 1) {
+//						PlayerObjectReg.DestoryTeamOnePlayerOnDisconnection (connection);
+//				} else if (tpb.state.TeamMemberId == 2) {
+//						PlayerObjectReg.DestoryTeamTwoPlayerOnDisconnection (connection);
+//				}
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} disconnected", connection.RemoteEndPoint);
 //				log.Send ();
@@ -46,17 +47,16 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		public override void SceneLoadLocalDone (string map)
 		{
 //				BoltNetwork.Instantiate (BoltPrefabs.Coconut_1, new Vector3 (1000f, 5f, 1000f), Quaternion.identity);
-				if (BoltInit.hasPickedTeamOne) {
-						PlayerObjectReg.serverTeamOnePlayerObject.Spawn ();
-		
-				} else if (BoltInit.hasPickedTeamTwo) {
-						PlayerObjectReg.serverTeamTwoPlayerObject.Spawn ();
-				}
+//				if (BoltInit.hasPickedTeamOne && connection == null) {
+//						PlayerObjectReg.serverTeamOnePlayerObject.Spawn ();
+//		
+//				} else if (BoltInit.hasPickedTeamTwo && connection == null) {
+//						PlayerObjectReg.serverTeamTwoPlayerObject.Spawn ();
+//				}
 				//	PlayerObjectReg.serverPlayerObject.Spawn ();
 				PlayerObjectReg.getPlayerObject (connection).Spawn ();
 				//PlayerObjectReg.createCoconutObject ().Spawn ();
-				Debug.Log (PlayerObjectReg.teamOnePlayerObjects.Count);
-				Debug.Log (PlayerObjectReg.teamTwoPlayerObjects.Count);
+				Debug.Log ("objects" + PlayerObjectReg.playerObjects.Count);
 		}
 
 		public override void OnEvent (CoconutEvent evnt)

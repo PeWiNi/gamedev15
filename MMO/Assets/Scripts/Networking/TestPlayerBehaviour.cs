@@ -61,18 +61,19 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (entity.isOwner) {
 						if (BoltInit.hasPickedTeamOne == true) {
 								state.TeamMemberId = 1;
-								//state.TestPlayerColor = new Color (0, 1, 0, 1);
-								Debug.Log (state.TeamMemberId.ToString ());
+								state.TestPlayerColor = new Color (0, 1, 0, 1);
+								Debug.Log ("Team nr." + state.TeamMemberId.ToString ());
 						}
 						if (BoltInit.hasPickedTeamTwo == true) {
 								state.TeamMemberId = 2;
-								//state.TestPlayerColor = new Color (1, 0, 0, 1);
-								Debug.Log (state.TeamMemberId.ToString ());		
-						}			
+								state.TestPlayerColor = new Color (1, 0, 0, 1);
+								Debug.Log ("Team nr." + state.TeamMemberId.ToString ());		
+						}	
 						//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
 						//state.TeamMemberId = BoltInit.teamMemberId;
 				}  
 				state.AddCallback ("TestPlayerColor", ColorChanged);
+				state.AddCallback ("TeamMemberId", TeamSelection);
 
 		}
 		public override void SimulateController ()
@@ -562,17 +563,18 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 ////			transform.position = transform.position + (mpos.normalized * ms * BoltNetwork.frameDeltaTime);
 ////		}
 
-//		public void TeamSelection ()
-//		{
-//				BoltInit.teamMemberId = state.TeamMemberId; 
-//		}
+		public void TeamSelection ()
+		{
+				teamId = state.TeamMemberId; 
+		}
     
 		public void ColorChanged ()
 		{
 				renderer.material.color = state.TestPlayerColor;
-
 		}
 
+
+		
 		/*void OnGUI ()
 		{
 				if (entity.isOwner) {
