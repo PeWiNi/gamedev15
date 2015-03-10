@@ -70,7 +70,7 @@ public class WASD : MonoBehaviour
 
 		void OnCollisionEnter (Collision coll)
 		{ // Working!!
-				if (coll.gameObject.name.Equals ("Terrain")) { 
+				if (coll.gameObject.name.Equals ("Terrain") && sc != null) { 
 						sc.isJumping = false;
 				}
 

@@ -9,7 +9,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		StateController sc;
 		PlayerStats ps;
 		SoundController sound;
-
 		public KeyCode moveUp = KeyCode.W;// = KeyCode.W;
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 		public KeyCode moveRight = KeyCode.D;
@@ -21,19 +20,15 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		public KeyCode vomitKey;
 		public KeyCode buffKey = KeyCode.R;
 		bool up, down, left, right;
-
-		Vector3 position;  
+		Vector3 position;
 		public GameObject mainCam;
 		public GameObject snow;
-	
 		float timeSinceLastBoom;
 		float currentRotationFace;
 		float zoom = 200.0f;
 		Vector3 gravity;
-	
 		string currRotStr = "N";
 		int startup = 0;
-	
 		Vector3 camPos;
 		KeyCode sprint = KeyCode.LeftShift;
 
@@ -75,6 +70,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				state.AddCallback ("TeamMemberId", TeamSelection);
 
 		}
+
 		public override void SimulateController ()
 		{
 				
@@ -148,41 +144,53 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				}
 				if (Input.GetKey (moveUp) && !sc.isStunned) {
 						up = true;
-						if (Input.GetKey (sprint)) {
-								position.z += sc.getSpeed ();
-						} else { 
-								position.z += sc.getSpeed ();
+						if (sc.canMove) {
+								if (Input.GetKey (sprint)) {
+										position.z += sc.getSpeed ();
+								} else { 
+										position.z += sc.getSpeed ();
+								}
+								sc.isMoving = true;
 						}
-						sc.isMoving = true;
+						
 				}
 							
 				if (Input.GetKey (moveDown) && !sc.isStunned) {
 						down = true;
-						if (Input.GetKey (sprint)) {
-								position.z -= sc.getSpeed ();
-						} else {
-								position.z -= sc.getSpeed ();
+						if (sc.canMove) {
+								if (Input.GetKey (sprint)) {
+										position.z -= sc.getSpeed ();
+								} else {
+										position.z -= sc.getSpeed ();
+								}
+								sc.isMoving = true;
 						}
-						sc.isMoving = true;
+						
 				}
 							
 				if (Input.GetKey (moveRight) && !sc.isStunned) {
 						right = true;
-						if (Input.GetKey (sprint)) {
-								position.x += sc.getSpeed ();
-						} else {
-								position.x += sc.getSpeed ();
+						if (sc.canMove) {
+								if (Input.GetKey (sprint)) {
+										position.x += sc.getSpeed ();
+								} else {
+										position.x += sc.getSpeed ();
+								}
+								sc.isMoving = true;
 						}
-						sc.isMoving = true;
+						
 				}
 				if (Input.GetKey (moveLeft) && !sc.isStunned) {
 						left = true;
-						if (Input.GetKey (sprint)) {
-								position.x -= sc.getSpeed ();
-						} else {
-								position.x -= sc.getSpeed ();
+						if (sc.canMove) {
+				
+								if (Input.GetKey (sprint)) {
+										position.x -= sc.getSpeed ();
+								} else {
+										position.x -= sc.getSpeed ();
+								}
+								sc.isMoving = true;
 						}
-						sc.isMoving = true;
 				}
 				if (position != Vector3.zero) {
 						transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
@@ -490,7 +498,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						}
 						sc.isMoving = true;
 				}
-		} 
+		}
 		
 		void setRotation (bool up, bool down, bool left, bool right)
 		{

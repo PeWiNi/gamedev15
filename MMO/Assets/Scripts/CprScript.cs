@@ -9,7 +9,7 @@ public class CprScript : MonoBehaviour
      */
 
     float lastUsed;
-    bool available;
+    bool available = true;
 
     void Update()
     {
@@ -43,5 +43,8 @@ public class CprScript : MonoBehaviour
         this.gameObject.GetComponentInParent<PlayerStats>().hp = 100;
         this.gameObject.GetComponentInParent<StateController>().isDead = false;
         this.gameObject.GetComponentInParent<StateController>().isStunned = false;
+        this.gameObject.GetComponentInParent<StateController>().ressStarted = false;
+        // CALL DEATHSPAWNER -> CANCEL RESPAWN...
+        this.gameObject.GetComponentInParent<DeathSpawner>().cancelRespawn();
     }
 }
