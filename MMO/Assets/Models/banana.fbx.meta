@@ -1,28 +1,16 @@
 fileFormatVersion: 2
-guid: 99ab1a3e567e9d4488382068d51c602d
+guid: b903c72125b103340bd9a460bbf75442
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: leftEye
-    100002: //RootNode
-    100004: monguinBody
-    100006: rightEye
-    400000: leftEye
-    400002: //RootNode
-    400004: monguinBody
-    400006: rightEye
-    2300000: leftEye
-    2300002: monguinBody
-    2300004: rightEye
-    3300000: leftEye
-    3300002: monguinBody
-    3300004: rightEye
-    4300000: monguinBody
-    4300002: leftEye
-    4300004: rightEye
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pSphere1
     9500000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -40,7 +28,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: .0299999993
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

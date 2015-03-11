@@ -1,0 +1,1709 @@
+fileFormatVersion: 2
+guid: 1b2c03493544d2d49ad47f8dd2931e8d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: beak
+    100002: ears
+    100004: Ears_Group
+    100006: joint10
+    100008: joint2
+    100010: joint3
+    100012: joint4
+    100014: joint5
+    100016: joint6
+    100018: joint7
+    100020: joint8
+    100022: leftEye
+    100024: LeftEye_Group
+    100026: Monguin_Ctrl_ChestEndEffector
+    100028: Monguin_Ctrl_ChestOriginEffector
+    100030: Monguin_Ctrl_Head
+    100032: Monguin_Ctrl_HeadEffector
+    100034: Monguin_Ctrl_Hips
+    100036: Monguin_Ctrl_HipsEffector
+    100038: Monguin_Ctrl_LeftAnkleEffector
+    100040: Monguin_Ctrl_LeftArm
+    100042: Monguin_Ctrl_LeftElbowEffector
+    100044: Monguin_Ctrl_LeftFoot
+    100046: Monguin_Ctrl_LeftFootEffector
+    100048: Monguin_Ctrl_LeftForeArm
+    100050: Monguin_Ctrl_LeftHand
+    100052: Monguin_Ctrl_LeftHandMiddle1
+    100054: Monguin_Ctrl_LeftHandMiddle2
+    100056: Monguin_Ctrl_LeftHandMiddle3
+    100058: Monguin_Ctrl_LeftHandMiddle4
+    100060: Monguin_Ctrl_LeftHandMiddleEffector
+    100062: Monguin_Ctrl_LeftHipEffector
+    100064: Monguin_Ctrl_LeftKneeEffector
+    100066: Monguin_Ctrl_LeftLeg
+    100068: Monguin_Ctrl_LeftShoulder
+    100070: Monguin_Ctrl_LeftShoulderEffector
+    100072: Monguin_Ctrl_LeftToeBase
+    100074: Monguin_Ctrl_LeftUpLeg
+    100076: Monguin_Ctrl_LeftWristEffector
+    100078: Monguin_Ctrl_Reference
+    100080: Monguin_Ctrl_RightAnkleEffector
+    100082: Monguin_Ctrl_RightArm
+    100084: Monguin_Ctrl_RightElbowEffector
+    100086: Monguin_Ctrl_RightFoot
+    100088: Monguin_Ctrl_RightFootEffector
+    100090: Monguin_Ctrl_RightForeArm
+    100092: Monguin_Ctrl_RightHand
+    100094: Monguin_Ctrl_RightHandMiddle1
+    100096: Monguin_Ctrl_RightHandMiddle2
+    100098: Monguin_Ctrl_RightHandMiddle3
+    100100: Monguin_Ctrl_RightHandMiddle4
+    100102: Monguin_Ctrl_RightHandMiddleEffector
+    100104: Monguin_Ctrl_RightHipEffector
+    100106: Monguin_Ctrl_RightKneeEffector
+    100108: Monguin_Ctrl_RightLeg
+    100110: Monguin_Ctrl_RightShoulder
+    100112: Monguin_Ctrl_RightShoulderEffector
+    100114: Monguin_Ctrl_RightToeBase
+    100116: Monguin_Ctrl_RightUpLeg
+    100118: Monguin_Ctrl_RightWristEffector
+    100120: Monguin_Ctrl_Spine
+    100122: Monguin_Ctrl_Spine1
+    100124: Monguin_Ctrl_Spine2
+    100126: Monguin_Ctrl_Spine3
+    100128: Monguin_Head
+    100130: Monguin_Hips
+    100132: Monguin_LeftArm
+    100134: Monguin_LeftFoot
+    100136: Monguin_LeftForeArm
+    100138: Monguin_LeftHand
+    100140: Monguin_LeftHandMiddle1
+    100142: Monguin_LeftHandMiddle2
+    100144: Monguin_LeftHandMiddle3
+    100146: Monguin_LeftHandMiddle4
+    100148: Monguin_LeftLeg
+    100150: Monguin_LeftShoulder
+    100152: Monguin_LeftToeBase
+    100154: Monguin_LeftUpLeg
+    100156: Monguin_Reference
+    100158: Monguin_RightArm
+    100160: Monguin_RightFoot
+    100162: Monguin_RightForeArm
+    100164: Monguin_RightHand
+    100166: Monguin_RightHandMiddle1
+    100168: Monguin_RightHandMiddle2
+    100170: Monguin_RightHandMiddle3
+    100172: Monguin_RightHandMiddle4
+    100174: Monguin_RightLeg
+    100176: Monguin_RightShoulder
+    100178: Monguin_RightToeBase
+    100180: Monguin_RightUpLeg
+    100182: Monguin_Spine
+    100184: Monguin_Spine1
+    100186: Monguin_Spine2
+    100188: Monguin_Spine3
+    100190: //RootNode
+    100192: monguinBody
+    100194: MonguinMesh
+    100196: mouthInsideDown
+    100198: MouthInsideDown_Group
+    100200: mouthInsideUp
+    100202: MouthInsideUP_Group
+    100204: rightEye
+    100206: RightEye_Group
+    100208: tail_joint1
+    400000: beak
+    400002: ears
+    400004: Ears_Group
+    400006: joint10
+    400008: joint2
+    400010: joint3
+    400012: joint4
+    400014: joint5
+    400016: joint6
+    400018: joint7
+    400020: joint8
+    400022: leftEye
+    400024: LeftEye_Group
+    400026: Monguin_Ctrl_ChestEndEffector
+    400028: Monguin_Ctrl_ChestOriginEffector
+    400030: Monguin_Ctrl_Head
+    400032: Monguin_Ctrl_HeadEffector
+    400034: Monguin_Ctrl_Hips
+    400036: Monguin_Ctrl_HipsEffector
+    400038: Monguin_Ctrl_LeftAnkleEffector
+    400040: Monguin_Ctrl_LeftArm
+    400042: Monguin_Ctrl_LeftElbowEffector
+    400044: Monguin_Ctrl_LeftFoot
+    400046: Monguin_Ctrl_LeftFootEffector
+    400048: Monguin_Ctrl_LeftForeArm
+    400050: Monguin_Ctrl_LeftHand
+    400052: Monguin_Ctrl_LeftHandMiddle1
+    400054: Monguin_Ctrl_LeftHandMiddle2
+    400056: Monguin_Ctrl_LeftHandMiddle3
+    400058: Monguin_Ctrl_LeftHandMiddle4
+    400060: Monguin_Ctrl_LeftHandMiddleEffector
+    400062: Monguin_Ctrl_LeftHipEffector
+    400064: Monguin_Ctrl_LeftKneeEffector
+    400066: Monguin_Ctrl_LeftLeg
+    400068: Monguin_Ctrl_LeftShoulder
+    400070: Monguin_Ctrl_LeftShoulderEffector
+    400072: Monguin_Ctrl_LeftToeBase
+    400074: Monguin_Ctrl_LeftUpLeg
+    400076: Monguin_Ctrl_LeftWristEffector
+    400078: Monguin_Ctrl_Reference
+    400080: Monguin_Ctrl_RightAnkleEffector
+    400082: Monguin_Ctrl_RightArm
+    400084: Monguin_Ctrl_RightElbowEffector
+    400086: Monguin_Ctrl_RightFoot
+    400088: Monguin_Ctrl_RightFootEffector
+    400090: Monguin_Ctrl_RightForeArm
+    400092: Monguin_Ctrl_RightHand
+    400094: Monguin_Ctrl_RightHandMiddle1
+    400096: Monguin_Ctrl_RightHandMiddle2
+    400098: Monguin_Ctrl_RightHandMiddle3
+    400100: Monguin_Ctrl_RightHandMiddle4
+    400102: Monguin_Ctrl_RightHandMiddleEffector
+    400104: Monguin_Ctrl_RightHipEffector
+    400106: Monguin_Ctrl_RightKneeEffector
+    400108: Monguin_Ctrl_RightLeg
+    400110: Monguin_Ctrl_RightShoulder
+    400112: Monguin_Ctrl_RightShoulderEffector
+    400114: Monguin_Ctrl_RightToeBase
+    400116: Monguin_Ctrl_RightUpLeg
+    400118: Monguin_Ctrl_RightWristEffector
+    400120: Monguin_Ctrl_Spine
+    400122: Monguin_Ctrl_Spine1
+    400124: Monguin_Ctrl_Spine2
+    400126: Monguin_Ctrl_Spine3
+    400128: Monguin_Head
+    400130: Monguin_Hips
+    400132: Monguin_LeftArm
+    400134: Monguin_LeftFoot
+    400136: Monguin_LeftForeArm
+    400138: Monguin_LeftHand
+    400140: Monguin_LeftHandMiddle1
+    400142: Monguin_LeftHandMiddle2
+    400144: Monguin_LeftHandMiddle3
+    400146: Monguin_LeftHandMiddle4
+    400148: Monguin_LeftLeg
+    400150: Monguin_LeftShoulder
+    400152: Monguin_LeftToeBase
+    400154: Monguin_LeftUpLeg
+    400156: Monguin_Reference
+    400158: Monguin_RightArm
+    400160: Monguin_RightFoot
+    400162: Monguin_RightForeArm
+    400164: Monguin_RightHand
+    400166: Monguin_RightHandMiddle1
+    400168: Monguin_RightHandMiddle2
+    400170: Monguin_RightHandMiddle3
+    400172: Monguin_RightHandMiddle4
+    400174: Monguin_RightLeg
+    400176: Monguin_RightShoulder
+    400178: Monguin_RightToeBase
+    400180: Monguin_RightUpLeg
+    400182: Monguin_Spine
+    400184: Monguin_Spine1
+    400186: Monguin_Spine2
+    400188: Monguin_Spine3
+    400190: //RootNode
+    400192: monguinBody
+    400194: MonguinMesh
+    400196: mouthInsideDown
+    400198: MouthInsideDown_Group
+    400200: mouthInsideUp
+    400202: MouthInsideUP_Group
+    400204: rightEye
+    400206: RightEye_Group
+    400208: tail_joint1
+    2300000: ears
+    2300002: leftEye
+    2300004: mouthInsideDown
+    2300006: mouthInsideUp
+    2300008: rightEye
+    3300000: ears
+    3300002: leftEye
+    3300004: mouthInsideDown
+    3300006: mouthInsideUp
+    3300008: rightEye
+    4300000: monguinBody
+    4300002: rightEye
+    4300004: leftEye
+    4300006: mouthInsideUp
+    4300008: mouthInsideDown
+    4300010: ears
+    7400000: BOOMnana
+    7400002: AMP
+    7400004: Fish
+    7400006: TailSlap
+    7400008: Puke
+    7400010: Coconut
+    9500000: //RootNode
+    13700000: monguinBody
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: BOOMnana
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 1.10000002
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monguin_Ctrl_Reference
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HeadEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot/Monguin_Ctrl_LeftToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot/Monguin_Ctrl_RightToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_Head
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3/Monguin_Ctrl_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3/Monguin_Ctrl_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HipsEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightWristEffector
+        weight: 1
+      - path: Monguin_Reference
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot/Monguin_LeftToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot/Monguin_RightToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint8
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint10
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_Head
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3/Monguin_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3/Monguin_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6/joint7
+        weight: 1
+      - path: MonguinMesh
+        weight: 1
+      - path: MonguinMesh/Ears_Group
+        weight: 1
+      - path: MonguinMesh/Ears_Group/ears
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group/leftEye
+        weight: 1
+      - path: MonguinMesh/monguinBody
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group/mouthInsideDown
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group/mouthInsideUp
+        weight: 1
+      - path: MonguinMesh/RightEye_Group
+        weight: 1
+      - path: MonguinMesh/RightEye_Group/rightEye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AMP
+      takeName: Take 001
+      firstFrame: 5
+      lastFrame: 5.0999999
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monguin_Ctrl_Reference
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HeadEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot/Monguin_Ctrl_LeftToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot/Monguin_Ctrl_RightToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_Head
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3/Monguin_Ctrl_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3/Monguin_Ctrl_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HipsEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightWristEffector
+        weight: 1
+      - path: Monguin_Reference
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot/Monguin_LeftToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot/Monguin_RightToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint8
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint10
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_Head
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3/Monguin_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3/Monguin_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6/joint7
+        weight: 1
+      - path: MonguinMesh
+        weight: 1
+      - path: MonguinMesh/Ears_Group
+        weight: 1
+      - path: MonguinMesh/Ears_Group/ears
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group/leftEye
+        weight: 1
+      - path: MonguinMesh/monguinBody
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group/mouthInsideDown
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group/mouthInsideUp
+        weight: 1
+      - path: MonguinMesh/RightEye_Group
+        weight: 1
+      - path: MonguinMesh/RightEye_Group/rightEye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fish
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 10.1000004
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monguin_Ctrl_Reference
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HeadEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot/Monguin_Ctrl_LeftToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot/Monguin_Ctrl_RightToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_Head
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3/Monguin_Ctrl_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3/Monguin_Ctrl_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HipsEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightWristEffector
+        weight: 1
+      - path: Monguin_Reference
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot/Monguin_LeftToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot/Monguin_RightToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint8
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint10
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_Head
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3/Monguin_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3/Monguin_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6/joint7
+        weight: 1
+      - path: MonguinMesh
+        weight: 1
+      - path: MonguinMesh/Ears_Group
+        weight: 1
+      - path: MonguinMesh/Ears_Group/ears
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group/leftEye
+        weight: 1
+      - path: MonguinMesh/monguinBody
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group/mouthInsideDown
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group/mouthInsideUp
+        weight: 1
+      - path: MonguinMesh/RightEye_Group
+        weight: 1
+      - path: MonguinMesh/RightEye_Group/rightEye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: TailSlap
+      takeName: Take 001
+      firstFrame: 15
+      lastFrame: 15.1000004
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monguin_Ctrl_Reference
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HeadEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot/Monguin_Ctrl_LeftToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot/Monguin_Ctrl_RightToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_Head
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3/Monguin_Ctrl_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3/Monguin_Ctrl_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HipsEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightWristEffector
+        weight: 1
+      - path: Monguin_Reference
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot/Monguin_LeftToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot/Monguin_RightToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint8
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint10
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_Head
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3/Monguin_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3/Monguin_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6/joint7
+        weight: 1
+      - path: MonguinMesh
+        weight: 1
+      - path: MonguinMesh/Ears_Group
+        weight: 1
+      - path: MonguinMesh/Ears_Group/ears
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group/leftEye
+        weight: 1
+      - path: MonguinMesh/monguinBody
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group/mouthInsideDown
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group/mouthInsideUp
+        weight: 1
+      - path: MonguinMesh/RightEye_Group
+        weight: 1
+      - path: MonguinMesh/RightEye_Group/rightEye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Puke
+      takeName: Take 001
+      firstFrame: 20
+      lastFrame: 20.1000004
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monguin_Ctrl_Reference
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HeadEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot/Monguin_Ctrl_LeftToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot/Monguin_Ctrl_RightToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_Head
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3/Monguin_Ctrl_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3/Monguin_Ctrl_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HipsEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightWristEffector
+        weight: 1
+      - path: Monguin_Reference
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot/Monguin_LeftToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot/Monguin_RightToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint8
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint10
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_Head
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3/Monguin_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3/Monguin_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6/joint7
+        weight: 1
+      - path: MonguinMesh
+        weight: 1
+      - path: MonguinMesh/Ears_Group
+        weight: 1
+      - path: MonguinMesh/Ears_Group/ears
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group/leftEye
+        weight: 1
+      - path: MonguinMesh/monguinBody
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group/mouthInsideDown
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group/mouthInsideUp
+        weight: 1
+      - path: MonguinMesh/RightEye_Group
+        weight: 1
+      - path: MonguinMesh/RightEye_Group/rightEye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Coconut
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 25.1000004
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monguin_Ctrl_Reference
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HeadEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_LeftUpLeg/Monguin_Ctrl_LeftLeg/Monguin_Ctrl_LeftFoot/Monguin_Ctrl_LeftToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_RightUpLeg/Monguin_Ctrl_RightLeg/Monguin_Ctrl_RightFoot/Monguin_Ctrl_RightToeBase
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_Head
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_LeftShoulder/Monguin_Ctrl_LeftArm/Monguin_Ctrl_LeftForeArm/Monguin_Ctrl_LeftHand/Monguin_Ctrl_LeftHandMiddle1/Monguin_Ctrl_LeftHandMiddle2/Monguin_Ctrl_LeftHandMiddle3/Monguin_Ctrl_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_Hips/Monguin_Ctrl_Spine/Monguin_Ctrl_Spine1/Monguin_Ctrl_Spine2/Monguin_Ctrl_Spine3/Monguin_Ctrl_RightShoulder/Monguin_Ctrl_RightArm/Monguin_Ctrl_RightForeArm/Monguin_Ctrl_RightHand/Monguin_Ctrl_RightHandMiddle1/Monguin_Ctrl_RightHandMiddle2/Monguin_Ctrl_RightHandMiddle3/Monguin_Ctrl_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_HipsEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightFootEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHandMiddleEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightHipEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Monguin_Ctrl_Reference/Monguin_Ctrl_RightWristEffector
+        weight: 1
+      - path: Monguin_Reference
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_LeftUpLeg/Monguin_LeftLeg/Monguin_LeftFoot/Monguin_LeftToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_RightUpLeg/Monguin_RightLeg/Monguin_RightFoot/Monguin_RightToeBase
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint8
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/beak/joint10
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_Head
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_LeftShoulder/Monguin_LeftArm/Monguin_LeftForeArm/Monguin_LeftHand/Monguin_LeftHandMiddle1/Monguin_LeftHandMiddle2/Monguin_LeftHandMiddle3/Monguin_LeftHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/Monguin_Spine/Monguin_Spine1/Monguin_Spine2/Monguin_Spine3/Monguin_RightShoulder/Monguin_RightArm/Monguin_RightForeArm/Monguin_RightHand/Monguin_RightHandMiddle1/Monguin_RightHandMiddle2/Monguin_RightHandMiddle3/Monguin_RightHandMiddle4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: Monguin_Reference/Monguin_Hips/tail_joint1/joint2/joint3/joint4/joint5/joint6/joint7
+        weight: 1
+      - path: MonguinMesh
+        weight: 1
+      - path: MonguinMesh/Ears_Group
+        weight: 1
+      - path: MonguinMesh/Ears_Group/ears
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group
+        weight: 1
+      - path: MonguinMesh/LeftEye_Group/leftEye
+        weight: 1
+      - path: MonguinMesh/monguinBody
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideDown_Group/mouthInsideDown
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group
+        weight: 1
+      - path: MonguinMesh/MouthInsideUP_Group/mouthInsideUp
+        weight: 1
+      - path: MonguinMesh/RightEye_Group
+        weight: 1
+      - path: MonguinMesh/RightEye_Group/rightEye
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 1
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

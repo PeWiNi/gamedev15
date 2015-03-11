@@ -1,28 +1,30 @@
 fileFormatVersion: 2
-guid: 99ab1a3e567e9d4488382068d51c602d
+guid: 25b90032fb3c3504e9e427edd3f3720b
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: leftEye
-    100002: //RootNode
-    100004: monguinBody
-    100006: rightEye
-    400000: leftEye
-    400002: //RootNode
-    400004: monguinBody
-    400006: rightEye
-    2300000: leftEye
-    2300002: monguinBody
-    2300004: rightEye
-    3300000: leftEye
-    3300002: monguinBody
-    3300004: rightEye
-    4300000: monguinBody
-    4300002: leftEye
-    4300004: rightEye
+    100000: pCylinder1
+    100002: pCylinder2
+    100004: pCylinder3
+    100006: polySurface1
+    100008: transform1
+    100010: transform2
+    100012: transform3
+    100014: //RootNode
+    400000: pCylinder1
+    400002: pCylinder2
+    400004: pCylinder3
+    400006: polySurface1
+    400008: transform1
+    400010: transform2
+    400012: transform3
+    400014: //RootNode
+    2300000: polySurface1
+    3300000: polySurface1
+    4300000: polySurface1
     9500000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -40,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 2
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

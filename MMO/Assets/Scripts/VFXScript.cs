@@ -142,6 +142,7 @@ public class VFXScript : MonoBehaviour
         boost.transform.Rotate(Vector3.right, -90);
         //"Scale" according to size of user
         boost.particleSystem.startLifetime += 0.2f * userSize.y; //Works, makes the particles last longer and therefore moves further in y-axis (scaling it accoding to height of mesh)
+        //boost.particleSystem.shape.radius = 2;
         boost.particleSystem.transform.localScale.Scale(user.transform.lossyScale); //doesn't work 
         //TODO: Make at least the radius of particle system (shape) scale with size of user
         //Start and Deactivate (Initialize it without it being activated)
