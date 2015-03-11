@@ -10,6 +10,8 @@ public class StateController : MonoBehaviour {
 	public bool isHolding = false;
 	public bool isJumping = false;
 	public bool isBuffed = false;
+    public bool canMove = true;
+    public bool ressStarted = false;
 
 	public float combatEnteredTime;  
 	public float lastAttack;
@@ -90,6 +92,13 @@ public class StateController : MonoBehaviour {
         {
             isDead = true;
             isStunned = true;
+            // INITIATE DEATHSPAWNER!!!
+            if (!ressStarted)
+            {
+                ressStarted = true;
+                this.gameObject.GetComponent<DeathSpawner>().startRespawn();
+            }
+            
             return isDead;
         }
         else
