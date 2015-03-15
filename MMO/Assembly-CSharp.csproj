@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\NewBehaviourScript1.cs" />
+     <Compile Include="Assets\Scripts\AOE.cs" />
      <Compile Include="Assets\Scripts\BaseStats.cs" />
      <Compile Include="Assets\Scripts\BeaconZone.cs" />
      <Compile Include="Assets\Scripts\Boomnana.cs" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets\Scripts\Coconut.cs" />
      <Compile Include="Assets\Scripts\CombatScript.cs" />
      <Compile Include="Assets\Scripts\CprScript.cs" />
+     <Compile Include="Assets\Scripts\DeathSpawner.cs" />
      <Compile Include="Assets\Scripts\HUDScript.cs" />
      <Compile Include="Assets\Scripts\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Networking\CoconutController.cs" />

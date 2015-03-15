@@ -20,593 +20,280 @@ Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\MatsTest_Data\M
 Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\MatsTest_Data\Managed\udpkit.common.dll into Unity Child Domain
 Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\MatsTest_Data\Managed\udpkit.dll (this message is harmless)
 Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\MatsTest_Data\Managed\udpkit.dll into Unity Child Domain
-- Completed reload, in  0.231 seconds
+- Completed reload, in  0.204 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\MatsTest_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\MatsTest_Data\Managed\System.dll (this message is harmless)
 Starting at 60 fps (0.01666667 fixed frame delta)
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:307)
-BoltCore:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:928)
-BoltNetworkInternal:__Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:35)
-BoltLauncher:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:88)
-BoltLauncher:StartServer(UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:35)
-BoltLauncher:StartServer(UdpEndPoint) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:31)
-BoltInit:State_StartServer() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:98)
-BoltInit:OnGUI() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:52)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Creating Global Behaviour: 'BoltConsole'
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-BoltCore:CreateGlobalBehaviour(Type) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:811)
-BoltCore:UpdateActiveGlobalBehaviours(Int32) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:771)
-BoltCore:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:991)
-BoltNetworkInternal:__Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:35)
-BoltLauncher:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:88)
-BoltLauncher:StartServer(UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:35)
-BoltLauncher:StartServer(UdpEndPoint) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:31)
-BoltInit:State_StartServer() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:98)
-BoltInit:OnGUI() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:52)
- 
-(Filename: c Line: 0)
-
-3/5/2015 2:29:17 PM: socket created
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Creating Global Behaviour: 'BoltPoll'
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-BoltCore:CreateGlobalBehaviour(Type) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:811)
-BoltCore:UpdateActiveGlobalBehaviours(Int32) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:783)
-BoltCore:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:991)
-BoltNetworkInternal:__Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:35)
-BoltLauncher:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:88)
-BoltLauncher:StartServer(UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:35)
-BoltLauncher:StartServer(UdpEndPoint) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:31)
-BoltInit:State_StartServer() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:98)
-BoltInit:OnGUI() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:52)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Creating Global Behaviour: 'BoltSend'
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-BoltCore:CreateGlobalBehaviour(Type) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:811)
-BoltCore:UpdateActiveGlobalBehaviours(Int32) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:784)
-BoltCore:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:991)
-BoltNetworkInternal:__Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:35)
-BoltLauncher:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:88)
-BoltLauncher:StartServer(UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:35)
-BoltLauncher:StartServer(UdpEndPoint) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:31)
-BoltInit:State_StartServer() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:98)
-BoltInit:OnGUI() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:52)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Creating Global Behaviour: 'BoltSceneLoader'
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-BoltCore:CreateGlobalBehaviour(Type) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:811)
-BoltCore:UpdateActiveGlobalBehaviours(Int32) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:785)
-BoltCore:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:991)
-BoltNetworkInternal:__Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:35)
-BoltLauncher:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:88)
-BoltLauncher:StartServer(UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:35)
-BoltLauncher:StartServer(UdpEndPoint) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:31)
-BoltInit:State_StartServer() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:98)
-BoltInit:OnGUI() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:52)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/9/2015 3:59:37 PM: socket created
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Creating Global Behaviour: 'NetworkCallbacks'
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-BoltCore:CreateGlobalBehaviour(Type) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:811)
-BoltCore:UpdateActiveGlobalBehaviours(Int32) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:793)
-BoltCore:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:991)
-BoltNetworkInternal:__Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:35)
-BoltLauncher:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:88)
-BoltLauncher:StartServer(UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:35)
-BoltLauncher:StartServer(UdpEndPoint) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:31)
-BoltInit:State_StartServer() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:98)
-BoltInit:OnGUI() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:52)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Creating Global Behaviour: 'ServerCallbacks'
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-BoltCore:CreateGlobalBehaviour(Type) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:811)
-BoltCore:UpdateActiveGlobalBehaviours(Int32) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:793)
-BoltCore:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:991)
-BoltNetworkInternal:__Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:35)
-BoltLauncher:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:88)
-BoltLauncher:StartServer(UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:35)
-BoltLauncher:StartServer(UdpEndPoint) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:31)
-BoltInit:State_StartServer() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:98)
-BoltInit:OnGUI() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:52)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback RegisterStreamChannels
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:RegisterStreamChannelsInvoke() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:127)
-BoltCore:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:994)
-BoltNetworkInternal:__Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig, UdpPlatform) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:35)
-BoltLauncher:Initialize(BoltNetworkModes, UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:88)
-BoltLauncher:StartServer(UdpEndPoint, BoltConfig) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:35)
-BoltLauncher:StartServer(UdpEndPoint) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltLauncher.cs:31)
-BoltInit:State_StartServer() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:98)
-BoltInit:OnGUI() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:52)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Loading Bolt.SceneLoadState (Scene1Test)
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:307)
-BoltSceneLoader:Enqueue(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:77)
-BoltCore:LoadSceneInternal(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:303)
-BoltCore:LoadScene(Int32, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:294)
-BoltNetwork:LoadScene(String, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:1224)
-BoltNetwork:LoadScene(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:1194)
-BoltInit:State_StartServer() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:99)
-BoltInit:OnGUI() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\bolt\scripts\BoltInit.cs:52)
- 
-(Filename: c Line: 0)
-
-3/5/2015 2:29:17 PM: Binding physical socket using platform 'DotNetPlatform'
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/5/2015 2:29:17 PM: Socket bound to [EndPoint 0.0.0.0:27000 | 27000]
+3/9/2015 3:59:37 PM: Binding physical socket using platform 'DotNetPlatform'
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/5/2015 2:29:17 PM: Physical socket bound to [EndPoint 0.0.0.0:27000 | 27000]
+Creating Global Behaviour: 'PlayerCallbacks'
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback SceneLoadLocalBegin
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/9/2015 3:59:37 PM: Socket bound to [EndPoint 0.0.0.0:27000 | 27000]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/9/2015 3:59:37 PM: Physical socket bound to [EndPoint 0.0.0.0:27000 | 27000]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/MatsTest_Data/Mono/libc
 Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/MatsTest_Data/Mono/.\libc
 Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/MatsTest_Data/Mono/libc
-Creating Global Behaviour: 'PlayerCallbacks'
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-BoltCore:CreateGlobalBehaviour(Type) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:811)
-BoltCore:UpdateActiveGlobalBehaviours(Int32) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:793)
-BoltCore:SceneLoadBegin(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1065)
-BoltSceneLoader:Load() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:38)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:22)
- 
-(Filename: c Line: 0)
-
-Invoking callback SceneLoadLocalBegin
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:SceneLoadLocalBeginInvoke(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:175)
-BoltCore:SceneLoadBegin(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1068)
-BoltSceneLoader:Load() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:38)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:22)
- 
-(Filename: c Line: 0)
-
-3/5/2015 2:29:17 PM: 10.25.195.152 10.25.0.1,130.226.142.2,130.226.142.3,10.25.195.1
+3/9/2015 3:59:37 PM: 10.25.195.152 10.25.0.1,130.226.142.2,130.226.142.3,10.25.195.1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/5/2015 2:29:17 PM: 192.168.56.1 0.0.0.0,192.168.56.1
+3/9/2015 3:59:37 PM: 169.254.81.104 0.0.0.0,169.254.81.1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/5/2015 2:29:17 PM: LAN endpoint resolved as [EndPoint 10.25.195.152:27000 | 727827872399518072]
+3/9/2015 3:59:37 PM: 192.168.56.1 0.0.0.0,192.168.56.1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/5/2015 2:29:17 PM: physical socket started
+3/9/2015 3:59:37 PM: LAN endpoint resolved as [EndPoint 10.25.195.152:27000 | 727827872399518072]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/9/2015 3:59:37 PM: physical socket started
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
 The referenced script on this Behaviour is missing!
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/Runtime/Mono/MonoBehaviour.cpp Line: 1788)
+(Filename:  Line: 1788)
 
-UnloadTime: 0.239759 ms
-System memory in use before: 30.8 MB.
+UnloadTime: 0.298467 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-System memory in use after: 28.3 MB.
 
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 476.
-Total: 3.429705 ms (FindLiveObjects: 0.023811 ms CreateObjectMapping: 0.012316 ms MarkObjects: 2.347504 ms  DeleteObjects: 0.322689 ms)
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 518.
+Total: 3.286834 ms (FindLiveObjects: 0.020937 ms CreateObjectMapping: 0.009032 ms MarkObjects: 2.361463 ms  DeleteObjects: 0.351427 ms)
 
 Invoking callback BoltStarted
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:BoltStartedInvoke() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:50)
-BoltCore:PollNetwork() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:441)
-BoltCore:Poll() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:642)
-BoltPoll:FixedUpdate() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:47)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Found 3 Scene Objects
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-BoltCore:UpdateSceneObjectsLookup() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1100)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1082)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
+Found 2 Scene Objects
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Team nr.1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback EntityAttached
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:EntityAttachedInvoke(BoltEntity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:760)
-Bolt.Entity:Attach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:248)
-BoltCore:Attach(GameObject, TypeId, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:251)
-BoltCore:Attach(GameObject, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:241)
-BoltCore:Attach(GameObject, EntityFlags) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:236)
-BoltCore:UpdateSceneObjectsLookup() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1108)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1082)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Attached [Entity [NetworkId 0-0-0-1-0-0-0-1] TestPlayerState]
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-Bolt.Entity:Attach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:278)
-BoltCore:Attach(GameObject, TypeId, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:251)
-BoltCore:Attach(GameObject, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:241)
-BoltCore:Attach(GameObject, EntityFlags) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:236)
-BoltCore:UpdateSceneObjectsLookup() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1108)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1082)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback EntityAttached
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:EntityAttachedInvoke(BoltEntity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:760)
-Bolt.Entity:Attach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:248)
-BoltCore:Attach(GameObject, TypeId, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:251)
-BoltCore:Attach(GameObject, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:241)
-BoltCore:Attach(GameObject, EntityFlags) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:236)
-BoltCore:UpdateSceneObjectsLookup() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1108)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1082)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Attached [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-Bolt.Entity:Attach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:278)
-BoltCore:Attach(GameObject, TypeId, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:251)
-BoltCore:Attach(GameObject, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:241)
-BoltCore:Attach(GameObject, EntityFlags) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:236)
-BoltCore:UpdateSceneObjectsLookup() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1108)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1082)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
+Attached [Entity [NetworkId 0-0-0-2-0-0-0-1] CoconutState]
  
-(Filename: c Line: 0)
-
-Invoking callback EntityAttached
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:EntityAttachedInvoke(BoltEntity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:760)
-Bolt.Entity:Attach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:248)
-BoltCore:Attach(GameObject, TypeId, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:251)
-BoltCore:Attach(GameObject, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:241)
-BoltCore:Attach(GameObject, EntityFlags) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:236)
-BoltCore:UpdateSceneObjectsLookup() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1108)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1082)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
- 
-(Filename: c Line: 0)
-
-Attached [Entity [NetworkId 0-0-0-3-0-0-0-1] CoconutState]
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-Bolt.Entity:Attach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:278)
-BoltCore:Attach(GameObject, TypeId, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:251)
-BoltCore:Attach(GameObject, EntityFlags, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:241)
-BoltCore:Attach(GameObject, EntityFlags) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:236)
-BoltCore:UpdateSceneObjectsLookup() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1108)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1082)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
- 
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback SceneLoadLocalDone
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:SceneLoadLocalDoneInvoke(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:219)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1085)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Team nr.1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback EntityAttached
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:EntityAttachedInvoke(BoltEntity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:760)
-Bolt.Entity:Attach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:248)
-BoltCore:Instantiate(PrefabId, TypeId, Vector3, Quaternion, InstantiateFlags, BoltConnection, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:230)
-BoltNetwork:Instantiate(GameObject, IProtocolToken, Vector3, Quaternion) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:772)
-BoltNetwork:Instantiate(PrefabId, IProtocolToken, Vector3, Quaternion) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:865)
-BoltNetwork:Instantiate(PrefabId) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:793)
-PlayerObject:Spawn() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\Scripts\Networking\PlayerObject.cs:22)
-NetworkCallbacks:SceneLoadLocalDone(String) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\Scripts\Networking\NetworkCallbacks.cs:44)
-BoltInternal.GlobalEventListenerBase:SceneLoadLocalDoneInvoke(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:222)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1085)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Attached [Entity [NetworkId 0-0-0-4-0-0-0-1] TestPlayerState]
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-Bolt.Entity:Attach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:278)
-BoltCore:Instantiate(PrefabId, TypeId, Vector3, Quaternion, InstantiateFlags, BoltConnection, IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:230)
-BoltNetwork:Instantiate(GameObject, IProtocolToken, Vector3, Quaternion) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:772)
-BoltNetwork:Instantiate(PrefabId, IProtocolToken, Vector3, Quaternion) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:865)
-BoltNetwork:Instantiate(PrefabId) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltNetwork.cs:793)
-PlayerObject:Spawn() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\Scripts\Networking\PlayerObject.cs:22)
-NetworkCallbacks:SceneLoadLocalDone(String) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\Scripts\Networking\NetworkCallbacks.cs:44)
-BoltInternal.GlobalEventListenerBase:SceneLoadLocalDoneInvoke(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:222)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1085)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
+Attached [Entity [NetworkId 0-0-0-3-0-0-0-1] TestPlayerState]
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback ControlOfEntityGained
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:ControlOfEntityGainedInvoke(BoltEntity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:701)
-Bolt.Entity:TakeControlInternal(IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.Control.cs:36)
-Bolt.Entity:TakeControl(IProtocolToken) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.Control.cs:15)
-BoltEntity:TakeControl() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltEntity.cs:523)
-PlayerObject:Spawn() (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\Scripts\Networking\PlayerObject.cs:26)
-NetworkCallbacks:SceneLoadLocalDone(String) (at C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\Assets\Scripts\Networking\NetworkCallbacks.cs:44)
-BoltInternal.GlobalEventListenerBase:SceneLoadLocalDoneInvoke(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:222)
-BoltCore:SceneLoadDone(SceneLoadState) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:1085)
-BoltSceneLoader:Update() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\SceneLoader.cs:29)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+objects1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
-Shutdown
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Info(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:189)
-BoltLog:Info(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:236)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:309)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
+3/9/2015 3:59:42 PM: [EndPoint 127.0.0.1:56214 | 9151314447111871382] connected
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-1-0-0-0-1] TestPlayerState] on [Connection [EndPoint 127.0.0.1:56214 | 9151314447111871382]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-2-0-0-0-1] CoconutState] on [Connection [EndPoint 127.0.0.1:56214 | 9151314447111871382]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-3-0-0-0-1] TestPlayerState] on [Connection [EndPoint 127.0.0.1:56214 | 9151314447111871382]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME RESET: -1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating instance of [PrefabId:8]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityAttached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState] from [Connection [EndPoint 127.0.0.1:56214 | 9151314447111871382]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityReceived
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback SceneLoadRemoteDone
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/9/2015 3:59:58 PM: [EndPoint 127.0.0.1:56214 | 9151314447111871382] disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback BoltShutdown
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:BoltShutdownInvoke() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:24)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:312)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback EntityDetached
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:EntityDetachedInvoke(BoltEntity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:818)
-Bolt.Entity:Detach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:307)
-BoltCore:DestroyForce(Entity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:207)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:322)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Detached [Entity [NetworkId 0-0-0-1-0-0-0-1] TestPlayerState]
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-Bolt.Entity:Detach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:352)
-BoltCore:DestroyForce(Entity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:207)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:322)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback EntityDetached
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:EntityDetachedInvoke(BoltEntity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:818)
-Bolt.Entity:Detach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:307)
-BoltCore:DestroyForce(Entity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:207)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:322)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Detached [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-Bolt.Entity:Detach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:352)
-BoltCore:DestroyForce(Entity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:207)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:322)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
+Detached [Entity [NetworkId 0-0-0-2-0-0-0-1] CoconutState]
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback EntityDetached
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:EntityDetachedInvoke(BoltEntity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:818)
-Bolt.Entity:Detach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:307)
-BoltCore:DestroyForce(Entity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:207)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:322)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Detached [Entity [NetworkId 0-0-0-3-0-0-0-1] CoconutState]
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-Bolt.Entity:Detach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:352)
-BoltCore:DestroyForce(Entity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:207)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:322)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
+Detached [Entity [NetworkId 0-0-0-3-0-0-0-1] TestPlayerState]
  
-(Filename: c Line: 0)
-
-Invoking callback EntityDetached
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltInternal.GlobalEventListenerBase:EntityDetachedInvoke(BoltEntity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\T4\GlobalEventListener.cs:818)
-Bolt.Entity:Detach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:307)
-BoltCore:DestroyForce(Entity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:207)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:322)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
- 
-(Filename: c Line: 0)
-
-Detached [Entity [NetworkId 0-0-0-4-0-0-0-1] TestPlayerState]
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Unity:BoltLog.IWriter.Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:193)
-BoltLog:Debug(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:284)
-BoltLog:Debug(String, Object) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:300)
-Bolt.Entity:Detach() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\entity\Entity.cs:352)
-BoltCore:DestroyForce(Entity) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:207)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:322)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
- 
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Behaviour not available in this dispatcher, ignoring call to Remove.
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-Unity:BoltLog.IWriter.Warn(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:197)
-BoltLog:Warn(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:338)
-Bolt.EventDispatcher:Remove(MonoBehaviour) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\event\EventDispatcher.cs:79)
-BoltInternal.GlobalEventListenerBase:OnDisable() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\GlobalEventListener.cs:32)
-UnityEngine.Object:Destroy(Object, Single)
-UnityEngine.Object:Destroy(Object) (at C:\BuildAgent\work\d63dfc6385190b60\artifacts\StandalonePlayerGenerated\UnityEngineObject.cs:115)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:331)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Behaviour not available in this dispatcher, ignoring call to Remove.
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-Unity:BoltLog.IWriter.Warn(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:197)
-BoltLog:Warn(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:338)
-Bolt.EventDispatcher:Remove(MonoBehaviour) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\event\EventDispatcher.cs:79)
-BoltInternal.GlobalEventListenerBase:OnDisable() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\GlobalEventListener.cs:32)
-UnityEngine.Object:Destroy(Object, Single)
-UnityEngine.Object:Destroy(Object) (at C:\BuildAgent\work\d63dfc6385190b60\artifacts\StandalonePlayerGenerated\UnityEngineObject.cs:115)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:331)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Behaviour not available in this dispatcher, ignoring call to Remove.
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-Unity:BoltLog.IWriter.Warn(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:197)
-BoltLog:Warn(String) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltLog.cs:338)
-Bolt.EventDispatcher:Remove(MonoBehaviour) (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\event\EventDispatcher.cs:79)
-BoltInternal.GlobalEventListenerBase:OnDisable() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\GlobalEventListener.cs:32)
-UnityEngine.Object:Destroy(Object, Single)
-UnityEngine.Object:Destroy(Object) (at C:\BuildAgent\work\d63dfc6385190b60\artifacts\StandalonePlayerGenerated\UnityEngineObject.cs:115)
-BoltCore:Shutdown() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltCore.cs:331)
-BoltPoll:OnApplicationQuit() (at c:\Users\Fredrik\Documents\GitHub\bolt\src\bolt\bolt\BoltPoll.cs:63)
  
-(Filename: c Line: 0)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
