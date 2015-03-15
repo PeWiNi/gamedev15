@@ -49,6 +49,7 @@
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\NewBehaviourScript1.cs" />
      <Compile Include="Assets\Scripts\BaseStats.cs" />
+     <Compile Include="Assets\Scripts\BeaconZone.cs" />
      <Compile Include="Assets\Scripts\Boomnana.cs" />
      <Compile Include="Assets\Scripts\BuffScript.cs" />
      <Compile Include="Assets\Scripts\CCScript.cs" />
@@ -72,6 +73,8 @@
      <Compile Include="Assets\Scripts\Networking\TestPlayerBehaviour.cs" />
      <Compile Include="Assets\Scripts\Networking\coconutObjectOld.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\ScoreOneManager.cs" />
+     <Compile Include="Assets\Scripts\ScoreTwoManager.cs" />
      <Compile Include="Assets\Scripts\SnowScript.cs" />
      <Compile Include="Assets\Scripts\SoundController.cs" />
      <Compile Include="Assets\Scripts\StatSplitter.cs" />

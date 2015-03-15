@@ -9,6 +9,12 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		StateController sc;
 		PlayerStats ps;
 		SoundController sound;
+		public int playerId;
+		float scoreSpeed = 5;
+		float score;
+		public float teamOneScore;
+		public float teamTwoScore;
+		BeaconZone bz;
 
 		public KeyCode moveUp = KeyCode.W;// = KeyCode.W;
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
@@ -25,7 +31,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		Vector3 position;  
 		public GameObject mainCam;
 		public GameObject snow;
-	
+		public static Bolt.NetworkId playerNetworkId;
+
 		float timeSinceLastBoom;
 		float currentRotationFace;
 		float zoom = 200.0f;
@@ -265,7 +272,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				sc = gameObject.GetComponent<StateController> ();
 				ps = gameObject.GetComponent<PlayerStats> ();
 				sound = gameObject.GetComponent<SoundController> ();
-//				mainCam.camera.enabled = true;
+				playerId = gameObject.GetInstanceID ();
+				//				mainCam.camera.enabled = true;
 //				mainCam.camera.gameObject.SetActive (true);
 				//Destroy (camObj);
 		}
@@ -572,8 +580,52 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				renderer.material.color = state.TestPlayerColor;
 		}
 
+		public void splitUp ()
+		{
+				
+		}
 
-		
+		void addScorePoints ()
+		{
+				score = Time.deltaTime * scoreSpeed;
+				if (bz.gameObject.GetComponent<BeaconZone> ().ZoneOneTeamOneActive == true) {
+						teamOneScore += score;				
+				} else if (bz.gameObject.GetComponent<BeaconZone> ().ZoneTwoTeamOneActive == true) {
+						
+				} else if (bz.gameObject.GetComponent<BeaconZone> ().ZoneOneTeamTwoActive == true) {
+
+				} else if (bz.gameObject.GetComponent<BeaconZone> ().ZoneTwoTeamTwoActive == true) {
+			
+				}
+			
+		}
+	
+		void addScorePointsTeamTwo ()
+		{
+				++teamTwoScore;
+		}
+	
+		void addScorePoint ()
+		{
+				
+		}
+	
+//		void gameOver (float timer)
+//		{
+//		
+//		}
+	
+//		void CheckForWinner ()
+//		{
+//				if (gameTimer >= 10f) {
+//						if (teamOneScore < teamTwoScore) {
+//								Debug.Log ("Team one wins!");
+//						} else if (teamTwoScore > teamOneScore) {
+//								Debug.Log ("Team two wins!");
+//						}
+//				}
+//		}
+
 		/*void OnGUI ()
 		{
 				if (entity.isOwner) {
