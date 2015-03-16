@@ -18,7 +18,8 @@ public class Boomnana : MonoBehaviour {
 		this.owner = owner;
 		//this.thisObj = boomnana;
 		transform.position = start;
-		endpoint = new Vector3 (start.x + direction.x, start.y + direction.y, start.z + direction.z);
+        endpoint = new Vector3(start.x + direction.x, start.y + direction.y, start.z + direction.z);
+        movingBack = false; 
 		//spawnTime = Time.time * 1000;
 //		Vector2 v2 = new Vector2 (rigidbody.velocity.x, rigidbody.velocity.z);
 //		lateralspeed = v2.magnitude;
@@ -36,14 +37,57 @@ public class Boomnana : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, endpoint, 4.0f);	
 		}
 	}
-//	void OnCollisionEnter(Collision col){
-//		// if coll = owner, owner.stun, Destroy(thisObj);
-//		if (col.gameObject != GameObject.Find ("Coconut") && col.gameObject != GameObject.Find ("Terrain") && col.gameObject != owner) {
-//			// if(!teammate) -> col.GetComponent<WASD>().damage(boomdmg);
-//			Debug.Log(owner.name); 
-//			Destroy(thisObj);
-//		}
-//		// Damage col.  Destroy this.o		bject
-//	}
+
+
+    	void OnTriggerEnter(Collider coll)
+    {
+        IEnumerator entities = BoltNetwork.entities.GetEnumerator();
+        if (coll.gameObject.tag == "player")
+        {
+            while (entities.MoveNext())
+            {
+                if (entities.Current.GetType().IsInstanceOfType(new BoltEntity()))
+                {
+                    BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+                    // Create Event and use the be, if it is the one that is colliding.
+                    if (be.gameObject == coll.gameObject)
+                    { // Check for enemy, deal full damage
+                        // CHECKS IF IT HIT ITSELF
+                        if (coll.gameObject == owner)
+                        {// STUN THE OWNER
+                            using (var evnt = CCEvent.Create(Bolt.GlobalTargets.Everyone))
+                            {
+                                evnt.TargEnt = be;
+                                evnt.Duration = owner.GetComponent<PlayerStats>().ccDuration;
+                            }
+                        } 
+                        else // CHECK IF FRIENDLY OR FOE 
+                        {
+                            if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != owner.GetComponentInParent<PlayerStats>().teamNumber)
+                            {
+                                // deal full damage!!!
+                                using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone))
+                                {
+                                    evnt.TargEnt = be;
+                                    evnt.Damage = this.owner.GetComponent<PlayerStats>().boomNanaDamage;
+                                }
+                            }
+                            else // check for friendly player, deal 50% dmg.
+                            {
+                                // deal half damage!!!
+                                using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone))
+                                {
+                                    evnt.TargEnt = be;
+                                    evnt.Damage = this.owner.GetComponent<PlayerStats>().boomNanaDamage / 2;
+                                }
+                            }
+                        }
+                        //  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+                    }
+                }
+            }
+            Destroy(this.gameObject);
+        }
+    }
 
 }

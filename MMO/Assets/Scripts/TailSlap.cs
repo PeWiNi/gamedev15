@@ -18,28 +18,54 @@ public class TailSlap : MonoBehaviour
 				}
 		}
 
-		void OnTriggerStay (Collider coll)
-		{
-				if (Input.GetKeyDown (KeyCode.Alpha1)) {
-						if (coll.gameObject.tag == "player") {
-								if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
-										if (available) {
-												//this.gameObject.GetComponentInParent<StateController>().attack(coll.gameObject, this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage);
-												//float currdmg = coll.gameObject.GetComponentInParent<TestPlayerBehaviour> ().state.DamageReceived;
-						
-												coll.gameObject.GetComponentInParent<TestPlayerBehaviour> ();//.state.DamageReceived += this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;//
-												coll.gameObject.GetComponentInParent<TestPlayerBehaviour> ().state.AddCallback ("DamageReceived", ReceiveDamage);
-												available = false;
-												lastUsed = Time.time;
-										}
-								}
-						}
-				}
-		}
+        void OnTriggerStay(Collider coll)
+        {
+            IEnumerator entities = BoltNetwork.entities.GetEnumerator();
+            if (coll.gameObject.tag == "player")
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    while (entities.MoveNext())
+                    {
+                        if (entities.Current.GetType().IsInstanceOfType(new BoltEntity()))
+                        {
+                            BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+                            // Create Event and use the be, if it is the one that is colliding.
 
-		public void ReceiveDamage ()
-		{
-				this.gameObject.GetComponentInParent<StateController> ().attack (this.gameObject, this.gameObject.GetComponentInParent<TestPlayerBehaviour> ().state.DamageReceived);
-//				this.gameObject.GetComponentInParent<StateController> ().attack (this.gameObject, damageRec);
+                            if (be.gameObject == coll.gameObject)
+                            { // Check for enemy, deal full damage
+                                if (available)
+                                {
+                                    Debug.Log("SLAPPING DA TAIL");
+                                    if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
+                                    {
+                                        // deal full damage!!!
+                                        using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone))
+                                        {
+                                            evnt.TargEnt = be; 
+                                            evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage;
+                                        }
+                                    }
+                                    else // check for friendly player, deal 50% dmg.
+                                    {
+                                        // deal half damage!!!
+                                        using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone))
+                                        {
+                                            evnt.TargEnt = be;
+                                            evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage / 2;
+                                        }
+                                    }
+
+                                    available = false;
+                                    lastUsed = Time.time;
+                                }
+
+                                //  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+
+                            }
+                        }
+                    }
+                }
+            }
 		}
 }

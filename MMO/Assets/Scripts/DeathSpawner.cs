@@ -32,8 +32,8 @@ public class DeathSpawner : MonoBehaviour
 				if (ToD != -1) {
 						if (Time.time - ToD >= respawnTimer) {
 								PlayerStats ps = this.gameObject.GetComponent<PlayerStats> ();
-								//    ps.hp = ps.maxHealth;
-								//  this.gameObject.transform.position = ps.respawnPosition;
+								ps.hp = ps.maxHealth;
+								this.gameObject.transform.position = ps.respawnPosition;
 								this.gameObject.GetComponent<StateController> ().isDead = false;
 								this.gameObject.GetComponent<StateController> ().ressStarted = false;
 								ToD = -1;

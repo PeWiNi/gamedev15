@@ -28,23 +28,43 @@ public class CCScript : MonoBehaviour {
 
     void OnTriggerStay(Collider coll)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3 )) 
+        if (Input.GetKeyDown(KeyCode.Alpha4) && available)
         {
+            IEnumerator entities = BoltNetwork.entities.GetEnumerator();
             if (coll.gameObject.tag == "player")
             {
-                if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
+                while (entities.MoveNext())
                 {
-                    if (available)
+                    if (entities.Current.GetType().IsInstanceOfType(new BoltEntity()))
                     {
-                        Debug.Log("STUNNING THE DUDE!");
-                        // ADD % to miss!
-                       coll.gameObject.GetComponentInParent<StateController>().
-                            stun(coll.gameObject, this.gameObject.GetComponentInParent<PlayerStats>().ccDuration);
-                        available = false;
-                        lastUsed = Time.time;
+                        BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+                        // Create Event and use the be, if it is the one that is colliding.
+                        if (be.gameObject == coll.gameObject)
+                        { // Check for enemy, deal full damage
+                            if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
+                            {
+                                // deal full damage!!!
+                                using (var evnt = CCEvent.Create(Bolt.GlobalTargets.Everyone))
+                                {
+                                    evnt.TargEnt = be;
+                                    evnt.Duration = this.gameObject.GetComponentInParent<PlayerStats>().ccDuration;
+                                }
+                            }
+                            else // check for friendly player, deal 50% dmg.
+                            {
+                                // deal half damage!!!
+                                using (var evnt = CCEvent.Create(Bolt.GlobalTargets.Everyone))
+                                {
+                                    evnt.TargEnt = be;
+                                    evnt.Duration = this.gameObject.GetComponentInParent<PlayerStats>().ccDuration / 2;
+                                }
+                            }
+                        }
                     }
                 }
             }
+            available = false;
+            lastUsed = Time.time;
         }
     }
 }

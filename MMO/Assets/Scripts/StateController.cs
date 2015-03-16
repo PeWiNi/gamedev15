@@ -7,6 +7,7 @@ public class StateController : MonoBehaviour {
 	public bool isDead = false;
 	public bool isMoving = false;
 	public bool isStunned = false;
+    public bool isChanneling = false;
 	public bool isHolding = false;
 	public bool isJumping = false;
 	public bool isBuffed = false;
@@ -81,9 +82,12 @@ public class StateController : MonoBehaviour {
 
     public void stun(GameObject target, float duration)
     {
-        stunnedDurationFromCC = duration;
+        Debug.Log("GETTING STUNNED!");
         stunnedStartFromCC = Time.time;
+        stunnedDurationFromCC = duration;
+        
         isStunned = true;
+        canMove = false;
     }
 
     public bool checkIfDead()
@@ -193,13 +197,20 @@ public class StateController : MonoBehaviour {
     {
         if (Time.time - stunnedStartFromCC >= stunnedDurationFromCC)
         {
+            //Debug.Log("Timer: " +(Time.time - stunnedStartFromCC) + " dur: "+ stunnedDurationFromCC);
             isStunned = false;
             stunnedDurationFromCC = 0;
+            if (!isChanneling)
+            {
+                canMove = true;
+            }
+            
         }
-    }
-
+    } 
+     
 	void Update () {
-		checkBuffTimer ();
+		//checkBuffTimer ();
+        originalSpeeds();
 		checkCombatTime ();
 		checkIfHolding ();
         checkCCStun();

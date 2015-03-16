@@ -34,9 +34,9 @@ public class BuffScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Z) && available)
+        if (Input.GetKeyDown(KeyCode.B) && available)
         {
-            Debug.Log("Z pressed and available!");
+            Debug.Log("BUFFING!!");
             float currentHP = (ps.hp * ps.buffCostFactor);
             ps.hp -= currentHP;
 

@@ -4,7 +4,7 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 {
 //		// damp velocity of camera
 //		Vector3 _velocity;
-		float zoom = 200.0f;
+		float zoom = 100.0f;
 		// camera target
 		Transform _target;
 
@@ -110,20 +110,14 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 //        pos = Vector3.SmoothDamp(transform.position, pos, ref _velocity, runningSmoothTime);
 //      }
 //
-            if (Input.GetAxis ("Mouse ScrollWheel") > 0) {
-						zoom -= 20.0f;
-			            
-				}
-				if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
-						zoom += 20.0f;
-				}
+            
 //      transform.position = pos;
 //      transform.rotation = rot;
 //
 				//transform.localRotation = Quaternion.identity;
 				if (_target != null) {		
 						Vector3 camPos = new Vector3 ();
-						camPos.z = _target.position.z - 50; 
+						camPos.z = _target.position.z - 100; 
 						camPos.x = _target.position.x;
 						if (zoom < 50.0f) {
 								zoom = 50.0f;
@@ -131,7 +125,7 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 						if (zoom > 200.0f) {
 								zoom = 200.0f;
 						}
-						camPos.y = _target.position.y + zoom;
+                        camPos.y =_target.position.y + zoom;
 		
 						transform.position = camPos;
 						transform.LookAt (_target.position);
