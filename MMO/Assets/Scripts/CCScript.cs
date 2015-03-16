@@ -8,7 +8,7 @@ public class CCScript : MonoBehaviour {
     //Check if the colliding actor is a player, and stun them
     //set Available to false;
     //Update check timer for cooldown.
-
+     
     bool available = true;
     float lastUsed;
     PlayerStats ps;
