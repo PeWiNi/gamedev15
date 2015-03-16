@@ -30,6 +30,9 @@ public class VFXScript : MonoBehaviour
     // Aim
     public KeyCode aimKey = KeyCode.Z; // Change to Boost-key
     private Transform aim;
+    public float range = 25;
+    public GameObject GOuser;
+    public Boomnana boomscript;
 
     private Transform user;
     private Vector3 userSize;
@@ -115,10 +118,13 @@ public class VFXScript : MonoBehaviour
         {
             //aim = (GameObject)Instantiate(Resources.Load("Prefabs/VFX_Burdened"));
             aim.renderer.enabled = true;
-            aimOverlay(3, 1);
+            aimOverlay(1, range, 0.5f);
         }
         if (Input.GetKeyUp(aimKey))
+        {
+            boomscript.spawn(GOuser, boomscript.owner, user.position, user.forward * range);
             aim.renderer.enabled = false;
+        }
     }
 
     /// <summary>
@@ -159,7 +165,7 @@ public class VFXScript : MonoBehaviour
         //Create Particle System
         GameObject instance = (GameObject)Instantiate(Resources.Load("Prefabs/VFX_DmgTaken"));
         //Assign Material
-        instance.particleSystem.renderer.material = (Material)Instantiate(Resources.Load("Materials/" + type + "Effects"));
+        instance.particleSystem.renderer.material = (Material)Instantiate(Resources.Load("Materials/VFX_" + type));
         //Activate it at the user position (will be center of object)
         instance.transform.position = user.position;
         instance.particleSystem.Play();
@@ -167,9 +173,10 @@ public class VFXScript : MonoBehaviour
         Destroy(instance, 1.5f);
     }
 
-    private void aimOverlay(float range, float radius)
+    private void aimOverlay(float radius, float rangeMax, float rangeMin = 0)
     {
-        aim.localScale = new Vector3(radius, range, userSize.x);
-        aim.position = new Vector3(user.position.x, user.position.y / 2, user.position.y + (range / 2));
+        float range = rangeMax - rangeMin;
+        aim.localScale = new Vector3(radius, range, userSize.x / 2);
+        aim.localPosition = new Vector3(0, 0, (userSize.z / 2) + rangeMin + (range / 2));
     }
 }

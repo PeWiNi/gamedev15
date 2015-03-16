@@ -18,7 +18,8 @@ public class Boomnana : MonoBehaviour {
 		this.owner = owner;
 		//this.thisObj = boomnana;
 		transform.position = start;
-		endpoint = new Vector3 (start.x + direction.x, start.y + direction.y, start.z + direction.z);
+        endpoint = new Vector3(start.x + direction.x, start.y + direction.y, start.z + direction.z);
+        movingBack = false; 
 		//spawnTime = Time.time * 1000;
 //		Vector2 v2 = new Vector2 (rigidbody.velocity.x, rigidbody.velocity.z);
 //		lateralspeed = v2.magnitude;
