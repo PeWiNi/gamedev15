@@ -128,7 +128,9 @@ public class BeaconZone : MonoBehaviour
 				ZoneOneTeamOneActive = true;
 				if (ZoneOneTeamTwoActive != true && ZoneOneTeamOneActive == true) {
 						yield return new WaitForSeconds (5f);
-						TeamOneZoneOneScore = ZoneOneTeamOneScore + increaseScoreValue;
+						if (GameTimeManager.time >= 1) {
+								TeamOneZoneOneScore = ZoneOneTeamOneScore + increaseScoreValue;
+						}
 						ZoneOneTeamOneActive = false;
 				} else {
 						// DO NOTHING!
@@ -146,7 +148,9 @@ public class BeaconZone : MonoBehaviour
 				ZoneTwoTeamOneActive = true;
 				if (ZoneTwoTeamTwoActive != true && ZoneTwoTeamOneActive == true) {
 						yield return new WaitForSeconds (5f);
-						TeamOneZoneTwoScore = ZoneTwoTeamOneScore + increaseScoreValue;
+						if (GameTimeManager.time >= 1) {
+								TeamOneZoneTwoScore = ZoneTwoTeamOneScore + increaseScoreValue;
+						}
 						ZoneTwoTeamOneActive = false;
 				} else {
 						// DO NOTHING!
@@ -165,7 +169,9 @@ public class BeaconZone : MonoBehaviour
 				ZoneThreeTeamOneActive = true;
 				if (ZoneThreeTeamTwoActive != true && ZoneThreeTeamOneActive == true) {
 						yield return new WaitForSeconds (5f);
-						TeamOneZoneThreeScore = ZoneThreeTeamOneScore + increaseScoreValue;
+						if (GameTimeManager.time >= 1) {
+								TeamOneZoneThreeScore = ZoneThreeTeamOneScore + increaseScoreValue;
+						}
 						ZoneThreeTeamOneActive = false;
 				} else {
 						// DO NOTHING!
@@ -184,7 +190,9 @@ public class BeaconZone : MonoBehaviour
 				ZoneOneTeamTwoActive = true;
 				if (ZoneOneTeamTwoActive == true && ZoneOneTeamOneActive != true) {
 						yield return new WaitForSeconds (5f);
-						TeamTwoZoneOneScore = ZoneOneTeamTwoScore + increaseScoreValue;
+						if (GameTimeManager.time >= 1) {
+								TeamTwoZoneOneScore = ZoneOneTeamTwoScore + increaseScoreValue;
+						}
 						ZoneOneTeamTwoActive = false;
 				} else {
 						// DO NOTHING!
@@ -203,7 +211,9 @@ public class BeaconZone : MonoBehaviour
 				ZoneTwoTeamTwoActive = true;
 				if (ZoneTwoTeamTwoActive == true && ZoneTwoTeamOneActive != true) {
 						yield return new WaitForSeconds (5f);
-						TeamTwoZoneTwoScore = ZoneTwoTeamTwoScore + increaseScoreValue;
+						if (GameTimeManager.time >= 1) {
+								TeamTwoZoneTwoScore = ZoneTwoTeamTwoScore + increaseScoreValue;
+						}
 						ZoneTwoTeamTwoActive = false;
 				} else {
 						// DO NOTHING!
@@ -222,7 +232,9 @@ public class BeaconZone : MonoBehaviour
 				ZoneThreeTeamTwoActive = true;
 				if (ZoneThreeTeamTwoActive == true && ZoneThreeTeamOneActive != true) {
 						yield return new WaitForSeconds (5f);
-						TeamTwoZoneThreeScore = ZoneThreeTeamTwoScore + increaseScoreValue;
+						if (GameTimeManager.time >= 1) {
+								TeamTwoZoneThreeScore = ZoneThreeTeamTwoScore + increaseScoreValue;
+						}
 						ZoneThreeTeamTwoActive = false;
 				} else {
 						// DO NOTHING!

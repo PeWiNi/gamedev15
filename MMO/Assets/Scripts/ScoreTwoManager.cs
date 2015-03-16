@@ -18,11 +18,11 @@ public class ScoreTwoManager : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				TeamTwoTotalScore ();
+				getTeamTwoTotalScore ();
 				textTwo.text = "Team Two Score: " + twoScore;
 		}
 
-		public float TeamTwoTotalScore ()
+		public float getTeamTwoTotalScore ()
 		{
 				twoScore = BeaconZone.ZoneOneTeamTwoScore + BeaconZone.ZoneTwoTeamTwoScore + BeaconZone.ZoneThreeTeamTwoScore;	
 				return twoScore;

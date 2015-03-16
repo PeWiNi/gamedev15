@@ -9,6 +9,7 @@ public class ThornyVineScript : MonoBehaviour
 		GameObject player;
 		float health;
 		float healthRemain;
+		float maxHealth;
 
 		bool isDealingDamage;
 			
@@ -17,6 +18,7 @@ public class ThornyVineScript : MonoBehaviour
 		{
 				decreaseMovementSpeed = 2f;
 				increaseMovementSpeed = 2f;
+				maxHealth = 100;
 		}
 	
 		/// <summary>
@@ -59,7 +61,7 @@ public class ThornyVineScript : MonoBehaviour
 		public IEnumerator VineDamage (float health)
 		{
 				isDealingDamage = true;
-				float dmg = (100 * 1) / 100;
+				float dmg = (maxHealth * 1) / 100;
 				healthRemain = health - dmg;
 				yield return new WaitForSeconds (1f);
 				isDealingDamage = false;

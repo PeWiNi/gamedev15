@@ -59,6 +59,8 @@
      <Compile Include="Assets\Scripts\CombatScript.cs" />
      <Compile Include="Assets\Scripts\CprScript.cs" />
      <Compile Include="Assets\Scripts\DeathSpawner.cs" />
+     <Compile Include="Assets\Scripts\GameTimeManager.cs" />
+     <Compile Include="Assets\Scripts\GameTimer.cs" />
      <Compile Include="Assets\Scripts\HUDScript.cs" />
      <Compile Include="Assets\Scripts\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Networking\CoconutController.cs" />
