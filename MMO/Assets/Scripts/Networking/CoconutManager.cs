@@ -7,6 +7,7 @@ public class CoconutManager : BoltSingletonPrefab<CoconutManager>
 {
 		static Dictionary<int, CoconutObject> coconutObjects; 
 		public static List<GameObject> coconutObjectsList = new List<GameObject> ();
+
 		public string test ()
 		{
 				return "FUCK YOU!";
@@ -52,7 +53,7 @@ public class CoconutManager : BoltSingletonPrefab<CoconutManager>
 //		}
 //	}
 //	
-		public void ApplyMovementToNut (int nutId, Vector3 position)
+		public void ApplyMovementToNut (int nutId, Vector3 position) //Bolt.NetworkId id)
 		{
 				// Let's see if the tree in question, based on treeId, actually exists
 //		CoconutObject coconutObject = coconutObjects.TryGetValue( ;
@@ -60,7 +61,7 @@ public class CoconutManager : BoltSingletonPrefab<CoconutManager>
 				//Debug.Log ("List Size = " + coconutObjectsList.Count);
 
 				Debug.Log ("SIZE OF THE DAMNED LIST!!! " + coconutObjects.Count);
-				coconutObjectsList [0].transform.position = new Vector3(position.x,position.y + 22 , position.z); 
+				coconutObjectsList [0].transform.position = new Vector3 (position.x, position.y + 22, position.z); 
 //				CoconutObject coconutObject;
 //				if (coconutObjects.TryGetValue (nutId, out coconutObject) && coconutObjects.Count > 0 && coconutObjectsList.Count > 0) {
 //						coconutObjectsList [0].transform.position = coconutObject.cob.GetComponent<Coconut> ().getHolder ().transform.position;

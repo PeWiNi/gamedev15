@@ -17,6 +17,7 @@ public class WASD : MonoBehaviour
 		StateController sc;
 		PlayerStats ps;
 		int nutId;
+		public static Bolt.NetworkId WASDNetworkId;
 		// Use this for initialization
 		void Start ()
 		{
@@ -139,13 +140,24 @@ public class WASD : MonoBehaviour
 				return (GameObject.FindWithTag ("nut") as GameObject).GetComponent<Coconut> ().entity.isOwner;
 		}
 
+//		public void SetParent (BoltEntity theCoconut)
+//		{
+//				theCoconut = gameObject.GetComponent<Coconut> ().entity;
+//				theCoconut.AssignControl()
+//
+//		}
+
 		void OnTriggerStay (Collider coll)
 		{
+			
 				if (Input.GetKeyDown (KeyCode.E)) {
 						if (coll.gameObject.tag == "nut") {
 								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
+								//	WASDNetworkId = gameObject.GetComponent<Coconut> ().entity.networkId; 
+								//	Bolt.NetworkId ();
+								//this.entity.SetParent (coll.GetComponent<Coconut> ().);
 								coll.GetComponent<Coconut> ().setCapture (this.gameObject);
-                                sc.isHolding = true;
+								sc.isHolding = true;
 //								foreach (BoltEntity b in BoltNetwork.entities) {
 //										GameObject bGo = b.gameObject;
 //										if (bGo.tag == "player") {
@@ -179,8 +191,9 @@ public class WASD : MonoBehaviour
 						if (coll.gameObject.tag == "nut" && sc.isHolding) {
 								Debug.Log ("Q pressed"); 
 								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
-								coll.GetComponent<Coconut> ().removeCapture (new Vector3 ());
-                                sc.isHolding = false;
+								coll.transform.parent = null;
+								//coll.GetComponent<Coconut> ().removeCapture (new Vector3 ());
+								sc.isHolding = false;
 								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.ReleaseControl ();
 								//this.gameObject.GetComponent<WASD> ().entity.TakeControl ();
 //								foreach (BoltEntity b in BoltNetwork.entities) {
@@ -198,18 +211,18 @@ public class WASD : MonoBehaviour
 				}
 				
 				// If attack (melee), deal damage to that enemy
-                //if (Input.GetKey (transform.gameObject.GetComponent<TestPlayerBehaviour> ().tailSlapKey)) {
-                //        if (coll.gameObject.tag == "player") { // USE TAG INSTEAD OF NAME
-                //                if (coll.gameObject.GetComponent<StateController> ().teamNumber != sc.teamNumber) {
-                //                    sc.attack(coll.gameObject, ps.tailSlapDamage);
+				//if (Input.GetKey (transform.gameObject.GetComponent<TestPlayerBehaviour> ().tailSlapKey)) {
+				//        if (coll.gameObject.tag == "player") { // USE TAG INSTEAD OF NAME
+				//                if (coll.gameObject.GetComponent<StateController> ().teamNumber != sc.teamNumber) {
+				//                    sc.attack(coll.gameObject, ps.tailSlapDamage);
 
-                //                        //coll.gameObject.GetComponent<StateController> ().initiateCombat ();
-                //                        ////If hit
-                //                        //coll.gameObject.GetComponent<StateController>().getHit(ps.tailSlapDamage);
-                //                        ////ANIMATE TAILSLAP!
-                //                }
-                //        }
-                //}
+				//                        //coll.gameObject.GetComponent<StateController> ().initiateCombat ();
+				//                        ////If hit
+				//                        //coll.gameObject.GetComponent<StateController>().getHit(ps.tailSlapDamage);
+				//                        ////ANIMATE TAILSLAP!
+				//                }
+				//        }
+				//}
 		}
 
 

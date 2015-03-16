@@ -9,6 +9,13 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		StateController sc;
 		PlayerStats ps;
 		SoundController sound;
+		public int playerId;
+		float scoreSpeed = 5;
+		float score;
+		public float teamOneScore;
+		public float teamTwoScore;
+		BeaconZone bz;
+
 		public KeyCode moveUp = KeyCode.W;// = KeyCode.W;
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 		public KeyCode moveRight = KeyCode.D;
@@ -20,15 +27,20 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		public KeyCode vomitKey;
 		public KeyCode buffKey = KeyCode.R;
 		bool up, down, left, right;
-		Vector3 position;
+
+		Vector3 position;  
 		public GameObject mainCam;
 		public GameObject snow;
+		public static Bolt.NetworkId playerNetworkId;
+
 		float timeSinceLastBoom;
 		float currentRotationFace;
 		float zoom = 200.0f;
 		Vector3 gravity;
+	
 		string currRotStr = "N";
 		int startup = 0;
+	
 		Vector3 camPos;
 		KeyCode sprint = KeyCode.LeftShift;
 
@@ -70,7 +82,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				state.AddCallback ("TeamMemberId", TeamSelection);
 
 		}
-
 		public override void SimulateController ()
 		{
 				
@@ -152,7 +163,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								}
 								sc.isMoving = true;
 						}
-						
 				}
 							
 				if (Input.GetKey (moveDown) && !sc.isStunned) {
@@ -165,7 +175,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								}
 								sc.isMoving = true;
 						}
-						
 				}
 							
 				if (Input.GetKey (moveRight) && !sc.isStunned) {
@@ -183,7 +192,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetKey (moveLeft) && !sc.isStunned) {
 						left = true;
 						if (sc.canMove) {
-				
 								if (Input.GetKey (sprint)) {
 										position.x -= sc.getSpeed ();
 								} else {
@@ -273,7 +281,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				sc = gameObject.GetComponent<StateController> ();
 				ps = gameObject.GetComponent<PlayerStats> ();
 				sound = gameObject.GetComponent<SoundController> ();
-//				mainCam.camera.enabled = true;
+				playerId = gameObject.GetInstanceID ();
+				//				mainCam.camera.enabled = true;
 //				mainCam.camera.gameObject.SetActive (true);
 				//Destroy (camObj);
 		}
@@ -498,7 +507,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						}
 						sc.isMoving = true;
 				}
-		}
+		} 
 		
 		void setRotation (bool up, bool down, bool left, bool right)
 		{
@@ -580,8 +589,52 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				renderer.material.color = state.TestPlayerColor;
 		}
 
+		public void splitUp ()
+		{
+				
+		}
 
-		
+		void addScorePoints ()
+		{
+				score = Time.deltaTime * scoreSpeed;
+				if (bz.gameObject.GetComponent<BeaconZone> ().ZoneOneTeamOneActive == true) {
+						teamOneScore += score;				
+				} else if (bz.gameObject.GetComponent<BeaconZone> ().ZoneTwoTeamOneActive == true) {
+						
+				} else if (bz.gameObject.GetComponent<BeaconZone> ().ZoneOneTeamTwoActive == true) {
+
+				} else if (bz.gameObject.GetComponent<BeaconZone> ().ZoneTwoTeamTwoActive == true) {
+			
+				}
+			
+		}
+	
+		void addScorePointsTeamTwo ()
+		{
+				++teamTwoScore;
+		}
+	
+		void addScorePoint ()
+		{
+				
+		}
+	
+//		void gameOver (float timer)
+//		{
+//		
+//		}
+	
+//		void CheckForWinner ()
+//		{
+//				if (gameTimer >= 10f) {
+//						if (teamOneScore < teamTwoScore) {
+//								Debug.Log ("Team one wins!");
+//						} else if (teamTwoScore > teamOneScore) {
+//								Debug.Log ("Team two wins!");
+//						}
+//				}
+//		}
+
 		/*void OnGUI ()
 		{
 				if (entity.isOwner) {

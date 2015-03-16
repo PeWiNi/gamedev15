@@ -8,6 +8,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		//IList<string> logMessages = new List<string> ();
 		BoltConnection connection;
 		Vector3 position;
+		Bolt.NetworkId id;
 		
 
 		void Awake ()
@@ -61,6 +62,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 		public override void OnEvent (CoconutEvent evnt)
 		{
+				//id = WASD.WASDNetworkId; 
 				//Debug.Log ("AFSADADASD");
 				//Debug.Log ("I FOUND THE NAME!! READ ME!!!!:" + GameObject.FindGameObjectWithTag ("nut").name);
 				//Debug.Log ("TESTING..  She says: " + GameObject.FindGameObjectWithTag ("nut").GetComponent<CoconutManager> ().test ());
@@ -68,8 +70,20 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				BoltSingletonPrefab<CoconutManager> cm = CoconutManager.instance;
 				cm.GetComponent<CoconutManager> ().ApplyMovementToNut (evnt.CoconutId, evnt.CoconutPosition);//.instance.ApplyMovementToNut (evnt.CoconutId, evnt.CoconutPosition);	
 		}
-
     
+		public void DealDamage (GameObject reciever, float damage)
+		{
+				IEnumerator<BoltEntity> enumer = BoltNetwork.entities.GetEnumerator ();
+				BoltEntity current = enumer.Current;
+				while (current!=null) {
+						if (current.gameObject == reciever) {
+								Debug.Log ("FOUND TROLOLOLOL");
+						} else {
+								enumer.MoveNext ();
+						}
+				}
+				reciever.gameObject.GetComponent<StateController> ().attack (reciever.gameObject, 50);
+		}
 //		public override void SceneLoadRemoteDone (BoltConnection connection)
 //		{
 //				//	Debug.Log ("Spawning");
