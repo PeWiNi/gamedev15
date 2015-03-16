@@ -81,7 +81,9 @@
      <Compile Include="Assets\Scripts\SoundController.cs" />
      <Compile Include="Assets\Scripts\StatSplitter.cs" />
      <Compile Include="Assets\Scripts\StateController.cs" />
+     <Compile Include="Assets\Scripts\SwampScript.cs" />
      <Compile Include="Assets\Scripts\TailSlap.cs" />
+     <Compile Include="Assets\Scripts\ThornyVineScript.cs" />
      <Compile Include="Assets\Scripts\VFXScript.cs" />
      <Compile Include="Assets\Scripts\WASD.cs" />
      <Compile Include="Assets\SimpleMovement.cs" />

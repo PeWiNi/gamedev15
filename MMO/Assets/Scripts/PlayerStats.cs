@@ -8,12 +8,14 @@ public class PlayerStats : MonoBehaviour
 		// Use StatSplitter.cs
 
 		//Stats
+		public float maxHealth;
 		float playerHp;
 		public int teamNumber;
 		float movementSpeed;
 		//Damages 
 		public float tailSlapDamage;
 		public float boomNanaDamage;
+		public float aoeTickDamageFactor;
 		//Ranges
 		public float boomnanaRange;
 		public float jumpHeight;
@@ -21,6 +23,9 @@ public class PlayerStats : MonoBehaviour
 		public float ccDuration;
 		public float buffDuration;
 		public float hp;
+		public float aoeDuration;
+		//AOE TICKTIME
+		public float tickTime;
 		//Resouces
 		public int cprBananas; 
 		//Cooldowns
@@ -36,6 +41,8 @@ public class PlayerStats : MonoBehaviour
 		public float buffDamageFactor = 1.2f;
 		//BuffedStuff
 		public bool buffed = false;
+		//BASE/RESPAWN POS
+		public Vector3 respawnPosition;
 
 
 		// Use this for initialization

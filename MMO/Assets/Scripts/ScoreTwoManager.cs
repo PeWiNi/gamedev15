@@ -24,8 +24,7 @@ public class ScoreTwoManager : MonoBehaviour
 
 		public float TeamTwoTotalScore ()
 		{
-				twoScore = BeaconZone.ZoneOneTeamTwoScore + BeaconZone.ZoneTwoTeamTwoScore;
-				
+				twoScore = BeaconZone.ZoneOneTeamTwoScore + BeaconZone.ZoneTwoTeamTwoScore + BeaconZone.ZoneThreeTeamTwoScore;	
 				return twoScore;
 		}
 }

@@ -24,8 +24,7 @@ public class ScoreOneManager : MonoBehaviour
 
 		public float TeamOneTotalScore ()
 		{
-				oneScore = BeaconZone.ZoneOneTeamOneScore + BeaconZone.ZoneTwoTeamOneScore;
-				Debug.Log (BeaconZone.ZoneOneTeamOneScore + BeaconZone.ZoneTwoTeamOneScore);
+				oneScore = BeaconZone.ZoneOneTeamOneScore + BeaconZone.ZoneTwoTeamOneScore + BeaconZone.ZoneThreeTeamOneScore;
 				return oneScore;
 		}
 	
