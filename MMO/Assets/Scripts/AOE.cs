@@ -9,7 +9,6 @@ public class AOE : MonoBehaviour
 		PlayerStats ps;
 		float lastUsed;
 		float lastTick;
-		bool isChanneling = false;
 		float tickTimer;
 		float currentTimer;
 		/* channeled, so canceled if moving.
@@ -53,19 +52,19 @@ public class AOE : MonoBehaviour
                     Debug.Log("CASTING AOE!!");
 						sc.canMove = false;
 						lastUsed = Time.time;
-						isChanneling = true;
+						sc.isChanneling = true;
 						available = false;
 						lastTick = Time.time;
 				}
-				if (sc.isJumping) {
+				if (sc.isJumping && !available) {
 						sc.canMove = true;
-						isChanneling = false;
+                        sc.isChanneling = false;
 						
 				}
 				// check timer for duration and Cooldown
-				if (Time.time - lastUsed >= ps.aoeDuration + 0.5f) {
+				if (Time.time - lastUsed >= ps.aoeDuration + 0.5f && !available) {
 						sc.canMove = true;
-						isChanneling = false;
+                        sc.isChanneling = false;
                         Debug.Log("AOE DONE!");
 
 				} 
@@ -78,7 +77,7 @@ public class AOE : MonoBehaviour
         void OnTriggerStay(Collider coll)
         {
             IEnumerator entities = BoltNetwork.entities.GetEnumerator();
-            if (coll.gameObject.tag == "player" && isChanneling)
+            if (coll.gameObject.tag == "player" && sc.isChanneling)
             {
                 while (entities.MoveNext())
                 {
