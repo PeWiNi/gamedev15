@@ -35,7 +35,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 
 		float timeSinceLastBoom;
 		float currentRotationFace;
-		float zoom = 200.0f;
+		float zoom = 100.0f;
 		Vector3 gravity;
 	
 		string currRotStr = "N";

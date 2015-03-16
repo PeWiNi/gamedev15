@@ -72,28 +72,48 @@ public class AOE : MonoBehaviour
 				}
 				currentTimer = Time.time;
 		}
-	 
-		void OnTriggerStay (Collider coll)
-		{
-				if (coll.gameObject.tag == "player" && isChanneling) {
-						//Debug.Log ("STAY: " + (currentTimer - lastTick));
-						if ((currentTimer - lastTick) > tickTimer) {
-								lastTick = currentTimer;
-								coll.gameObject.GetComponent<StateController> ().attack (coll.gameObject, ps.aoeTickDamageFactor);
-								sc.initiateCombat (); 
-						}
-				}
-		}
 
-		void OnTriggerEnter (Collider coll)
-		{
-				if (coll.gameObject.tag == "player" && isChanneling) {
-						//Debug.Log ("STAY: " + (currentTimer - lastTick));
-						if ((currentTimer - lastTick) > tickTimer) {
-								lastTick = currentTimer;
-								coll.gameObject.GetComponent<StateController> ().attack (coll.gameObject, ps.aoeTickDamageFactor);
-								sc.initiateCombat (); 
-						}
-				}
-		}
+        void OnTriggerStay(Collider coll)
+        {
+            IEnumerator entities = BoltNetwork.entities.GetEnumerator();
+            if (coll.gameObject.tag == "player" && isChanneling)
+            {
+                while (entities.MoveNext())
+                {
+                    if (entities.Current.GetType().IsInstanceOfType(new BoltEntity()))
+                    {
+                        BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+                        // Create Event and use the be, if it is the one that is colliding.
+                        if (be.gameObject == coll.gameObject)
+                        { // Check for enemy, deal full damage
+                            if ((currentTimer - lastTick) > tickTimer)
+                            {
+                                if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
+                                {
+                                    // deal full damage!!!
+                                    using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone))
+                                    {
+                                        evnt.TargEnt = be;
+                                        evnt.TickDamage = ps.aoeTickDamageFactor;
+                                    }
+                                }
+                                else // check for friendly player, deal 50% dmg.
+                                {
+                                    // deal half damage!!!
+                                    using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone))
+                                    {
+                                        evnt.TargEnt = be;
+                                        evnt.TickDamage = ps.aoeTickDamageFactor / 2;
+                                    }
+                                }
+                                lastTick = currentTimer;
+                                sc.initiateCombat();
+                            }
+
+                        }
+                    }
+
+                }
+            }
+        }
 }
