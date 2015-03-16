@@ -49,7 +49,8 @@ public class AOE : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				if (Input.GetKeyDown (KeyCode.R) && available) {
+				if (Input.GetKeyDown (KeyCode.Alpha3) && available) {
+                    Debug.Log("CASTING AOE!!");
 						sc.canMove = false;
 						lastUsed = Time.time;
 						isChanneling = true;
@@ -65,6 +66,7 @@ public class AOE : MonoBehaviour
 				if (Time.time - lastUsed >= ps.aoeDuration + 0.5f) {
 						sc.canMove = true;
 						isChanneling = false;
+                        Debug.Log("AOE DONE!");
 
 				} 
 				if (Time.time - lastUsed >= ps.aoeCooldown) {

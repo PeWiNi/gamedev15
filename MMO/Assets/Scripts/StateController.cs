@@ -84,6 +84,7 @@ public class StateController : MonoBehaviour {
         stunnedDurationFromCC = duration;
         stunnedStartFromCC = Time.time;
         isStunned = true;
+        canMove = false;
     }
 
     public bool checkIfDead()
@@ -195,11 +196,13 @@ public class StateController : MonoBehaviour {
         {
             isStunned = false;
             stunnedDurationFromCC = 0;
+            canMove = true;
         }
-    }
+    } 
 
 	void Update () {
-		checkBuffTimer ();
+		//checkBuffTimer ();
+        originalSpeeds();
 		checkCombatTime ();
 		checkIfHolding ();
         checkCCStun();

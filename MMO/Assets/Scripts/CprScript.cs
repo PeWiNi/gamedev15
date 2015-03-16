@@ -22,7 +22,7 @@ public class CprScript : MonoBehaviour
 
     void OnTriggerStay(Collider coll)
     {
-        if (Input.GetKeyDown(KeyCode.C) && available)
+        if (Input.GetKeyDown(KeyCode.R) && available)
         {
             int resources = this.gameObject.GetComponentInParent<PlayerStats>().cprBananas;
             IEnumerator entities = BoltNetwork.entities.GetEnumerator();

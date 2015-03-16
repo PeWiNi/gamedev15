@@ -36,7 +36,7 @@ public class TailSlap : MonoBehaviour
                             { // Check for enemy, deal full damage
                                 if (available)
                                 {
-
+                                    Debug.Log("SLAPPING DA TAIL");
                                     if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
                                     {
                                         // deal full damage!!!

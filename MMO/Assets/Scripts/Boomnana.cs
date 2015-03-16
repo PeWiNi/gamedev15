@@ -37,6 +37,8 @@ public class Boomnana : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, endpoint, 4.0f);	
 		}
 	}
+
+
     	void OnTriggerEnter(Collider coll)
     {
         IEnumerator entities = BoltNetwork.entities.GetEnumerator();
@@ -58,10 +60,10 @@ public class Boomnana : MonoBehaviour {
                                 evnt.TargEnt = be;
                                 evnt.Duration = owner.GetComponent<PlayerStats>().ccDuration;
                             }
-                        }
+                        } 
                         else // CHECK IF FRIENDLY OR FOE 
                         {
-                            if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
+                            if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != owner.GetComponentInParent<PlayerStats>().teamNumber)
                             {
                                 // deal full damage!!!
                                 using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone))

@@ -173,7 +173,7 @@ public class VFXScript : MonoBehaviour
         Destroy(instance, 1.5f);
     }
 
-    private void aimOverlay(float radius, float rangeMax, float rangeMin = 0)
+    public void aimOverlay(float radius, float rangeMax, float rangeMin = 0)
     {
         float range = rangeMax - rangeMin;
         aim.localScale = new Vector3(radius, range, userSize.x / 2);

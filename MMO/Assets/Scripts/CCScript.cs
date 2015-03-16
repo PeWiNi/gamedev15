@@ -28,7 +28,7 @@ public class CCScript : MonoBehaviour {
 
     void OnTriggerStay(Collider coll)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3) && available)
+        if (Input.GetKeyDown(KeyCode.Alpha4) && available)
         {
             IEnumerator entities = BoltNetwork.entities.GetEnumerator();
             if (coll.gameObject.tag == "player")

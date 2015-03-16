@@ -47,6 +47,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		void Awake ()
 		{
 				Start ();
+                Transform aim = this.transform.GetChild(3);
+                aim.renderer.enabled = false;
 		}
 
 		public override void Attached ()
@@ -86,11 +88,26 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		{
 				
 //				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
-//				snow.transform.position = snowPos;
+//				snow.transform.position = snowPos;  
 				if (wasd != null) {
 				}
 				position = player.transform.position;
-				if (Input.GetKeyDown (boomNanaKey)) { // Mouse0 = Left Click
+                if (Input.GetKeyDown(boomNanaKey))
+                {
+                    VFXScript vfx = gameObject.GetComponent<VFXScript>();
+                    Transform aim = this.transform.GetChild(3);
+                    aim.renderer.enabled = true;
+                    aim.localScale = new Vector3(0.5f, ps.boomnanaRange/2, (this.gameObject.transform.collider.bounds.size.x )/ 2);
+                    aim.localPosition = new Vector3(0, 5, (this.gameObject.transform.collider.bounds.size.z / 2) + (ps.boomnanaRange / 4));
+                    //vfx.aim.renderer.enabled = true;
+                    //aimOverlay(1, range, 0.5f);
+                }
+				if (Input.GetKeyUp (boomNanaKey)) {
+                    VFXScript vfx = gameObject.GetComponent<VFXScript>();
+                    Transform aim = this.transform.GetChild(3);
+                    aim.renderer.enabled = false;
+
+                    // Mouse0 = Left Click
 						//Debug.Log("Player pos: "+transform.position);
 						//Camera cam = Camera.main;//.Find("Main Camera");
 						//Debug.Log(cam.name);
