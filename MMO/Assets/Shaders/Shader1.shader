@@ -6,9 +6,9 @@
 		_EmitMap ("Emission Texture", 2D) = "black" {}
 		_BumpDepth ("Bump Depth", Range(0.0,1.0)) = 1
 		_SpecColor ("Specular Color", Color) = (1.0,1.0,1.0,1.0)
-		_Shininess ("Shininess", float) = 10
+		_Shininess ("Shininess", float) = 0
 		_RimColor ("Rim Color", Color) = (1.0,1.0,1.0,1.0)
-		_RimPower ("Rim Power", Range(0.1,10.0)) = 3.0
+		_RimPower ("Rim Power", Range(0.1,10.0)) = 0
 		_EmitStrength ("Emission Strength", Range(0.0,2.0)) = 0
 	}
 	SubShader {
