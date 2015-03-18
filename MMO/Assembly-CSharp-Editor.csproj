@@ -50,7 +50,9 @@
      <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
      <None Include="Assets\bolt\resources\backgrounds\ATTRIBUTION.txt" />
      <None Include="Assets\bolt\assemblies\upnp\Mono.Nat.LICENSE.txt" />
+     <None Include="Assets\Shaders\LeavesShader.shader" />
      <None Include="Assets\bolt\documentation\DOCUMENTATION.txt" />
+     <None Include="Assets\Shaders\IceShader.shader" />
      <None Include="Assets\bolt\resources\BoltShaderPOI.shader" />
      <None Include="Assets\bolt\resources\icons\ATTRIBUTION.txt" />
      <None Include="Assets\Shaders\Shader1.shader" />
