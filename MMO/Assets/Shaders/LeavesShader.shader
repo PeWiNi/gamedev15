@@ -41,7 +41,7 @@
  
 			//fragment function
 			fixed4 frag(vertexOutput i) : COLOR {
-				float4 tex = tex2D(_MainTex, i.tex.xy * _MainTex_ST.xy + _MainTex_ST.zw);
+				fixed4 tex = tex2D(_MainTex, i.tex.xy * _MainTex_ST.xy + _MainTex_ST.zw);
 				if (tex.a < _Cutoff) {
 				   discard;
 				}
