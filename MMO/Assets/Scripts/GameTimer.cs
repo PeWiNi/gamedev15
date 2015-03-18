@@ -7,8 +7,8 @@ public class GameTimer : MonoBehaviour
 		float gameTimer;
 		float timeLimit;
 		float decreasingTime;
-		public string textTime;
 		bool isTimerDecreasing;
+		float lastTime = 0;
 	
 
 		// Use this for initialization
@@ -22,15 +22,20 @@ public class GameTimer : MonoBehaviour
 		void Update ()
 		{
 				timeLimit = gameTimerLimit;
-				StartCoroutine ("decreaseTime", timeLimit);
+				decreaseTime (timeLimit);
 		}
 
-		IEnumerator decreaseTime (float timeLimit)
+		void decreaseTime (float timeLimit)
 		{
 				if (gameTimerLimit >= 1) {
 						isTimerDecreasing = true;
-						yield return new WaitForSeconds (1f);
-						gameTimerLimit = timeLimit - gameTimer;
+						if (Time.time > lastTime + 60) {
+								gameTimerLimit = timeLimit - gameTimer;
+								lastTime = Time.time;
+								using (var evnt = GameTimerEvent.Create(Bolt.GlobalTargets.Everyone)) {				
+										evnt.GameTime = gameTimerLimit; 
+								}
+						}
 						isTimerDecreasing = false;
 				}
 		}

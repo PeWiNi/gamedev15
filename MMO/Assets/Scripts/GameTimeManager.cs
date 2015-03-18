@@ -6,36 +6,48 @@ public class GameTimeManager : MonoBehaviour
 {
 		public static float time;
 		Text text;
+		bool isSlowed;
 	
 		void Awake ()
 		{
 				text = GetComponent<Text> ();
 		}
 
+		void Start ()
+		{
+				time = 40;
+		}
+
 		// Update is called once per frame
 		void Update ()
 		{
-				getGameTimer ();
+				setGameTimer (time);
 				if (time >= 0) {
 						text.text = "Game Ends In: " + time;
 				}
 				checkWinningTeam ();
 		}
 
-		public float getGameTimer ()
+		/// <summary>
+		/// Sets the game timer.
+		/// </summary>
+		/// <param name="timer">Timer.</param>
+		public static void setGameTimer (float timer)
 		{
-				time = GameTimer.gameTimerLimit;
-				return time;
+				time = timer;
 		}
-	
+
+		/// <summary>
+		/// Checks the winning team.
+		/// </summary>
 		public void checkWinningTeam ()
 		{
 				if (time == 0) {
-						if (ScoreOneManager.oneScore > ScoreTwoManager.twoScore) {
+						if (ScoreOneManager.totalOneScore > ScoreTwoManager.totalTwoScore) {
 								text.text = "Team one WON!!!";
-						} else if (ScoreOneManager.oneScore < ScoreTwoManager.twoScore) {
+						} else if (ScoreOneManager.totalOneScore < ScoreTwoManager.totalTwoScore) {
 								text.text = "Team two WON!!!";
-						} else if (ScoreOneManager.oneScore == ScoreTwoManager.twoScore) {
+						} else if (ScoreOneManager.totalOneScore == ScoreTwoManager.totalTwoScore) {
 								text.text = "Last Team Standing (just an idea ;D)";
 						}
 				}
