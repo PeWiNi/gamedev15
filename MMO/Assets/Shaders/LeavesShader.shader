@@ -1,4 +1,4 @@
-﻿Shader "Custom/Leaves" {
+﻿Shader "Custom/Leaves Shader" {
 	Properties {
 		_Color ("Color tint", Color) = (1.0, 1.0, 1.0, 1.0)
 		_MainTex ("RGBA Texture Image", 2D) = "white" {}
@@ -35,7 +35,6 @@
  
 				o.tex = v.texcoord;
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-
 				return o;
 			}
  

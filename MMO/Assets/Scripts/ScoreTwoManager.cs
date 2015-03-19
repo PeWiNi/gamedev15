@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ScoreTwoManager : MonoBehaviour
 {
-		public static float twoScore;
+		public static float totalTwoScore;
 		Text textTwo;
 
 
@@ -12,20 +12,23 @@ public class ScoreTwoManager : MonoBehaviour
 		void Start ()
 		{
 				textTwo = GetComponent<Text> ();
-				twoScore = 0;
+				totalTwoScore = 0;
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-				getTeamTwoTotalScore ();
-				textTwo.text = "Team Two Score: " + twoScore;
+				setTeamTwoTotalScore (totalTwoScore);
+				textTwo.text = "Team Two Score: " + totalTwoScore;
 		}
 
-		public float getTeamTwoTotalScore ()
+		/// <summary>
+		/// Sets the team two total score.
+		/// </summary>
+		/// <param name="totalScore">Total score.</param>
+		public static void setTeamTwoTotalScore (float totalScore)
 		{
-				twoScore = BeaconZone.ZoneOneTeamTwoScore + BeaconZone.ZoneTwoTeamTwoScore + BeaconZone.ZoneThreeTeamTwoScore;	
-				return twoScore;
+				totalTwoScore = totalScore;
 		}
 }
 

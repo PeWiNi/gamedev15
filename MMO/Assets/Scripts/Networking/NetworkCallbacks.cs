@@ -70,36 +70,36 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				BoltSingletonPrefab<CoconutManager> cm = CoconutManager.instance;
 				cm.GetComponent<CoconutManager> ().ApplyMovementToNut (evnt.CoconutId, evnt.CoconutPosition);//.instance.ApplyMovementToNut (evnt.CoconutId, evnt.CoconutPosition);	
 		}
-        public override void OnEvent(TailSlapEvent evnt)
-        {
-            BoltEntity target = evnt.TargEnt;
-            target.gameObject.GetComponent<StateController>().attack(target.gameObject, evnt.Damage);
-        }
+		public override void OnEvent (TailSlapEvent evnt)
+		{
+				BoltEntity target = evnt.TargEnt;
+				target.gameObject.GetComponent<StateController> ().attack (target.gameObject, evnt.Damage);
+		}
 
-        public override void OnEvent(AoeEvent evnt)
-        {
-            BoltEntity target = evnt.TargEnt;
-            target.gameObject.GetComponent<StateController>().attack(target.gameObject, evnt.TickDamage);
-        }
+		public override void OnEvent (AoeEvent evnt)
+		{
+				BoltEntity target = evnt.TargEnt;
+				target.gameObject.GetComponent<StateController> ().attack (target.gameObject, evnt.TickDamage);
+		}
 
-        public override void OnEvent(BoomEvent evnt)
-        {
-            BoltEntity target = evnt.TargEnt;
-            target.gameObject.GetComponent<StateController>().attack(target.gameObject, evnt.Damage);
-        }
+		public override void OnEvent (BoomEvent evnt)
+		{
+				BoltEntity target = evnt.TargEnt;
+				target.gameObject.GetComponent<StateController> ().attack (target.gameObject, evnt.Damage);
+		}
 
 
-        public override void OnEvent(CCEvent evnt)
-        {
-            BoltEntity target = evnt.TargEnt;
-            target.gameObject.GetComponent<StateController>().stun(target.gameObject, evnt.Duration);
-        }
+		public override void OnEvent (CCEvent evnt)
+		{
+				BoltEntity target = evnt.TargEnt;
+				target.gameObject.GetComponent<StateController> ().stun (target.gameObject, evnt.Duration);
+		}
 
-        public override void OnEvent(CprEvent evnt)
-        {
-            BoltEntity target = evnt.TargEnt;
-            target.gameObject.GetComponentInChildren<CprScript>().ress();
-        }
+		public override void OnEvent (CprEvent evnt)
+		{
+				BoltEntity target = evnt.TargEnt;
+				target.gameObject.GetComponentInChildren<CprScript> ().ress ();
+		}
     
 		public void DealDamage (GameObject reciever, float damage)
 		{
@@ -114,6 +114,25 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				}
 				reciever.gameObject.GetComponent<StateController> ().attack (reciever.gameObject, 50);
 		}
+
+		public override void OnEvent (GameTimerEvent evnt)
+		{
+				GameTimeManager.time = evnt.GameTime;
+				GameTimeManager.setGameTimer (GameTimeManager.time);
+		}
+
+		public override void OnEvent (TeamOneScoreEvent evnt)
+		{
+				ScoreOneManager.totalOneScore = evnt.TeamOneTotalScore;
+				ScoreOneManager.setTeamOneTotalScore (ScoreOneManager.totalOneScore);
+		}
+
+		public override void OnEvent (TeamTwoScoreEvent evnt)
+		{
+				ScoreTwoManager.totalTwoScore = evnt.TeamTwoTotalScore;
+				ScoreTwoManager.setTeamTwoTotalScore (ScoreTwoManager.totalTwoScore);
+		}
+
 //		public override void SceneLoadRemoteDone (BoltConnection connection)
 //		{
 //				//	Debug.Log ("Spawning");

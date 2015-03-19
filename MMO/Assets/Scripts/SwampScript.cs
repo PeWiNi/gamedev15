@@ -19,7 +19,7 @@ public class SwampScript : MonoBehaviour
 		void OnTriggerStay (Collider coll)
 		{				
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "Swamp") {
-						speed = movementSpeed - ((2f * 40f) / 100f);
+						speed = movementSpeed - ((2f * 50f) / 100f);
 						coll.GetComponent<StateController> ().movementspeed = speed;
 				}
 		}

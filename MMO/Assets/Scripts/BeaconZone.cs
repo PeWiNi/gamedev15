@@ -4,53 +4,41 @@ using UnityEngine.UI;
 
 public class BeaconZone : MonoBehaviour
 {
-
-		PlayerStats script;
-		float gameTimer;
-		
-		public bool ZoneOneTeamOneActive;
-		public bool ZoneTwoTeamOneActive;
-		public bool ZoneThreeTeamOneActive;
-		public bool ZoneOneTeamTwoActive;
-		public bool ZoneTwoTeamTwoActive;
-		public bool ZoneThreeTeamTwoActive;
-		public static float ZoneOneTeamOneScore;
-		public static float ZoneTwoTeamOneScore;
-		public static float ZoneThreeTeamOneScore;
-		public static float ZoneOneTeamTwoScore;
-		public static float ZoneTwoTeamTwoScore;
-		public static float ZoneThreeTeamTwoScore;
-		public static float TotalScoreTeamOne;
-		public static float TotalScoreTeamTwo;
+		public bool zoneOneTeamOneActive;
+		public bool zoneTwoTeamOneActive;
+		public bool zoneThreeTeamOneActive;
+		public bool zoneOneTeamTwoActive;
+		public bool zoneTwoTeamTwoActive;
+		public bool zoneThreeTeamTwoActive;
+		public static float zoneOneTeamOneScore;
+		public static float zoneTwoTeamOneScore;
+		public static float zoneThreeTeamOneScore;
+		public static float zoneOneTeamTwoScore;
+		public static float zoneTwoTeamTwoScore;
+		public static float zoneThreeTeamTwoScore;
+		public static float totalScoreTeamOne;
+		public static float totalScoreTeamTwo;
 		float increaseScoreValue;
-		float score;
-		bool BeaconActive;
-		string fightZone;
-		float TeamOneZoneOneScore;
-		float TeamTwoZoneOneScore;
-		float TeamOneZoneTwoScore;
-		float TeamTwoZoneTwoScore;
-		float TeamOneZoneThreeScore;
-		float TeamTwoZoneThreeScore;
+		float teamOneZoneOneScore;
+		float teamTwoZoneOneScore;
+		float teamOneZoneTwoScore;
+		float teamTwoZoneTwoScore;
+		float teamOneZoneThreeScore;
+		float teamTwoZoneThreeScore;
+		float lastTimeOne = 0;
+		float lastTimeTwo = 0;
+
 
 		// Use this for initialization
 		void Start ()
 		{
 				increaseScoreValue = 15;
-				ZoneOneTeamOneActive = false;
-				ZoneTwoTeamOneActive = false;
-				ZoneThreeTeamOneActive = false;
-				ZoneOneTeamTwoActive = false;
-				ZoneTwoTeamTwoActive = false;
-				ZoneThreeTeamTwoActive = false;
-				script = gameObject.GetComponent<PlayerStats> ();
-				gameTimer = Time.time;
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-				gameTimer += Time.deltaTime;
+				zoneOneTeamOneActive = false;
+				zoneTwoTeamOneActive = false;
+				zoneThreeTeamOneActive = false;
+				zoneOneTeamTwoActive = false;
+				zoneTwoTeamTwoActive = false;
+				zoneThreeTeamTwoActive = false;
 		}
 	
 		/// <summary>
@@ -59,35 +47,40 @@ public class BeaconZone : MonoBehaviour
 		/// <param name="coll">Coll.</param>
 		void OnTriggerStay (Collider coll)
 		{
+				calculateTeamOneScore ();
+				calculateTeamTwoScore ();
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone01") {
 						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								StartCoroutine ("addScoreTeamOneZoneOne", ZoneOneTeamOneScore);
-								ZoneOneTeamOneScore = TeamOneZoneOneScore;
+								StartCoroutine ("addScoreTeamOneZoneOne", zoneOneTeamOneScore);
+								zoneOneTeamOneScore = teamOneZoneOneScore;
+								
 						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								StartCoroutine ("addScoreTeamTwoZoneOne", ZoneOneTeamTwoScore);
-								ZoneOneTeamTwoScore = TeamTwoZoneOneScore;
+								StartCoroutine ("addScoreTeamTwoZoneOne", zoneOneTeamTwoScore);
+								zoneOneTeamTwoScore = teamTwoZoneOneScore;
 						}
 				}
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone02") {
 						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								StartCoroutine ("addScoreTeamOneZoneTwo", ZoneTwoTeamOneScore);
-								ZoneTwoTeamOneScore = TeamOneZoneTwoScore;
+								StartCoroutine ("addScoreTeamOneZoneTwo", zoneTwoTeamOneScore);
+								zoneTwoTeamOneScore = teamOneZoneTwoScore;
+
 						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								StartCoroutine ("addScoreTeamTwoZoneTwo", ZoneTwoTeamTwoScore);
-								ZoneTwoTeamTwoScore = TeamTwoZoneTwoScore;
+								StartCoroutine ("addScoreTeamTwoZoneTwo", zoneTwoTeamTwoScore);
+								zoneTwoTeamTwoScore = teamTwoZoneTwoScore;
 						}
 				}
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone03") {
 						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								StartCoroutine ("addScoreTeamOneZoneThree", ZoneThreeTeamOneScore);
-								ZoneThreeTeamOneScore = TeamOneZoneThreeScore;
+								StartCoroutine ("addScoreTeamOneZoneThree", zoneThreeTeamOneScore);
+								zoneThreeTeamOneScore = teamOneZoneThreeScore;
+
 						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								StartCoroutine ("addScoreTeamTwoZoneThree", ZoneThreeTeamTwoScore);
-								ZoneThreeTeamTwoScore = TeamTwoZoneThreeScore;
+								StartCoroutine ("addScoreTeamTwoZoneThree", zoneThreeTeamTwoScore);
+								zoneThreeTeamTwoScore = teamTwoZoneThreeScore;
 						}
 				}
 		}
-
+	
 
 		/// <summary>
 		/// Raises the trigger exit event.
@@ -97,41 +90,69 @@ public class BeaconZone : MonoBehaviour
 		{
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone01") {
 						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								ZoneOneTeamOneActive = false;
+								zoneOneTeamOneActive = false;
 						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								ZoneOneTeamTwoActive = false;
+								zoneOneTeamTwoActive = false;
 						}
 				}
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone02") {
 						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								ZoneTwoTeamOneActive = false;
+								zoneTwoTeamOneActive = false;
 						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								ZoneTwoTeamTwoActive = false;				
+								zoneTwoTeamTwoActive = false;				
 						}
 				}
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone03") {
 						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								ZoneThreeTeamOneActive = false;
+								zoneThreeTeamOneActive = false;
 						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								ZoneThreeTeamTwoActive = false;				
+								zoneThreeTeamTwoActive = false;				
 						}
 				}
 		}
 	
 		/// <summary>
+		/// Calculates the team one score.
+		/// </summary>
+		public void calculateTeamOneScore ()
+		{
+				if (Time.time > lastTimeOne + 5) {
+						totalScoreTeamOne = zoneOneTeamOneScore + zoneTwoTeamOneScore + zoneThreeTeamOneScore;
+						lastTimeOne = Time.time;
+						using (var evnt = TeamOneScoreEvent.Create(Bolt.GlobalTargets.Everyone)) {
+								evnt.TeamOneTotalScore = totalScoreTeamOne;
+						}
+				}
+		}
+
+		/// <summary>
+		/// Calculates the team two score.
+		/// </summary>
+		public void calculateTeamTwoScore ()
+		{
+				if (Time.time > lastTimeTwo + 5) {
+						totalScoreTeamTwo = zoneOneTeamTwoScore + zoneTwoTeamTwoScore + zoneThreeTeamTwoScore;
+						lastTimeTwo = Time.time;
+						using (var evnt = TeamTwoScoreEvent.Create(Bolt.GlobalTargets.Everyone)) {
+								evnt.TeamTwoTotalScore = totalScoreTeamTwo;
+						}
+				}
+		}
+
+		/// <summary>
 		/// Adds the score team one zone one.
 		/// </summary>
 		/// <returns>The score team one zone one.</returns>
 		/// <param name="ZoneOneTeamOneScore">Zone one team one score.</param>
-		public IEnumerator addScoreTeamOneZoneOne (float ZoneOneTeamOneScore)
+		public IEnumerator addScoreTeamOneZoneOne (float zoneOneTeamOneScore)
 		{
-				ZoneOneTeamOneActive = true;
-				if (ZoneOneTeamTwoActive != true && ZoneOneTeamOneActive == true) {
-						yield return new WaitForSeconds (5f);
+				zoneOneTeamOneActive = true;
+				if (zoneOneTeamTwoActive != true && zoneOneTeamOneActive == true) {
+						yield return new WaitForSeconds (15f);
 						if (GameTimeManager.time >= 1) {
-								TeamOneZoneOneScore = ZoneOneTeamOneScore + increaseScoreValue;
+								teamOneZoneOneScore = zoneOneTeamOneScore + increaseScoreValue;
 						}
-						ZoneOneTeamOneActive = false;
+						zoneOneTeamOneActive = false;
 				} else {
 						// DO NOTHING!
 						//	Debug.Log ("Fight team two!");
@@ -143,15 +164,15 @@ public class BeaconZone : MonoBehaviour
 		/// </summary>
 		/// <returns>The score team one zone two.</returns>
 		/// <param name="ZoneTwoTeamOneScore">Zone two team one score.</param>
-		public IEnumerator addScoreTeamOneZoneTwo (float ZoneTwoTeamOneScore)
+		public IEnumerator addScoreTeamOneZoneTwo (float zoneTwoTeamOneScore)
 		{
-				ZoneTwoTeamOneActive = true;
-				if (ZoneTwoTeamTwoActive != true && ZoneTwoTeamOneActive == true) {
-						yield return new WaitForSeconds (5f);
+				zoneTwoTeamOneActive = true;
+				if (zoneTwoTeamTwoActive != true && zoneTwoTeamOneActive == true) {
+						yield return new WaitForSeconds (15f);
 						if (GameTimeManager.time >= 1) {
-								TeamOneZoneTwoScore = ZoneTwoTeamOneScore + increaseScoreValue;
+								teamOneZoneTwoScore = zoneTwoTeamOneScore + increaseScoreValue;
 						}
-						ZoneTwoTeamOneActive = false;
+						zoneTwoTeamOneActive = false;
 				} else {
 						// DO NOTHING!
 						//	Debug.Log ("Fight team two!");
@@ -164,15 +185,15 @@ public class BeaconZone : MonoBehaviour
 		/// </summary>
 		/// <returns>The score team one zone three.</returns>
 		/// <param name="ZoneThreeTeamOneScore">Zone three team one score.</param>
-		public IEnumerator addScoreTeamOneZoneThree (float ZoneThreeTeamOneScore)
+		public IEnumerator addScoreTeamOneZoneThree (float zoneThreeTeamOneScore)
 		{
-				ZoneThreeTeamOneActive = true;
-				if (ZoneThreeTeamTwoActive != true && ZoneThreeTeamOneActive == true) {
-						yield return new WaitForSeconds (5f);
+				zoneThreeTeamOneActive = true;
+				if (zoneThreeTeamTwoActive != true && zoneThreeTeamOneActive == true) {
+						yield return new WaitForSeconds (15f);
 						if (GameTimeManager.time >= 1) {
-								TeamOneZoneThreeScore = ZoneThreeTeamOneScore + increaseScoreValue;
+								teamOneZoneThreeScore = zoneThreeTeamOneScore + increaseScoreValue;
 						}
-						ZoneThreeTeamOneActive = false;
+						zoneThreeTeamOneActive = false;
 				} else {
 						// DO NOTHING!
 						//	Debug.Log ("Fight team two!");
@@ -185,15 +206,15 @@ public class BeaconZone : MonoBehaviour
 		/// </summary>
 		/// <returns>The score team two zone one.</returns>
 		/// <param name="ZoneOneTeamTwoScore">Zone one team two score.</param>
-		public IEnumerator addScoreTeamTwoZoneOne (float ZoneOneTeamTwoScore)
+		public IEnumerator addScoreTeamTwoZoneOne (float zoneOneTeamTwoScore)
 		{
-				ZoneOneTeamTwoActive = true;
-				if (ZoneOneTeamTwoActive == true && ZoneOneTeamOneActive != true) {
-						yield return new WaitForSeconds (5f);
+				zoneOneTeamTwoActive = true;
+				if (zoneOneTeamTwoActive == true && zoneOneTeamOneActive != true) {
+						yield return new WaitForSeconds (15f);
 						if (GameTimeManager.time >= 1) {
-								TeamTwoZoneOneScore = ZoneOneTeamTwoScore + increaseScoreValue;
+								teamTwoZoneOneScore = zoneOneTeamTwoScore + increaseScoreValue;
 						}
-						ZoneOneTeamTwoActive = false;
+						zoneOneTeamTwoActive = false;
 				} else {
 						// DO NOTHING!
 						//	Debug.Log ("Fight team one!");
@@ -206,15 +227,15 @@ public class BeaconZone : MonoBehaviour
 		/// </summary>
 		/// <returns>The score team two zone two.</returns>
 		/// <param name="ZoneTwoTeamTwoScore">Zone two team two score.</param>
-		public IEnumerator addScoreTeamTwoZoneTwo (float ZoneTwoTeamTwoScore)
+		public IEnumerator addScoreTeamTwoZoneTwo (float zoneTwoTeamTwoScore)
 		{
-				ZoneTwoTeamTwoActive = true;
-				if (ZoneTwoTeamTwoActive == true && ZoneTwoTeamOneActive != true) {
-						yield return new WaitForSeconds (5f);
+				zoneTwoTeamTwoActive = true;
+				if (zoneTwoTeamTwoActive == true && zoneTwoTeamOneActive != true) {
+						yield return new WaitForSeconds (15f);
 						if (GameTimeManager.time >= 1) {
-								TeamTwoZoneTwoScore = ZoneTwoTeamTwoScore + increaseScoreValue;
+								teamTwoZoneTwoScore = zoneTwoTeamTwoScore + increaseScoreValue;
 						}
-						ZoneTwoTeamTwoActive = false;
+						zoneTwoTeamTwoActive = false;
 				} else {
 						// DO NOTHING!
 						//	Debug.Log ("Fight team one!");
@@ -227,15 +248,15 @@ public class BeaconZone : MonoBehaviour
 		/// </summary>
 		/// <returns>The score team two zone three.</returns>
 		/// <param name="ZoneThreeTeamTwoScore">Zone three team two score.</param>
-		public IEnumerator addScoreTeamTwoZoneThree (float ZoneThreeTeamTwoScore)
+		public IEnumerator addScoreTeamTwoZoneThree (float zoneThreeTeamTwoScore)
 		{
-				ZoneThreeTeamTwoActive = true;
-				if (ZoneThreeTeamTwoActive == true && ZoneThreeTeamOneActive != true) {
-						yield return new WaitForSeconds (5f);
+				zoneThreeTeamTwoActive = true;
+				if (zoneThreeTeamTwoActive == true && zoneThreeTeamOneActive != true) {
+						yield return new WaitForSeconds (15f);
 						if (GameTimeManager.time >= 1) {
-								TeamTwoZoneThreeScore = ZoneThreeTeamTwoScore + increaseScoreValue;
+								teamTwoZoneThreeScore = zoneThreeTeamTwoScore + increaseScoreValue;
 						}
-						ZoneThreeTeamTwoActive = false;
+						zoneThreeTeamTwoActive = false;
 				} else {
 						// DO NOTHING!
 						//	Debug.Log ("Fight team one!");

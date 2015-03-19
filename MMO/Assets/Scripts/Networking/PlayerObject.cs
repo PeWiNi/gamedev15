@@ -15,7 +15,7 @@ public class PlayerObject
 				get { return connection != null;}
 		}
 
-		public void Spawn () 
+		public void Spawn ()
 		{
 				//character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
 				if (!character) {
@@ -38,16 +38,26 @@ public class PlayerObject
 								GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.AssignControl (connection);
 						}
 				}
-		
+				
 				// teleport entity to a random spawn position
-				character.transform.position = RandomPosition ();
+				if (BoltInit.hasPickedTeamOne == true) {
+						character.transform.position = SpawnRandomPositionTeamOne ();
+				} else if (BoltInit.hasPickedTeamTwo == true) {
+						character.transform.position = SpawnRandomPositionTeamTwo ();
+				}
 		}
 	
-		Vector3 RandomPosition ()
+		Vector3 SpawnRandomPositionTeamOne ()
 		{
-				float x = Random.Range (-32f, +32f);
-				float z = Random.Range (-32f, +32f);
-				return new Vector3 (x + 1000f, 5f, z + 1000f);
+				float x = Random.Range (-10f, +10f);
+				float z = Random.Range (-10f, +10f);
+				return new Vector3 (x + 1005f, 5f, z + 100f);
 		}
-
+		
+		Vector3 SpawnRandomPositionTeamTwo ()
+		{
+				float x = Random.Range (-10f, +10f);
+				float z = Random.Range (-10f, +10f);
+				return new Vector3 (x + 990f, 5f, z + 1850f);
+		}
 }

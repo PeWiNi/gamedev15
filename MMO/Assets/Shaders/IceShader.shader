@@ -87,7 +87,7 @@
 				);
 				
 				//calculate normal direction
-				half3 normalDirection = normalize( mul( localCoords, local2WorldTranspose ) );
+				half3 normalDirection = lerp(i.normalWorld, normalize(mul(localCoords, local2WorldTranspose)), _BumpDepth);
 
 				//Lighting
 				//float3 diffuseReflection = i.lightDirection.w * _LightColor0.xyz * dot(normalDirection, i.lightDirection.xyz);
@@ -177,10 +177,9 @@
 				);
 				
 				//calculate normal direction
-				half3 normalDirection = normalize( mul( localCoords, local2WorldTranspose ) );
+				half3 normalDirection = lerp(i.normalWorld, normalize(mul(localCoords, local2WorldTranspose)), _BumpDepth);
 
 				//Lighting
-				//float3 diffuseReflection = i.lightDirection.w * _LightColor0.xyz * dot(normalDirection, i.lightDirection.xyz);
 				half3 diffuseReflection = i.lightDirection.w * _LightColor0.xyz * max(0.0, dot(normalDirection, i.lightDirection.xyz));
 				half3 specularReflection = i.lightDirection.w * _LightColor0.xyz * _SpecColor.xyz * pow(max(0.0, dot(reflect(-i.lightDirection.xyz, normalDirection), i.viewDirection)), _Shininess);
 				
@@ -190,5 +189,5 @@
 			ENDCG
 		}
 	}
-	//FallBack "Specular"
+	FallBack "Specular"
 }

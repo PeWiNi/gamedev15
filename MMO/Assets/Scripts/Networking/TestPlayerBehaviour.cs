@@ -10,11 +10,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		PlayerStats ps;
 		SoundController sound;
 		public int playerId;
-		float scoreSpeed = 5;
-		float score;
-		public float teamOneScore;
-		public float teamTwoScore;
-		BeaconZone bz;
 
 		public KeyCode moveUp = KeyCode.W;// = KeyCode.W;
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
@@ -47,8 +42,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		void Awake ()
 		{
 				Start ();
-                Transform aim = this.transform.GetChild(3);
-                aim.renderer.enabled = false;
+				Transform aim = this.transform.GetChild (3);
+				aim.renderer.enabled = false;
 		}
 
 		public override void Attached ()
@@ -92,22 +87,21 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (wasd != null) {
 				}
 				position = player.transform.position;
-                if (Input.GetKeyDown(boomNanaKey))
-                {
-                    VFXScript vfx = gameObject.GetComponent<VFXScript>();
-                    Transform aim = this.transform.GetChild(3);
-                    aim.renderer.enabled = true;
-                    aim.localScale = new Vector3(0.5f, ps.boomnanaRange/2, (this.gameObject.transform.collider.bounds.size.x )/ 2);
-                    aim.localPosition = new Vector3(0, 5, (this.gameObject.transform.collider.bounds.size.z / 2) + (ps.boomnanaRange / 4));
-                    //vfx.aim.renderer.enabled = true;
-                    //aimOverlay(1, range, 0.5f);
-                }
+				if (Input.GetKeyDown (boomNanaKey)) {
+						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
+						Transform aim = this.transform.GetChild (3);
+						aim.renderer.enabled = true;
+						aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.collider.bounds.size.x) / 2);
+						aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.collider.bounds.size.z / 2) + (ps.boomnanaRange / 4));
+						//vfx.aim.renderer.enabled = true;
+						//aimOverlay(1, range, 0.5f);
+				}
 				if (Input.GetKeyUp (boomNanaKey)) {
-                    VFXScript vfx = gameObject.GetComponent<VFXScript>();
-                    Transform aim = this.transform.GetChild(3);
-                    aim.renderer.enabled = false;
+						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
+						Transform aim = this.transform.GetChild (3);
+						aim.renderer.enabled = false;
 
-                    // Mouse0 = Left Click
+						// Mouse0 = Left Click
 						//Debug.Log("Player pos: "+transform.position);
 						//Camera cam = Camera.main;//.Find("Main Camera");
 						//Debug.Log(cam.name);
@@ -610,47 +604,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		{
 				
 		}
-
-		void addScorePoints ()
-		{
-				score = Time.deltaTime * scoreSpeed;
-				if (bz.gameObject.GetComponent<BeaconZone> ().ZoneOneTeamOneActive == true) {
-						teamOneScore += score;				
-				} else if (bz.gameObject.GetComponent<BeaconZone> ().ZoneTwoTeamOneActive == true) {
-						
-				} else if (bz.gameObject.GetComponent<BeaconZone> ().ZoneOneTeamTwoActive == true) {
-
-				} else if (bz.gameObject.GetComponent<BeaconZone> ().ZoneTwoTeamTwoActive == true) {
-			
-				}
-			
-		}
-	
-		void addScorePointsTeamTwo ()
-		{
-				++teamTwoScore;
-		}
-	
-		void addScorePoint ()
-		{
-				
-		}
-	
-//		void gameOver (float timer)
-//		{
-//		
-//		}
-	
-//		void CheckForWinner ()
-//		{
-//				if (gameTimer >= 10f) {
-//						if (teamOneScore < teamTwoScore) {
-//								Debug.Log ("Team one wins!");
-//						} else if (teamTwoScore > teamOneScore) {
-//								Debug.Log ("Team two wins!");
-//						}
-//				}
-//		}
 
 		/*void OnGUI ()
 		{

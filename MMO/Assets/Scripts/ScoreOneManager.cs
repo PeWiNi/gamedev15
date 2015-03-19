@@ -4,28 +4,31 @@ using UnityEngine.UI;
 
 public class ScoreOneManager : MonoBehaviour
 {
-		public static float oneScore;
+		public static float totalOneScore;
 		Text textOne;
 
 
 		void Awake ()
 		{
 				textOne = GetComponent<Text> ();
-				oneScore = 0;
+				totalOneScore = 0;
 		}
 
 	
 		// Update is called once per frame
 		void Update ()
 		{	
-				getTeamOneTotalScore ();
-				textOne.text = "Team One Score: " + oneScore;			
+				setTeamOneTotalScore (totalOneScore);
+				textOne.text = "Team One Score: " + totalOneScore;			
 		}
 
-		public float getTeamOneTotalScore ()
+		/// <summary>
+		/// Sets the team one total score.
+		/// </summary>
+		/// <param name="totalScore">Total score.</param>
+		public static void setTeamOneTotalScore (float totalScore)
 		{
-				oneScore = BeaconZone.ZoneOneTeamOneScore + BeaconZone.ZoneTwoTeamOneScore + BeaconZone.ZoneThreeTeamOneScore;
-				return oneScore;
+				totalOneScore = totalScore;
 		}
 	
 }
