@@ -16,6 +16,7 @@
 			//user defined variables
 			uniform fixed4 _Color;
 			uniform sampler2D _MainTex;    
+			uniform float4 _MainTex_ST;
 			uniform fixed _Cutoff;
  
 			//base input structs
@@ -29,22 +30,22 @@
 			};
  
 			//vertex function
-			vertexOutput vert(vertexInput input) {
-				vertexOutput output;
+			vertexOutput vert(vertexInput v) {
+				vertexOutput o;
  
-				output.tex = input.texcoord;
-				output.pos = mul(UNITY_MATRIX_MVP, input.vertex);
+				o.tex = v.texcoord;
+				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 
-				return output;
+				return o;
 			}
  
 			//fragment function
-			fixed4 frag(vertexOutput input) : COLOR {
-				fixed4 textureColor = tex2D(_MainTex, input.tex.xy);  
-				if (textureColor.a < _Cutoff) {
+			fixed4 frag(vertexOutput i) : COLOR {
+				fixed4 tex = tex2D(_MainTex, i.tex.xy * _MainTex_ST.xy + _MainTex_ST.zw);
+				if (tex.a < _Cutoff) {
 				   discard;
 				}
-				return fixed4(textureColor.xyz * _Color.xyz, textureColor.a);
+				return fixed4(tex.xyz * _Color.xyz, tex.a);
 			}
  
 			ENDCG
