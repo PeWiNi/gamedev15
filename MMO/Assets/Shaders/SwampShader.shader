@@ -1,7 +1,7 @@
-﻿Shader "Custom/Swamp" {
+﻿Shader "Custom/Swamp Shader" {
 	Properties {
 		_MainTex ("Texture", 2D) = "white" {}
-		_TransTex ("Transperency texture (Alpha)", 2D) = "white" {}
+		_Transparency ("Transparency", Range(0.0, 1.0)) = 0.5
 	}
 	SubShader {
 		Tags {"Queue" = "Transparent"} 
@@ -15,16 +15,16 @@
 			#pragma fragment frag 
  
 			uniform sampler2D _MainTex;
-			uniform float4 _MainTex_ST;
-			uniform sampler2D _TransTex;
+			uniform fixed4 _MainTex_ST;
+			uniform fixed _Transparency;
  
 			struct vertexInput {
-				float4 vertex : POSITION;
-				float4 texcoord : TEXCOORD0;
+				fixed4 vertex : POSITION;
+				fixed4 texcoord : TEXCOORD0;
 			};
 			struct vertexOutput {
-				float4 pos : SV_POSITION;
-				float4 tex : TEXCOORD0;
+				fixed4 pos : SV_POSITION;
+				fixed4 tex : TEXCOORD0;
 			};
  
 			vertexOutput vert(vertexInput v) {
@@ -37,9 +37,8 @@
  
 			float4 frag(vertexOutput i) : COLOR {
 				fixed4 tex = tex2D(_MainTex, i.tex.xy * _MainTex_ST.xy + _MainTex_ST.zw);
-				fixed4 texT = tex2D(_TransTex, i.tex.xy * _MainTex_ST.xy + _MainTex_ST.zw);
-
-				return fixed4(tex.xyz, texT.a);
+				fixed trans = (tex.a * _Transparency) + _Transparency;
+				return fixed4(tex.xyz, trans);
 			}
 			ENDCG
 		}
