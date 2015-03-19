@@ -15,7 +15,7 @@ public class GameTimer : MonoBehaviour
 		void Start ()
 		{	
 				gameTimer = 1;
-				gameTimerLimit = 40;
+				gameTimerLimit = 20;
 		}
 	
 		// Update is called once per frame

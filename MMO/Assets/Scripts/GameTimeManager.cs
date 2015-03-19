@@ -15,7 +15,7 @@ public class GameTimeManager : MonoBehaviour
 
 		void Start ()
 		{
-				time = 40;
+				time = 20;
 		}
 
 		// Update is called once per frame
