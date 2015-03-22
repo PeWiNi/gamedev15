@@ -32,7 +32,7 @@ public class BeaconZone : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				increaseScoreValue = 15;
+				increaseScoreValue = 1;
 				zoneOneTeamOneActive = false;
 				zoneTwoTeamOneActive = false;
 				zoneThreeTeamOneActive = false;
@@ -116,7 +116,7 @@ public class BeaconZone : MonoBehaviour
 		/// </summary>
 		public void calculateTeamOneScore ()
 		{
-				if (Time.time > lastTimeOne + 5) {
+				if (Time.time > lastTimeOne + 2) {
 						totalScoreTeamOne = zoneOneTeamOneScore + zoneTwoTeamOneScore + zoneThreeTeamOneScore;
 						lastTimeOne = Time.time;
 						using (var evnt = TeamOneScoreEvent.Create(Bolt.GlobalTargets.Everyone)) {
@@ -130,7 +130,7 @@ public class BeaconZone : MonoBehaviour
 		/// </summary>
 		public void calculateTeamTwoScore ()
 		{
-				if (Time.time > lastTimeTwo + 5) {
+				if (Time.time > lastTimeTwo + 2) {
 						totalScoreTeamTwo = zoneOneTeamTwoScore + zoneTwoTeamTwoScore + zoneThreeTeamTwoScore;
 						lastTimeTwo = Time.time;
 						using (var evnt = TeamTwoScoreEvent.Create(Bolt.GlobalTargets.Everyone)) {
@@ -148,7 +148,7 @@ public class BeaconZone : MonoBehaviour
 		{
 				zoneOneTeamOneActive = true;
 				if (zoneOneTeamTwoActive != true && zoneOneTeamOneActive == true) {
-						yield return new WaitForSeconds (15f);
+						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamOneZoneOneScore = zoneOneTeamOneScore + increaseScoreValue;
 						}
@@ -168,7 +168,7 @@ public class BeaconZone : MonoBehaviour
 		{
 				zoneTwoTeamOneActive = true;
 				if (zoneTwoTeamTwoActive != true && zoneTwoTeamOneActive == true) {
-						yield return new WaitForSeconds (15f);
+						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamOneZoneTwoScore = zoneTwoTeamOneScore + increaseScoreValue;
 						}
@@ -189,7 +189,7 @@ public class BeaconZone : MonoBehaviour
 		{
 				zoneThreeTeamOneActive = true;
 				if (zoneThreeTeamTwoActive != true && zoneThreeTeamOneActive == true) {
-						yield return new WaitForSeconds (15f);
+						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamOneZoneThreeScore = zoneThreeTeamOneScore + increaseScoreValue;
 						}
@@ -210,7 +210,7 @@ public class BeaconZone : MonoBehaviour
 		{
 				zoneOneTeamTwoActive = true;
 				if (zoneOneTeamTwoActive == true && zoneOneTeamOneActive != true) {
-						yield return new WaitForSeconds (15f);
+						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamTwoZoneOneScore = zoneOneTeamTwoScore + increaseScoreValue;
 						}
@@ -231,7 +231,7 @@ public class BeaconZone : MonoBehaviour
 		{
 				zoneTwoTeamTwoActive = true;
 				if (zoneTwoTeamTwoActive == true && zoneTwoTeamOneActive != true) {
-						yield return new WaitForSeconds (15f);
+						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamTwoZoneTwoScore = zoneTwoTeamTwoScore + increaseScoreValue;
 						}
@@ -252,7 +252,7 @@ public class BeaconZone : MonoBehaviour
 		{
 				zoneThreeTeamTwoActive = true;
 				if (zoneThreeTeamTwoActive == true && zoneThreeTeamOneActive != true) {
-						yield return new WaitForSeconds (15f);
+						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamTwoZoneThreeScore = zoneThreeTeamTwoScore + increaseScoreValue;
 						}
