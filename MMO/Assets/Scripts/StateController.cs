@@ -34,10 +34,7 @@ public class StateController : MonoBehaviour {
 	
 	public float buffMultiplier;
 
-    void update()
-    {
-        checkIfDead();
-    }
+   
 	public float getSpeed(){
 		return currentSpeed;
 	}
@@ -211,6 +208,7 @@ public class StateController : MonoBehaviour {
      
 	void Update () {
 		//checkBuffTimer ();
+        checkIfDead();
         originalSpeeds();
 		checkCombatTime ();
 		checkIfHolding ();

@@ -164,7 +164,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						}
 						//boomscript.
 				}
-				if (Input.GetKey (moveUp) && !sc.isStunned) {
+				if (Input.GetKey (moveUp) && !sc.isStunned && !sc.isDead) {
 						up = true;
 						if (sc.canMove) {
 								if (Input.GetKey (sprint)) {
@@ -175,8 +175,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								sc.isMoving = true;
 						}
 				}
-							
-				if (Input.GetKey (moveDown) && !sc.isStunned) {
+
+                if (Input.GetKey(moveDown) && !sc.isStunned && !sc.isDead)
+                {
 						down = true;
 						if (sc.canMove) {
 								if (Input.GetKey (sprint)) {
@@ -187,8 +188,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								sc.isMoving = true;
 						}
 				}
-							
-				if (Input.GetKey (moveRight) && !sc.isStunned) {
+
+                if (Input.GetKey(moveRight) && !sc.isStunned && !sc.isDead)
+                {
 						right = true;
 						if (sc.canMove) {
 								if (Input.GetKey (sprint)) {
@@ -200,7 +202,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						}
 						
 				}
-				if (Input.GetKey (moveLeft) && !sc.isStunned) {
+                if (Input.GetKey(moveLeft) && !sc.isStunned && !sc.isDead)
+                {
 						left = true;
 						if (sc.canMove) {
 								if (Input.GetKey (sprint)) {
