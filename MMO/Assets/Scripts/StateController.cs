@@ -18,6 +18,7 @@ public class StateController : MonoBehaviour {
 	public float lastAttack;
 	public float lastCombat;
 	public float combatCooldownTime;
+    public float globalCooldownTime = 1.5f;
 	private float buffStartTime = 0;
 	public float buffCoolDownTime;
 	public float movementspeed;
