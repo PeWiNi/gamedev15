@@ -1,0 +1,67 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{220E4E71-9BA0-53A7-CD21-397A47F91975}") = "MMO", "Assembly-CSharp.csproj", "{CAEB3896-DDD4-15A7-D54A-C105D91C147F}"
+EndProject
+Project("{220E4E71-9BA0-53A7-CD21-397A47F91975}") = "MMO", "Assembly-CSharp-Editor.csproj", "{8192261E-49C1-5D1B-2642-3A3BC4092658}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAEB3896-DDD4-15A7-D54A-C105D91C147F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAEB3896-DDD4-15A7-D54A-C105D91C147F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAEB3896-DDD4-15A7-D54A-C105D91C147F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAEB3896-DDD4-15A7-D54A-C105D91C147F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8192261E-49C1-5D1B-2642-3A3BC4092658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8192261E-49C1-5D1B-2642-3A3BC4092658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8192261E-49C1-5D1B-2642-3A3BC4092658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8192261E-49C1-5D1B-2642-3A3BC4092658}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+<<<<<<< HEAD
+																																																																																																																																																																																																																																																																																																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																																																																																																																																																																																																																																																																																																																																		GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																																																																																																																																																																																																																																																																																																																																											GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> origin/master
+>>>>>>> 9f0a1aba1bf2ef70bcef2b50e75e0fb7b441945b
+=======
+																																																																																																																																																																																																																																																																																																																																																																			GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																																																																																																																																																																																																																																																																																																																					GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> b8710f58776ab6b56abf57ab8f48b42a4f2f9925
+>>>>>>> origin/master
+=======
+																																																																																																																																																																																																																																																																																																																																	GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																																																																																																																																																																																																																																																																																GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> origin/master
+=======
+																																																																																																																																																																																																																																																																																																																																					GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> origin/master
+>>>>>>> origin/master
+		StartupItem = Assembly-CSharp.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$0.TextStylePolicy = $3
+		$3.FileWidth = 120
+		$3.TabWidth = 4
+		$3.EolMarker = Unix
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/plain
+		$3.scope = text/plain
+	EndGlobalSection
+
+EndGlobal
