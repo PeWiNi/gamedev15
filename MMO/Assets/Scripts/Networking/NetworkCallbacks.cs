@@ -9,6 +9,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		BoltConnection connection;
 		Vector3 position;
 		Bolt.NetworkId id;
+        PlayerObjectReg por;
 
         public void updateStats()
         {
@@ -17,7 +18,9 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
             // statspliter.splitStats();
             // playerobjectreg -> get all characters.
 
-            IEnumerator enumer = PlayerObjectReg.allPlayerObjects.GetEnumerator();
+            // FOR SOME REASON, THE PLAYEROBJECTREG ONLY CONTAINS 1 OBJECT .. IT IS NOT COMMON OVER THE SERVER!!!!
+
+            IEnumerator enumer = por.allPlayerObjects.GetEnumerator();
             // go through each entity, and check for teamnumber.
             while (enumer.MoveNext())
             {
@@ -36,7 +39,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
                     else if (po.teamId == 2)
                     {
                         Debug.Log("TEAM 2");
-                        teamTwoMembers++;
+                        teamTwoMembers++; 
                     }
                 }
             }
@@ -44,7 +47,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
             StatSplitter sp = new StatSplitter();
             sp.splitStats(teamOneMembers);
-            IEnumerator players = PlayerObjectReg.allPlayerObjects.GetEnumerator();
+            IEnumerator players = por.allPlayerObjects.GetEnumerator();
             int currentPlayerIndex = 0;
             while (players.MoveNext())
             {
@@ -68,7 +71,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
             sp = new StatSplitter();
             sp.splitStats(teamTwoMembers);
             currentPlayerIndex = 0;
-            players = PlayerObjectReg.allPlayerObjects.GetEnumerator();
+            players = por.allPlayerObjects.GetEnumerator();
             while (players.MoveNext())
             {
                 PlayerObject player = (PlayerObject)players.Current as PlayerObject;
@@ -92,8 +95,10 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 		void Awake ()
 		{
+            por = new PlayerObjectReg();
+            
 				//PlayerObjectReg.createCoconutObject ();//.Spawn ();
-				PlayerObjectReg.createServerPlayerObject ();
+				por.createServerPlayerObject ();
                 //updateStats();
 				//Coconut.Instantiate ();
 				//PlayerObjectReg.co.Spawn ();
@@ -104,7 +109,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		{
 				
 				Debug.Log ("connected");
-				PlayerObjectReg.createClientPlayerObject (connection);
+				por.createClientPlayerObject (connection);
 
                 //updateStats();
 
@@ -120,7 +125,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	
 		public override void Disconnected (BoltConnection connection)
 		{
-				PlayerObjectReg.DestoryOnDisconnection (connection);
+				por.DestoryOnDisconnection (connection);
 //				if (tpb.state.TeamMemberId == 1) {
 //						PlayerObjectReg.DestoryTeamOnePlayerOnDisconnection (connection);
 //				} else if (tpb.state.TeamMemberId == 2) {
@@ -142,10 +147,10 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 //						PlayerObjectReg.serverTeamTwoPlayerObject.Spawn ();
 //				}
 				//	PlayerObjectReg.serverPlayerObject.Spawn ();
-				PlayerObjectReg.getPlayerObject (connection).Spawn ();
+				por.getPlayerObject (connection).Spawn ();
                 updateStats(); 
 				//PlayerObjectReg.createCoconutObject ().Spawn ();
-				Debug.Log ("objects" + PlayerObjectReg.playerObjects.Count);
+				Debug.Log ("objects" + por.playerObjects.Count);
 		}
 
 		public override void OnEvent (CoconutEvent evnt)
