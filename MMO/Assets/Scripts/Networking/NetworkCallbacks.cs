@@ -9,12 +9,92 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		BoltConnection connection;
 		Vector3 position;
 		Bolt.NetworkId id;
-		
+
+        public void updateStats()
+        {
+            int teamOneMembers = 0;
+            int teamTwoMembers = 0;
+            // statspliter.splitStats();
+            // playerobjectreg -> get all characters.
+
+            IEnumerator enumer = PlayerObjectReg.allPlayerObjects.GetEnumerator();
+            // go through each entity, and check for teamnumber.
+            while (enumer.MoveNext())
+            {
+                Debug.Log("INSIDE ENUMER");
+                if (enumer.Current.GetType().IsInstanceOfType(new PlayerObject()))
+                {
+                    Debug.Log("IT IS A PlayerObject!!");
+
+                    PlayerObject po = (PlayerObject) enumer.Current as PlayerObject;
+
+                    if (po.teamId == 1)
+                    {
+                        Debug.Log("TEAM 1");
+                        teamOneMembers++;
+                    }
+                    else if (po.teamId == 2)
+                    {
+                        Debug.Log("TEAM 2");
+                        teamTwoMembers++;
+                    }
+                }
+            }
+            Debug.Log(teamTwoMembers + " at team 2, " + teamOneMembers + " at team1");
+
+            StatSplitter sp = new StatSplitter();
+            sp.splitStats(teamOneMembers);
+            IEnumerator players = PlayerObjectReg.allPlayerObjects.GetEnumerator();
+            int currentPlayerIndex = 0;
+            while (players.MoveNext())
+            {
+                PlayerObject player = (PlayerObject)players.Current as PlayerObject;
+                if (player.teamId == 1)
+                {
+                    using (var evnt = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone))
+                    {
+                        // High Hp = low Tail
+                        // High Boom = low Aoe
+                        evnt.MaxHp = (float)sp.hpValues[currentPlayerIndex];
+                        evnt.TailDamage = (float)sp.tailValues[(sp.tailValues.Count - 1) - currentPlayerIndex];
+                        evnt.BoomDamage = (float)sp.boomValues[currentPlayerIndex];
+                        evnt.AoeDamage = (float)sp.aoeValues[(sp.aoeValues.Count -1) - currentPlayerIndex];
+                        evnt.TargEnt = player.character;
+                    }
+                }
+                currentPlayerIndex++;
+            }
+
+            sp = new StatSplitter();
+            sp.splitStats(teamTwoMembers);
+            currentPlayerIndex = 0;
+            players = PlayerObjectReg.allPlayerObjects.GetEnumerator();
+            while (players.MoveNext())
+            {
+                PlayerObject player = (PlayerObject)players.Current as PlayerObject;
+                if (player.teamId == 2)
+                {
+                    using (var evnt = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone))
+                    {
+                        // High Hp = low Tail
+                        // High Boom = low Aoe
+                        evnt.MaxHp = (float)sp.hpValues[currentPlayerIndex];
+                        evnt.TailDamage = (float)sp.tailValues[(sp.tailValues.Count - 1) - currentPlayerIndex];
+                        evnt.BoomDamage = (float)sp.boomValues[currentPlayerIndex];
+                        evnt.AoeDamage = (float)sp.aoeValues[(sp.aoeValues.Count - 1) - currentPlayerIndex];
+                        evnt.TargEnt = player.character;
+                    }
+                }
+                currentPlayerIndex++;
+            }
+
+        }
 
 		void Awake ()
 		{
 				//PlayerObjectReg.createCoconutObject ();//.Spawn ();
 				PlayerObjectReg.createServerPlayerObject ();
+                //updateStats();
 				//Coconut.Instantiate ();
 				//PlayerObjectReg.co.Spawn ();
 				//	PlayerObjectReg.createCoconutObject ().Spawn ();
@@ -26,6 +106,12 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				Debug.Log ("connected");
 				PlayerObjectReg.createClientPlayerObject (connection);
 
+                //updateStats();
+
+
+
+
+            // boltnetwork.entities -> assign stats for all.
 				//this.connection = connection;
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} connected", connection.RemoteEndPoint);
@@ -43,6 +129,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} disconnected", connection.RemoteEndPoint);
 //				log.Send ();
+                updateStats();
 		}
 
 		public override void SceneLoadLocalDone (string map)
@@ -56,6 +143,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 //				}
 				//	PlayerObjectReg.serverPlayerObject.Spawn ();
 				PlayerObjectReg.getPlayerObject (connection).Spawn ();
+                updateStats(); 
 				//PlayerObjectReg.createCoconutObject ().Spawn ();
 				Debug.Log ("objects" + PlayerObjectReg.playerObjects.Count);
 		}
@@ -70,6 +158,13 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				BoltSingletonPrefab<CoconutManager> cm = CoconutManager.instance;
 				cm.GetComponent<CoconutManager> ().ApplyMovementToNut (evnt.CoconutId, evnt.CoconutPosition);//.instance.ApplyMovementToNut (evnt.CoconutId, evnt.CoconutPosition);	
 		}
+
+        public override void OnEvent(StatUpdateEvent evnt)
+        {
+            BoltEntity target = evnt.TargEnt;
+            target.gameObject.GetComponent<PlayerStats>().setSplitStats(evnt.MaxHp, evnt.BoomDamage, evnt.TailDamage, evnt.AoeDamage);
+        }
+
 		public override void OnEvent (TailSlapEvent evnt)
 		{
 				BoltEntity target = evnt.TargEnt;

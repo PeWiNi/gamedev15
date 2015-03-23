@@ -51,9 +51,16 @@ public class PlayerStats : MonoBehaviour
 
 		}
 
-		void setSplitStats ()
+		public void setSplitStats (float mhp, float boom, float tail, float aoe)
 		{
+            float currentHpFactor = hp / maxHealth;
 
+            maxHealth = mhp;
+            boomNanaDamage = boom;
+            tailSlapDamage = tail;
+            aoeTickDamageFactor = aoe;
+
+            hp = maxHealth * currentHpFactor;
 		}
 
 		void updateHp ()

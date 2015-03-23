@@ -18,22 +18,22 @@ public class StatSplitter : MonoBehaviour {
     int maximumBoom = 150;
     int maximumTail = 75;
     int maximumAOE = 20;
-    ArrayList hpValues = new ArrayList();
-    ArrayList boomValues = new ArrayList();
-    ArrayList tailValues = new ArrayList();
-    ArrayList aoeValues = new ArrayList();
+    public ArrayList hpValues = new ArrayList();
+    public ArrayList boomValues = new ArrayList();
+    public ArrayList tailValues = new ArrayList();
+    public ArrayList aoeValues = new ArrayList();
 
     public void splitHp(int noP)
     {
         hpValues = new ArrayList();
-        int sum = 0;
+        float sum = 0;
         for (int i = 0; i < noP-1; i++)
         {
-            int hp = (int)(maximumHp / noP + Random.Range((float)0.8 * (maximumHp / noP), (float)1.2 * (maximumHp / noP)));
+            float hp = (maximumHp / noP + Random.Range((float)0.8 * (maximumHp / noP), (float)1.2 * (maximumHp / noP)));
             sum+=hp;
             hpValues.Add(hp);
         }
-        int hpLast = maximumHp - (sum);
+        float hpLast = maximumHp - (sum);
         hpValues.Add(hpLast);
     }
 
