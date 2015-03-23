@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public static class PlayerObjectReg
+public class PlayerObjectReg
 {
-		public static List<PlayerObject> playerObjects = new List<PlayerObject> (); 
+		public  List<PlayerObject> playerObjects = new List<PlayerObject> (); 
 //		public static List<PlayerObject> teamOnePlayerObjects = new List<PlayerObject> ();
 //		public static List<PlayerObject> teamTwoPlayerObjects = new List<PlayerObject> ();
 		
-		static PlayerObject createPlayer (BoltConnection connection)
+		 PlayerObject createPlayer (BoltConnection connection)
 		{
 				PlayerObject po;
 
@@ -36,7 +36,7 @@ public static class PlayerObjectReg
 //				get { return teamTwoPlayerObjects; }
 //		}
 
-		public static IEnumerable<PlayerObject> allPlayerObjects {
+		public  IEnumerable<PlayerObject> allPlayerObjects {
 				get { return playerObjects; }
 		}
 
@@ -50,21 +50,21 @@ public static class PlayerObjectReg
 //				get { return teamTwoPlayerObjects.First (x => x.isServer); }
 //		}
 
-		public static PlayerObject serverPlayerObject {
+		public  PlayerObject serverPlayerObject {
 				get { return playerObjects.First (x => x.isServer); }
 		}
 
-		public static PlayerObject createServerPlayerObject ()
+		public  PlayerObject createServerPlayerObject ()
 		{
 				return createPlayer (null);
 		}
 
-		public static PlayerObject createClientPlayerObject (BoltConnection connection)
+		public  PlayerObject createClientPlayerObject (BoltConnection connection)
 		{
 				return createPlayer (connection);
 		}
 
-		public static PlayerObject getPlayerObject (BoltConnection connection)
+		public  PlayerObject getPlayerObject (BoltConnection connection)
 		{
 				if (connection == null) {
 						return serverPlayerObject;
@@ -94,7 +94,7 @@ public static class PlayerObjectReg
 //		}
 
 
-		public static void DestoryOnDisconnection (BoltConnection connection)
+		public  void DestoryOnDisconnection (BoltConnection connection)
 		{
 				foreach (PlayerObject p in playerObjects.ToArray()) {
 						if (p.connection == connection) {

@@ -18,6 +18,7 @@ public class StateController : MonoBehaviour {
 	public float lastAttack;
 	public float lastCombat;
 	public float combatCooldownTime;
+    public float globalCooldownTime = 1.5f;
 	private float buffStartTime = 0;
 	public float buffCoolDownTime;
 	public float movementspeed;
@@ -33,10 +34,7 @@ public class StateController : MonoBehaviour {
 	
 	public float buffMultiplier;
 
-    void update()
-    {
-        checkIfDead();
-    }
+   
 	public float getSpeed(){
 		return currentSpeed;
 	}
@@ -210,6 +208,7 @@ public class StateController : MonoBehaviour {
      
 	void Update () {
 		//checkBuffTimer ();
+        checkIfDead();
         originalSpeeds();
 		checkCombatTime ();
 		checkIfHolding ();
