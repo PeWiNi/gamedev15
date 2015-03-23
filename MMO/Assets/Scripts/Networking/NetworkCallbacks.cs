@@ -10,6 +10,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		Vector3 position;
 		Bolt.NetworkId id;
         PlayerObjectReg por;
+       // BoltEntity lastSplitter;
 
         public void updateStats()
         {
@@ -19,12 +20,55 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
             // playerobjectreg -> get all characters.
 
             // FOR SOME REASON, THE PLAYEROBJECTREG ONLY CONTAINS 1 OBJECT .. IT IS NOT COMMON OVER THE SERVER!!!!
+            IEnumerator boltEnum = BoltNetwork.entities.GetEnumerator();
+            int a = 0;
+            IEnumerator theEnum = null;
+            while (boltEnum.MoveNext())
+            {
+                if (boltEnum.Current.GetType().IsInstanceOfType(new BoltEntity()))
+                {
+                    BoltEntity boltEnt = (BoltEntity)boltEnum.Current as BoltEntity;
+                    if(boltEnt.tag == "player"){
+                        theEnum = (boltEnt.gameObject.GetComponent<PlayerStats>().getEntities());
+                        break;
+                    }
+                }
+                a++; 
+                Debug.Log("Entities found FROM STATSUPDATER = " + a);
+            }
 
-            IEnumerator enumer = por.allPlayerObjects.GetEnumerator();
+            if (theEnum != null)
+            {
+                int e = 0;
+                while (theEnum.MoveNext())
+                {
+                    //Debug.Log("Enum from player object: "+ e);
+                    //e++; 
+                    if (theEnum.Current.GetType().IsInstanceOfType(new BoltEntity()))
+                    {
+                        e++;
+                        BoltEntity be = (BoltEntity)theEnum.Current as BoltEntity;
+                        //Debug.Log(be.gameObject.tag);
+                        if (be.gameObject.tag == "player")
+                        {
+                            if (be.gameObject.GetComponent<PlayerStats>().teamNumber == 1)
+                            {
+                                teamOneMembers++;
+                            }
+                            else
+                            {
+                                teamTwoMembers++;
+                            }
+                        }
+                    }
+                }
+                Debug.Log("Number of BOLTENTITIES found: " + e);
+            }
+           /* IEnumerator enumer = por.allPlayerObjects.GetEnumerator();
             // go through each entity, and check for teamnumber.
             while (enumer.MoveNext())
             {
-                Debug.Log("INSIDE ENUMER");
+                Debug.Log("INSIDE ENUMER"); 
                 if (enumer.Current.GetType().IsInstanceOfType(new PlayerObject()))
                 {
                     Debug.Log("IT IS A PlayerObject!!");
@@ -42,7 +86,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
                         teamTwoMembers++; 
                     }
                 }
-            }
+            }*/
             Debug.Log(teamTwoMembers + " at team 2, " + teamOneMembers + " at team1");
 
             StatSplitter sp = new StatSplitter();
@@ -63,7 +107,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
                         evnt.BoomDamage = (float)sp.boomValues[currentPlayerIndex];
                         evnt.AoeDamage = (float)sp.aoeValues[(sp.aoeValues.Count -1) - currentPlayerIndex];
                         evnt.TargEnt = player.character;
-                    }
+                    } 
                 }
                 currentPlayerIndex++;
             }
@@ -110,7 +154,6 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				
 				Debug.Log ("connected");
 				por.createClientPlayerObject (connection);
-
                 //updateStats();
 
 
@@ -148,10 +191,16 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 //				}
 				//	PlayerObjectReg.serverPlayerObject.Spawn ();
 				por.getPlayerObject (connection).Spawn ();
-                updateStats(); 
+                //updateStats(); 
 				//PlayerObjectReg.createCoconutObject ().Spawn ();
 				Debug.Log ("objects" + por.playerObjects.Count);
 		}
+
+        public override void OnEvent(StatStartEvent evnt)
+        {
+            //lastSplitter = evnt.TargEnt;
+            updateStats(); 
+        }
 
 		public override void OnEvent (CoconutEvent evnt)
 		{

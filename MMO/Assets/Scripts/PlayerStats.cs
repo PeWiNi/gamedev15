@@ -48,8 +48,27 @@ public class PlayerStats : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-
+            
 		}
+
+        public void makeTheStatChange()
+        {
+            using (var evnt = StatStartEvent.Create(Bolt.GlobalTargets.Everyone))
+            {
+                //IEnumerator enumer = BoltNetwork.entities.GetEnumerator();
+                //while(enumer.MoveNext()){
+                //    if(enumer.Current.GetType().IsInstanceOfType(new BoltEntity())){
+                //        if(((BoltEntity)enumer.Current as BoltEntity).gameObject == this.gameObject){
+                //            evnt.TargEnt = (BoltEntity)enumer.Current as BoltEntity;
+                //        }
+                //    }
+                //}
+            }
+        }
+        public IEnumerator getEntities()
+        {
+            return BoltNetwork.entities.GetEnumerator();
+        }
 
 		public void setSplitStats (float mhp, float boom, float tail, float aoe)
 		{

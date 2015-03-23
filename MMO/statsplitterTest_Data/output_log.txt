@@ -20,7 +20,35 @@ Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTes
 Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.common.dll into Unity Child Domain
 Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.dll (this message is harmless)
 Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.dll into Unity Child Domain
-- Completed reload, in  0.050 seconds
+- Completed reload, in  0.202 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\System.dll (this message is harmless)
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 850M      (ID=0x1391)
+    Vendor:   NVIDIA
+    VRAM:     1972 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\bolt.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\bolt.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\bolt.user.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\bolt.user.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.common.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.common.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.dll into Unity Child Domain
+- Completed reload, in  0.042 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -46,7 +74,7 @@ Creating Global Behaviour: 'BoltSceneLoader'
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:12 PM: socket created
+3/23/2015 2:53:16 PM: socket created
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -62,7 +90,7 @@ Invoking callback RegisterStreamChannels
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:12 PM: Binding physical socket using platform 'DotNetPlatform'
+3/23/2015 2:53:16 PM: Binding physical socket using platform 'DotNetPlatform'
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -70,11 +98,11 @@ Loading Bolt.SceneLoadState (Scene1Test)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:12 PM: Socket bound to [EndPoint 0.0.0.0:27000 | 27000]
+3/23/2015 2:53:16 PM: Socket bound to [EndPoint 0.0.0.0:27000 | 27000]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:12 PM: Physical socket bound to [EndPoint 0.0.0.0:27000 | 27000]
+3/23/2015 2:53:16 PM: Physical socket bound to [EndPoint 0.0.0.0:27000 | 27000]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -93,11 +121,11 @@ Invoking callback SceneLoadLocalBegin
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:12 PM: Could not resolve a possible LAN address by inspecting local network interfaces
+3/23/2015 2:53:16 PM: Could not resolve a possible LAN address by inspecting local network interfaces
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:12 PM: physical socket started
+3/23/2015 2:53:16 PM: physical socket started
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -106,11 +134,11 @@ The referenced script on this Behaviour is missing!
  
 (Filename:  Line: 1788)
 
-UnloadTime: 0.190493 ms
+UnloadTime: 0.206094 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 914.
-Total: 3.104962 ms (FindLiveObjects: 0.034485 ms CreateObjectMapping: 0.012726 ms MarkObjects: 2.463278 ms  DeleteObjects: 0.026274 ms)
+Total: 3.102499 ms (FindLiveObjects: 0.041875 ms CreateObjectMapping: 0.027096 ms MarkObjects: 2.457531 ms  DeleteObjects: 0.025864 ms)
 
 Found 1 Scene Objects
  
@@ -144,153 +172,23 @@ Invoking callback ControlOfEntityGained
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-INSIDE ENUMER
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-IT IS A PlayerObject!!
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-TEAM 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-0 at team 2, 1 at team1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
 objects1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+Raising [StatStartEvent TargEnt=]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:21 PM: [EndPoint 127.0.0.1:51083 | 9151314447111866251] connected
+Entities found FROM STATSUPDATER = 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Invoking callback Connected
+Entities found FROM STATSUPDATER = 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-connected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback Connected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback Connected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Created [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState] on [Connection [EndPoint 127.0.0.1:51083 | 9151314447111866251]]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Created [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState] on [Connection [EndPoint 127.0.0.1:51083 | 9151314447111866251]]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Could not find entity with [NetworkId 0-0-0-1-0-0-0-2]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-recv event [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Creating instance of [PrefabId:8]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityAttached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Attached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Received [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState] from [Connection [EndPoint 127.0.0.1:51083 | 9151314447111866251]]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityReceived
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback SceneLoadRemoteDone
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME RESET: -5
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME FORWARD: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME FORWARD: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Initialize engine version: 4.6.1f1 (d1db7a1b5196)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 850M      (ID=0x1391)
-    Vendor:   NVIDIA
-    VRAM:     1972 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\bolt.dll (this message is harmless)
-Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\bolt.dll into Unity Child Domain
-Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\bolt.user.dll (this message is harmless)
-Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\bolt.user.dll into Unity Child Domain
-Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.common.dll (this message is harmless)
-Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.common.dll into Unity Child Domain
-Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.dll (this message is harmless)
-Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\udpkit.dll into Unity Child Domain
-- Completed reload, in  0.048 seconds
-FRAME FORWARD: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-3/23/2015 12:54:46 PM: [EndPoint 127.0.0.1:51083 | 9151314447111866251] disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback Disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INSIDE ENUMER
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-IT IS A PlayerObject!!
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-TEAM 1
+Number of BOltEntities found: 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -298,24 +196,10 @@ TEAM 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Invoking callback Disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityDetached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Detached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
 Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\statsplitterTest_Data\Managed\System.dll (this message is harmless)
 Starting at 60 fps (0.01666667 fixed frame delta)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
@@ -336,7 +220,7 @@ Creating Global Behaviour: 'BoltSceneLoader'
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:55 PM: socket created
+3/23/2015 2:53:25 PM: socket created
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -348,15 +232,15 @@ Invoking callback RegisterStreamChannels
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:55 PM: Binding physical socket using platform 'DotNetPlatform'
+3/23/2015 2:53:25 PM: Binding physical socket using platform 'DotNetPlatform'
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:55 PM: Socket bound to [EndPoint 0.0.0.0:58013 | 58013]
+3/23/2015 2:53:25 PM: Socket bound to [EndPoint 0.0.0.0:52128 | 52128]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:55 PM: Physical socket bound to [EndPoint 0.0.0.0:58013 | 58013]
+3/23/2015 2:53:25 PM: Physical socket bound to [EndPoint 0.0.0.0:52128 | 52128]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -367,23 +251,23 @@ Invoking callback BoltStarted
 Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/statsplitterTest_Data/Mono/libc
 Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/statsplitterTest_Data/Mono/.\libc
 Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/statsplitterTest_Data/Mono/libc
-3/23/2015 12:54:55 PM: 10.25.195.152 10.25.0.1,130.226.142.2,130.226.142.3,10.25.195.1
+3/23/2015 2:53:25 PM: 10.25.195.152 10.25.0.1,130.226.142.2,130.226.142.3,10.25.195.1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:55 PM: 192.168.56.1 0.0.0.0,192.168.56.1
+3/23/2015 2:53:25 PM: 192.168.56.1 0.0.0.0,192.168.56.1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:55 PM: LAN endpoint resolved as [EndPoint 10.25.195.152:58013 | 727827872399549085]
+3/23/2015 2:53:25 PM: LAN endpoint resolved as [EndPoint 10.25.195.152:52128 | 727827872399543200]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:55 PM: physical socket started
+3/23/2015 2:53:25 PM: physical socket started
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:55 PM: Connecting to [EndPoint 127.0.0.1:27000 | 9151314447111842168]
+3/23/2015 2:53:25 PM: Connecting to [EndPoint 127.0.0.1:27000 | 9151314447111842168]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -391,7 +275,7 @@ Invoking callback ConnectAttempt
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:55 PM: [EndPoint 127.0.0.1:58013 | 9151314447111873181] connected
+3/23/2015 2:53:25 PM: [EndPoint 127.0.0.1:52128 | 9151314447111867296] connected
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -411,31 +295,31 @@ Invoking callback Connected
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Created [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState] on [Connection [EndPoint 127.0.0.1:58013 | 9151314447111873181]]
+Created [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState] on [Connection [EndPoint 127.0.0.1:52128 | 9151314447111867296]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Created [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState] on [Connection [EndPoint 127.0.0.1:58013 | 9151314447111873181]]
+Created [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState] on [Connection [EndPoint 127.0.0.1:52128 | 9151314447111867296]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:56 PM: Connect to [EndPoint 127.0.0.1:27000 | 9151314447111842168] accepted
+3/23/2015 2:53:25 PM: Connect to [EndPoint 127.0.0.1:27000 | 9151314447111842168] accepted
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:56 PM: Correct connection id #3 received from server
+3/23/2015 2:53:25 PM: Correct connection id #2 received from server
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:54:56 PM: [EndPoint 127.0.0.1:27000 | 9151314447111842168] connected
+3/23/2015 2:53:25 PM: [EndPoint 127.0.0.1:27000 | 9151314447111842168] connected
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Assigned id 3 from server
+Assigned id 2 from server
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Assigned id 3 from server
+Assigned id 2 from server
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -472,17 +356,13 @@ The referenced script on this Behaviour is missing!
  
 (Filename:  Line: 1788)
 
-UnloadTime: 0.185566 ms
+UnloadTime: 0.267676 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 926.
-Total: 3.456801 ms (FindLiveObjects: 0.041465 ms CreateObjectMapping: 0.014369 ms MarkObjects: 2.804032 ms  DeleteObjects: 0.028738 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 924.
+Total: 3.353753 ms (FindLiveObjects: 0.034896 ms CreateObjectMapping: 0.016832 ms MarkObjects: 2.646382 ms  DeleteObjects: 0.028738 ms)
 
 FRAME RESET: 17
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME RESET: -4
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -502,35 +382,11 @@ Invoking callback EntityAttached
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Attached [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Invoking callback ControlOfEntityGained
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INSIDE ENUMER
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-IT IS A PlayerObject!!
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-TEAM 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INSIDE ENUMER
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-IT IS A PlayerObject!!
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-0 at team 2, 1 at team1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -542,19 +398,43 @@ Invoking callback SceneLoadRemoteDone
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+Raising [StatStartEvent TargEnt=]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Created [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState] on [Connection [EndPoint 127.0.0.1:27000 | 9151314447111842168]]
+Entities found FROM STATSUPDATER = 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-sending event [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+Number of BOltEntities found: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Could not find entity with [NetworkId 0-0-0-1-0-0-0-3]
+0 at team 2, 1 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState] on [Connection [EndPoint 127.0.0.1:27000 | 9151314447111842168]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Could not find entity with [NetworkId 0-0-0-1-0-0-0-2]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -570,11 +450,11 @@ Invoking callback EntityAttached
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Attached [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState] from [Connection [EndPoint 127.0.0.1:58013 | 9151314447111873181]]
+Received [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState] from [Connection [EndPoint 127.0.0.1:52128 | 9151314447111867296]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -586,7 +466,95 @@ Invoking callback SceneLoadRemoteDone
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 2 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 2 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=984.2683 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=940.0572 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=984.2683 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=940.0572 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Could not find entity with [NetworkId 0-0-0-2-0-0-0-1]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=984.2683 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Could not find entity with [NetworkId 0-0-0-2-0-0-0-1]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=940.0572 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -626,7 +594,143 @@ Invoking callback EntityReceived
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:55:02 PM: [EndPoint 127.0.0.1:58014 | 9151314447111873182] connected
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 2 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=984.2683 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=940.0572 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 2 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=936.1814 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=1056.242 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=936.1814 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=1056.242 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=936.1814 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=1056.242 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 2 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=936.1814 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=1056.242 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=1037.372 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=1037.372 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=1037.372 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=1037.372 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:53:40 PM: [EndPoint 127.0.0.1:52129 | 9151314447111867297] connected
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -646,15 +750,15 @@ Invoking callback Connected
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Created [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState] on [Connection [EndPoint 127.0.0.1:58014 | 9151314447111873182]]
+Created [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState] on [Connection [EndPoint 127.0.0.1:52129 | 9151314447111867297]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Created [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState] on [Connection [EndPoint 127.0.0.1:58014 | 9151314447111873182]]
+Created [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState] on [Connection [EndPoint 127.0.0.1:52129 | 9151314447111867297]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Created [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState] on [Connection [EndPoint 127.0.0.1:58014 | 9151314447111873182]]
+Created [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState] on [Connection [EndPoint 127.0.0.1:52129 | 9151314447111867297]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -662,7 +766,11 @@ FRAME STALL: 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Could not find entity with [NetworkId 0-0-0-1-0-0-0-4]
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Could not find entity with [NetworkId 0-0-0-1-0-0-0-3]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -678,11 +786,11 @@ Invoking callback EntityAttached
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Attached [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState] from [Connection [EndPoint 127.0.0.1:58014 | 9151314447111873182]]
+Received [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState] from [Connection [EndPoint 127.0.0.1:52129 | 9151314447111867297]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -694,31 +802,139 @@ Invoking callback SceneLoadRemoteDone
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-FRAME RESET: -1
+FRAME RESET: -8
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+Raising [StatStartEvent TargEnt=]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Created [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState] on [Connection [EndPoint 127.0.0.1:58013 | 9151314447111873181]]
+Entities found FROM STATSUPDATER = 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-sending event [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+Entities found FROM STATSUPDATER = 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-FRAME FORWARD: 10
+Entities found FROM STATSUPDATER = 3
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Could not find entity with [NetworkId 0-0-0-1-0-0-0-4]
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=727.7159 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=633.1363 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState] on [Connection [EndPoint 127.0.0.1:52128 | 9151314447111867296]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME RESET: 14
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=727.7159 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=633.1363 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=727.7159 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=633.1363 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Could not find entity with [NetworkId 0-0-0-1-0-0-0-3]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 recv event [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=727.7159 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=633.1363 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -730,11 +946,11 @@ Invoking callback EntityAttached
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Attached [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState] from [Connection [EndPoint 127.0.0.1:27000 | 9151314447111842168]]
+Received [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState] from [Connection [EndPoint 127.0.0.1:27000 | 9151314447111842168]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -742,7 +958,542 @@ Invoking callback EntityReceived
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=727.7159 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=633.1363 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=695.1912 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=644.8933 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=690.3944 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=695.1912 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=644.8933 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=690.3944 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=695.1912 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=644.8933 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=690.3944 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=695.1912 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=644.8933 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=690.3944 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=681.6204 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=681.6204 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=695.1912 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=644.8933 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=690.3944 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=681.6204 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=681.6204 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=681.6204 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=668.8582 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=623.9333 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=656.7947 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME RESET: -14
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=668.8582 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=623.9333 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=656.7947 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=600.9799 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=627.774 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=668.8582 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=623.9333 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=656.7947 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=600.9799 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=627.774 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=600.9799 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=627.774 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=668.8582 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=623.9333 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=656.7947 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=600.9799 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=627.774 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=668.8582 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=623.9333 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=656.7947 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=600.9799 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=627.774 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=729.9333 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=708.4357 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUprateEveec vaxHp= 29.ve33n BtomDamage=0 TtUlDdamage=75 AoeDa=age=.20 TargEmnam=[Enti=0tTail[NDtworkId 0-0-e0-1-0-0-0-2] TestPlayerState]]
+ 
+(IdF0-0-0-1e:-0-0Bui-dAg-3e TestPlkayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc638/Unity5190b60/art.ifacts/Sta4nda
+
+lonePlayerGenesending etyvent [StbagtUpdatenEven9t 
+M
+axHp=70F.435E7 BoomDa1m
+ag
+e=0 enaalDeamageB=75 AoeDamaoge=20 Tar63851=[Entityr ifacts/StandalonePlayerGenerated/UnitrSEtate]Deb
+ u
+g.icpp LineC:/ 49B
+
+ildAgent/work/d63dfc6385190b60/artifacts/StanRaaising [StatUpdated/UniEyvegit naxDebug.cpp Line: 49)g
+e=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME RESET: 13
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME RESET: 14
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=659.1066 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 10
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=729.9333 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=708.4357 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 11
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=729.9333 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=708.4357 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=729.9333 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=708.4357 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=659.1066 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=659.1066 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 10
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -778,57 +1529,6 @@ Raising [GameTimerEvent GameTime=19]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-3/23/2015 12:55:17 PM: Dropping packet (Simulated)
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME RESET: 37
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME RESET: 40
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME RESET: -9
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME RESET: -10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME RESET: -27
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME FESET: 14
- 
-(FilLnam 2
- :/BuildAgent/woBrk/d63enft63/5w90b60/artif6a85t19Stb60/altonePla/yerGdaneonaeedPUnayeyrGenneDebug.cpp Line: 49)
-g
-.cpp Line: 49)
-
-FRAME RESET: 14
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME STALL: 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME FORWARD: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME FORWARD: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME FORWARD: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
 BoltException: You are not the server of, you can not raise this event
   at GameTimerEvent.Create (Byte targets, .BoltConnection connection, ReliabilityModes reliability) [0x00000] in <filename unknown>:0 
   at GameTimerEvent.Create (GlobalTargets targets) [0x00000] in <filename unknown>:0 
@@ -837,7 +1537,59 @@ BoltException: You are not the server of, you can not raise this event
  
 (Filename:  Line: -1)
 
-3/23/2015 12:55:56 PM: Dropping packet (Simulated)
+3/23/2015 2:54:20 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:54:20 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 12
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 10
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:54:29 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:54:30 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME STALL: 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:54:43 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:54:43 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:54:43 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:54:43 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:00 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:01 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:01 PM: Dropping packet (Simulated)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -861,152 +1613,1083 @@ Raising [GameTimerEvent GameTime=18]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Shutdown
+3/23/2015 2:55:09 PM: Dropping packet (Simulated)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Invoking callback BoltShutdown
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityDetached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Detached [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityDetached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Detached [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityDetached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Detached [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityDetached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Detached [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Behaviour not available in this dispatcher, ignoring call to Remove.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Behaviour not available in this dispatcher, ignoring call to Remove.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Behaviour not available in this dispatcher, ignoring call to Remove.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-3/23/2015 12:56:39 PM: [EndPoint 127.0.0.1:58013 | 9151314447111873181] disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-3/23/2015 12:56:39 PM: [EndPoint 127.0.0.1:58014 | 9151314447111873182] disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-3/23/2015 12:56:39 PM: [EndPoint 127.0.0.1:27000 | 9151314447111842168] disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback Disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INSIDE ENUMER
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-IT IS A PlayerObject!!
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-TEAM 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-0 at team 2, 1 at team1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback Disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityDetached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Detached [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityDetached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Detached [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityDetached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Detached [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Shutdown
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback BoltShutdown
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityDetached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Detached [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Behaviour not available in this dispatcher, ignoring call to Remove.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Behaviour not available in this dispatcher, ignoring call to Remove.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-KeyNotFoundException: The given key was not present in the dictionary.
-  at System.Collections.Generic.Dictionary`2[Bolt.TypeId,Bolt.IFactory].get_Item (TypeId key) [0x00000] in <filename unknown>:0 
-  at Bolt.Factory.GetEventFactory (TypeId id) [0x00000] in <filename unknown>:0 
-  at Bolt.EventDispatcher.Raise (Bolt.Event ev) [0x00000] in <filename unknown>:0 
-  at Bolt.EventDispatcher.RaiseLocal (Bolt.Event ev) [0x00000] in <filename unknown>:0 
-  at Bolt.EventDispatcher.Global_Everyone (Bolt.Event ev) [0x00000] in <filename unknown>:0 
-  at Bolt.EventDispatcher.Dispatch (Bolt.Event ev) [0x00000] in <filename unknown>:0 
-  at Bolt.EventDispatcher.DispatchAllEvents () [0x00000] in <filename unknown>:0 
-  at BoltCore.Poll () [0x00000] in <filename unknown>:0 
-  at BoltPoll.FixedUpdate () [0x00000] in <filename unknown>:0 
+BoltException: You are not the server of, you can not raise this event
+  at GameTimerEvent.Create (Byte targets, .BoltConnection connection, ReliabilityModes reliability) [0x00000] in <filename unknown>:0 
+  at GameTimerEvent.Create (GlobalTargets targets) [0x00000] in <filename unknown>:0 
+  at GameTimer.decreaseTime (Single timeLimit) [0x00000] in <filename unknown>:0 
+  at GameTimer.Update () [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
+
+3/23/2015 2:55:47 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:47 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:47 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:47 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:47 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:47 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:47 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:48 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:56 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:56 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:56 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:55:56 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [GameTimerEvent GameTime=17]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [GameTimerEvent GameTime=17]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [GameTimerEvent GameTime=17]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [GameTimerEvent GameTime=17]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [GameTimerEvent GameTime=17]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+BoltException: You are not the server of, you can not raise this event
+  at GameTimerEvent.Create (Byte targets, .BoltConnection connection, ReliabilityModes reliability) [0x00000] in <filename unknown>:0 
+  at GameTimerEvent.Create (GlobalTargets targets) [0x00000] in <filename unknown>:0 
+  at GameTimer.decreaseTime (Single timeLimit) [0x00000] in <filename unknown>:0 
+  at GameTimer.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Raising [GameTimerEvent GameTime=16]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [GameTimerEvent GameTime=16]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [GameTimerEvent GameTime=16]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [GameTimerEvent GameTime=16]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [GameTimerEvent GameTime=16]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+BoltException: You are not the server of, you can not raise this event
+  at GameTimerEvent.Create (Byte targets, .BoltConnection connection, ReliabilityModes reliability) [0x00000] in <filename unknown>:0 
+  at GameTimerEvent.Create (GlobalTargets targets) [0x00000] in <filename unknown>:0 
+  at GameTimer.decreaseTime (Single timeLimit) [0x00000] in <filename unknown>:0 
+  at GameTimer.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Raising [GameTimerEvent GameTime=15]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [GameTimerEvent GameTime=15]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [GameTimerEvent GameTime=15]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [GameTimerEvent GameTime=15]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [GameTimerEvent GameTime=15]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+BoltException: You are not the server of, you can not raise this event
+  at GameTimerEvent.Create (Byte targets, .BoltConnection connection, ReliabilityModes reliability) [0x00000] in <filename unknown>:0 
+  at GameTimerEvent.Create (GlobalTargets targets) [0x00000] in <filename unknown>:0 
+  at GameTimer.decreaseTime (Single timeLimit) [0x00000] in <filename unknown>:0 
+  at GameTimer.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+FRAME STALL: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 10
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:58:36 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:58:36 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:58:45 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:58:46 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:58:59 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:58:59 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:58:59 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:58:59 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [GameTimerEvent GameTime=14]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [GameTimerEvent GameTime=14]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [GameTimerEvent GameTime=14]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [GameTimerEvent GameTime=14]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [GameTimerEvent GameTime=14]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+BoltException: You are not the server of, you can not raise this event
+  at GameTimerEvent.Create (Byte targets, .BoltConnection connection, ReliabilityModes reliability) [0x00000] in <filename unknown>:0 
+  at GameTimerEvent.Create (GlobalTargets targets) [0x00000] in <filename unknown>:0 
+  at GameTimer.decreaseTime (Single timeLimit) [0x00000] in <filename unknown>:0 
+  at GameTimer.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+3/23/2015 2:59:17 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:59:17 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:59:25 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:59:25 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME RESET: -7
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME RESET: 14
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 10
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 11
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 10
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:59:43 PM: [EndPoint 127.0.0.1:52129 | 9151314447111867297] disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=690.537 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=690.537 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=690.537 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-3] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=690.537 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 2:59:51 PM: [EndPoint 127.0.0.1:55201 | 9151314447111870369] connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Connected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState] on [Connection [EndPoint 127.0.0.1:55201 | 9151314447111870369]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState] on [Connection [EndPoint 127.0.0.1:55201 | 9151314447111870369]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState] on [Connection [EndPoint 127.0.0.1:55201 | 9151314447111870369]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME RESET: 27
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Could not find entity with [NetworkId 0-0-0-1-0-0-0-4]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating instance of [PrefabId:8]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityAttached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState] from [Connection [EndPoint 127.0.0.1:55201 | 9151314447111870369]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityReceived
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback SceneLoadRemoteDone
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=599.7131 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=648.9119 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Created [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState] on [Connection [EndPoint 127.0.0.1:52128 | 9151314447111867296]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=599.7131 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=648.9119 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=599.7131 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=648.9119 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Could not find entity with [NetworkId 0-0-0-1-0-0-0-4]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=599.7131 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=648.9119 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Creating instance of [PrefabId:8]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityAttached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState] from [Connection [EndPoint 127.0.0.1:27000 | 9151314447111842168]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityReceived
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=599.7131 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=648.9119 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=728.3947 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=644.0876 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=720.9809 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=728.3947 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=644.0876 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=720.9809 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=728.3947 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=644.0876 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=720.9809 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=728.3947 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=644.0876 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=720.9809 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=610.1179 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=610.1179 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatStartEvent TargEnt=]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=728.3947 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=644.0876 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=720.9809 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=610.1179 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=610.1179 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=610.1179 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=620.5381 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=665.9304 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME RESET: -11
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=620.5381 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=665.9304 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=620.5381 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=665.9304 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 11
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME RESET: 18
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 11
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=620.5381 BFomRamME FaRWge=0 Tai
+ 
+(Filename: C:/Bageu20ildAgEet=[Entrk/d63ifc6y3[N5190e6t/aotikIac 0s/0-tandalonePla4yerGenelrated/Unit]y
+En
+gineDebueg.cpp Line: 49)
+
+ork/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=665.9304 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=620.5381 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=665.9304 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:03 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:03 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:03 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:03 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:03 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:03 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:03 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:03 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [GameTimerEvent GameTime=13]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [GameTimerEvent GameTime=13]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [GameTimerEvent GameTime=13]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [GameTimerEvent GameTime=13]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [GameTimerEvent GameTime=13]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:12 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:12 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:12 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:12 PM: Dropping packet (Simulated)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+BoltException: You are not the server of, you can not raise this event
+  at GameTimerEvent.Create (Byte targets, .BoltConnection connection, ReliabilityModes reliability) [0x00000] in <filename unknown>:0 
+  at GameTimerEvent.Create (GlobalTargets targets) [0x00000] in <filename unknown>:0 
+  at GameTimer.decreaseTime (Single timeLimit) [0x00000] in <filename unknown>:0 
+  at GameTimer.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+3/23/2015 3:00:22 PM: [EndPoint 127.0.0.1:55201 | 9151314447111870369] disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 3 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=631.674 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+sending event [StatUpdateEvent MaxHp=631.674 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+recv event [StatUpdateEvent MaxHp=631.674 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-4] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=631.674 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback BoltShutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Behaviour not available in this dispatcher, ignoring call to Remove.
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Behaviour not available in this dispatcher, ignoring call to Remove.
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:29 PM: [EndPoint 127.0.0.1:27000 | 9151314447111842168] disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+3/23/2015 3:00:29 PM: [EndPoint 127.0.0.1:52128 | 9151314447111867296] disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Entities found FROM STATSUPDATER = 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Number of BOltEntities found: 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0 at team 2, 2 at team1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback Disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Raising [StatUpdateEvent MaxHp=915.4169 BoomDamage=0 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback BoltShutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Behaviour not available in this dispatcher, ignoring call to Remove.
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Behaviour not available in this dispatcher, ignoring call to Remove.
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Behaviour not available in this dispatcher, ignoring call to Remove.
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

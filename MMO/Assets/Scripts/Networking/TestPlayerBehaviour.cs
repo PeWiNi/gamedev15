@@ -81,7 +81,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		}
 		public override void SimulateController ()
 		{
-				
+            if (startup == 0)
+            {
+                this.gameObject.GetComponent<PlayerStats>().makeTheStatChange();
+            }
+            startup = 1;
 //				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
 //				snow.transform.position = snowPos;  
 				if (wasd != null) {
