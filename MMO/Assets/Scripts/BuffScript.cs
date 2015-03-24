@@ -11,7 +11,7 @@ public class BuffScript : MonoBehaviour {
  */
 
 
-
+      
     //Get Current HP -> -= currentHP*0.05;
     //Increase damage -> damage += damage*0.2;
     //Increase damageReduction -> damageReduction += damageReduction*0.2;
