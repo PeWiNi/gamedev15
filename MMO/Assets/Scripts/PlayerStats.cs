@@ -98,5 +98,15 @@ public class PlayerStats : MonoBehaviour
 
 		}
 
+        public float getHealth()
+        {
+            return hp;
+        }
+
+        public float getMaxHealth()
+        {
+            return maxHealth;
+        }
+
 
 }
