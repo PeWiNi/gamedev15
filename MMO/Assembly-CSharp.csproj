@@ -49,9 +49,11 @@
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\NewBehaviourScript1.cs" />
      <Compile Include="Assets\Scripts\AOE.cs" />
+     <Compile Include="Assets\Scripts\AntNest.cs" />
      <Compile Include="Assets\Scripts\BananaTreeScript.cs" />
      <Compile Include="Assets\Scripts\BaseStats.cs" />
      <Compile Include="Assets\Scripts\BeaconZone.cs" />
+     <Compile Include="Assets\Scripts\BeeHive.cs" />
      <Compile Include="Assets\Scripts\Boomnana.cs" />
      <Compile Include="Assets\Scripts\BuffScript.cs" />
      <Compile Include="Assets\Scripts\CCScript.cs" />
@@ -60,6 +62,7 @@
      <Compile Include="Assets\Scripts\CombatScript.cs" />
      <Compile Include="Assets\Scripts\CprScript.cs" />
      <Compile Include="Assets\Scripts\DeathSpawner.cs" />
+     <Compile Include="Assets\Scripts\ForestAreaScript.cs" />
      <Compile Include="Assets\Scripts\GameTimeManager.cs" />
      <Compile Include="Assets\Scripts\GameTimer.cs" />
      <Compile Include="Assets\Scripts\HUDScript.cs" />
