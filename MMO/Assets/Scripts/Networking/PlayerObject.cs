@@ -21,16 +21,13 @@ public class PlayerObject
 				if (!character) {
 						
 						character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3dWithColliders);
-                        if (BoltInit.hasPickedTeamOne)
-                        {
-                            //character.renderer.material.color = Color.red;
-                            teamId = 1;
-                        }
-                        else if (BoltInit.hasPickedTeamTwo)
-                        {
-                           // character.renderer.material.color = Color.green;
-                            teamId = 2;
-                        }
+						if (BoltInit.hasPickedTeamOne) {
+								//character.renderer.material.color = Color.red;
+								teamId = 1;
+						} else if (BoltInit.hasPickedTeamTwo) {
+								// character.renderer.material.color = Color.green;
+								teamId = 2;
+						}
 						if (isServer) {
 								//character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
 								character.TakeControl ();
@@ -54,6 +51,7 @@ public class PlayerObject
 		{
 				float x = Random.Range (-10f, +10f);
 				float z = Random.Range (-10f, +10f);
+				character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 1005f, 5f, z + 100f);
 				return new Vector3 (x + 1005f, 5f, z + 100f);
 		}
 		
@@ -61,6 +59,7 @@ public class PlayerObject
 		{
 				float x = Random.Range (-10f, +10f);
 				float z = Random.Range (-10f, +10f);
+				character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 990f, 5f, z + 1850f);
 				return new Vector3 (x + 990f, 5f, z + 1850f);
 		}
 }

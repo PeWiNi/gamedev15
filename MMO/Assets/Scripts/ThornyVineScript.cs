@@ -18,7 +18,6 @@ public class ThornyVineScript : MonoBehaviour
 		{
 				decreaseMovementSpeed = 2f;
 				increaseMovementSpeed = 2f;
-				maxHealth = 100;
 		}
 	
 		/// <summary>
@@ -29,6 +28,7 @@ public class ThornyVineScript : MonoBehaviour
 		{				
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "ThornyVinePath01" && !isDealingDamage) {
 						health = coll.GetComponent<PlayerStats> ().hp;
+						maxHealth = coll.GetComponent<PlayerStats> ().maxHealth;
 						StartCoroutine ("VineDamage", health);
 						coll.GetComponent<PlayerStats> ().hp = healthRemain;
 						speed = ((2f * 40f) / 100f) + increaseMovementSpeed;
@@ -36,6 +36,7 @@ public class ThornyVineScript : MonoBehaviour
 				}
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "ThornyVinePath02" && !isDealingDamage) {
 						health = coll.GetComponent<PlayerStats> ().hp;
+						maxHealth = coll.GetComponent<PlayerStats> ().maxHealth;
 						StartCoroutine ("VineDamage", health);
 						coll.GetComponent<PlayerStats> ().hp = healthRemain;
 						speed = ((2f * 40f) / 100f) + increaseMovementSpeed;

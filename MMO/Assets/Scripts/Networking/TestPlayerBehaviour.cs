@@ -81,11 +81,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		}
 		public override void SimulateController ()
 		{
-            if (startup == 0)
-            {
-                this.gameObject.GetComponent<PlayerStats>().makeTheStatChange();
-            }
-            startup = 1;
+				if (startup == 0) {
+						this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
+				}
+				startup = 1;
 //				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
 //				snow.transform.position = snowPos;  
 				if (wasd != null) {
@@ -180,8 +179,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						}
 				}
 
-                if (Input.GetKey(moveDown) && !sc.isStunned && !sc.isDead)
-                {
+				if (Input.GetKey (moveDown) && !sc.isStunned && !sc.isDead) {
 						down = true;
 						if (sc.canMove) {
 								if (Input.GetKey (sprint)) {
@@ -193,8 +191,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						}
 				}
 
-                if (Input.GetKey(moveRight) && !sc.isStunned && !sc.isDead)
-                {
+				if (Input.GetKey (moveRight) && !sc.isStunned && !sc.isDead) {
 						right = true;
 						if (sc.canMove) {
 								if (Input.GetKey (sprint)) {
@@ -206,8 +203,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						}
 						
 				}
-                if (Input.GetKey(moveLeft) && !sc.isStunned && !sc.isDead)
-                {
+				if (Input.GetKey (moveLeft) && !sc.isStunned && !sc.isDead) {
 						left = true;
 						if (sc.canMove) {
 								if (Input.GetKey (sprint)) {
@@ -531,34 +527,57 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		{
 				if (up && right) {
 						currentRotationFace = 45;
+						Quaternion rot = new Quaternion (0, 360 - currentRotationFace, 0, 1);
+						gameObject.GetComponentInChildren<Canvas> ().transform.rotation = rot;// new Quaternion (0, 315, 0, Quaternion.identity);
 						currRotStr = "NE";
 						//transform.rotation = Quaternion.AngleAxis(45 ,Vector3.up);//rotation;
 				} else if (up && left) {
 						currentRotationFace = 315;
+						Quaternion rot = new Quaternion (0, 360 - currentRotationFace, 0, 1);
+						gameObject.GetComponentInChildren<Canvas> ().transform.rotation = rot;// new Quaternion (0, 315, 0, Quaternion.identity);
+
 						currRotStr = "NW";
 						//transform.rotation = Quaternion.AngleAxis(315 ,Vector3.up);//rotation;
 				} else if (up) {
 						currentRotationFace = 0;
+						Quaternion rot = new Quaternion (0, 360 - currentRotationFace, 0, 1);
+						gameObject.GetComponentInChildren<Canvas> ().transform.rotation = rot;// new Quaternion (0, 315, 0, Quaternion.identity);
+
 						currRotStr = "N";
 						//transform.rotation = Quaternion.AngleAxis(0 ,Vector3.up);//rotation;
 				} else if (down && left) {
 						currentRotationFace = 225;
+						Quaternion rot = new Quaternion (0, 360 - currentRotationFace, 0, 1);
+						gameObject.GetComponentInChildren<Canvas> ().transform.rotation = rot;// new Quaternion (0, 315, 0, Quaternion.identity);
+
 						currRotStr = "SW";
 						//transform.rotation = Quaternion.AngleAxis(225 ,Vector3.up);//rotation;
 				} else if (down && right) {
 						currentRotationFace = 135;
+						Quaternion rot = new Quaternion (0, 360 - currentRotationFace, 0, 1);
+						gameObject.GetComponentInChildren<Canvas> ().transform.rotation = rot;// new Quaternion (0, 315, 0, Quaternion.identity);
+
 						currRotStr = "SE";
 						//transform.rotation = Quaternion.AngleAxis(135 ,Vector3.up);//rotation;
 				} else if (down) {
 						currentRotationFace = 180;
+						Quaternion rot = new Quaternion (0, 360 - currentRotationFace, 0, 1);
+						gameObject.GetComponentInChildren<Canvas> ().transform.rotation = rot;// new Quaternion (0, 315, 0, Quaternion.identity);
+
 						currRotStr = "S";
 						//transform.rotation = Quaternion.AngleAxis(180 ,Vector3.up);//rotation;
 				} else if (right) {
 						currentRotationFace = 90;
+						Quaternion rot = new Quaternion (0, 360 - currentRotationFace, 0, 1);
+						gameObject.GetComponentInChildren<Canvas> ().transform.rotation = rot;// new Quaternion (0, 315, 0, Quaternion.identity);
+
 						currRotStr = "E";
 						//transform.rotation = Quaternion.AngleAxis(90 ,Vector3.up);//rotation;
 				} else if (left) {
 						currentRotationFace = 270;
+						Quaternion rot = new Quaternion (0, 360 - currentRotationFace, 0, 1);
+						gameObject.GetComponentInChildren<Canvas> ().transform.rotation = rot;// new Quaternion (0, 315, 0, Quaternion.identity);
+
 						currRotStr = "W";
 						//transform.rotation = Quaternion.AngleAxis(270 ,Vector3.up);//rotation;
 				}
