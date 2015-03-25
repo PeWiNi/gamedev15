@@ -50,6 +50,7 @@
      <Compile Include="Assets\NewBehaviourScript1.cs" />
      <Compile Include="Assets\Scripts\AOE.cs" />
      <Compile Include="Assets\Scripts\AntNest.cs" />
+     <Compile Include="Assets\Scripts\AutoAttack.cs" />
      <Compile Include="Assets\Scripts\BananaTreeScript.cs" />
      <Compile Include="Assets\Scripts\BaseStats.cs" />
      <Compile Include="Assets\Scripts\BeaconZone.cs" />
