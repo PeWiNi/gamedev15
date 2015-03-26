@@ -20,3 +20,4 @@ public class HealthSlider : MonoBehaviour
 				healthSlider.value = (int)((float)(ps.hp / ps.maxHealth) * 100);
 		}
 }
+ 

@@ -133,9 +133,9 @@ public class InputHandler : MonoBehaviour {
 				}
 				sc.initiateCombat();
 				//Vector3 dir = new Vector3(p.x - startPos.x, 0, p.z - startPos.z);
-				boomscript.spawn(this.gameObject, boom,  startPos
+				/*boomscript.spawn(this.gameObject, boom,  startPos
 				                 , startDir);
-				timeSinceLastBoom = Time.time * 1000;
+				timeSinceLastBoom = Time.time * 1000;*/ 
 				sound.getSoundPlayer().PlayOneShot(sound.boomnanathrowclip);
 			}
 			//boomscript.

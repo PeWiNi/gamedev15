@@ -83,6 +83,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		{
 				if (startup == 0) {
 						this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
+                        mainCam.gameObject.GetComponent<PlayerCam>().setStartLocation(transform.position);
 				}
 				startup = 1;
 //				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
@@ -118,10 +119,14 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						//Debug.Log(mousePos);
 						if (((Time.time * 1000) - timeSinceLastBoom) >= 1500) {
 								GameObject boom = Instantiate (Resources.Load ("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
-				                               new Vector3 (player.transform.position.x + 20, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
+				                               new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
 								Boomnana boomscript = boom.GetComponent<Boomnana> ();
 								// set position, add velocity.
 								// if return after x sec, unless OnCollision triggers.
+                             
+                            /*
+
+
 								Vector3 startPos = new Vector3 ();
 								Vector3 startDir = new Vector3 ();
 								switch (currRotStr) {
@@ -157,11 +162,24 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 										startPos = new Vector3 (player.transform.position.x - 10, player.transform.position.y, player.transform.position.z + 10);
 										startDir = new Vector3 ((float)(Math.Cos (45) * -ps.boomnanaRange), 0, (float)(Math.Cos (45) * ps.boomnanaRange));
 										break;
-								}
+								}*/
 								sc.initiateCombat ();
 								//Vector3 dir = new Vector3(p.x - startPos.x, 0, p.z - startPos.z);
-								boomscript.spawn (this.gameObject, boom, startPos
-				                  , startDir);
+                                Vector3 shot = new Vector3(transform.position.x, transform.position.y, gameObject.GetComponentInParent<PlayerStats>().boomnanaRange + transform.position.z);
+                                Vector3 offset = transform.position - shot;
+                                Vector3 end = (transform.forward * gameObject.GetComponentInParent<PlayerStats>().boomnanaRange);
+                                float desiredAngle = transform.eulerAngles.y;
+
+                                Debug.Log("Angle = " + desiredAngle);
+
+                                Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
+                                //Vector3 retry = desiredAngle;
+
+                                Vector3 endPos = (transform.position) - (rotation * offset);
+                                Debug.Log("EndPos = " + endPos.x + "," + endPos.y + "," + endPos.z);
+
+								boomscript.spawn (this.gameObject, boom, transform.position
+				                  ,/* startDir,*/ endPos);
 								timeSinceLastBoom = Time.time * 1000;
 								sound.getSoundPlayer ().PlayOneShot (sound.boomnanathrowclip);
 						}
@@ -172,8 +190,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						if (sc.canMove) {
 								if (Input.GetKey (sprint)) {
 										position.z += sc.getSpeed ();
-								} else { 
-										position.z += sc.getSpeed ();
+								} else {
+                                    position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
+										//position.z += sc.getSpeed ();
 								}
 								sc.isMoving = true;
 						}
@@ -185,7 +204,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								if (Input.GetKey (sprint)) {
 										position.z -= sc.getSpeed ();
 								} else {
-										position.z -= sc.getSpeed ();
+                                    position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
+                                    //position.z -= sc.getSpeed ();
 								}
 								sc.isMoving = true;
 						}
@@ -197,7 +217,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								if (Input.GetKey (sprint)) {
 										position.x += sc.getSpeed ();
 								} else {
-										position.x += sc.getSpeed ();
+                                    position = position + (transform.right * sc.movementspeed * Time.deltaTime);
+										//position.x += sc.getSpeed ();
 								}
 								sc.isMoving = true;
 						}
@@ -209,7 +230,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								if (Input.GetKey (sprint)) {
 										position.x -= sc.getSpeed ();
 								} else {
-										position.x -= sc.getSpeed ();
+                                    position = position - (transform.right * sc.movementspeed * Time.deltaTime);
+										//position.x -= sc.getSpeed ();
 								}
 								sc.isMoving = true;
 						}
@@ -256,8 +278,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						sound.getStunnedPlayer ().Stop ();
 				}
 				player.transform.position = position;
-				checkCameraAngle (); 
-				setRotation (up, down, left, right);
+				//checkCameraAngle (); 
+				//setRotation (up, down, left, right);
 				right = false;
 				left = false;
 				up = false;
@@ -301,7 +323,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				//Destroy (camObj);
 		}
 		
-		void checkCameraAngle ()
+		/*void checkCameraAngle ()
 		{
 				mainCam.gameObject.transform.position = transform.position;
 				camPos.z = transform.position.z - 50; 
@@ -316,7 +338,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			
 				mainCam.gameObject.transform.position = camPos;
 				mainCam.gameObject.transform.LookAt (transform.position);
-		}
+		}*/
 		
 //		// Update is called once per frame
 //		void Update ()
@@ -522,7 +544,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						sc.isMoving = true;
 				}
 		} 
-		
+		/*
 		void setRotation (bool up, bool down, bool left, bool right)
 		{
 				if (up && right) {
@@ -583,7 +605,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				}
 			
 				transform.rotation = Quaternion.AngleAxis (currentRotationFace, Vector3.up);//rotation;		
-		}
+		}*/
 		
 		void jump ()
 		{
