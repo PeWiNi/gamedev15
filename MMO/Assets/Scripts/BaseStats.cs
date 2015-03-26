@@ -7,7 +7,7 @@ public class BaseStats : MonoBehaviour {
 	public float basePlayerHp;
 	
 	public float baseMovementSpeed;
-	
+	   
 	public float baseTailSlapDamage;
 	public float baseBoomNanaDamage;
 	public float baseCcTime;

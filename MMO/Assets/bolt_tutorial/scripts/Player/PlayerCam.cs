@@ -4,7 +4,7 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 {
 //		// damp velocity of camera
 //		Vector3 _velocity;
-		float zoom = 100.0f;
+		float zoom = 50.0f;
 		// camera target
 		Transform _target;
 
@@ -117,7 +117,7 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 				//transform.localRotation = Quaternion.identity;
 				if (_target != null) {		
 						Vector3 camPos = new Vector3 ();
-						camPos.z = _target.position.z - 100; 
+						camPos.z = _target.position.z - 75; 
 						camPos.x = _target.position.x;
 						if (zoom < 50.0f) {
 								zoom = 50.0f;

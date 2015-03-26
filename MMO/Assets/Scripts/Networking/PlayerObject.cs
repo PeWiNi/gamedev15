@@ -51,15 +51,15 @@ public class PlayerObject
 		{
 				float x = Random.Range (-10f, +10f);
 				float z = Random.Range (-10f, +10f);
-				character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 1005f, 5f, z + 100f);
-				return new Vector3 (x + 1005f, 5f, z + 100f);
+				character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 100f, 5f, z + 120f);
+				return new Vector3 (x + 100f, 5f, z + 120f);
 		}
 		
 		Vector3 SpawnRandomPositionTeamTwo ()
 		{
 				float x = Random.Range (-10f, +10f);
 				float z = Random.Range (-10f, +10f);
-				character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 990f, 5f, z + 1850f);
-				return new Vector3 (x + 990f, 5f, z + 1850f);
+				character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 760f, 5f, z + 120f);
+				return new Vector3 (x + 760f, 5f, z + 120f);
 		}
 }
