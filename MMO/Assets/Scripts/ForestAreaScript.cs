@@ -33,18 +33,17 @@ public class ForestAreaScript : MonoBehaviour
 		/// <returns>The hive spawner.</returns>
 		IEnumerator BeeHiveSpawner ()
 		{
-				yield return new WaitForSeconds (10f);
-				if (isThreeBeeHiveUp == false) {
-						if (beeHives.Count != 3) {
-								Instantiate (beeHiveTrap);
-								beeHiveTrap.transform.position = SpawnBeeHivePosition ();
-								beeHives.Add (beeHiveTrap);
-								Debug.Log ("beeHive list " + beeHives.Count);
-								if (beeHives.Count == 3) {
-										isThreeBeeHiveUp = true;
-								}
-								yield return new WaitForSeconds (10f);	
+				//Debug.Log ("beeHive list " + beeHives.Count);
+				if (beeHives.Count != 3) {
+						GameObject beeHive = (GameObject)Instantiate (beeHiveTrap, new Vector3 (Random.Range (-150, +150) + forestObject.transform.position.x, forestObject.transform.position.y, Random.Range (-150, +150) + forestObject.transform.position.z), Quaternion.identity);
+						beeHive.name = "BeeHiveTrap";			
+						beeHives.Add (beeHive);
+						//Debug.Log ("the object: " + beeHiveTrap.name);
+						//Debug.Log ("beeHive list " + beeHives.Count);
+						if (beeHives.Count == 3) {
+								isThreeBeeHiveUp = true;
 						}
+						yield return new WaitForSeconds (1f);	
 				}
 		}
 
@@ -54,18 +53,18 @@ public class ForestAreaScript : MonoBehaviour
 		/// <returns>The nest spawner.</returns>
 		IEnumerator AntNestSpawner ()
 		{
-				yield return new WaitForSeconds (10f);
-				if (isTwoAntNestUp == false) {
-						if (antNests.Count != 2) {
-								Instantiate (antNestTrap);
-								antNestTrap.transform.position = SpawnAntNestPosition ();
-								antNests.Add (antNestTrap);
-								Debug.Log ("antNest list " + antNests.Count);
-								if (antNests.Count == 2) {
-										isTwoAntNestUp = true; 
-								}
-								yield return new WaitForSeconds (10f);
+				//Debug.Log ("antNest list " + antNests.Count);
+				yield return new WaitForSeconds (1f);
+				if (antNests.Count != 2) {
+						GameObject antNest = (GameObject)Instantiate (antNestTrap, new Vector3 (Random.Range (-150, +150) + forestObject.transform.position.x, forestObject.transform.position.y, Random.Range (-150, +150) + forestObject.transform.position.z), Quaternion.identity);
+						antNest.name = "AntNestTrap";
+						antNests.Add (antNest);
+						//Debug.Log ("the object: " + antNestTrap.name);
+						//Debug.Log ("antNest list " + antNests.Count);
+						if (antNests.Count == 2) {
+								isTwoAntNestUp = true; 
 						}
+						yield return new WaitForSeconds (1f);
 				}
 		}
 	
