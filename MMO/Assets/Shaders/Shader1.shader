@@ -9,7 +9,8 @@
 		_Shininess ("Shininess", float) = 0
 		_RimColor ("Rim Color", Color) = (1.0,1.0,1.0,1.0)
 		_RimPower ("Rim Power", Range(0.1,10.0)) = 0
-		_EmitStrength ("Decal Strength", Range(0.0,2.0)) = 0
+		_DecalStrength ("Decal Strength", Range(0.0,2.0)) = 0
+		_Transparency ("Transparency", Range(0.0, 1.0)) = 1
 	}
 	SubShader {
 		Pass {
@@ -32,6 +33,7 @@
 			uniform float _RimPower;
 			uniform float _BumpDepth;
 			uniform float _DecalStrength;
+			uniform float _Transparency;
 
 			//unity defined variables
 			uniform float4 _LightColor0;
@@ -108,7 +110,7 @@
 
 				float3 lightFinal = UNITY_LIGHTMODEL_AMBIENT.xyz + diffuseReflection + (specularReflection * tex.a) + rimLighting + (texD.xyz * _DecalStrength);
 
-				return float4(tex.xyz * lightFinal * _Color.xyz, 1.0);
+				return float4(tex.xyz * lightFinal * _Color.xyz, _Transparency);
 			}
 			ENDCG
 		}
