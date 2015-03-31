@@ -4,7 +4,11 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 {
 //		// damp velocity of camera
 //		Vector3 _velocity;
-		float zoom = 100.0f;
+		float zoom = 50.0f;
+        bool started = false;
+        float movement = 2;
+        Vector3 camPos = new Vector3();
+        Vector3 offset;
 		// camera target
 		Transform _target;
 
@@ -42,6 +46,18 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 //  [SerializeField]
 //  Transform dummyTarget;
 
+        void start()
+        {
+            offset = _target.transform.position - transform.position;
+
+            Vector3 pos = new Vector3();
+            pos.x = _target.transform.position.x;
+            pos.y = _target.transform.position.y;
+            pos.z = _target.transform.position.z;
+
+            transform.position = pos; 
+        }
+
 		public new Camera camera {
 				get { return cam.camera; }
 		}
@@ -60,8 +76,17 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 //    UpdateCamera(true);
 //  }
 
+        public void setStartLocation(Vector3 pos)
+        {
+            camPos.x = pos.x -500;
+            camPos.y = pos.y - 50;
+            camPos.z = pos.z;
+        }
+
 		void Update ()//Camera (bool allowSmoothing)
 		{
+
+            
 //    if (_target) {
 //      GrayscaleEffect ge = GetComponentInChildren<GrayscaleEffect>();
 //
@@ -115,22 +140,57 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 //      transform.rotation = rot;
 //
 				//transform.localRotation = Quaternion.identity;
-				if (_target != null) {		
-						Vector3 camPos = new Vector3 ();
-						camPos.z = _target.position.z - 100; 
-						camPos.x = _target.position.x;
-						if (zoom < 50.0f) {
-								zoom = 50.0f;
-						}
-						if (zoom > 200.0f) {
-								zoom = 200.0f;
-						}
-                        camPos.y =_target.position.y + zoom;
-		
-						transform.position = camPos;
-						transform.LookAt (_target.position);
+
+                
+
+				if (_target != null) {		 
+						
+                        if (!started)
+                        { 
+                            camPos.z = _target.position.z-75;
+                            camPos.x = _target.position.x;
+                            camPos.y = _target.position.y+45;
+                            transform.position = camPos;
+                            offset = _target.transform.position - transform.position;
+                            started = true; 
+
+                        }
+						
+						/*camPos.y = transform.position.y;
+                        camPos.x = transform.position.x;
+                        camPos.z = transform.position.z ;*/
+                        var x = movement * (-1) * Input.GetAxis("Mouse X");
+                        var y = movement * (-1) * Input.GetAxis("Mouse Y");
+
+                       /* camPos.x = _target.position.x;
+                        camPos.y = _target.position.y;
+                        camPos.z = _target.position.z - 75 ;
+                        transform.position = camPos;*/
+                        //transform.Translate(x, 0, 0); 
+                        //transform.Translate(0, y, 0);
+                        //transform.position = camPos;
+						//transform.LookAt (_target.position);
 				}
 		}
+        void LateUpdate()
+        {
+
+            float horizontal = Input.GetAxis("Mouse X") * movement;
+            _target.transform.Rotate(0, horizontal, 0);
+
+            float vertical = Input.GetAxis("Mouse Y") * movement;
+             
+
+            float desiredAngle = _target.transform.eulerAngles.y;
+            Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
+            transform.position = (_target.transform.position) - ( rotation*offset); // boomnana -> range = new offset from position * angle.
+
+            transform.LookAt(_target.transform);
+
+             
+
+
+        }
 
 		public void SetTarget (BoltEntity entity)
 		{

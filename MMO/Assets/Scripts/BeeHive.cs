@@ -12,7 +12,13 @@ public class BeeHive : MonoBehaviour
 		public static float healthRemain;
 		public static float health;
 		public static float damageDeal;
-		
+		public static float playerBuffDmg;
+		public static bool playerOneIsBuffed;
+		public static bool playerTwoIsBuffed;
+		public static float lastTimeBuffed;
+		public static float tailSlapDmg;
+		public static float boomnanaDmg;
+		public static bool oneTimeBuffer = true; 
 
 		// Use this for initialization
 		void Start ()
@@ -32,10 +38,24 @@ public class BeeHive : MonoBehaviour
 		void OnTriggerEnter (Collider coll)
 		{
 				if (coll.gameObject.tag == "player") {
+						playerBuffDmg = coll.GetComponent<PlayerStats> ().buffDamageFactor;
 						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
 								if (isActivatedByTeamTwo == false) {
 										StartCoroutine ("SetupTimer");
 										isActivatedByTeamOne = true;
+										playerOneIsBuffed = true;
+										tailSlapDmg = coll.GetComponent<PlayerStats> ().tailSlapDamage;
+										boomnanaDmg = coll.GetComponent<PlayerStats> ().boomNanaDamage;
+										if (playerOneIsBuffed == true && oneTimeBuffer != false) {
+												oneTimeBuffer = false;
+												float buffedTailSlapDmg = tailSlapDmg * playerBuffDmg;
+												float buffedBoomnanaDmg = boomnanaDmg * playerBuffDmg;
+												coll.GetComponent<PlayerStats> ().tailSlapDamage = buffedTailSlapDmg;
+												coll.GetComponent<PlayerStats> ().boomNanaDamage = buffedBoomnanaDmg;
+												coll.GetComponent<PlayerStats> ().trapBeeHiveBuffed = true;
+												StartCoroutine ("OneNoBuff");
+												StartCoroutine ("AvailableWaitTimer");
+										}
 								} else if (isActivatedByTeamTwo == true) {
 										if (setUpTimer == true) {
 												ForestAreaScript.beeHives.Remove (this.gameObject);
@@ -62,6 +82,19 @@ public class BeeHive : MonoBehaviour
 								if (isActivatedByTeamOne == false) {
 										StartCoroutine ("SetupTimer");
 										isActivatedByTeamTwo = true;
+										playerTwoIsBuffed = true;
+										tailSlapDmg = coll.GetComponent<PlayerStats> ().tailSlapDamage;
+										boomnanaDmg = coll.GetComponent<PlayerStats> ().boomNanaDamage;
+										if (playerTwoIsBuffed == true && oneTimeBuffer != false) {
+												oneTimeBuffer = false;
+												float buffedTailSlapDmg = tailSlapDmg * playerBuffDmg;
+												float buffedBoomnanaDmg = boomnanaDmg * playerBuffDmg;
+												coll.GetComponent<PlayerStats> ().tailSlapDamage = buffedTailSlapDmg;
+												coll.GetComponent<PlayerStats> ().boomNanaDamage = buffedBoomnanaDmg;
+												coll.GetComponent<PlayerStats> ().trapBeeHiveBuffed = true;
+												StartCoroutine ("TwoNoBuff");
+												StartCoroutine ("AvailableWaitTimer");
+										}
 								} else if (isActivatedByTeamOne == true) {
 										if (setUpTimer == true) {
 												ForestAreaScript.beeHives.Remove (this.gameObject);
@@ -118,5 +151,22 @@ public class BeeHive : MonoBehaviour
 				}
 		}
 
-		
+		IEnumerator OneNoBuff ()
+		{
+				yield return new WaitForSeconds (120f);
+				playerOneIsBuffed = false;
+		}
+
+		IEnumerator TwoNoBuff ()
+		{
+				yield return new WaitForSeconds (120f);
+				playerTwoIsBuffed = false;
+		}
+
+		IEnumerator AvailableWaitTimer ()
+		{
+				//may have the timer to be the same time as for the expire timer which is 5 min.
+				yield return new WaitForSeconds (40f);
+				oneTimeBuffer = true;
+		}
 }

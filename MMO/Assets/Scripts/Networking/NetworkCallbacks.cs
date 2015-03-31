@@ -261,6 +261,11 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				target.gameObject.GetComponent<StateController> ().stun (target.gameObject, evnt.TrapStunDuration);
 		}
 
+		public override void OnEvent (BeeHiveBuffEvent evnt)
+		{
+				
+		}
+
 		public override void OnEvent (GameTimerEvent evnt)
 		{
 				GameTimeManager.time = evnt.GameTime;
@@ -279,6 +284,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				ScoreTwoManager.setTeamTwoTotalScore (ScoreTwoManager.totalTwoScore);
 		}
 
+		
 //		public override void SceneLoadRemoteDone (BoltConnection connection)
 //		{
 //				//	Debug.Log ("Spawning");

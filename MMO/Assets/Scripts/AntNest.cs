@@ -6,6 +6,11 @@ public class AntNest : MonoBehaviour
 		bool isActivatedByTeamOne = false;
 		bool isActivatedByTeamTwo = false;
 		bool setUpTimer = false;
+		public static bool playerOneIsBuffed;
+		public static bool playerTwoIsBuffed;
+		public static float buffCcDuration;
+		public static bool oneTimeBuffer = true; 
+		public static float playerBuffCcDuration = 1.35f;
 		
 		// Use this for initialization
 		void Start ()
@@ -30,6 +35,17 @@ public class AntNest : MonoBehaviour
 								if (isActivatedByTeamTwo == false) {
 										StartCoroutine ("SetupTimer");
 										isActivatedByTeamOne = true;
+										playerOneIsBuffed = true;
+										buffCcDuration = coll.GetComponent<PlayerStats> ().ccDuration;
+										if (playerOneIsBuffed == true && oneTimeBuffer != false) {
+												oneTimeBuffer = false;
+												float buffedCcDuration = buffCcDuration * playerBuffCcDuration;
+												coll.GetComponent<PlayerStats> ().ccDuration = buffedCcDuration;
+												Debug.Log ("" + coll.GetComponent<PlayerStats> ().ccDuration);
+												coll.GetComponent<PlayerStats> ().trapAntNestBuffed = true;
+												StartCoroutine ("OneNoBuff");
+												StartCoroutine ("AvailableWaitTimer");
+										}
 								} else if (isActivatedByTeamTwo == true) {
 										if (setUpTimer == true) {
 												ForestAreaScript.antNests.Remove (this.gameObject);
@@ -53,6 +69,17 @@ public class AntNest : MonoBehaviour
 								if (isActivatedByTeamOne == false) {
 										StartCoroutine ("SetupTimer");
 										isActivatedByTeamTwo = true;
+										playerTwoIsBuffed = true;
+										buffCcDuration = coll.GetComponent<PlayerStats> ().ccDuration;
+										if (playerTwoIsBuffed == true && oneTimeBuffer != false) {
+												oneTimeBuffer = false;
+												float buffedCcDuration = buffCcDuration * playerBuffCcDuration;
+												coll.GetComponent<PlayerStats> ().ccDuration = buffedCcDuration;
+												Debug.Log ("" + coll.GetComponent<PlayerStats> ().ccDuration);
+												coll.GetComponent<PlayerStats> ().trapAntNestBuffed = true;
+												StartCoroutine ("TwoNoBuff");
+												StartCoroutine ("AvailableWaitTimer");
+										}
 								} else if (isActivatedByTeamOne == true) {
 										if (setUpTimer == true) {
 												ForestAreaScript.antNests.Remove (this.gameObject);
@@ -98,5 +125,24 @@ public class AntNest : MonoBehaviour
 						ForestAreaScript.antNests.Remove (this.gameObject);
 						Destroy (this.gameObject);
 				}
+		}
+
+		IEnumerator OneNoBuff ()
+		{
+				yield return new WaitForSeconds (120f);
+				playerOneIsBuffed = false;
+		}
+	
+		IEnumerator TwoNoBuff ()
+		{
+				yield return new WaitForSeconds (120f);
+				playerTwoIsBuffed = false;
+		}
+	
+		IEnumerator AvailableWaitTimer ()
+		{
+				//may have the timer to be the same time as for the expire timer which is 5 min.
+				yield return new WaitForSeconds (40f);
+				oneTimeBuffer = true;
 		}
 }

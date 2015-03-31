@@ -8,17 +8,25 @@ public class Boomnana : MonoBehaviour {
 	//private float spawnTime;
 //	float lateralspeed; 
 	bool movingBack = false; 
-	Vector3 endpoint;
+	public Vector3 endpoint;
 	// Use this for initialization
 	void Start () {
 	
 	}
 
-	public void spawn(GameObject owner, GameObject boomnana, Vector3 start, Vector3 direction){
+	public void spawn(GameObject owner, GameObject boomnana, Vector3 start,/* Vector3 direction,*/ Vector3 end){
 		this.owner = owner;
 		//this.thisObj = boomnana;
 		transform.position = start;
+       /* if (end != null)
+        {
+            endpoint = end;
+        }*/
+        /*else
+        {
         endpoint = new Vector3(start.x + direction.x, start.y + direction.y, start.z + direction.z);
+        }*/
+        endpoint = end;
         movingBack = false; 
 		//spawnTime = Time.time * 1000;
 //		Vector2 v2 = new Vector2 (rigidbody.velocity.x, rigidbody.velocity.z);
@@ -53,13 +61,15 @@ public class Boomnana : MonoBehaviour {
                     if (be.gameObject == coll.gameObject)
                     { // Check for enemy, deal full damage
                         // CHECKS IF IT HIT ITSELF
-                        if (coll.gameObject == owner)
+                        if (coll.gameObject == owner && movingBack)
                         {// STUN THE OWNER
                             using (var evnt = CCEvent.Create(Bolt.GlobalTargets.Everyone))
-                            {
+                            { 
                                 evnt.TargEnt = be;
                                 evnt.Duration = owner.GetComponent<PlayerStats>().ccDuration;
+                                Destroy(this.gameObject);
                             }
+                            
                         } 
                         else // CHECK IF FRIENDLY OR FOE 
                         {
@@ -71,22 +81,27 @@ public class Boomnana : MonoBehaviour {
                                     evnt.TargEnt = be;
                                     evnt.Damage = this.owner.GetComponent<PlayerStats>().boomNanaDamage;
                                 }
+                                Destroy(this.gameObject);
                             }
                             else // check for friendly player, deal 50% dmg.
                             {
-                                // deal half damage!!!
-                                using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone))
+                                if (coll.gameObject != owner)
                                 {
-                                    evnt.TargEnt = be;
-                                    evnt.Damage = this.owner.GetComponent<PlayerStats>().boomNanaDamage / 2;
+                                    // deal half damage!!!
+                                    using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone))
+                                    {
+                                        evnt.TargEnt = be;
+                                        evnt.Damage = this.owner.GetComponent<PlayerStats>().boomNanaDamage / 2;
+                                    }
+                                    Destroy(this.gameObject);
                                 }
+                                
                             }
                         }
                         //  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
                     }
                 }
             }
-            Destroy(this.gameObject);
         }
     }
 

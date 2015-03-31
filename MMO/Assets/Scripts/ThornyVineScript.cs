@@ -32,6 +32,8 @@ public class ThornyVineScript : MonoBehaviour
 						StartCoroutine ("VineDamage", health);
 						coll.GetComponent<PlayerStats> ().hp = healthRemain;
 						speed = ((2f * 40f) / 100f) + increaseMovementSpeed;
+                        decreaseMovementSpeed = coll.GetComponent<StateController>().movementspeed;
+
 						coll.GetComponent<StateController> ().movementspeed = speed;
 				}
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "ThornyVinePath02" && !isDealingDamage) {
@@ -39,6 +41,7 @@ public class ThornyVineScript : MonoBehaviour
 						maxHealth = coll.GetComponent<PlayerStats> ().maxHealth;
 						StartCoroutine ("VineDamage", health);
 						coll.GetComponent<PlayerStats> ().hp = healthRemain;
+                        decreaseMovementSpeed = coll.GetComponent<StateController>().movementspeed;
 						speed = ((2f * 40f) / 100f) + increaseMovementSpeed;
 						coll.GetComponent<StateController> ().movementspeed = speed;
 				}

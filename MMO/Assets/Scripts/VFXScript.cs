@@ -26,6 +26,7 @@ public class VFXScript : MonoBehaviour
     public float boostDuration = 10;
     private float boostAlpha = 0.2f;
     private float boostDecay;
+    public Vector3 end;
 
     // Aim
     public KeyCode aimKey = KeyCode.Z; // Change to Boost-key
@@ -122,7 +123,20 @@ public class VFXScript : MonoBehaviour
         }
         if (Input.GetKeyUp(aimKey))
         {
-            boomscript.spawn(GOuser, boomscript.owner, user.position, user.forward * range);
+
+            Vector3 shot = new Vector3(user.position.x, user.position.y, gameObject.GetComponentInParent<PlayerStats>().boomnanaRange + user.position.z);
+            Vector3 offset = user.position - shot;
+            end = (user.forward * gameObject.GetComponentInParent<PlayerStats>().boomnanaRange);
+            float desiredAngle = user.eulerAngles.y;
+
+            Debug.Log("Angle = " + desiredAngle);
+
+            Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
+            //Vector3 retry = desiredAngle;
+            
+            Vector3 endPos = (user.position) - (rotation * offset);
+            Debug.Log("EndPos = " + endPos.x + "," + endPos.y + "," + endPos.z);
+            boomscript.spawn(GOuser, boomscript.owner, user.position, /*user.forward * range, */endPos); 
             aim.renderer.enabled = false;
         }
     }
