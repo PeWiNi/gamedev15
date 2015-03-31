@@ -28,7 +28,6 @@ public class CCScript : MonoBehaviour
 								if (ps.trapAntNestBuffed == true) {
 										float ccDurationBuffed = ps.ccDuration / AntNest.playerBuffCcDuration;
 										ps.ccDuration = ccDurationBuffed;
-										Debug.Log ("" + ps.ccDuration);
 										ps.trapAntNestBuffed = false;
 								}
 						}
@@ -38,7 +37,6 @@ public class CCScript : MonoBehaviour
 								if (ps.trapAntNestBuffed == true) {
 										float ccDurationBuffed = ps.ccDuration / AntNest.playerBuffCcDuration;
 										ps.ccDuration = ccDurationBuffed;
-										Debug.Log ("" + ps.ccDuration);
 										ps.trapAntNestBuffed = false;
 								}
 						}

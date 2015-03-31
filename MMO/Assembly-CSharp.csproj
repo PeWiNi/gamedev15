@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AimTest.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\NewBehaviourScript1.cs" />
      <Compile Include="Assets\Scripts\AOE.cs" />
@@ -68,6 +69,7 @@
      <Compile Include="Assets\Scripts\GameTimer.cs" />
      <Compile Include="Assets\Scripts\HUDScript.cs" />
      <Compile Include="Assets\Scripts\HealthSlider.cs" />
+     <Compile Include="Assets\Scripts\HidingGrassScript.cs" />
      <Compile Include="Assets\Scripts\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Networking\CoconutController.cs" />
      <Compile Include="Assets\Scripts\Networking\CoconutManager.cs" />
@@ -116,6 +118,7 @@
      <Compile Include="Assets\bolt_tutorial\scripts\Player\PlayerCam.cs" />
      <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
      <None Include="Assets\Shaders\Grayscale.shader" />
+     <None Include="Assets\Shaders\AimShader.shader" />
      <None Include="Assets\bolt\resources\backgrounds\ATTRIBUTION.txt" />
      <None Include="Assets\Shaders\SwampDisplacementShader.shader" />
      <None Include="Assets\bolt\assemblies\upnp\Mono.Nat.LICENSE.txt" />

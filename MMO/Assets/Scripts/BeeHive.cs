@@ -17,8 +17,7 @@ public class BeeHive : MonoBehaviour
 		public static bool playerTwoIsBuffed;
 		public static float lastTimeBuffed;
 		public static float tailSlapDmg;
-		public static float boomnanaDmg;
-		public static bool oneTimeBuffer = true; 
+		public static float boomnanaDmg; 
 
 		// Use this for initialization
 		void Start ()
@@ -46,15 +45,13 @@ public class BeeHive : MonoBehaviour
 										playerOneIsBuffed = true;
 										tailSlapDmg = coll.GetComponent<PlayerStats> ().tailSlapDamage;
 										boomnanaDmg = coll.GetComponent<PlayerStats> ().boomNanaDamage;
-										if (playerOneIsBuffed == true && oneTimeBuffer != false) {
-												oneTimeBuffer = false;
+										if (playerOneIsBuffed == true && coll.GetComponent<PlayerStats> ().trapBeeHiveBuffed == false) {
 												float buffedTailSlapDmg = tailSlapDmg * playerBuffDmg;
 												float buffedBoomnanaDmg = boomnanaDmg * playerBuffDmg;
 												coll.GetComponent<PlayerStats> ().tailSlapDamage = buffedTailSlapDmg;
 												coll.GetComponent<PlayerStats> ().boomNanaDamage = buffedBoomnanaDmg;
 												coll.GetComponent<PlayerStats> ().trapBeeHiveBuffed = true;
 												StartCoroutine ("OneNoBuff");
-												StartCoroutine ("AvailableWaitTimer");
 										}
 								} else if (isActivatedByTeamTwo == true) {
 										if (setUpTimer == true) {
@@ -85,40 +82,38 @@ public class BeeHive : MonoBehaviour
 										playerTwoIsBuffed = true;
 										tailSlapDmg = coll.GetComponent<PlayerStats> ().tailSlapDamage;
 										boomnanaDmg = coll.GetComponent<PlayerStats> ().boomNanaDamage;
-										if (playerTwoIsBuffed == true && oneTimeBuffer != false) {
-												oneTimeBuffer = false;
+										if (playerTwoIsBuffed == true && coll.GetComponent<PlayerStats> ().trapBeeHiveBuffed == false) {
 												float buffedTailSlapDmg = tailSlapDmg * playerBuffDmg;
 												float buffedBoomnanaDmg = boomnanaDmg * playerBuffDmg;
 												coll.GetComponent<PlayerStats> ().tailSlapDamage = buffedTailSlapDmg;
 												coll.GetComponent<PlayerStats> ().boomNanaDamage = buffedBoomnanaDmg;
 												coll.GetComponent<PlayerStats> ().trapBeeHiveBuffed = true;
 												StartCoroutine ("TwoNoBuff");
-												StartCoroutine ("AvailableWaitTimer");
-										}
-								} else if (isActivatedByTeamOne == true) {
-										if (setUpTimer == true) {
-												ForestAreaScript.beeHives.Remove (this.gameObject);
-												Destroy (this.gameObject);
-												isTrapDestroyed = true;
-												if (isTrapDestroyed == true) {
-														// if the damage isn't the same as 10 %, note; use a bool.
-														using (var evnt = BeeHiveTrapEvent.Create(Bolt.GlobalTargets.Everyone)) {				
-																IEnumerator playerEntities = BoltNetwork.entities.GetEnumerator ();
-																while (playerEntities.MoveNext()) {
-																		if (playerEntities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
-																				BoltEntity be = (BoltEntity)playerEntities.Current as BoltEntity;
-																				if (be.gameObject == coll.gameObject) {
-																						evnt.TargEnt = be;
-																				}
-																		}
-																}
-																evnt.TrapDamage = (coll.GetComponent<PlayerStats> ().maxHealth * 10) / 100;
-														} 
-												}
 										}
 								}
-						}	
-				}
+						} else if (isActivatedByTeamOne == true) {
+								if (setUpTimer == true) {
+										ForestAreaScript.beeHives.Remove (this.gameObject);
+										Destroy (this.gameObject);
+										isTrapDestroyed = true;
+										if (isTrapDestroyed == true) {
+												// if the damage isn't the same as 10 %, note; use a bool.
+												using (var evnt = BeeHiveTrapEvent.Create(Bolt.GlobalTargets.Everyone)) {				
+														IEnumerator playerEntities = BoltNetwork.entities.GetEnumerator ();
+														while (playerEntities.MoveNext()) {
+																if (playerEntities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+																		BoltEntity be = (BoltEntity)playerEntities.Current as BoltEntity;
+																		if (be.gameObject == coll.gameObject) {
+																				evnt.TargEnt = be;
+																		}
+																}
+														}
+														evnt.TrapDamage = (coll.GetComponent<PlayerStats> ().maxHealth * 10) / 100;
+												} 
+										}
+								}
+						}
+				}	
 		}
 
 		IEnumerator DestoryTrapAfterTrigger ()
@@ -151,22 +146,31 @@ public class BeeHive : MonoBehaviour
 				}
 		}
 
+		/// <summary>
+		/// Raises the no buff event.
+		/// </summary>
 		IEnumerator OneNoBuff ()
 		{
-				yield return new WaitForSeconds (120f);
+				// couldn't have 2 mins, then the coroutine wouldn't work, but 100 or below works fine
+				yield return new WaitForSeconds (90);
 				playerOneIsBuffed = false;
 		}
 
+		/// <summary>
+		/// Twos the no buff.
+		/// </summary>
+		/// <returns>The no buff.</returns>
 		IEnumerator TwoNoBuff ()
 		{
-				yield return new WaitForSeconds (120f);
+				// couldn't have 2 mins, then the coroutine wouldn't work, but 100 or below works fine
+				yield return new WaitForSeconds (90);
 				playerTwoIsBuffed = false;
 		}
 
-		IEnumerator AvailableWaitTimer ()
-		{
-				//may have the timer to be the same time as for the expire timer which is 5 min.
-				yield return new WaitForSeconds (40f);
-				oneTimeBuffer = true;
-		}
+//		IEnumerator AvailableWaitTimer ()
+//		{
+//				//may have the timer to be the same time as for the expire timer which is 5 min.
+//				yield return new WaitForSeconds (40f);
+//				oneTimeBuffer = true;
+//		}
 }

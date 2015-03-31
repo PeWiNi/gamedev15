@@ -9,7 +9,6 @@ public class AntNest : MonoBehaviour
 		public static bool playerOneIsBuffed;
 		public static bool playerTwoIsBuffed;
 		public static float buffCcDuration;
-		public static bool oneTimeBuffer = true; 
 		public static float playerBuffCcDuration = 1.35f;
 		
 		// Use this for initialization
@@ -37,14 +36,11 @@ public class AntNest : MonoBehaviour
 										isActivatedByTeamOne = true;
 										playerOneIsBuffed = true;
 										buffCcDuration = coll.GetComponent<PlayerStats> ().ccDuration;
-										if (playerOneIsBuffed == true && oneTimeBuffer != false) {
-												oneTimeBuffer = false;
+										if (playerOneIsBuffed == true && coll.GetComponent<PlayerStats> ().trapAntNestBuffed == false) {
 												float buffedCcDuration = buffCcDuration * playerBuffCcDuration;
 												coll.GetComponent<PlayerStats> ().ccDuration = buffedCcDuration;
-												Debug.Log ("" + coll.GetComponent<PlayerStats> ().ccDuration);
 												coll.GetComponent<PlayerStats> ().trapAntNestBuffed = true;
 												StartCoroutine ("OneNoBuff");
-												StartCoroutine ("AvailableWaitTimer");
 										}
 								} else if (isActivatedByTeamTwo == true) {
 										if (setUpTimer == true) {
@@ -71,14 +67,11 @@ public class AntNest : MonoBehaviour
 										isActivatedByTeamTwo = true;
 										playerTwoIsBuffed = true;
 										buffCcDuration = coll.GetComponent<PlayerStats> ().ccDuration;
-										if (playerTwoIsBuffed == true && oneTimeBuffer != false) {
-												oneTimeBuffer = false;
+										if (playerTwoIsBuffed == true && coll.GetComponent<PlayerStats> ().trapAntNestBuffed == false) {
 												float buffedCcDuration = buffCcDuration * playerBuffCcDuration;
 												coll.GetComponent<PlayerStats> ().ccDuration = buffedCcDuration;
-												Debug.Log ("" + coll.GetComponent<PlayerStats> ().ccDuration);
 												coll.GetComponent<PlayerStats> ().trapAntNestBuffed = true;
 												StartCoroutine ("TwoNoBuff");
-												StartCoroutine ("AvailableWaitTimer");
 										}
 								} else if (isActivatedByTeamOne == true) {
 										if (setUpTimer == true) {
@@ -127,22 +120,31 @@ public class AntNest : MonoBehaviour
 				}
 		}
 
+		/// <summary>
+		/// Raises the no buff event.
+		/// </summary>
 		IEnumerator OneNoBuff ()
 		{
-				yield return new WaitForSeconds (120f);
+				// couldn't have 2 mins, then the coroutine wouldn't work, but 100 or below works fine
+				yield return new WaitForSeconds (90);
 				playerOneIsBuffed = false;
 		}
-	
+
+		/// <summary>
+		/// Twos the no buff.
+		/// </summary>
+		/// <returns>The no buff.</returns>
 		IEnumerator TwoNoBuff ()
 		{
-				yield return new WaitForSeconds (120f);
+				// couldn't have 2 mins, then the coroutine wouldn't work, but 100 or below works fine
+				yield return new WaitForSeconds (90);
 				playerTwoIsBuffed = false;
 		}
-	
-		IEnumerator AvailableWaitTimer ()
-		{
-				//may have the timer to be the same time as for the expire timer which is 5 min.
-				yield return new WaitForSeconds (40f);
-				oneTimeBuffer = true;
-		}
+
+//		IEnumerator AvailableWaitTimer ()
+//		{
+//				//may have the timer to be the same time as for the expire timer which is 5 min.
+//				yield return new WaitForSeconds (40f);
+//				oneTimeBuffer = true;
+//		}
 }
