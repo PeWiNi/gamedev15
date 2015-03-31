@@ -147,9 +147,9 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 						
                         if (!started)
                         { 
-                            camPos.z = _target.position.z-75;
+                            camPos.z = _target.position.z-120;
                             camPos.x = _target.position.x;
-                            camPos.y = _target.position.y+45;
+                            camPos.y = _target.position.y+95; 
                             transform.position = camPos;
                             offset = _target.transform.position - transform.position;
                             started = true; 
