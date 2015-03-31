@@ -179,7 +179,7 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
             _target.transform.Rotate(0, horizontal, 0);
 
             float vertical = Input.GetAxis("Mouse Y") * movement;
-             
+            
 
             float desiredAngle = _target.transform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
