@@ -11,8 +11,7 @@ public class TailSlap : MonoBehaviour
 
 		void start ()
 		{
-            sc = gameObject.GetComponentInParent<StateController>();
-            ps = gameObject.GetComponentInParent<PlayerStats>();
+            
 		}
 
 		void Update ()
@@ -27,7 +26,9 @@ public class TailSlap : MonoBehaviour
             IEnumerator entities = BoltNetwork.entities.GetEnumerator();
             if (coll.gameObject.tag == "player")
             {
-                if (Input.GetKeyDown(KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling) 
+                sc = gameObject.GetComponentInParent<StateController>();
+                ps = gameObject.GetComponentInParent<PlayerStats>();
+                if (Input.GetKeyDown(KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) 
                 {
                     while (entities.MoveNext())
                     {

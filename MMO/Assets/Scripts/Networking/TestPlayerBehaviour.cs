@@ -44,6 +44,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				Start ();
 				Transform aim = this.transform.GetChild (3);
 				aim.renderer.enabled = false;
+                Screen.showCursor = false;
 		}
 
 		public override void Attached ()
@@ -89,7 +90,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
 //				snow.transform.position = snowPos;  
 				if (wasd != null) {
-				}
+				} 
 				position = player.transform.position;
 				if (Input.GetMouseButtonDown (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
@@ -117,7 +118,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			
 						//Vector3 mousePos = Camera.ScreenToWorldPoint (Input.mousePosition);
 						//Debug.Log(mousePos);
-						if (((Time.time * 1000) - timeSinceLastBoom) >= ps.boomNanaCooldown && !sc.isStunned && sc.canMove && !sc.isChanneling) {
+						if (((Time.time * 1000) - timeSinceLastBoom) >= (ps.boomNanaCooldown*1000) && !sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
 								GameObject boom = Instantiate (Resources.Load ("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
 				                               new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
 								Boomnana boomscript = boom.GetComponent<Boomnana> ();
