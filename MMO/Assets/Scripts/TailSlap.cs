@@ -6,9 +6,13 @@ public class TailSlap : MonoBehaviour
 
 		bool available = true;
 		float lastUsed;
+        StateController sc;
+        PlayerStats ps;
 
 		void start ()
 		{
+            sc = gameObject.GetComponentInParent<StateController>();
+            ps = gameObject.GetComponentInParent<PlayerStats>();
 		}
 
 		void Update ()
@@ -23,7 +27,7 @@ public class TailSlap : MonoBehaviour
             IEnumerator entities = BoltNetwork.entities.GetEnumerator();
             if (coll.gameObject.tag == "player")
             {
-                if (Input.GetKeyDown(KeyCode.Alpha1))
+                if (Input.GetKeyDown(KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling) 
                 {
                     while (entities.MoveNext())
                     {

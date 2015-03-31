@@ -4,7 +4,7 @@ using System.Collections;
 public class ThornyVineScript : MonoBehaviour
 {
 		float speed;
-		float decreaseMovementSpeed;
+		float originalMovementSpeed;
 		float increaseMovementSpeed;
 		GameObject player;
 		float health;
@@ -16,7 +16,7 @@ public class ThornyVineScript : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				decreaseMovementSpeed = 2f;
+            originalMovementSpeed = 2f;
 				increaseMovementSpeed = 2f;
 		}
 	
@@ -31,9 +31,8 @@ public class ThornyVineScript : MonoBehaviour
 						maxHealth = coll.GetComponent<PlayerStats> ().maxHealth;
 						StartCoroutine ("VineDamage", health);
 						coll.GetComponent<PlayerStats> ().hp = healthRemain;
-						speed = ((2f * 40f) / 100f) + increaseMovementSpeed;
-                        decreaseMovementSpeed = coll.GetComponent<StateController>().movementspeed;
-
+                        originalMovementSpeed = coll.GetComponent<StateController>().movementspeed;
+                        speed = originalMovementSpeed + increaseMovementSpeed;
 						coll.GetComponent<StateController> ().movementspeed = speed;
 				}
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "ThornyVinePath02" && !isDealingDamage) {
@@ -41,8 +40,8 @@ public class ThornyVineScript : MonoBehaviour
 						maxHealth = coll.GetComponent<PlayerStats> ().maxHealth;
 						StartCoroutine ("VineDamage", health);
 						coll.GetComponent<PlayerStats> ().hp = healthRemain;
-                        decreaseMovementSpeed = coll.GetComponent<StateController>().movementspeed;
-						speed = ((2f * 40f) / 100f) + increaseMovementSpeed;
+                        originalMovementSpeed = coll.GetComponent<StateController>().movementspeed;
+                        speed = originalMovementSpeed + increaseMovementSpeed;
 						coll.GetComponent<StateController> ().movementspeed = speed;
 				}
 		}
@@ -54,10 +53,10 @@ public class ThornyVineScript : MonoBehaviour
 		void OnTriggerExit (Collider coll)
 		{
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "ThornyVinePath01") {
-						coll.GetComponent<StateController> ().movementspeed = decreaseMovementSpeed;
+                    coll.GetComponent<StateController>().movementspeed = originalMovementSpeed;
 				}
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "ThornyVinePath02") {
-						coll.GetComponent<StateController> ().movementspeed = decreaseMovementSpeed;
+						coll.GetComponent<StateController> ().movementspeed = originalMovementSpeed;
 				}
 		}
 

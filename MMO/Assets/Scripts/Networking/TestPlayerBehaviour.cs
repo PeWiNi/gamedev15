@@ -15,8 +15,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 		public KeyCode moveRight = KeyCode.D;
 		public KeyCode moveLeft = KeyCode.A;
-		public KeyCode tailSlapKey;
-		public KeyCode boomNanaKey = KeyCode.Alpha2;
+		public KeyCode tailSlapKey;// = KeyCode.Mouse1;
+        public KeyCode boomNanaKey;// = KeyCode.Mouse0;
 		public KeyCode ccKey;
 		public KeyCode cprKey;
 		public KeyCode vomitKey;
@@ -91,7 +91,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (wasd != null) {
 				}
 				position = player.transform.position;
-				if (Input.GetKeyDown (boomNanaKey)) {
+				if (Input.GetMouseButtonDown (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
 						aim.renderer.enabled = true;
@@ -100,7 +100,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						//vfx.aim.renderer.enabled = true;
 						//aimOverlay(1, range, 0.5f);
 				}
-				if (Input.GetKeyUp (boomNanaKey)) {
+				if (Input.GetMouseButtonUp (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
 						aim.renderer.enabled = false;
@@ -117,7 +117,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			
 						//Vector3 mousePos = Camera.ScreenToWorldPoint (Input.mousePosition);
 						//Debug.Log(mousePos);
-						if (((Time.time * 1000) - timeSinceLastBoom) >= 1500) {
+						if (((Time.time * 1000) - timeSinceLastBoom) >= ps.boomNanaCooldown && !sc.isStunned && sc.canMove && !sc.isChanneling) {
 								GameObject boom = Instantiate (Resources.Load ("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
 				                               new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
 								Boomnana boomscript = boom.GetComponent<Boomnana> ();
@@ -177,7 +177,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 
                                 Vector3 endPos = (transform.position) - (rotation * offset);
                                 Debug.Log("EndPos = " + endPos.x + "," + endPos.y + "," + endPos.z);
-
+                                Debug.Log("FIRING BOOMNANA FROM PLAYERBEHAVIOUR");  
 								boomscript.spawn (this.gameObject, boom, transform.position
 				                  ,/* startDir,*/ endPos);
 								timeSinceLastBoom = Time.time * 1000;

@@ -136,6 +136,7 @@ public class VFXScript : MonoBehaviour
             
             Vector3 endPos = (user.position) - (rotation * offset);
             Debug.Log("EndPos = " + endPos.x + "," + endPos.y + "," + endPos.z);
+            Debug.Log("FIRING BOOMNANA FROM VFX"); 
             boomscript.spawn(GOuser, boomscript.owner, user.position, /*user.forward * range, */endPos); 
             aim.renderer.enabled = false;
         }
