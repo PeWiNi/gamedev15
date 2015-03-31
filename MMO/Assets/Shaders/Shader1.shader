@@ -9,7 +9,7 @@
 		_Shininess ("Shininess", float) = 0
 		_RimColor ("Rim Color", Color) = (1.0,1.0,1.0,1.0)
 		_RimPower ("Rim Power", Range(0.1,10.0)) = 0
-		_EmitStrength ("Emission Strength", Range(0.0,2.0)) = 0
+		_EmitStrength ("Decal Strength", Range(0.0,2.0)) = 0
 	}
 	SubShader {
 		Pass {
@@ -23,15 +23,15 @@
 			uniform float4 _MainTex_ST;
 			uniform sampler2D _BumpMap;
 			uniform float4 _BumpMap_ST;
-			uniform sampler2D _EmitMap;
-			uniform float4 _EmitMap_ST;
+			uniform sampler2D _DecalMap;
+			uniform float4 _DecalMap_ST;
 			uniform float4 _Color;
 			uniform float4 _SpecColor;
 			uniform float4 _RimColor;
 			uniform float _Shininess;
 			uniform float _RimPower;
 			uniform float _BumpDepth;
-			uniform float _EmitStrength;
+			uniform float _DecalStrength;
 
 			//unity defined variables
 			uniform float4 _LightColor0;
@@ -83,7 +83,7 @@
 				//Texture Maps
 				float4 tex = tex2D(_MainTex, i.tex.xy * _MainTex_ST.xy + _MainTex_ST.zw);
 				float4 texN = tex2D(_BumpMap, i.tex.xy * _BumpMap_ST.xy + _BumpMap_ST.zw);
-				float4 texE = tex2D(_EmitMap, i.tex.xy * _EmitMap_ST.xy + _EmitMap_ST.zw);
+				float4 texD = tex2D(_DecalMap, i.tex.xy * _DecalMap_ST.xy + _DecalMap_ST.zw);
 
 				//unpackNormal function
 				float3 localCoords = float3(2.0 * texN.ag - float2(1.0, 1.0), _BumpDepth);
@@ -106,7 +106,7 @@
 				float rim = 1 - saturate(dot(i.viewDirection, normalDirection));
 				float3 rimLighting = saturate(dot(normalDirection, i.lightDirection.xyz) * _RimColor.xyz * _LightColor0.xyz * pow( rim, _RimPower));
 
-				float3 lightFinal = UNITY_LIGHTMODEL_AMBIENT.xyz + diffuseReflection + (specularReflection * tex.a) + rimLighting + (texE.xyz * _EmitStrength);
+				float3 lightFinal = UNITY_LIGHTMODEL_AMBIENT.xyz + diffuseReflection + (specularReflection * tex.a) + rimLighting + (texD.xyz * _DecalStrength);
 
 				return float4(tex.xyz * lightFinal * _Color.xyz, 1.0);
 			}
