@@ -1,59 +1,43 @@
-﻿Shader "Custom/Overlay Shader" {
-     Properties {
-         _Position ("Collision", Vector) = (-1, -1, -1, -1)        
-         _MaxDistance ("Effect Size", float) = 40        
-         _ShieldColor ("Color (RGBA)", Color) = (0.7, 1, 1, 0)
-         _EmissionColor ("Emission color (RGBA)", Color) = (0.7, 1, 1, 0.01)        
-         _EffectTime ("Effect Time (ms)", float) = 0
-     }
-     
-     SubShader {
-         Tags { "Queue" = "Transparent" "RenderType" = "Transparent" }
-         LOD 2000
-         Cull Off
-       
-         CGPROGRAM
-           #pragma surface surf Lambert vertex:vert alpha
-           #pragma target 3.0
-       
-          struct Input {
-              float customDist;
-           };
-       
-           float4 _Position;          
-           float _MaxDistance;          
-           float4 _ShieldColor;
-           float4 _EmissionColor;          
-           float _EffectTime;
-           
-           float _Amount;
-       
-           void vert (inout appdata_full v, out Input o) {
-               o.customDist = distance(_Position.xyz, v.vertex.xyz);
-           }
-       
-           void surf (Input IN, inout SurfaceOutput o) {
-             o.Albedo = _ShieldColor.rgb;
-             o.Emission = _EmissionColor;
-             
-             if(_EffectTime > 0)
-             {
-                 if(IN.customDist < _MaxDistance){
-                       o.Alpha = _EffectTime/500 - (IN.customDist / _MaxDistance) + _ShieldColor.a;
-                       if(o.Alpha < _ShieldColor.a){
-                           o.Alpha = _ShieldColor.a;
-                       }
-                   }
-                   else {
-                       o.Alpha = _ShieldColor.a;
-                   }
-               }
-               else{
-                   o.Alpha = _ShieldColor.a;
-               }
-           }
-       
-           ENDCG
-     } 
-     Fallback "Transparent/Diffuse"
- }
+﻿Shader "Custom/Aim Shader" {
+	Properties {
+		_Color ("Color Tint", Color) = (1.0,1.0,1.0,1.0)
+		_Transparency ("Transparency", Range(0.0, 1.0)) = 0.5
+	}
+	SubShader {
+        Tags {"Queue"="Transparent" "RenderType"="Opaque"}
+		Pass {
+			ZWrite Off
+			Blend SrcAlpha OneMinusSrcAlpha
+
+			CGPROGRAM
+			#pragma vertex vert  
+			#pragma fragment frag 
+			
+			uniform fixed4 _Color;
+			uniform fixed _Transparency;
+
+			struct vertexInput {
+				fixed4 vertex : POSITION;
+			};
+			struct vertexOutput {
+				fixed4 pos : SV_POSITION;
+                half3 vertPos : TEXCOORD0;
+			};
+
+			vertexOutput vert(vertexInput v) {
+				vertexOutput o;
+
+				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.vertPos = v.vertex.xyz;
+				return o;
+			}
+
+			float4 frag(vertexOutput i) : COLOR {
+				fixed trans = lerp(_Transparency * 0.1, _Transparency * 0.5, abs(i.vertPos.x + 1));
+				return fixed4(_Color.xyz, _Color.a * trans);
+			}
+			ENDCG
+		}
+	}
+	//Fallback "Unlit/Transparent"
+}
