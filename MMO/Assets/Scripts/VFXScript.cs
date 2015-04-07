@@ -191,7 +191,8 @@ public class VFXScript : MonoBehaviour
     public void aimOverlay(float radius, float rangeMax, float rangeMin = 0)
     {
         float range = rangeMax - rangeMin;
-        aim.localScale = new Vector3(range, radius, userSize.x / 2);
+        aim.localScale = new Vector3(radius, userSize.x / 2, range);
+        //aim.localScale = new Vector3(range, radius, userSize.x / 2);
         aim.localPosition = new Vector3(0, 0, (userSize.z / 2) + rangeMin + (range / 2));
     }
 }
