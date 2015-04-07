@@ -19,6 +19,10 @@ public class CprScript : MonoBehaviour
 
     void Update()
     {
+        if (tpb == null)
+        {
+            tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+        }
         if ((Time.time - lastUsed) >= gameObject.GetComponentInParent<PlayerStats>().cprCooldown)
         {
             available = true;

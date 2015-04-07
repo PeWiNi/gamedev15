@@ -92,7 +92,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (wasd != null) {
 				} 
 				position = player.transform.position;
-				if (Input.GetMouseButtonDown (1)) {
+                if (Input.GetMouseButtonDown(1) && !sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead)
+                {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
 						aim.renderer.enabled = true;
@@ -240,10 +241,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (position != Vector3.zero) {
 						transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
 				}
-				if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff ()) {
+				if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff () && !sc.isDead) {
 						buff ();
 				}
-				if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned) {
+				if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned && !sc.isDead) {
 						jump ();
 						sound.getJumpPlayer ().PlayOneShot (sound.jumpclip);
 				}
