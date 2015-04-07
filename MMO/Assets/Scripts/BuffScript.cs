@@ -25,6 +25,7 @@ public class BuffScript : MonoBehaviour
 		float lastUsed;
 		PlayerStats ps;
 		StateController sc;
+        TestPlayerBehaviour tpb;
 		public static bool TrapBuff;
 		public static float orgBuffDur;
 		public static float playerOneBuffDmg;
@@ -36,6 +37,7 @@ public class BuffScript : MonoBehaviour
 		{
 				ps = gameObject.GetComponent<PlayerStats> ();
 				sc = gameObject.GetComponent<StateController> ();
+                tpb = gameObject.GetComponent<TestPlayerBehaviour>();
 		}
 	
 		// Update is called once per frame
@@ -67,7 +69,7 @@ public class BuffScript : MonoBehaviour
 				}
 			
 
-				if (Input.GetKeyDown (KeyCode.B) && available) {
+				if (Input.GetKeyDown (tpb.buffKey) && available) {
 						Debug.Log ("BUFFING!!");
 						float currentHP = (ps.hp * ps.buffCostFactor);
 						ps.hp -= currentHP;

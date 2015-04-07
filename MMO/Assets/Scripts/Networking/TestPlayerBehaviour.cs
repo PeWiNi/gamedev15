@@ -15,11 +15,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 		public KeyCode moveRight = KeyCode.D;
 		public KeyCode moveLeft = KeyCode.A;
-		public KeyCode tailSlapKey;// = KeyCode.Mouse1;
-        public KeyCode boomNanaKey;// = KeyCode.Mouse0;
+		public int tailSlapKey;// = KeyCode.Mouse1;
+        public int boomNanaKey;// = KeyCode.Mouse0;
 		public KeyCode ccKey;
 		public KeyCode cprKey;
-		public KeyCode vomitKey;
+		public KeyCode aoeKey;
 		public KeyCode buffKey = KeyCode.R;
 		bool up, down, left, right;
 

@@ -12,7 +12,7 @@ public class BaseStats : MonoBehaviour {
 	public float baseBoomNanaDamage;
 	public float baseCcTime;
 	
-	public float baseGlobalCooldownCounter;
+	public float baseGlobalCooldownCounter;  
 
 	// Use this for initialization
 	void Start () {

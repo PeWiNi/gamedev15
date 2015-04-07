@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\bolt\scripts\editor\BoltExecutionOrderManager.cs" />
+     <None Include="Assets\Shaders\Projection.shader" />
      <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
      <None Include="Assets\Shaders\Grayscale.shader" />
      <None Include="Assets\Shaders\AimShader.shader" />

@@ -10,6 +10,12 @@ public class CprScript : MonoBehaviour
 
     float lastUsed;
     bool available = true;
+    TestPlayerBehaviour tpb;
+
+    void start()
+    {
+        tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+    }
 
     void Update()
     {
@@ -22,7 +28,7 @@ public class CprScript : MonoBehaviour
 
     void OnTriggerStay(Collider coll)
     {
-        if (Input.GetKeyDown(KeyCode.R) && available)
+        if (Input.GetKeyDown(tpb.cprKey) && available)
         {
             int resources = this.gameObject.GetComponentInParent<PlayerStats>().cprBananas;
             IEnumerator entities = BoltNetwork.entities.GetEnumerator();

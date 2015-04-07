@@ -8,10 +8,13 @@ public class TailSlap : MonoBehaviour
 		float lastUsed;
         StateController sc;
         PlayerStats ps;
+        TestPlayerBehaviour tpb;
 
 		void start ()
 		{
-            
+            sc = this.gameObject.GetComponentInParent<StateController>();
+            ps = this.gameObject.GetComponentInParent<PlayerStats>();
+            tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
 		}
 
 		void Update ()
@@ -28,7 +31,7 @@ public class TailSlap : MonoBehaviour
             {
                 sc = gameObject.GetComponentInParent<StateController>();
                 ps = gameObject.GetComponentInParent<PlayerStats>();
-                if (Input.GetKeyDown(KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) 
+                if (Input.GetMouseButtonDown(tpb.tailSlapKey) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) 
                 {
                     while (entities.MoveNext())
                     {
