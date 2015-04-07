@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AimTest.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\NewBehaviourScript1.cs" />
      <Compile Include="Assets\Scripts\AOE.cs" />
@@ -61,6 +60,7 @@
      <Compile Include="Assets\Scripts\CCScript.cs" />
      <Compile Include="Assets\Scripts\CaptureScript.cs" />
      <Compile Include="Assets\Scripts\Coconut.cs" />
+     <Compile Include="Assets\Scripts\CoconutEffect.cs" />
      <Compile Include="Assets\Scripts\CombatScript.cs" />
      <Compile Include="Assets\Scripts\CprScript.cs" />
      <Compile Include="Assets\Scripts\DeathSpawner.cs" />
@@ -116,6 +116,7 @@
      <Compile Include="Assets\bolt\scripts\udpkit\Null\NullSocket.cs" />
      <Compile Include="Assets\bolt\scripts\upnp\BoltUPnP.cs" />
      <Compile Include="Assets\bolt_tutorial\scripts\Player\PlayerCam.cs" />
+     <None Include="Assets\Shaders\Projection.shader" />
      <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
      <None Include="Assets\Shaders\Grayscale.shader" />
      <None Include="Assets\Shaders\AimShader.shader" />

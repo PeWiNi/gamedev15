@@ -9,6 +9,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		StateController sc;
 		PlayerStats ps;
 		SoundController sound;
+		CoconutEffect cf;
 		public int playerId;
 
 		public KeyCode moveUp = KeyCode.W;// = KeyCode.W;
@@ -16,7 +17,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		public KeyCode moveRight = KeyCode.D;
 		public KeyCode moveLeft = KeyCode.A;
 		public KeyCode tailSlapKey;// = KeyCode.Mouse1;
-        public KeyCode boomNanaKey;// = KeyCode.Mouse0;
+		public KeyCode boomNanaKey;// = KeyCode.Mouse0;
 		public KeyCode ccKey;
 		public KeyCode cprKey;
 		public KeyCode vomitKey;
@@ -26,6 +27,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		Vector3 position;  
 		public GameObject mainCam;
 		public GameObject snow;
+		public GameObject coconut;
 		public static Bolt.NetworkId playerNetworkId;
 
 		float timeSinceLastBoom;
@@ -44,7 +46,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				Start ();
 				Transform aim = this.transform.GetChild (3);
 				aim.renderer.enabled = false;
-                Screen.showCursor = false;
+				Screen.showCursor = false;
 		}
 
 		public override void Attached ()
@@ -84,7 +86,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		{
 				if (startup == 0) {
 						this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
-                        mainCam.gameObject.GetComponent<PlayerCam>().setStartLocation(transform.position);
+						mainCam.gameObject.GetComponent<PlayerCam> ().setStartLocation (transform.position);
 				}
 				startup = 1;
 //				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
@@ -118,14 +120,14 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			
 						//Vector3 mousePos = Camera.ScreenToWorldPoint (Input.mousePosition);
 						//Debug.Log(mousePos);
-						if (((Time.time * 1000) - timeSinceLastBoom) >= (ps.boomNanaCooldown*1000) && !sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+						if (((Time.time * 1000) - timeSinceLastBoom) >= (ps.boomNanaCooldown * 1000) && !sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
 								GameObject boom = Instantiate (Resources.Load ("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
 				                               new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
 								Boomnana boomscript = boom.GetComponent<Boomnana> ();
 								// set position, add velocity.
 								// if return after x sec, unless OnCollision triggers.
                              
-                            /*
+								/*
 
 
 								Vector3 startPos = new Vector3 ();
@@ -166,21 +168,21 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								}*/
 								sc.initiateCombat ();
 								//Vector3 dir = new Vector3(p.x - startPos.x, 0, p.z - startPos.z);
-                                Vector3 shot = new Vector3(transform.position.x, transform.position.y, gameObject.GetComponentInParent<PlayerStats>().boomnanaRange + transform.position.z);
-                                Vector3 offset = transform.position - shot;
-                                Vector3 end = (transform.forward * gameObject.GetComponentInParent<PlayerStats>().boomnanaRange);
-                                float desiredAngle = transform.eulerAngles.y;
+								Vector3 shot = new Vector3 (transform.position.x, transform.position.y, gameObject.GetComponentInParent<PlayerStats> ().boomnanaRange + transform.position.z);
+								Vector3 offset = transform.position - shot;
+								Vector3 end = (transform.forward * gameObject.GetComponentInParent<PlayerStats> ().boomnanaRange);
+								float desiredAngle = transform.eulerAngles.y;
 
-                                Debug.Log("Angle = " + desiredAngle);
+								Debug.Log ("Angle = " + desiredAngle);
 
-                                Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
-                                //Vector3 retry = desiredAngle;
+								Quaternion rotation = Quaternion.Euler (0, desiredAngle, 0);
+								//Vector3 retry = desiredAngle;
 
-                                Vector3 endPos = (transform.position) - (rotation * offset);
-                                Debug.Log("EndPos = " + endPos.x + "," + endPos.y + "," + endPos.z);
-                                Debug.Log("FIRING BOOMNANA FROM PLAYERBEHAVIOUR");  
+								Vector3 endPos = (transform.position) - (rotation * offset);
+								Debug.Log ("EndPos = " + endPos.x + "," + endPos.y + "," + endPos.z);
+								Debug.Log ("FIRING BOOMNANA FROM PLAYERBEHAVIOUR");  
 								boomscript.spawn (this.gameObject, boom, transform.position
-				                  ,/* startDir,*/ endPos);
+				                  ,/* startDir,*/endPos);
 								timeSinceLastBoom = Time.time * 1000;
 								sound.getSoundPlayer ().PlayOneShot (sound.boomnanathrowclip);
 						}
@@ -192,7 +194,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								if (Input.GetKey (sprint)) {
 										position.z += sc.getSpeed ();
 								} else {
-                                    position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
+										position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
 										//position.z += sc.getSpeed ();
 								}
 								sc.isMoving = true;
@@ -205,8 +207,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								if (Input.GetKey (sprint)) {
 										position.z -= sc.getSpeed ();
 								} else {
-                                    position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
-                                    //position.z -= sc.getSpeed ();
+										position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
+										//position.z -= sc.getSpeed ();
 								}
 								sc.isMoving = true;
 						}
@@ -218,7 +220,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								if (Input.GetKey (sprint)) {
 										position.x += sc.getSpeed ();
 								} else {
-                                    position = position + (transform.right * sc.movementspeed * Time.deltaTime);
+										position = position + (transform.right * sc.movementspeed * Time.deltaTime);
 										//position.x += sc.getSpeed ();
 								}
 								sc.isMoving = true;
@@ -231,7 +233,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								if (Input.GetKey (sprint)) {
 										position.x -= sc.getSpeed ();
 								} else {
-                                    position = position - (transform.right * sc.movementspeed * Time.deltaTime);
+										position = position - (transform.right * sc.movementspeed * Time.deltaTime);
 										//position.x -= sc.getSpeed ();
 								}
 								sc.isMoving = true;
@@ -285,7 +287,30 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				left = false;
 				up = false;
 				down = false;
-//				if (startup == 0) {
+
+				if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == true) {
+						Debug.Log (this.gameObject.GetComponent<PlayerStats> ().channeledTime = Time.time);
+						if (Time.time - this.gameObject.GetComponent<PlayerStats> ().channeledTime <= this.gameObject.GetComponent<StateController> ().coconutChannelTime && sc.isStunned) {
+								this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = true;
+						}
+						if (Input.GetKeyDown (KeyCode.T) && !sc.isStunned && !sc.isDead) {
+								this.gameObject.GetComponent<PlayerStats> ().channeledTime = Time.time;
+								if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == false) {
+										StartCoroutine ("consumeCoconut");
+								}
+						}
+				}
+				if (this.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect == true) {
+						if (Time.time - this.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration >= this.gameObject.GetComponent<StateController> ().coconutDuration) {
+			
+								coconutEffectExpire ();
+						}	
+						if (sc.isDead) {
+								coconutEffectExpire ();
+						}
+				}
+			
+				//				if (startup == 0) {
 //						Start ();
 //				}	
 //				startup = 1;
@@ -319,6 +344,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				ps = gameObject.GetComponent<PlayerStats> ();
 				sound = gameObject.GetComponent<SoundController> ();
 				playerId = gameObject.GetInstanceID ();
+				coconut = GameObject.FindGameObjectWithTag ("nut");
 				//				mainCam.camera.enabled = true;
 //				mainCam.camera.gameObject.SetActive (true);
 				//Destroy (camObj);
@@ -654,6 +680,32 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				
 		}
 
+		IEnumerator consumeCoconut ()
+		{
+				yield return new WaitForSeconds (5f);
+				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+				while (entities.MoveNext()) {
+						if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+								BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+								// Create Event and use the be, if it is the one that is colliding.
+								if (be.gameObject == this.gameObject) {
+										using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
+												evnt.TargEnt = be;	
+												evnt.isAffectedByCoconut = true;
+										}
+								}
+						}
+				}
+				coconut.gameObject.GetComponent<CoconutEffect> ().isCoconutConsumed = true;
+				this.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration = Time.time;
+		}
+
+		public void coconutEffectExpire ()
+		{
+				this.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect = false;
+				coconut.gameObject.GetComponent<CoconutEffect> ().isCoconutConsumed = false;
+				coconut.gameObject.SetActive (true);
+		}
 		/*void OnGUI ()
 		{
 				if (entity.isOwner) {

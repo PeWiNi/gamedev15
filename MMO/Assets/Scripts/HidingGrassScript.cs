@@ -3,10 +3,12 @@ using System.Collections;
 
 public class HidingGrassScript : MonoBehaviour
 {
+		Vector3 biggestScaledMonguin;
 
 		// Use this for initialization
 		void Start ()
 		{
+				biggestScaledMonguin = new Vector3 (3, 3, 3);
 		}
 	
 		// Update is called once per frame
@@ -19,9 +21,11 @@ public class HidingGrassScript : MonoBehaviour
 		{
 				// should also consider unit size!
 				if (coll.gameObject.tag == "player") {
-						var child = coll.transform.GetChild (5);
-						coll.renderer.enabled = false;
-						child.GetComponent<Canvas> ().enabled = false;
+						if (coll.transform.localScale != biggestScaledMonguin) {
+								var child = coll.transform.GetChild (5);
+								coll.renderer.enabled = false;
+								child.GetComponent<Canvas> ().enabled = false;
+						}
 				}
 		}
 		
@@ -29,9 +33,11 @@ public class HidingGrassScript : MonoBehaviour
 		{
 				// should also consider unit size!
 				if (coll.gameObject.tag == "player") {
-						var child = coll.transform.GetChild (5);
-						coll.renderer.enabled = true;
-						child.GetComponent<Canvas> ().enabled = true;
+						if (coll.transform.localScale != biggestScaledMonguin) {
+								var child = coll.transform.GetChild (5);
+								coll.renderer.enabled = true;
+								child.GetComponent<Canvas> ().enabled = true;
+						}
 				}
 		}
 }
