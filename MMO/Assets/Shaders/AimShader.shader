@@ -5,7 +5,7 @@
 		_MaxVisDistance ("Maximum viewable distance", float) = 35
 	}
 	SubShader {
-        Tags {"Queue"="Overlay" "RenderType"="Opaque"}
+        Tags {"Queue"="Transparent" "RenderType"="Opaque"}
 		Pass {
 			Blend SrcAlpha OneMinusSrcAlpha
 			ZWrite Off
