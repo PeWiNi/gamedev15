@@ -4,7 +4,7 @@ using System;
 
 public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 {
-		GameObject player;
+		public GameObject player;
 		WASD wasd;
 		StateController sc;
 		PlayerStats ps;

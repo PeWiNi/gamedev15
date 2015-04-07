@@ -31,45 +31,49 @@ public class TailSlap : MonoBehaviour
             {
                 sc = gameObject.GetComponentInParent<StateController>();
                 ps = gameObject.GetComponentInParent<PlayerStats>();
-                if (Input.GetMouseButtonDown(tpb.tailSlapKey) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) 
+                tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+                if (Input.GetMouseButtonDown(tpb.tailSlapKey))
                 {
-                    while (entities.MoveNext())
+                    if (!sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead)
                     {
-                        if (entities.Current.GetType().IsInstanceOfType(new BoltEntity()))
+                        while (entities.MoveNext())
                         {
-                            BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
-                            // Create Event and use the be, if it is the one that is colliding.
+                            if (entities.Current.GetType().IsInstanceOfType(new BoltEntity()))
+                            {
+                                BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+                                // Create Event and use the be, if it is the one that is colliding.
 
-                            if (be.gameObject == coll.gameObject)
-                            { // Check for enemy, deal full damage
-                                if (available)
-                                {
-                                    Debug.Log("SLAPPING DA TAIL");
-                                    if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
+                                if (be.gameObject == coll.gameObject)
+                                { // Check for enemy, deal full damage
+                                    if (available)
                                     {
-                                        // deal full damage!!!
-                                        using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone))
+                                        Debug.Log("SLAPPING DA TAIL");
+                                        if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
                                         {
-                                            evnt.TargEnt = be; 
-                                            evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage;
+                                            // deal full damage!!!
+                                            using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone))
+                                            {
+                                                evnt.TargEnt = be;
+                                                evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage;
+                                            }
                                         }
-                                    }
-                                    else // check for friendly player, deal 50% dmg.
-                                    {
-                                        // deal half damage!!!
-                                        using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone))
+                                        else // check for friendly player, deal 50% dmg.
                                         {
-                                            evnt.TargEnt = be;
-                                            evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage / 2;
+                                            // deal half damage!!!
+                                            using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone))
+                                            {
+                                                evnt.TargEnt = be;
+                                                evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage / 2;
+                                            }
                                         }
+
+                                        available = false;
+                                        lastUsed = Time.time;
                                     }
 
-                                    available = false;
-                                    lastUsed = Time.time;
+                                    //  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+
                                 }
-
-                                //  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
-
                             }
                         }
                     }
