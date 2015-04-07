@@ -6,9 +6,14 @@ public class TailSlap : MonoBehaviour
 
 		bool available = true;
 		float lastUsed;
+<<<<<<< HEAD
+		StateController sc;
+		PlayerStats ps;
+=======
         StateController sc;
         PlayerStats ps;
         TestPlayerBehaviour tpb;
+>>>>>>> origin/master
 
 		void start ()
 		{
@@ -24,6 +29,223 @@ public class TailSlap : MonoBehaviour
 				}
 		}
 
+<<<<<<< HEAD
+		void OnTriggerStay (Collider coll)
+		{
+				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+				if (coll.gameObject.tag == "player") {
+						sc = gameObject.GetComponentInParent<StateController> ();
+						ps = gameObject.GetComponentInParent<PlayerStats> ();
+						if (Input.GetKeyDown (KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+								while (entities.MoveNext()) {
+										if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+												BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+												// Create Event and use the be, if it is the one that is colliding.
+
+												if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+														if (available) {
+																Debug.Log ("SLAPPING DA TAIL");
+																if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
+																		// deal full damage!!!
+																		using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone)) {
+																				evnt.TargEnt = be; 
+																				evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
+																		}
+																} else { // check for friendly player, deal 50% dmg.
+																		// deal half damage!!!
+																		using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone)) {
+																				evnt.TargEnt = be;
+																				evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage / 2;
+																		}
+																}
+
+																available = false;
+																lastUsed = Time.time;
+														}
+
+														//  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+
+												}
+										}
+								}
+						}
+				}
+				if (coll.gameObject.name == "BeaconZone01") {
+						sc = gameObject.GetComponentInParent<StateController> ();
+						ps = gameObject.GetComponentInParent<PlayerStats> ();
+						if (ps.teamNumber == 1) {
+								if (coll.gameObject.GetComponent<BeaconZone> ().zoneOneTeamTwoActive == true) {
+										if (Input.GetKeyDown (KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+												while (entities.MoveNext()) {
+														if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+																// Create Event and use the be, if it is the one that is colliding.
+						
+																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+																		if (available) {
+																				//Debug.Log ("loloololollloo");
+																				//Debug.Log ("SLAPPING DA TAIL");
+																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {
+																						evnt.TargEnt = be; 
+																						evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
+																				}
+																				available = false;
+																				lastUsed = Time.time;
+																		}
+							
+																		//  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+							
+																}
+														}
+												}
+										}	
+								}
+						}
+						if (ps.teamNumber == 2) {
+								if (coll.gameObject.GetComponent<BeaconZone> ().zoneOneTeamOneActive) {
+										if (Input.GetKeyDown (KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+												while (entities.MoveNext()) {
+														if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+																// Create Event and use the be, if it is the one that is colliding.
+								
+																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+																		if (available) {
+																				Debug.Log ("SLAPPING DA TAIL");
+																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {
+																						evnt.TargEnt = be; 
+																						evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
+																				}
+																		}
+																		available = false;
+																		lastUsed = Time.time;
+																}
+									
+																//  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+									
+														}
+												}
+										}
+								}	
+						}
+				}
+				if (coll.gameObject.name == "BeaconZone02") {
+						sc = gameObject.GetComponentInParent<StateController> ();
+						ps = gameObject.GetComponentInParent<PlayerStats> ();	
+						if (ps.teamNumber == 1) {
+								if (coll.gameObject.GetComponent<BeaconZone> ().zoneTwoTeamTwoActive) {
+										if (Input.GetKeyDown (KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+												while (entities.MoveNext()) {
+														if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+																// Create Event and use the be, if it is the one that is colliding.
+								
+																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+																		if (available) {
+																				Debug.Log ("SLAPPING DA TAIL");
+																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {
+																						evnt.TargEnt = be; 
+																						evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
+																				}
+																				available = false;
+																				lastUsed = Time.time;
+																		}
+									
+																		//  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+									
+																}
+														}
+												}
+										}	
+								}
+						}
+						if (ps.teamNumber == 2) {
+								if (coll.gameObject.GetComponent<BeaconZone> ().zoneTwoTeamOneActive) {
+										if (Input.GetKeyDown (KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+												while (entities.MoveNext()) {
+														if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+																// Create Event and use the be, if it is the one that is colliding.
+								
+																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+																		if (available) {
+																				Debug.Log ("SLAPPING DA TAIL");
+																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {
+																						evnt.TargEnt = be; 
+																						evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
+																				}
+																		}
+																		available = false;
+																		lastUsed = Time.time;
+																}
+								
+																//  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+								
+														}
+												}
+										}
+								}	
+						}
+				}
+				if (coll.gameObject.name == "BeaconZone03") {
+						sc = gameObject.GetComponentInParent<StateController> ();
+						ps = gameObject.GetComponentInParent<PlayerStats> ();	
+						if (ps.teamNumber == 1) {
+								if (coll.gameObject.GetComponent<BeaconZone> ().zoneThreeTeamTwoActive) {
+										if (Input.GetKeyDown (KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+												while (entities.MoveNext()) {
+														if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+																// Create Event and use the be, if it is the one that is colliding.
+								
+																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+																		if (available) {
+																				Debug.Log ("SLAPPING DA TAIL");
+																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {
+																						evnt.TargEnt = be; 
+																						evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
+																				}
+																				available = false;
+																				lastUsed = Time.time;
+																		}
+									
+																		//  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+									
+																}
+														}
+												}
+										}	
+								}
+						}
+						if (ps.teamNumber == 2) {
+								if (coll.gameObject.GetComponent<BeaconZone> ().zoneThreeTeamOneActive) {
+										if (Input.GetKeyDown (KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+												while (entities.MoveNext()) {
+														if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+																// Create Event and use the be, if it is the one that is colliding.
+								
+																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+																		if (available) {
+																				Debug.Log ("SLAPPING DA TAIL");
+																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {
+																						evnt.TargEnt = be; 
+																						evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
+																				}
+																		}
+																		available = false;
+																		lastUsed = Time.time;
+																}
+								
+																//  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+								
+														}
+												}
+										}
+								}	
+						}
+				}
+=======
         void OnTriggerStay(Collider coll)
         {
             IEnumerator entities = BoltNetwork.entities.GetEnumerator();
@@ -31,49 +253,55 @@ public class TailSlap : MonoBehaviour
             {
                 sc = gameObject.GetComponentInParent<StateController>();
                 ps = gameObject.GetComponentInParent<PlayerStats>();
-                if (Input.GetMouseButtonDown(tpb.tailSlapKey) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) 
+                tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+                if (Input.GetMouseButtonDown(tpb.tailSlapKey))
                 {
-                    while (entities.MoveNext())
+                    if (!sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead)
                     {
-                        if (entities.Current.GetType().IsInstanceOfType(new BoltEntity()))
+                        while (entities.MoveNext())
                         {
-                            BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
-                            // Create Event and use the be, if it is the one that is colliding.
+                            if (entities.Current.GetType().IsInstanceOfType(new BoltEntity()))
+                            {
+                                BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+                                // Create Event and use the be, if it is the one that is colliding.
 
-                            if (be.gameObject == coll.gameObject)
-                            { // Check for enemy, deal full damage
-                                if (available)
-                                {
-                                    Debug.Log("SLAPPING DA TAIL");
-                                    if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
+                                if (be.gameObject == coll.gameObject)
+                                { // Check for enemy, deal full damage
+                                    if (available)
                                     {
-                                        // deal full damage!!!
-                                        using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone))
+                                        Debug.Log("SLAPPING DA TAIL");
+                                        if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
                                         {
-                                            evnt.TargEnt = be; 
-                                            evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage;
+                                            // deal full damage!!!
+                                            using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone))
+                                            {
+                                                evnt.TargEnt = be;
+                                                evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage;
+                                            }
                                         }
-                                    }
-                                    else // check for friendly player, deal 50% dmg.
-                                    {
-                                        // deal half damage!!!
-                                        using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone))
+                                        else // check for friendly player, deal 50% dmg.
                                         {
-                                            evnt.TargEnt = be;
-                                            evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage / 2;
+                                            // deal half damage!!!
+                                            using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone))
+                                            {
+                                                evnt.TargEnt = be;
+                                                evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage / 2;
+                                            }
                                         }
+
+                                        available = false;
+                                        lastUsed = Time.time;
                                     }
 
-                                    available = false;
-                                    lastUsed = Time.time;
+                                    //  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+
                                 }
-
-                                //  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
-
                             }
                         }
                     }
                 }
             }
+>>>>>>> origin/master
 		}
+
 }

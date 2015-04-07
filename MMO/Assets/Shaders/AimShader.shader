@@ -5,7 +5,7 @@
 		_MaxVisDistance ("Maximum viewable distance", float) = 35
 	}
 	SubShader {
-        Tags {"Queue"="Overlay" "RenderType"="Opaque"}
+        Tags {"Queue"="Transparent" "RenderType"="Opaque"}
 		Pass {
 			Blend SrcAlpha OneMinusSrcAlpha
 			ZWrite Off
@@ -38,7 +38,7 @@
 				half3 viewDirW = _WorldSpaceCameraPos - mul((half4x4)_Object2World, v.vertex);
 				half viewDist = length(viewDirW);
 				half falloff = saturate((viewDist - _MinVisDistance) / (_MaxVisDistance - _MinVisDistance));
-				o.color.a *= (1.0f - falloff);
+				o.color.a *= (0.0f + falloff);
 
 				return o;
 			}

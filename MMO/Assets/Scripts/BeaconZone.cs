@@ -27,6 +27,18 @@ public class BeaconZone : MonoBehaviour
 		float teamTwoZoneThreeScore;
 		float lastTimeOne = 0;
 		float lastTimeTwo = 0;
+		float beaconActivationTimer = 60;	
+		float beaconOneTimer;
+		float beaconTwoTimer;
+		float beaconThreeTimer;
+		//beacon health stats
+		public float beaconHealth;
+		public float beaconOneHealthTeamOne;
+		public float beaconTwoHealthTeamOne;
+		public float beaconThreeHealthTeamOne;
+		public float beaconOneHealthTeamTwo;
+		public float beaconTwoHealthTeamTwo;
+		public float beaconThreeHealthTeamTwo; 
 
 
 		// Use this for initialization
@@ -40,77 +52,124 @@ public class BeaconZone : MonoBehaviour
 				zoneTwoTeamTwoActive = false;
 				zoneThreeTeamTwoActive = false;
 		}
-	
+
+
+		void Update ()
+		{
+				calculateTeamOneScore ();
+				calculateTeamTwoScore ();
+				if (zoneOneTeamOneActive == true) {
+						if (Time.time - beaconOneTimer <= beaconActivationTimer) {
+								StartCoroutine ("addScoreTeamOneZoneOne", zoneOneTeamOneScore);
+								zoneOneTeamOneScore = teamOneZoneOneScore;
+						} else {
+								zoneOneTeamOneActive = false;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 0;
+								//this.gameObject.collider.isTrigger = true;
+						}
+				}
+				if (zoneTwoTeamOneActive == true) {
+						if (Time.time - beaconTwoTimer <= beaconActivationTimer) {
+								StartCoroutine ("addScoreTeamOneZoneTwo", zoneTwoTeamOneScore);
+								zoneTwoTeamOneScore = teamOneZoneTwoScore;
+						} else {
+								zoneTwoTeamOneActive = false;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 0;
+								//this.gameObject.collider.isTrigger = true;
+						}
+				}
+				if (zoneThreeTeamOneActive == true) {
+						if (Time.time - beaconThreeTimer <= beaconActivationTimer) {
+								StartCoroutine ("addScoreTeamOneZoneThree", zoneThreeTeamOneScore);
+								zoneThreeTeamOneScore = teamOneZoneThreeScore;
+						} else {
+								zoneThreeTeamOneActive = false;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 0;
+								//this.gameObject.collider.isTrigger = true;
+						}
+				}
+				if (zoneOneTeamTwoActive == true) {
+						if (Time.time - beaconOneTimer <= beaconActivationTimer) {
+								StartCoroutine ("addScoreTeamTwoZoneOne", zoneOneTeamTwoScore);
+								zoneOneTeamTwoScore = teamTwoZoneOneScore;
+						} else {
+								zoneOneTeamTwoActive = false;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 0;
+								//this.gameObject.collider.isTrigger = true;
+						}
+				}
+				if (zoneTwoTeamTwoActive == true) {
+						if (Time.time - beaconOneTimer <= beaconActivationTimer) {
+								StartCoroutine ("addScoreTeamTwoZoneTwo", zoneTwoTeamTwoScore);
+								zoneTwoTeamTwoScore = teamTwoZoneTwoScore;
+						} else {
+								zoneTwoTeamTwoActive = false;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 0;
+								//this.gameObject.collider.isTrigger = true;
+						}
+				}
+				if (zoneThreeTeamTwoActive == true) {
+						if (Time.time - beaconOneTimer <= beaconActivationTimer) {
+								StartCoroutine ("addScoreTeamTwoZoneThree", zoneThreeTeamTwoScore);
+								zoneThreeTeamTwoScore = teamTwoZoneThreeScore;
+						} else {
+								zoneThreeTeamTwoActive = false;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 0;
+								//this.gameObject.collider.isTrigger = true;
+						}
+				}
+		}
+
+
 		/// <summary>
 		/// Raises the trigger stay event.
 		/// </summary>
 		/// <param name="coll">Coll.</param>
-		void OnTriggerStay (Collider coll)
+		void OnTriggerEnter (Collider coll)
 		{
 				calculateTeamOneScore ();
 				calculateTeamTwoScore ();
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone01") {
-						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								StartCoroutine ("addScoreTeamOneZoneOne", zoneOneTeamOneScore);
-								zoneOneTeamOneScore = teamOneZoneOneScore;
-								
-						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								StartCoroutine ("addScoreTeamTwoZoneOne", zoneOneTeamTwoScore);
-								zoneOneTeamTwoScore = teamTwoZoneOneScore;
+						if (coll.GetComponent<PlayerStats> ().teamNumber == 1 && coll.GetComponent<PlayerStats> ().hasCoconutEffect == true) {
+								zoneOneTeamOneActive = true;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 2000;
+								//this.gameObject.collider.isTrigger = false;
+								beaconOneTimer = Time.time;
+						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2 && coll.GetComponent<PlayerStats> ().hasCoconutEffect == true) {
+								zoneOneTeamTwoActive = true;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 2000;
+								//this.gameObject.collider.isTrigger = false;
+								beaconOneTimer = Time.time;
 						}
 				}
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone02") {
-						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								StartCoroutine ("addScoreTeamOneZoneTwo", zoneTwoTeamOneScore);
-								zoneTwoTeamOneScore = teamOneZoneTwoScore;
-
-						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								StartCoroutine ("addScoreTeamTwoZoneTwo", zoneTwoTeamTwoScore);
-								zoneTwoTeamTwoScore = teamTwoZoneTwoScore;
+						if (coll.GetComponent<PlayerStats> ().teamNumber == 1 && coll.GetComponent<PlayerStats> ().hasCoconutEffect == true) {
+								zoneTwoTeamOneActive = true;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 2000;//this.gameObject.collider.isTrigger = false;
+								beaconTwoTimer = Time.time;
+						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2 && coll.GetComponent<PlayerStats> ().hasCoconutEffect == true) {
+								zoneTwoTeamTwoActive = true;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 2000;
+								//this.gameObject.collider.isTrigger = false;
+								beaconTwoTimer = Time.time;
 						}
 				}
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone03") {
-						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								StartCoroutine ("addScoreTeamOneZoneThree", zoneThreeTeamOneScore);
-								zoneThreeTeamOneScore = teamOneZoneThreeScore;
-
-						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								StartCoroutine ("addScoreTeamTwoZoneThree", zoneThreeTeamTwoScore);
-								zoneThreeTeamTwoScore = teamTwoZoneThreeScore;
+						if (coll.GetComponent<PlayerStats> ().teamNumber == 1 && coll.GetComponent<PlayerStats> ().hasCoconutEffect == true) {
+								zoneThreeTeamOneActive = true;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 2000;
+								//this.gameObject.collider.isTrigger = false;
+								beaconThreeTimer = Time.time;
+						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2 && coll.GetComponent<PlayerStats> ().hasCoconutEffect == true) {
+								zoneThreeTeamTwoActive = true;
+								this.gameObject.GetComponent<BeaconZone> ().beaconHealth = 2000;
+								//this.gameObject.collider.isTrigger = false;
+								beaconThreeTimer = Time.time;
 						}
 				}
 		}
-	
 
-		/// <summary>
-		/// Raises the trigger exit event.
-		/// </summary>
-		/// <param name="coll">Coll.</param>
-		void OnTriggerExit (Collider coll)
-		{
-				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone01") {
-						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								zoneOneTeamOneActive = false;
-						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								zoneOneTeamTwoActive = false;
-						}
-				}
-				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone02") {
-						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								zoneTwoTeamOneActive = false;
-						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								zoneTwoTeamTwoActive = false;				
-						}
-				}
-				if (coll.gameObject.tag == "player" && this.gameObject.name == "BeaconZone03") {
-						if (coll.GetComponent<PlayerStats> ().teamNumber == 1) {
-								zoneThreeTeamOneActive = false;
-						} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
-								zoneThreeTeamTwoActive = false;				
-						}
-				}
-		}
-	
+
 		/// <summary>
 		/// Calculates the team one score.
 		/// </summary>
@@ -146,16 +205,11 @@ public class BeaconZone : MonoBehaviour
 		/// <param name="ZoneOneTeamOneScore">Zone one team one score.</param>
 		public IEnumerator addScoreTeamOneZoneOne (float zoneOneTeamOneScore)
 		{
-				zoneOneTeamOneActive = true;
 				if (zoneOneTeamTwoActive != true && zoneOneTeamOneActive == true) {
 						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamOneZoneOneScore = zoneOneTeamOneScore + increaseScoreValue;
 						}
-						zoneOneTeamOneActive = false;
-				} else {
-						// DO NOTHING!
-						//	Debug.Log ("Fight team two!");
 				}
 		}
 
@@ -166,17 +220,12 @@ public class BeaconZone : MonoBehaviour
 		/// <param name="ZoneTwoTeamOneScore">Zone two team one score.</param>
 		public IEnumerator addScoreTeamOneZoneTwo (float zoneTwoTeamOneScore)
 		{
-				zoneTwoTeamOneActive = true;
 				if (zoneTwoTeamTwoActive != true && zoneTwoTeamOneActive == true) {
 						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamOneZoneTwoScore = zoneTwoTeamOneScore + increaseScoreValue;
 						}
-						zoneTwoTeamOneActive = false;
-				} else {
-						// DO NOTHING!
-						//	Debug.Log ("Fight team two!");
-				}
+				} 
 		}
 
 
@@ -187,17 +236,12 @@ public class BeaconZone : MonoBehaviour
 		/// <param name="ZoneThreeTeamOneScore">Zone three team one score.</param>
 		public IEnumerator addScoreTeamOneZoneThree (float zoneThreeTeamOneScore)
 		{
-				zoneThreeTeamOneActive = true;
 				if (zoneThreeTeamTwoActive != true && zoneThreeTeamOneActive == true) {
 						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamOneZoneThreeScore = zoneThreeTeamOneScore + increaseScoreValue;
 						}
-						zoneThreeTeamOneActive = false;
-				} else {
-						// DO NOTHING!
-						//	Debug.Log ("Fight team two!");
-				}
+				} 
 		}
 
 
@@ -208,16 +252,11 @@ public class BeaconZone : MonoBehaviour
 		/// <param name="ZoneOneTeamTwoScore">Zone one team two score.</param>
 		public IEnumerator addScoreTeamTwoZoneOne (float zoneOneTeamTwoScore)
 		{
-				zoneOneTeamTwoActive = true;
 				if (zoneOneTeamTwoActive == true && zoneOneTeamOneActive != true) {
 						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamTwoZoneOneScore = zoneOneTeamTwoScore + increaseScoreValue;
 						}
-						zoneOneTeamTwoActive = false;
-				} else {
-						// DO NOTHING!
-						//	Debug.Log ("Fight team one!");
 				}
 		}
 
@@ -229,17 +268,12 @@ public class BeaconZone : MonoBehaviour
 		/// <param name="ZoneTwoTeamTwoScore">Zone two team two score.</param>
 		public IEnumerator addScoreTeamTwoZoneTwo (float zoneTwoTeamTwoScore)
 		{
-				zoneTwoTeamTwoActive = true;
 				if (zoneTwoTeamTwoActive == true && zoneTwoTeamOneActive != true) {
 						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamTwoZoneTwoScore = zoneTwoTeamTwoScore + increaseScoreValue;
 						}
-						zoneTwoTeamTwoActive = false;
-				} else {
-						// DO NOTHING!
-						//	Debug.Log ("Fight team one!");
-				}
+				} 
 		}
 
 
@@ -250,17 +284,11 @@ public class BeaconZone : MonoBehaviour
 		/// <param name="ZoneThreeTeamTwoScore">Zone three team two score.</param>
 		public IEnumerator addScoreTeamTwoZoneThree (float zoneThreeTeamTwoScore)
 		{
-				zoneThreeTeamTwoActive = true;
 				if (zoneThreeTeamTwoActive == true && zoneThreeTeamOneActive != true) {
 						yield return new WaitForSeconds (4f);
 						if (GameTimeManager.time >= 1) {
 								teamTwoZoneThreeScore = zoneThreeTeamTwoScore + increaseScoreValue;
 						}
-						zoneThreeTeamTwoActive = false;
-				} else {
-						// DO NOTHING!
-						//	Debug.Log ("Fight team one!");
 				}
 		}
-		
 }

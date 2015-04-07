@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\CCScript.cs" />
      <Compile Include="Assets\Scripts\CaptureScript.cs" />
      <Compile Include="Assets\Scripts\Coconut.cs" />
+     <Compile Include="Assets\Scripts\CoconutEffect.cs" />
      <Compile Include="Assets\Scripts\CombatScript.cs" />
      <Compile Include="Assets\Scripts\CprScript.cs" />
      <Compile Include="Assets\Scripts\DeathSpawner.cs" />

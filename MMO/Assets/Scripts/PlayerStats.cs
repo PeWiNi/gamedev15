@@ -24,6 +24,8 @@ public class PlayerStats : MonoBehaviour
 		public float buffDuration;
 		public float hp;
 		public float aoeDuration;
+		public float coconutEffectDuration;
+		public float channeledTime;
 		//AOE TICKTIME
 		public float tickTime;
 		//Resouces
@@ -43,9 +45,18 @@ public class PlayerStats : MonoBehaviour
 		public bool buffed = false;
 		public bool trapBeeHiveBuffed = false;
 		public bool trapAntNestBuffed = false;
+		public bool IsInCoconutArea = false;
+		public bool hasCoconutEffect = false;
+		public bool stoppedInCoconutConsume = false;
 		//BASE/RESPAWN POS
 		public Vector3 respawnPosition;
 
+		GameObject beaconOne;
+		GameObject beaconTwo;
+		GameObject beaconThree;
+		BeaconZone bOne;
+		BeaconZone bTwo;
+		BeaconZone bThree;
 
 		// Use this for initialization
 		void Start ()

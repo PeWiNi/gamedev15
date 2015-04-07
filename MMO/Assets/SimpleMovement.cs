@@ -16,7 +16,7 @@ public class SimpleMovement : MonoBehaviour
     void Update()
     {
         Move(transform);
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.P))
             transform.position = new Vector3(0, 0, 0);
     }
 

@@ -82,7 +82,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 				StatSplitter sp = new StatSplitter ();
 				sp.splitStats (teamOneMembers);
-                sp.splitScale(teamOneMembers);
+				sp.splitScale (teamOneMembers);
 				IEnumerator players = por.allPlayerObjects.GetEnumerator ();
 				int currentPlayerIndex = 0;
 				while (players.MoveNext()) {
@@ -97,18 +97,17 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 										evnt.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
 										evnt.TargEnt = player.character;
 								}
-                                using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone))
-                                {
-                                    evnt.Scale = (float)sp.scaleFactor;
-                                    evnt.TargEnt = player.character;
-                                }
+								using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone)) {
+										evnt.Scale = (float)sp.scaleFactor;
+										evnt.TargEnt = player.character;
+								}
 						}
 						currentPlayerIndex++;
 				}
 
 				sp = new StatSplitter ();
 				sp.splitStats (teamTwoMembers);
-                sp.splitScale(teamTwoMembers);
+				sp.splitScale (teamTwoMembers);
 				currentPlayerIndex = 0;
 				players = por.allPlayerObjects.GetEnumerator ();
 				while (players.MoveNext()) {
@@ -123,11 +122,10 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 										evnt.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
 										evnt.TargEnt = player.character;
 								}
-                                using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone))
-                                {
-                                    evnt.Scale = (float)sp.scaleFactor;
-                                    evnt.TargEnt = player.character;
-                                }
+								using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone)) {
+										evnt.Scale = (float)sp.scaleFactor;
+										evnt.TargEnt = player.character;
+								}
 						}
 						currentPlayerIndex++;
 				}
@@ -193,11 +191,11 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				Debug.Log ("objects" + por.playerObjects.Count);
 		}
 
-        public override void OnEvent(ScaleEvent evnt)
-        {
-            BoltEntity target = evnt.TargEnt;
-            target.gameObject.transform.localScale = new Vector3(evnt.Scale, evnt.Scale, evnt.Scale);
-        }
+		public override void OnEvent (ScaleEvent evnt)
+		{
+				BoltEntity target = evnt.TargEnt;
+				target.gameObject.transform.localScale = new Vector3 (evnt.Scale, evnt.Scale, evnt.Scale);
+		}
 
 		public override void OnEvent (StatStartEvent evnt)
 		{
@@ -228,6 +226,20 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				target.gameObject.GetComponent<StateController> ().attack (target.gameObject, evnt.Damage);
 		}
 
+		public override void OnEvent (CoconutEffectEvent evnt)
+		{
+				BoltEntity target = evnt.TargEnt;
+				target.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect = evnt.isAffectedByCoconut;
+		}
+
+		
+		
+		public override void OnEvent (BeaconEvent evnt)
+		{
+				BoltEntity target = evnt.TargEnt;
+				target.gameObject.GetComponent<StateController> ().attackBeacon (target.gameObject, evnt.Damage);
+		}
+		
 		public override void OnEvent (AoeEvent evnt)
 		{
 				BoltEntity target = evnt.TargEnt;
@@ -277,11 +289,6 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		{
 				BoltEntity target = evnt.TargEnt;
 				target.gameObject.GetComponent<StateController> ().stun (target.gameObject, evnt.TrapStunDuration);
-		}
-
-		public override void OnEvent (BeeHiveBuffEvent evnt)
-		{
-				
 		}
 
 		public override void OnEvent (GameTimerEvent evnt)

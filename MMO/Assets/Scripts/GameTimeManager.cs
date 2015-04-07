@@ -7,7 +7,15 @@ public class GameTimeManager : MonoBehaviour
 		public static float time;
 		Text text;
 		bool isSlowed;
-	
+		bool wonByBeacon = false;
+		bool wonByScore = false;
+		GameObject beaconOne;
+		GameObject beaconTwo;
+		GameObject beaconThree;
+		BeaconZone bOne;
+		BeaconZone bTwo;
+		BeaconZone bThree;
+
 		void Awake ()
 		{
 				text = GetComponent<Text> ();
@@ -16,16 +24,27 @@ public class GameTimeManager : MonoBehaviour
 		void Start ()
 		{
 				time = 20;
+				beaconOne = GameObject.Find ("BeaconZone01");
+				beaconTwo = GameObject.Find ("BeaconZone02");
+				beaconThree = GameObject.Find ("BeaconZone03"); 
+				bOne = beaconOne.GetComponent<BeaconZone> ();
+				bTwo = beaconTwo.GetComponent<BeaconZone> ();
+				bThree = beaconThree.GetComponent<BeaconZone> ();
 		}
 
 		// Update is called once per frame
 		void Update ()
 		{
-				setGameTimer (time);
-				if (time >= 0) {
-						text.text = "Game Ends In: " + time;
+				if (!wonByScore) {
+						checkWinningReamByBeacon ();
 				}
-				checkWinningTeam ();
+				if (!wonByBeacon) {
+						if (time > 0) {
+								setGameTimer (time);
+								text.text = "Game Ends In: " + time;
+						}
+						checkWinningTeamByScore ();
+				}
 		}
 
 		/// <summary>
@@ -37,19 +56,33 @@ public class GameTimeManager : MonoBehaviour
 				time = timer;
 		}
 
+		public void checkWinningReamByBeacon ()
+		{
+				if (bOne.zoneOneTeamOneActive && bTwo.zoneTwoTeamOneActive && bThree.zoneThreeTeamOneActive) {
+						time = 0;
+						text.text = "Team one WON!!!";
+						wonByBeacon = true;
+				} else if (bOne.zoneOneTeamTwoActive && bTwo.zoneTwoTeamTwoActive && bThree.zoneThreeTeamTwoActive) {
+						time = 0;
+						text.text = "Team two WON!!!";
+						wonByBeacon = true;
+				}
+		}
+
 		/// <summary>
 		/// Checks the winning team.
 		/// </summary>
-		public void checkWinningTeam ()
+		public void checkWinningTeamByScore ()
 		{
+				// what should happen if it's a tie?
 				if (time == 0) {
 						if (ScoreOneManager.totalOneScore > ScoreTwoManager.totalTwoScore) {
 								text.text = "Team one WON!!!";
+								wonByScore = true;
 						} else if (ScoreOneManager.totalOneScore < ScoreTwoManager.totalTwoScore) {
 								text.text = "Team two WON!!!";
-						} else if (ScoreOneManager.totalOneScore == ScoreTwoManager.totalTwoScore) {
-								text.text = "Last Team Standing (just an idea ;D)";
-						}
+								wonByScore = true;
+						} 
 				}
 		}
 }
