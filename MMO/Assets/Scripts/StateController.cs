@@ -135,6 +135,7 @@ public class StateController : MonoBehaviour
 				stunnedStartFromCC = Time.time;
 				stunnedDurationFromCC = duration;
         
+<<<<<<< HEAD
 				isStunned = true;
 				canMove = false;
 		}
@@ -198,6 +199,98 @@ public class StateController : MonoBehaviour
 
 		void start ()
 		{
+=======
+        isStunned = true;
+        canMove = false;
+    }
+
+    public bool checkIfDead()
+    {
+        if (GetComponent<PlayerStats>().hp <= 0)
+        {
+            
+            isDead = true;
+            isStunned = true;
+            // INITIATE DEATHSPAWNER!!!
+            if (!ressStarted)
+            {
+                ressStarted = true;
+                this.gameObject.GetComponent<DeathSpawner>().startRespawn();
+            }
+            
+            return isDead;
+        }
+        else
+        {
+           
+            return false;
+        }
+    }
+    public bool isAbleToBuff()
+    {
+        if (buffStartTime == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+	public void checkCombatTime(){
+		if (lastCombat != 0 && (Time.time - lastCombat) >= combatCooldownTime) {
+			inCombat = false;
+			if(isBuffed){
+				currentSpeed = movementspeed;
+			}else{
+				currentSpeed = movementspeed * buffMultiplier;
+			}
+		}
+	}
+
+	public bool getCombatState(){
+		return inCombat;
+	}
+
+	void start(){
+		currentSpeed = movementspeed;
+	}
+
+	void checkIfHolding (){
+		if(isHolding){
+			if(isBuffed){
+				currentSpeed = (movementspeed - coconutSpeedReduction)*buffMultiplier; 
+			}else{
+				currentSpeed = movementspeed - coconutSpeedReduction;
+			}
+		}
+	}
+
+	public void buff(){
+		buffStartTime = Time.time;
+		currentSpeed *= buffMultiplier;
+		isBuffed = true;
+	}
+
+	void originalSpeeds(){
+		if(isHolding){
+			if(isBuffed){
+				currentSpeed = (movementspeed - coconutSpeedReduction)*buffMultiplier; 
+			}else{
+				currentSpeed = movementspeed - coconutSpeedReduction;
+			}
+		}else if(inCombat){
+			if(isBuffed){
+				currentSpeed = (movementspeed - combatSpeedReduction )* buffMultiplier;
+			}else{
+				currentSpeed = movementspeed - combatSpeedReduction;
+			}
+		}else{
+			if(isBuffed){
+				currentSpeed = movementspeed * buffMultiplier;
+			}else{
+>>>>>>> origin/master
 				currentSpeed = movementspeed;
 		}
 

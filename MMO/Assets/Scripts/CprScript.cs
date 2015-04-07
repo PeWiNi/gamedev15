@@ -10,9 +10,18 @@ public class CprScript : MonoBehaviour
 
     float lastUsed;
     bool available = true;
+    TestPlayerBehaviour tpb;
+
+    void start()
+    {
+        tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+    }
 
     void Update()
     {
+       
+            tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+        
         if ((Time.time - lastUsed) >= gameObject.GetComponentInParent<PlayerStats>().cprCooldown)
         {
             available = true;
@@ -22,34 +31,58 @@ public class CprScript : MonoBehaviour
 
     void OnTriggerStay(Collider coll)
     {
-        if (Input.GetKeyDown(KeyCode.R) && available)
+        tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+        if (Input.GetKeyDown(tpb.cprKey))
         {
-            int resources = this.gameObject.GetComponentInParent<PlayerStats>().cprBananas;
-            IEnumerator entities = BoltNetwork.entities.GetEnumerator();
-            while (entities.MoveNext())
+            if (available)
             {
-                if (coll.gameObject.tag == "player" && resources > 0)
+                int resources = this.gameObject.GetComponentInParent<PlayerStats>().cprBananas;
+                IEnumerator entities = BoltNetwork.entities.GetEnumerator();
+                int teammates = 0;
+                BoltEntity self = new BoltEntity();
+                while (entities.MoveNext())
                 {
-                    if (entities.Current.GetType().IsInstanceOfType(new BoltEntity()))
+                    if (coll.gameObject.tag == "player" && resources > 0)
                     {
-                        BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
-                        // Create Event and use the be, if it is the one that is colliding.
-                        if (be.gameObject == coll.gameObject)
+                        if (entities.Current.GetType().IsInstanceOfType(new BoltEntity()))
                         {
-                            if (coll.gameObject.GetComponent<PlayerStats>().teamNumber == this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
+                            BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+                            // Create Event and use the be, if it is the one that is colliding.
+                            if (be.gameObject == this.gameObject)
                             {
-                                using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone))
+                                self = be;
+                            }
+                            if (be.gameObject == coll.gameObject)
+                            {
+                                if (coll.gameObject.GetComponent<PlayerStats>().teamNumber == this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
                                 {
-                                    evnt.TargEnt = be;
+                                    teammates++;
+                                    using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone))
+                                    {
+                                        evnt.TargEnt = be;
+                                    }
+                                    available = false;
+                                    this.gameObject.GetComponentInParent<PlayerStats>().cprBananas--;
                                 }
                             }
                         }
                     }
+
+                    //coll.gameObject.GetComponentInChildren<CprScript>().ress();
                 }
-                //coll.gameObject.GetComponentInChildren<CprScript>().ress();
+                if (teammates == 0)
+                {
+                    BoltEntity be2 = this.gameObject.GetComponentInParent<TestPlayerBehaviour>().entity;
+                    using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone))
+                    {
+                        evnt.TargEnt = be2;
+                    }
+                    //this.gameObject.GetComponentInParent<PlayerStats>().hp = this.gameObject.GetComponentInParent<PlayerStats>().maxHealth;
+                    available = false;
+                    this.gameObject.GetComponentInParent<PlayerStats>().cprBananas--;
+                }
+
             }
-            available = false;
-            this.gameObject.GetComponentInParent<PlayerStats>().cprBananas--;
         }
     }
 

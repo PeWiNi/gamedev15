@@ -4,7 +4,7 @@ using System;
 
 public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 {
-		GameObject player;
+		public GameObject player;
 		WASD wasd;
 		StateController sc;
 		PlayerStats ps;
@@ -16,11 +16,16 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 		public KeyCode moveRight = KeyCode.D;
 		public KeyCode moveLeft = KeyCode.A;
+<<<<<<< HEAD
 		public KeyCode tailSlapKey;// = KeyCode.Mouse1;
 		public KeyCode boomNanaKey;// = KeyCode.Mouse0;
+=======
+		public int tailSlapKey;// = KeyCode.Mouse1;
+        public int boomNanaKey;// = KeyCode.Mouse0;
+>>>>>>> origin/master
 		public KeyCode ccKey;
 		public KeyCode cprKey;
-		public KeyCode vomitKey;
+		public KeyCode aoeKey;
 		public KeyCode buffKey = KeyCode.R;
 		bool up, down, left, right;
 
@@ -94,7 +99,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (wasd != null) {
 				} 
 				position = player.transform.position;
-				if (Input.GetMouseButtonDown (1)) {
+                if (Input.GetMouseButtonDown(1))
+                {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
 						aim.renderer.enabled = true;
@@ -242,10 +248,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (position != Vector3.zero) {
 						transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
 				}
-				if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff ()) {
+				if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff () && !sc.isDead) {
 						buff ();
 				}
-				if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned) {
+				if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned && !sc.isDead) {
 						jump ();
 						sound.getJumpPlayer ().PlayOneShot (sound.jumpclip);
 				}

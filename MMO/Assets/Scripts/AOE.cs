@@ -7,6 +7,7 @@ public class AOE : MonoBehaviour
 		bool available = true;
 		StateController sc;
 		PlayerStats ps;
+        TestPlayerBehaviour tpb;
 		float lastUsed;
 		float lastTick;
 		float tickTimer;
@@ -42,13 +43,14 @@ public class AOE : MonoBehaviour
 		{
 				sc = this.gameObject.GetComponentInParent<StateController> ();
 				ps = this.gameObject.GetComponentInParent<PlayerStats> ();
+                tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
 				tickTimer = ps.tickTime;
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-				if (Input.GetKeyDown (KeyCode.Alpha3) && available && !sc.isStunned && !sc.isDead) {
+				if (Input.GetKeyDown (tpb.aoeKey) && available && !sc.isStunned && !sc.isDead) {
                     Debug.Log("CASTING AOE!!");
 						sc.canMove = false;
 						lastUsed = Time.time;
