@@ -183,7 +183,7 @@
 				half3 diffuseReflection = i.lightDirection.w * _LightColor0.xyz * max(0.0, dot(normalDirection, i.lightDirection.xyz));
 				half3 specularReflection = i.lightDirection.w * _LightColor0.xyz * _SpecColor.xyz * pow(max(0.0, dot(reflect(-i.lightDirection.xyz, normalDirection), i.viewDirection)), _Shininess);
 				
-				fixed3 lightFinal = UNITY_LIGHTMODEL_AMBIENT.xyz + diffuseReflection + (specularReflection * tex.a);
+				fixed3 lightFinal = diffuseReflection + (specularReflection * tex.a);
 				return fixed4(lightFinal * _Color.xyz, 1.0);
 			}
 			ENDCG

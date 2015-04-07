@@ -7,6 +7,7 @@ public class AOE : MonoBehaviour
 		bool available = true;
 		StateController sc;
 		PlayerStats ps;
+        TestPlayerBehaviour tpb;
 		float lastUsed;
 		float lastTick;
 		float tickTimer;
@@ -42,13 +43,14 @@ public class AOE : MonoBehaviour
 		{
 				sc = this.gameObject.GetComponentInParent<StateController> ();
 				ps = this.gameObject.GetComponentInParent<PlayerStats> ();
+                tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
 				tickTimer = ps.tickTime;
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-				if (Input.GetKeyDown (KeyCode.Alpha3) && available) {
+				if (Input.GetKeyDown (tpb.aoeKey) && available && !sc.isStunned && !sc.isDead) {
                     Debug.Log("CASTING AOE!!");
 						sc.canMove = false;
 						lastUsed = Time.time;
@@ -61,8 +63,9 @@ public class AOE : MonoBehaviour
                         sc.isChanneling = false;
 						
 				}
+                
 				// check timer for duration and Cooldown
-				if (Time.time - lastUsed >= ps.aoeDuration + 0.5f && !available) {
+				if (Time.time - lastUsed >= ps.aoeDuration + 0.1f && !available) {
 						sc.canMove = true;
                         sc.isChanneling = false;
                         Debug.Log("AOE DONE!");
@@ -76,6 +79,10 @@ public class AOE : MonoBehaviour
 
         void OnTriggerStay(Collider coll)
         {
+            if (sc.isChanneling && (currentTimer - lastTick) > tickTimer)
+            {
+                //Debug.Log("Ticking");   
+            lastTick = currentTimer;
             IEnumerator entities = BoltNetwork.entities.GetEnumerator();
             if (coll.gameObject.tag == "player" && sc.isChanneling)
             {
@@ -87,11 +94,11 @@ public class AOE : MonoBehaviour
                         // Create Event and use the be, if it is the one that is colliding.
                         if (be.gameObject == coll.gameObject)
                         { // Check for enemy, deal full damage
-                            if ((currentTimer - lastTick) > tickTimer)
-                            {
+                                //Debug.Log("AOE TICKING");
                                 if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
                                 {
                                     // deal full damage!!!
+                                        Debug.Log("Sending Event with dmg = " + ps.aoeTickDamageFactor);
                                     using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone))
                                     {
                                         evnt.TargEnt = be;
@@ -107,7 +114,6 @@ public class AOE : MonoBehaviour
                                         evnt.TickDamage = ps.aoeTickDamageFactor / 2;
                                     }
                                 }
-                                lastTick = currentTimer;
                                 sc.initiateCombat();
                             }
 
@@ -115,6 +121,7 @@ public class AOE : MonoBehaviour
                     }
 
                 }
+                
             }
         }
 }

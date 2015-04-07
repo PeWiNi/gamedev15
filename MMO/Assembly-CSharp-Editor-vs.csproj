@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\bolt\scripts\editor\BoltExecutionOrderManager.cs" />
+     <None Include="Assets\Shaders\Projection.shader" />
      <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
      <None Include="Assets\Shaders\Grayscale.shader" />
      <None Include="Assets\Shaders\AimShader.shader" />
@@ -91,6 +92,10 @@
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{CAEB3896-DDD4-15A7-D54A-C105D91C147F}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

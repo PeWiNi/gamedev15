@@ -18,6 +18,7 @@ public class StatSplitter : MonoBehaviour {
     int maximumBoom = 150;
     int maximumTail = 75;
     int maximumAOE = 20;
+    public float scaleFactor = 3;
     public ArrayList hpValues = new ArrayList();
     public ArrayList boomValues = new ArrayList();
     public ArrayList tailValues = new ArrayList();
@@ -114,6 +115,24 @@ public class StatSplitter : MonoBehaviour {
                 redoCalc = false;
             }
             tailValues.Add(tsLast);
+        }
+    }
+
+    public void splitScale(int noP)
+    {
+        float scaleMax = 3;
+        if (noP < 3)
+        {
+            // split normally
+            scaleFactor = scaleMax / noP;
+        }else if(noP > 3 && noP < 10){
+            // split /10 + 1
+            scaleFactor = (scaleMax / noP) + 1;
+        }
+        else
+        {
+            //scale = 1;
+            scaleFactor = 1;
         }
     }
 

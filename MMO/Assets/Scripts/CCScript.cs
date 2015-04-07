@@ -13,11 +13,13 @@ public class CCScript : MonoBehaviour
 		bool available = true;
 		float lastUsed;
 		PlayerStats ps;
+        TestPlayerBehaviour tpb;
 
 		// Use this for initialization
 		void Start ()
 		{
 				ps = this.gameObject.GetComponentInParent<PlayerStats> ();
+                tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
 		}
 	
 		// Update is called once per frame
@@ -28,7 +30,6 @@ public class CCScript : MonoBehaviour
 								if (ps.trapAntNestBuffed == true) {
 										float ccDurationBuffed = ps.ccDuration / AntNest.playerBuffCcDuration;
 										ps.ccDuration = ccDurationBuffed;
-										Debug.Log ("" + ps.ccDuration);
 										ps.trapAntNestBuffed = false;
 								}
 						}
@@ -38,7 +39,6 @@ public class CCScript : MonoBehaviour
 								if (ps.trapAntNestBuffed == true) {
 										float ccDurationBuffed = ps.ccDuration / AntNest.playerBuffCcDuration;
 										ps.ccDuration = ccDurationBuffed;
-										Debug.Log ("" + ps.ccDuration);
 										ps.trapAntNestBuffed = false;
 								}
 						}
@@ -51,7 +51,7 @@ public class CCScript : MonoBehaviour
 
 		void OnTriggerStay (Collider coll)
 		{
-				if (Input.GetKeyDown (KeyCode.Alpha4) && available) {
+				if (Input.GetKeyDown (tpb.ccKey) && available) {
 						IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 						if (coll.gameObject.tag == "player") {
 								while (entities.MoveNext()) {

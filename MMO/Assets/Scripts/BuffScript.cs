@@ -25,17 +25,44 @@ public class BuffScript : MonoBehaviour
 		float lastUsed;
 		PlayerStats ps;
 		StateController sc;
+        TestPlayerBehaviour tpb;
 		public static bool TrapBuff;
 		public static float orgBuffDur;
 		public static float playerOneBuffDmg;
 		public static float tailSlapDmg;
 		public static float boomnanaDmg;
 
+        private float secondsTimer = 0;
+        private GameObject boost;
+        private float boostTimer = 0;
+        public float boostDuration = 10;
+        private float boostAlpha = 0.2f;
+        private float boostDecay;
+        public Vector3 end;
+
+        private void buffSetup()
+        {
+            //Create Particle System
+            boost = (GameObject)Instantiate(Resources.Load("Prefabs/VFX_Boost"));
+            //Make it "fire" upwards
+            boost.transform.Rotate(Vector3.right, -90);
+            //"Scale" according to size of user
+            boost.particleSystem.startLifetime += 0.2f * this.gameObject.transform.collider.bounds.size.y; //Works, makes the particles last longer and therefore moves further in y-axis (scaling it accoding to height of mesh)
+            //boost.particleSystem.shape.radius = 2;
+            boost.particleSystem.transform.localScale.Scale(this.transform.lossyScale); //doesn't work 
+            //TODO: Make at least the radius of particle system (shape) scale with size of user
+            //Start and Deactivate (Initialize it without it being activated)
+            boost.particleSystem.Play();
+            boost.SetActive(false);
+        }
+
 		// Use this for initialization
 		void Start ()
 		{
 				ps = gameObject.GetComponent<PlayerStats> ();
 				sc = gameObject.GetComponent<StateController> ();
+                tpb = gameObject.GetComponent<TestPlayerBehaviour>();
+                buffSetup();
 		}
 	
 		// Update is called once per frame
@@ -65,9 +92,30 @@ public class BuffScript : MonoBehaviour
 								}
 						}
 				}
-			
 
-				if (Input.GetKeyDown (KeyCode.B) && available) {
+                if (boostTimer <= 0)
+                {
+                    boost.SetActive(false);
+                }
+				if (Input.GetKeyDown (tpb.buffKey) && available) {
+
+
+                    // ADD VFX
+
+
+                    boostTimer = ps.buffDuration;
+                        boostAlpha = 0.2f;
+                        boost.SetActive(true);
+                    
+
+                    // Calculate in seconds!
+                    
+
+
+
+
+
+
 						Debug.Log ("BUFFING!!");
 						float currentHP = (ps.hp * ps.buffCostFactor);
 						ps.hp -= currentHP;
@@ -84,6 +132,18 @@ public class BuffScript : MonoBehaviour
 						sc.isBuffed = true;
 				}
 
+                if (boostTimer <= ps.buffDuration && boostTimer > 0)
+                {
+                    boost.transform.position = new Vector3(this.gameObject.transform.position.x, (this.gameObject.transform.position.y - (this.gameObject.transform.collider.bounds.size.y / 2)), this.gameObject.transform.position.z);
+                    boost.particleSystem.startColor = new Color(boost.particleSystem.startColor.r, boost.particleSystem.startColor.g, boost.particleSystem.startColor.b, boostAlpha);
+                    secondsTimer += Time.deltaTime;
+                    if (secondsTimer > 1.0f)
+                    {
+                        buffDecay();
+                        secondsTimer -= 1.0f;
+                    }
+                }
+
 				//CHECK COOLDOWN
 				if (Time.time - lastUsed >= ps.buffCooldown && !available) {         
 						available = true;
@@ -98,4 +158,9 @@ public class BuffScript : MonoBehaviour
 						ps.boomNanaDamage = boomnanaDamageBuffed;
 				} 
 		}
+        private void buffDecay()
+        {
+            boostTimer -= 1;
+            boostAlpha -= boostDecay;
+        }
 }

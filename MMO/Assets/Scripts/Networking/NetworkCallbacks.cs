@@ -82,6 +82,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 				StatSplitter sp = new StatSplitter ();
 				sp.splitStats (teamOneMembers);
+                sp.splitScale(teamOneMembers);
 				IEnumerator players = por.allPlayerObjects.GetEnumerator ();
 				int currentPlayerIndex = 0;
 				while (players.MoveNext()) {
@@ -95,13 +96,19 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 										evnt.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
 										evnt.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
 										evnt.TargEnt = player.character;
-								} 
+								}
+                                using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone))
+                                {
+                                    evnt.Scale = (float)sp.scaleFactor;
+                                    evnt.TargEnt = player.character;
+                                }
 						}
 						currentPlayerIndex++;
 				}
 
 				sp = new StatSplitter ();
 				sp.splitStats (teamTwoMembers);
+                sp.splitScale(teamTwoMembers);
 				currentPlayerIndex = 0;
 				players = por.allPlayerObjects.GetEnumerator ();
 				while (players.MoveNext()) {
@@ -116,6 +123,11 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 										evnt.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
 										evnt.TargEnt = player.character;
 								}
+                                using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone))
+                                {
+                                    evnt.Scale = (float)sp.scaleFactor;
+                                    evnt.TargEnt = player.character;
+                                }
 						}
 						currentPlayerIndex++;
 				}
@@ -180,6 +192,12 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				//PlayerObjectReg.createCoconutObject ().Spawn ();
 				Debug.Log ("objects" + por.playerObjects.Count);
 		}
+
+        public override void OnEvent(ScaleEvent evnt)
+        {
+            BoltEntity target = evnt.TargEnt;
+            target.gameObject.transform.localScale = new Vector3(evnt.Scale, evnt.Scale, evnt.Scale);
+        }
 
 		public override void OnEvent (StatStartEvent evnt)
 		{

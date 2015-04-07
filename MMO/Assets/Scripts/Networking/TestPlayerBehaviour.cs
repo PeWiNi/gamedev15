@@ -15,11 +15,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 		public KeyCode moveRight = KeyCode.D;
 		public KeyCode moveLeft = KeyCode.A;
-		public KeyCode tailSlapKey;// = KeyCode.Mouse1;
-        public KeyCode boomNanaKey;// = KeyCode.Mouse0;
+		public int tailSlapKey;// = KeyCode.Mouse1;
+        public int boomNanaKey;// = KeyCode.Mouse0;
 		public KeyCode ccKey;
 		public KeyCode cprKey;
-		public KeyCode vomitKey;
+		public KeyCode aoeKey;
 		public KeyCode buffKey = KeyCode.R;
 		bool up, down, left, right;
 
@@ -44,6 +44,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				Start ();
 				Transform aim = this.transform.GetChild (3);
 				aim.renderer.enabled = false;
+                Screen.showCursor = false;
 		}
 
 		public override void Attached ()
@@ -89,9 +90,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //				Vector3 snowPos = new Vector3 (player.transform.position.x, 250, player.transform.position.z);
 //				snow.transform.position = snowPos;  
 				if (wasd != null) {
-				}
+				} 
 				position = player.transform.position;
-				if (Input.GetMouseButtonDown (1)) {
+                if (Input.GetMouseButtonDown(1) && !sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead)
+                {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
 						aim.renderer.enabled = true;
@@ -117,7 +119,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			
 						//Vector3 mousePos = Camera.ScreenToWorldPoint (Input.mousePosition);
 						//Debug.Log(mousePos);
-						if (((Time.time * 1000) - timeSinceLastBoom) >= ps.boomNanaCooldown && !sc.isStunned && sc.canMove && !sc.isChanneling) {
+						if (((Time.time * 1000) - timeSinceLastBoom) >= (ps.boomNanaCooldown*1000) && !sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
 								GameObject boom = Instantiate (Resources.Load ("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
 				                               new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
 								Boomnana boomscript = boom.GetComponent<Boomnana> ();
@@ -239,10 +241,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (position != Vector3.zero) {
 						transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
 				}
-				if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff ()) {
+				if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff () && !sc.isDead) {
 						buff ();
 				}
-				if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned) {
+				if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned && !sc.isDead) {
 						jump ();
 						sound.getJumpPlayer ().PlayOneShot (sound.jumpclip);
 				}
