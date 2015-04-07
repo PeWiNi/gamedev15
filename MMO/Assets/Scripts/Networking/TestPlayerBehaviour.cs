@@ -92,7 +92,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (wasd != null) {
 				} 
 				position = player.transform.position;
-                if (Input.GetMouseButtonDown(1) && !sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead)
+                if (Input.GetMouseButtonDown(1))
                 {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);

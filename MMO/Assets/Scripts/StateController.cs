@@ -92,6 +92,7 @@ public class StateController : MonoBehaviour {
     {
         if (GetComponent<PlayerStats>().hp <= 0)
         {
+            
             isDead = true;
             isStunned = true;
             // INITIATE DEATHSPAWNER!!!
@@ -105,6 +106,7 @@ public class StateController : MonoBehaviour {
         }
         else
         {
+           
             return false;
         }
     }

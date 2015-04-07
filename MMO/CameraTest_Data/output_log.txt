@@ -20,7 +20,7 @@ Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\CameraTest_Data
 Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\CameraTest_Data\Managed\udpkit.common.dll into Unity Child Domain
 Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\CameraTest_Data\Managed\udpkit.dll (this message is harmless)
 Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\CameraTest_Data\Managed\udpkit.dll into Unity Child Domain
-- Completed reload, in  0.114 seconds
+- Completed reload, in  0.046 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -90,7 +90,7 @@ Creating Global Behaviour: 'BoltSceneLoader'
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: socket created
+4/7/2015 3:31:58 PM: socket created
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -102,42 +102,42 @@ Invoking callback RegisterStreamChannels
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: Binding physical socket using platform 'DotNetPlatform'
+4/7/2015 3:31:58 PM: Binding physical socket using platform 'DotNetPlatform'
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: Socket bound to [EndPoint 0.0.0.0:55322 | 55322]
+4/7/2015 3:31:58 PM: Socket bound to [EndPoint 0.0.0.0:54733 | 54733]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: Physical socket bound to [EndPoint 0.0.0.0:55322 | 55322]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback BoltStarted
+4/7/2015 3:31:58 PM: Physical socket bound to [EndPoint 0.0.0.0:54733 | 54733]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/CameraTest_Data/Mono/libc
 Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/CameraTest_Data/Mono/.\libc
 Fallback handler could not load library C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/CameraTest_Data/Mono/libc
-4/7/2015 1:07:19 PM: 10.25.195.152 10.25.0.1,130.226.142.2,130.226.142.3,10.25.195.1
+Invoking callback BoltStarted
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: 192.168.56.1 0.0.0.0,192.168.56.1
+4/7/2015 3:31:58 PM: 10.25.195.152 10.25.0.1,130.226.142.2,130.226.142.3,10.25.195.1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: LAN endpoint resolved as [EndPoint 10.25.195.152:55322 | 727827872399546394]
+4/7/2015 3:31:58 PM: 192.168.56.1 0.0.0.0,192.168.56.1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: physical socket started
+4/7/2015 3:31:58 PM: LAN endpoint resolved as [EndPoint 10.25.195.152:54733 | 727827872399545805]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: Connecting to [EndPoint 127.0.0.1:27000 | 9151314447111842168]
+4/7/2015 3:31:58 PM: physical socket started
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+4/7/2015 3:31:58 PM: Connecting to [EndPoint 127.0.0.1:27000 | 9151314447111842168]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -145,15 +145,15 @@ Invoking callback ConnectAttempt
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: Connect to [EndPoint 127.0.0.1:27000 | 9151314447111842168] accepted
+4/7/2015 3:31:58 PM: Connect to [EndPoint 127.0.0.1:27000 | 9151314447111842168] accepted
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: Correct connection id #2 received from server
+4/7/2015 3:31:58 PM: Correct connection id #2 received from server
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:07:19 PM: [EndPoint 127.0.0.1:27000 | 9151314447111842168] connected
+4/7/2015 3:31:58 PM: [EndPoint 127.0.0.1:27000 | 9151314447111842168] connected
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -185,10 +185,6 @@ Loading Bolt.SceneLoadState (Scene1Test)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-FRAME RESET: 369
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
 Creating Global Behaviour: 'PlayerCallbacks'
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
@@ -202,20 +198,13 @@ The tree tree_v_1_1 couldn't be instanced because the prefab contains no valid m
  
 (Filename:  Line: 53)
 
-UnloadTime: 1.110118 ms
+UnloadTime: 0.243864 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 21036.
-Total: 6.410277 ms (FindLiveObjects: 0.749658 ms CreateObjectMapping: 0.097710 ms MarkObjects: 4.613314 ms  DeleteObjects: 0.392072 ms)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 106431.
+Total: 18.616653 ms (FindLiveObjects: 3.790167 ms CreateObjectMapping: 0.176945 ms MarkObjects: 13.640416 ms  DeleteObjects: 0.466381 ms)
 
-ArgumentException: The thing you want to instantiate is null.
-  at UnityEngine.Object.CheckNullArgument (System.Object arg, System.String message) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Object.Instantiate (UnityEngine.Object original) [0x00000] in <filename unknown>:0 
-  at BananaTreeScript.Start () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-FRAME RESET: 23
+FRAME RESET: 47
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -264,6 +253,10 @@ Invoking callback SceneLoadRemoteDone
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+FRAME RESET: 15
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
 Raising [StatStartEvent TargEnt=]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
@@ -285,10 +278,6 @@ Raising [ScaleEvent Scale=3 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlay
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Created [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState] on [Connection [EndPoint 127.0.0.1:27000 | 9151314447111842168]]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-FRAME FORWARD: 10
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -368,6 +357,10 @@ Invoking callback EntityReceived
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+FRAME RESET: -3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
 Raising [StatUpdateEvent MaxHp=1000 BoomDamage=150 TailDamage=75 AoeDamage=20 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
@@ -376,7 +369,11 @@ Raising [ScaleEvent Scale=3 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlay
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-recv event [CCEvent Duration=5 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
+FRAME FORWARD: 10
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+FRAME FORWARD: 10
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -384,15 +381,7 @@ recv event [CCEvent Duration=5 TargEnt=[Entity [NetworkId 0-0-0-1-0-0-0-2] TestP
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-FRAME RESET: -1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Raising [CCEvent Duration=5 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-GETTING STUNNED!
+recv event [CCEvent Duration=5 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -404,83 +393,43 @@ GETTING STUNNED!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-FRAME FORWARD: 11
+Raising [CCEvent Duration=5 TargEnt=[Entity [NetworkId 0-0-0-2-0-0-0-1] TestPlayerState]]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-FRAME FORWARD: 10
+GETTING STUNNED!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-FRAME FORWARD: 10
+FRAME RESET: 23
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-FRAME FORWARD: 10
+FRAME RESET: -9
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-recv event [GameTimerEvent GameTime=19]
+FRAME STALL: 0
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Raising [GameTimerEvent GameTime=19]
+4/7/2015 3:32:38 PM: [EndPoint 127.0.0.1:27000 | 9151314447111842168] disconnected
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-BoltException: You are not the server of, you can not raise this event
-  at GameTimerEvent.Create (Byte targets, .BoltConnection connection, ReliabilityModes reliability) [0x00000] in <filename unknown>:0 
-  at GameTimerEvent.Create (GlobalTargets targets) [0x00000] in <filename unknown>:0 
-  at GameTimer.decreaseTime (Single timeLimit) [0x00000] in <filename unknown>:0 
-  at GameTimer.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-recv event [GameTimerEvent GameTime=18]
+Invoking callback Disconnected
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Raising [GameTimerEvent GameTime=18]
+Number of BOLTENTITIES found: 3
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-BoltException: You are not the server of, you can not raise this event
-  at GameTimerEvent.Create (Byte targets, .BoltConnection connection, ReliabilityModes reliability) [0x00000] in <filename unknown>:0 
-  at GameTimerEvent.Create (GlobalTargets targets) [0x00000] in <filename unknown>:0 
-  at GameTimer.decreaseTime (Single timeLimit) [0x00000] in <filename unknown>:0 
-  at GameTimer.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-recv event [GameTimerEvent GameTime=17]
+1 at team 2, 1 at team1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Raising [GameTimerEvent GameTime=17]
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-BoltException: You are not the server of, you can not raise this event
-  at GameTimerEvent.Create (Byte targets, .BoltConnection connection, ReliabilityModes reliability) [0x00000] in <filename unknown>:0 
-  at GameTimerEvent.Create (GlobalTargets targets) [0x00000] in <filename unknown>:0 
-  at GameTimer.decreaseTime (Single timeLimit) [0x00000] in <filename unknown>:0 
-  at GameTimer.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-Shutdown
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback BoltShutdown
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Invoking callback EntityDetached
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Detached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
+Invoking callback Disconnected
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -500,7 +449,19 @@ Detached [Entity [NetworkId 0-0-0-1-0-0-0-1] CoconutState]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Behaviour not available in this dispatcher, ignoring call to Remove.
+Shutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback BoltShutdown
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Invoking callback EntityDetached
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-2] TestPlayerState]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -508,7 +469,755 @@ Behaviour not available in this dispatcher, ignoring call to Remove.
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-4/7/2015 1:10:33 PM: [EndPoint 127.0.0.1:27000 | 9151314447111842168] disconnected
+Behaviour not available in this dispatcher, ignoring call to Remove.
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+KeyNotFoundException: The given key was not present in the dictionary.
+  at System.Collections.Generic.Dictionary`2[Bolt.TypeId,Bolt.IFactory].get_Item (TypeId key) [0x00000] in <filename unknown>:0 
+  at Bolt.Factory.GetEventFactory (TypeId id) [0x00000] in <filename unknown>:0 
+  at Bolt.EventDispatcher.Raise (Bolt.Event ev) [0x00000] in <filename unknown>:0 
+  at Bolt.EventDispatcher.RaiseLocal (Bolt.Event ev) [0x00000] in <filename unknown>:0 
+  at Bolt.EventDispatcher.Global_Everyone (Bolt.Event ev) [0x00000] in <filename unknown>:0 
+  at Bolt.EventDispatcher.Dispatch (Bolt.Event ev) [0x00000] in <filename unknown>:0 
+  at Bolt.EventDispatcher.DispatchAllEvents () [0x00000] in <filename unknown>:0 
+  at BoltCore.Poll () [0x00000] in <filename unknown>:0 
+  at BoltPoll.FixedUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at PlayerCam.LateUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 
