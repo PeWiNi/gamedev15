@@ -7,7 +7,7 @@ public class HUDScript : MonoBehaviour
     private float secondsTimer = 0;
 
     // Damage Effect
-    public KeyCode redKey = KeyCode.Space; // Change to taking damage event
+    public KeyCode redKey; // Change to taking damage event
     public RawImage takingDamageHUD;
     private float HUDTimer = 0;
     public float HUDEffectIntensity = 0.3f;
@@ -16,12 +16,12 @@ public class HUDScript : MonoBehaviour
     #region Action Bar
     public GameObject Action1;
     private Image a1Over;
-    public string a1Key = "e";
+    public string a1Key = "mouse 0";
     public float a1Time = 3f;
     private bool a1Cooldown;
     public GameObject Action2;
     private Image a2Over;
-    public string a2Key = "q";
+    public string a2Key = "mouse 1";
     public float a2Time = 3f;
     private bool a2Cooldown;
     public GameObject Action3;
@@ -52,29 +52,35 @@ public class HUDScript : MonoBehaviour
         SetupActionBar();
     }
 
+    public void damageEff()
+    {
+        HUDTimer = HUDEffectIntensity;
+        takingDamageHUD.enabled = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
         #region Damage Effect
         if (HUDTimer <= 0) // Disable when the effect has ended
             takingDamageHUD.enabled = false;
-        if (Input.GetKeyDown(redKey)) // Change to taking damage event 
-        {
-            //Creates HUDeffect when damaged
-            HUDTimer = HUDEffectIntensity;
-            takingDamageHUD.enabled = true;
-        }
+        //if (Input.GetKeyDown(redKey)) // Change to taking damage event 
+        //{
+        //    //Creates HUDeffect when damaged
+        //    HUDTimer = HUDEffectIntensity;
+        //    takingDamageHUD.enabled = true;
+        //}
         takingDamageHUD.color = new Color(takingDamageHUD.color.r, takingDamageHUD.color.g, takingDamageHUD.color.b, HUDTimer);
         HUDTimer -= HUDEffectDecay;
         #endregion
 
         #region ActionBar
-        ActionBar(ref a1Over, a1Key, ref a1Cooldown, a1Time);
-        ActionBar(ref a2Over, a2Key, ref a2Cooldown, a2Time);
-        ActionBar(ref a3Over, a3Key, ref a3Cooldown, a3Time);
-        ActionBar(ref a4Over, a4Key, ref a4Cooldown, a4Time);
-        ActionBar(ref a5Over, a5Key, ref a5Cooldown, a5Time);
-        ActionBar(ref a6Over, a6Key, ref a6Cooldown, a6Time);
+        ActionBar(ref a1Over, a1Key, ref a1Cooldown, a1Time); // tail
+        ActionBarBoom(ref a2Over, a2Key, ref a2Cooldown, a2Time); // boom
+        ActionBar(ref a3Over, a3Key, ref a3Cooldown, a3Time); // aoe
+        ActionBar(ref a4Over, a4Key, ref a4Cooldown, a4Time); // cc
+        ActionBar(ref a5Over, a5Key, ref a5Cooldown, a5Time); // buff
+        ActionBar(ref a6Over, a6Key, ref a6Cooldown, a6Time); // Cpr
         #endregion
     }
 
@@ -103,6 +109,21 @@ public class HUDScript : MonoBehaviour
         if (s.Equals("mouse 2"))
             return "MMB";
         return s.ToUpper();
+    }
+
+    public void ActionBarBoom(ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer)
+    {
+        if (Input.GetKeyUp(key) && !onCooldown)
+        {
+            onCooldown = true;
+            overlayImage.fillAmount = 0.0f;
+        }
+        if (onCooldown == true)
+        {
+            overlayImage.fillAmount += (1.0f / cooldownTimer * Time.deltaTime);
+            if (overlayImage.fillAmount == 1.0f)
+                onCooldown = false;
+        }
     }
 
     public void ActionBar(ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer)

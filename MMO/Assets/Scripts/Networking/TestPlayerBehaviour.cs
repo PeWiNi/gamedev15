@@ -50,6 +50,19 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				Transform aim = this.transform.GetChild (3);
 				aim.renderer.enabled = false;
 				Screen.showCursor = false;
+
+                
+
+                PlayerCam[] cams = FindObjectsOfType<PlayerCam>();
+                foreach (PlayerCam p in cams)
+                {
+                    if (p.gameObject.GetComponent<PlayerCam>()._target == this.gameObject)
+                    {
+                        mainCam = p.gameObject;
+                        break;
+                    }
+                }
+
 		}
 
 		public override void Attached ()

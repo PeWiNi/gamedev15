@@ -118,7 +118,8 @@ public class BuffScript : MonoBehaviour
 
 						Debug.Log ("BUFFING!!");
 						float currentHP = (ps.hp * ps.buffCostFactor);
-						ps.hp -= currentHP;
+                        gameObject.GetComponent<StateController>().attack(this.gameObject, currentHP);
+						//ps.hp -= currentHP;
 
 						float tailSlapDamageBuffed = ps.tailSlapDamage * ps.buffDamageFactor;
 						ps.tailSlapDamage = tailSlapDamageBuffed;

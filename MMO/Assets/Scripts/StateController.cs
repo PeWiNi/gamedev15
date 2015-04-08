@@ -73,6 +73,13 @@ public class StateController : MonoBehaviour
 				initiateCombat ();
 				StateController targetSC = target.GetComponent<StateController> ();
 				targetSC.getHit (damage);
+
+            // FIND HUD AND ANIMATE DAMAGE EFFECT.
+                GameObject go = GameObject.Find("Canvas");
+                go.GetComponentInChildren<HUDScript>().damageEff();
+                //TestPlayerBehaviour tpb = this.gameObject.GetComponent<TestPlayerBehaviour>();
+              //  Debug.Log(tpb.mainCam.GetComponentInChildren<HUDScript>());   
+            // tpb.mainCam.gameObject.GetComponentInChildren<HUDScript>().damageEff();
 		}
 	
 		public void attackBeacon (GameObject target, float damage)
