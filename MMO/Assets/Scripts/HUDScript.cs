@@ -81,17 +81,28 @@ public class HUDScript : MonoBehaviour
     private void SetupActionBar()
     {
         a1Over = Action1.transform.GetChild(0).GetComponent<Image>();
-        Action1.transform.GetChild(1).GetComponent<Text>().text = a1Key.ToUpper();
+        Action1.transform.GetChild(1).GetComponent<Text>().text = toUpper(a1Key);
         a2Over = Action2.transform.GetChild(0).GetComponent<Image>();
-        Action2.transform.GetChild(1).GetComponent<Text>().text = a2Key.ToUpper();
+        Action2.transform.GetChild(1).GetComponent<Text>().text = toUpper(a2Key);
         a3Over = Action3.transform.GetChild(0).GetComponent<Image>();
-        Action3.transform.GetChild(1).GetComponent<Text>().text = a3Key.ToUpper();
+        Action3.transform.GetChild(1).GetComponent<Text>().text = toUpper(a3Key);
         a4Over = Action4.transform.GetChild(0).GetComponent<Image>();
-        Action4.transform.GetChild(1).GetComponent<Text>().text = a4Key.ToUpper();
+        Action4.transform.GetChild(1).GetComponent<Text>().text = toUpper(a4Key);
         a5Over = Action5.transform.GetChild(0).GetComponent<Image>();
-        Action5.transform.GetChild(1).GetComponent<Text>().text = a5Key.ToUpper();
+        Action5.transform.GetChild(1).GetComponent<Text>().text = toUpper(a5Key);
         a6Over = Action6.transform.GetChild(0).GetComponent<Image>();
-        Action6.transform.GetChild(1).GetComponent<Text>().text = a6Key.ToUpper();
+        Action6.transform.GetChild(1).GetComponent<Text>().text = toUpper(a6Key);
+    }
+
+    private string toUpper(string s)
+    {
+        if(s.Equals("mouse 0"))
+            return "LMB";
+        if (s.Equals("mouse 1"))
+            return "RMB";
+        if (s.Equals("mouse 2"))
+            return "MMB";
+        return s.ToUpper();
     }
 
     public void ActionBar(ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer)
