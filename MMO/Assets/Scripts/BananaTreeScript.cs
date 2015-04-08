@@ -18,7 +18,6 @@ public class BananaTreeScript : MonoBehaviour
 				x = 30f; //Random.Range (-20f, +20f);
 				z = -5f; //Random.Range (-20f, +20f);
 				banana = Resources.Load ("Prefabs/banana") as GameObject; 
-				bananaTree = GameObject.Find ("BananaTree01");
 				Instantiate (banana);
 				banana.transform.position = SpawnBananaPosition ();
 		}
@@ -54,6 +53,6 @@ public class BananaTreeScript : MonoBehaviour
 
 		Vector3 SpawnBananaPosition ()
 		{
-				return new Vector3 (x + bananaTree.transform.position.x, bananaTree.transform.position.y, z + bananaTree.transform.position.z);
+				return new Vector3 (x + this.gameObject.transform.position.x, this.gameObject.transform.position.y, z + this.gameObject.transform.position.z);
 		}
 }

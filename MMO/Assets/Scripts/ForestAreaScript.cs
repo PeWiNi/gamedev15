@@ -35,7 +35,7 @@ public class ForestAreaScript : MonoBehaviour
 		{
 				//Debug.Log ("beeHive list " + beeHives.Count);
 				if (beeHives.Count != 3) {
-						GameObject beeHive = (GameObject)Instantiate (beeHiveTrap, new Vector3 (Random.Range (-150, +150) + forestObject.transform.position.x, forestObject.transform.position.y, Random.Range (-150, +150) + forestObject.transform.position.z), Quaternion.identity);
+						GameObject beeHive = (GameObject)Instantiate (beeHiveTrap, new Vector3 (Random.Range (-20, +20) + forestObject.transform.position.x, forestObject.transform.position.y, Random.Range (-20, +20) + forestObject.transform.position.z), Quaternion.identity);
 						beeHive.name = "BeeHiveTrap";			
 						beeHives.Add (beeHive);
 						//Debug.Log ("the object: " + beeHiveTrap.name);
@@ -56,7 +56,7 @@ public class ForestAreaScript : MonoBehaviour
 				//Debug.Log ("antNest list " + antNests.Count);
 				yield return new WaitForSeconds (1f);
 				if (antNests.Count != 2) {
-						GameObject antNest = (GameObject)Instantiate (antNestTrap, new Vector3 (Random.Range (-150, +150) + forestObject.transform.position.x, forestObject.transform.position.y, Random.Range (-150, +150) + forestObject.transform.position.z), Quaternion.identity);
+						GameObject antNest = (GameObject)Instantiate (antNestTrap, new Vector3 (Random.Range (-20, +20) + forestObject.transform.position.x, forestObject.transform.position.y, Random.Range (-20, +20) + forestObject.transform.position.z), Quaternion.identity);
 						antNest.name = "AntNestTrap";
 						antNests.Add (antNest);
 						//Debug.Log ("the object: " + antNestTrap.name);
@@ -74,7 +74,7 @@ public class ForestAreaScript : MonoBehaviour
 		/// <returns>The bee hive position.</returns>
 		Vector3 SpawnBeeHivePosition ()
 		{
-				return new Vector3 (Random.Range (-150, +150) + forestObject.transform.position.x, forestObject.transform.position.y, Random.Range (-150, +150) + forestObject.transform.position.z);
+				return new Vector3 (Random.Range (-20, +20) + forestObject.transform.position.x, forestObject.transform.position.y, Random.Range (-150, +150) + forestObject.transform.position.z);
 		}
 
 		/// <summary>
@@ -83,6 +83,6 @@ public class ForestAreaScript : MonoBehaviour
 		/// <returns>The ant nest position.</returns>
 		Vector3 SpawnAntNestPosition ()
 		{
-				return new Vector3 (Random.Range (-150, +150) + forestObject.transform.position.x, forestObject.transform.position.y, Random.Range (-150, +150) + forestObject.transform.position.z);
+				return new Vector3 (Random.Range (-20, +20) + forestObject.transform.position.x, forestObject.transform.position.y, Random.Range (-150, +150) + forestObject.transform.position.z);
 		}
 }
