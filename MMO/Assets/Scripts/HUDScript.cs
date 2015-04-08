@@ -75,12 +75,12 @@ public class HUDScript : MonoBehaviour
         #endregion
 
         #region ActionBar
-        ActionBar(ref a1Over, a1Key, ref a1Cooldown, a1Time); // tail
-        ActionBarBoom(ref a2Over, a2Key, ref a2Cooldown, a2Time); // boom
-        ActionBar(ref a3Over, a3Key, ref a3Cooldown, a3Time); // aoe
-        ActionBar(ref a4Over, a4Key, ref a4Cooldown, a4Time); // cc
-        ActionBar(ref a5Over, a5Key, ref a5Cooldown, a5Time); // buff
-        ActionBar(ref a6Over, a6Key, ref a6Cooldown, a6Time); // Cpr
+        ActionBarOnPress(ref a1Over, a1Key, ref a1Cooldown, a1Time); // tail
+        ActionBarOnRelease(ref a2Over, a2Key, ref a2Cooldown, a2Time); // boom
+        ActionBarOnPress(ref a3Over, a3Key, ref a3Cooldown, a3Time); // aoe
+        ActionBarOnPress(ref a4Over, a4Key, ref a4Cooldown, a4Time); // cc
+        ActionBarOnPress(ref a5Over, a5Key, ref a5Cooldown, a5Time); // buff
+        ActionBarOnPress(ref a6Over, a6Key, ref a6Cooldown, a6Time); // Cpr
         #endregion
     }
 
@@ -102,7 +102,7 @@ public class HUDScript : MonoBehaviour
 
     private string toUpper(string s)
     {
-        if(s.Equals("mouse 0"))
+        if (s.Equals("mouse 0"))
             return "LMB";
         if (s.Equals("mouse 1"))
             return "RMB";
@@ -111,7 +111,7 @@ public class HUDScript : MonoBehaviour
         return s.ToUpper();
     }
 
-    public void ActionBarBoom(ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer)
+    public void ActionBarOnRelease(ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer)
     {
         if (Input.GetKeyUp(key) && !onCooldown)
         {
@@ -126,7 +126,7 @@ public class HUDScript : MonoBehaviour
         }
     }
 
-    public void ActionBar(ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer)
+    public void ActionBarOnPress(ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer)
     {
         if (Input.GetKeyDown(key) && !onCooldown)
         {
