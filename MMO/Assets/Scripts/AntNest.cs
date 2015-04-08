@@ -44,7 +44,7 @@ public class AntNest : MonoBehaviour
 										}
 								} else if (isActivatedByTeamTwo == true) {
 										if (setUpTimer == true) {
-												ForestAreaScript.antNests.Remove (this.gameObject);
+												ForestAreaScript.antNests01.Remove (this.gameObject);
 												Destroy (this.gameObject);
 												// if the damage isn't the same as 10 %, note; use a bool.
 												using (var evnt = AntNestTrapEvent.Create(Bolt.GlobalTargets.Everyone)) {				
@@ -75,7 +75,7 @@ public class AntNest : MonoBehaviour
 										}
 								} else if (isActivatedByTeamOne == true) {
 										if (setUpTimer == true) {
-												ForestAreaScript.antNests.Remove (this.gameObject);
+												ForestAreaScript.antNests01.Remove (this.gameObject);
 												Destroy (this.gameObject);
 												// if the damage isn't the same as 10 %, note; use a bool.
 												using (var evnt = AntNestTrapEvent.Create(Bolt.GlobalTargets.Everyone)) {				
@@ -115,7 +115,7 @@ public class AntNest : MonoBehaviour
 				if (isActivatedByTeamOne == true || isActivatedByTeamTwo == true) {
 						//should be 5 min wait time.
 						yield return new WaitForSeconds (100);
-						ForestAreaScript.antNests.Remove (this.gameObject);
+						ForestAreaScript.antNests01.Remove (this.gameObject);
 						Destroy (this.gameObject);
 				}
 		}

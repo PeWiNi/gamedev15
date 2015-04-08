@@ -55,7 +55,7 @@ public class BeeHive : MonoBehaviour
 										}
 								} else if (isActivatedByTeamTwo == true) {
 										if (setUpTimer == true) {
-												ForestAreaScript.beeHives.Remove (this.gameObject);
+												ForestAreaScript.beeHives01.Remove (this.gameObject);
 												Destroy (this.gameObject);
 												isTrapDestroyed = true;
 												if (isTrapDestroyed == true) {
@@ -93,7 +93,7 @@ public class BeeHive : MonoBehaviour
 								}
 						} else if (isActivatedByTeamOne == true) {
 								if (setUpTimer == true) {
-										ForestAreaScript.beeHives.Remove (this.gameObject);
+										ForestAreaScript.beeHives01.Remove (this.gameObject);
 										Destroy (this.gameObject);
 										isTrapDestroyed = true;
 										if (isTrapDestroyed == true) {
@@ -141,7 +141,7 @@ public class BeeHive : MonoBehaviour
 				if (isActivatedByTeamOne == true || isActivatedByTeamTwo == true) {
 						//should be 5 min wait time.
 						yield return new WaitForSeconds (100);
-						ForestAreaScript.beeHives.Remove (this.gameObject);
+						ForestAreaScript.beeHives01.Remove (this.gameObject);
 						Destroy (this.gameObject);
 				}
 		}

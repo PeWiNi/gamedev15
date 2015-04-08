@@ -4,22 +4,21 @@ using System.Collections;
 public class SwampScript : MonoBehaviour
 {
 		float speed;
-		public float movementSpeed;
 		
 		// Use this for initialization
 		void Start ()
 		{
-				movementSpeed = 2f;
 		}
 
 		/// <summary>
 		/// Raises the trigger stay event.
 		/// </summary>
 		/// <param name="coll">Coll.</param>
-		void OnTriggerStay (Collider coll)
+		void OnTriggerEnter (Collider coll)
 		{				
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "Swamp") {
-						speed = movementSpeed - ((2f * 50f) / 100f);
+						speed = (coll.GetComponent<StateController> ().movementspeed * 40f) / 100f;
+						Debug.Log (speed);
 						coll.GetComponent<StateController> ().movementspeed = speed;
 				}
 		}
@@ -31,7 +30,8 @@ public class SwampScript : MonoBehaviour
 		void OnTriggerExit (Collider coll)
 		{
 				if (coll.gameObject.tag == "player" && this.gameObject.name == "Swamp") {
-						coll.GetComponent<StateController> ().movementspeed = movementSpeed;
+						speed = (coll.GetComponent<StateController> ().movementspeed * 100f) / 40f;
+						coll.GetComponent<StateController> ().movementspeed = speed;
 				}
 		}
 }
