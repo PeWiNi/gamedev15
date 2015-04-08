@@ -16,13 +16,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 		public KeyCode moveRight = KeyCode.D;
 		public KeyCode moveLeft = KeyCode.A;
-<<<<<<< HEAD
+
 		public KeyCode tailSlapKey;// = KeyCode.Mouse1;
 		public KeyCode boomNanaKey;// = KeyCode.Mouse0;
-=======
-		public int tailSlapKey;// = KeyCode.Mouse1;
-        public int boomNanaKey;// = KeyCode.Mouse0;
->>>>>>> origin/master
+	
+
 		public KeyCode ccKey;
 		public KeyCode cprKey;
 		public KeyCode aoeKey;
@@ -99,8 +97,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (wasd != null) {
 				} 
 				position = player.transform.position;
-                if (Input.GetMouseButtonDown(1))
-                {
+				if (Input.GetMouseButtonDown (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
 						aim.renderer.enabled = true;
@@ -308,7 +305,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				}
 				if (this.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect == true) {
 						if (Time.time - this.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration >= this.gameObject.GetComponent<StateController> ().coconutDuration) {
-			
 								coconutEffectExpire ();
 						}	
 						if (sc.isDead) {
@@ -698,19 +694,37 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 										using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
 												evnt.TargEnt = be;	
 												evnt.isAffectedByCoconut = true;
+												evnt.CoconutEffectDuration = Time.time;
 										}
 								}
 						}
 				}
 				coconut.gameObject.GetComponent<CoconutEffect> ().isCoconutConsumed = true;
-				this.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration = Time.time;
+				//this.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration = Time.time;
 		}
 
 		public void coconutEffectExpire ()
 		{
-				this.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect = false;
+				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+				//this.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect = false;
 				coconut.gameObject.GetComponent<CoconutEffect> ().isCoconutConsumed = false;
-				coconut.gameObject.SetActive (true);
+				while (entities.MoveNext()) {
+						if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+								BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+								// Create Event and use the be, if it is the one that is colliding.
+								if (be.gameObject == coconut.gameObject) {
+										using (var evnt = CoconutAvailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
+												evnt.TargEnt = be;
+										}
+								}
+								if (be.gameObject == this.gameObject) {
+										using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
+												evnt.TargEnt = be;	
+												evnt.isAffectedByCoconut = false;
+										}
+								}
+						}
+				}
 		}
 		/*void OnGUI ()
 		{

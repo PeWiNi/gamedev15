@@ -230,10 +230,42 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		{
 				BoltEntity target = evnt.TargEnt;
 				target.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect = evnt.isAffectedByCoconut;
+				target.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration = evnt.CoconutEffectDuration;
 		}
 
+		public override void OnEvent (CoconutAvailableEvent evnt)
+		{
+				BoltEntity target = evnt.TargEnt;
+				target.gameObject.transform.renderer.enabled = true;
+		}
 		
-		
+		public override void OnEvent (BeaconOneCapturingEvent evnt)
+		{
+				BoltEntity beaconOne = evnt.BeaconOne;
+				beaconOne.gameObject.GetComponent<BeaconZone> ().zoneOneTeamOneActive = evnt.ZoneOneTeamOne;
+				beaconOne.gameObject.GetComponent<BeaconZone> ().zoneOneTeamTwoActive = evnt.ZoneOneTeamTwo;
+				beaconOne.gameObject.GetComponent<BeaconZone> ().beaconOneTimer = evnt.BeaconOneTimer;
+				beaconOne.gameObject.GetComponent<BeaconZone> ().beaconOneActivationTimer = evnt.ActiveOneTimer;
+		}
+
+		public override void OnEvent (BeaconTwoCapturingEvent evnt)
+		{
+				BoltEntity beaconTwo = evnt.BeaconTwo;
+				beaconTwo.gameObject.GetComponent<BeaconZone> ().zoneTwoTeamOneActive = evnt.ZoneTwoTeamOne;
+				beaconTwo.gameObject.GetComponent<BeaconZone> ().zoneTwoTeamTwoActive = evnt.ZoneTwoTeamTwo;
+				beaconTwo.gameObject.GetComponent<BeaconZone> ().beaconTwoTimer = evnt.BeaconTwoTimer;
+				beaconTwo.gameObject.GetComponent<BeaconZone> ().beaconTwoActivationTimer = evnt.ActiveTwoTimer;
+		}
+
+		public override void OnEvent (BeaconThreeCapturingEvent evnt)
+		{
+				BoltEntity beaconThree = evnt.BeaconThree;
+				beaconThree.gameObject.GetComponent<BeaconZone> ().zoneThreeTeamOneActive = evnt.ZoneThreeTeamOne;
+				beaconThree.gameObject.GetComponent<BeaconZone> ().zoneThreeTeamTwoActive = evnt.ZoneThreeTeamTwo;
+				beaconThree.gameObject.GetComponent<BeaconZone> ().beaconThreeTimer = evnt.BeaconThreeTimer;
+				beaconThree.gameObject.GetComponent<BeaconZone> ().beaconThreeActivationTimer = evnt.ActiveThreeTimer;
+		}
+
 		public override void OnEvent (BeaconEvent evnt)
 		{
 				BoltEntity target = evnt.TargEnt;

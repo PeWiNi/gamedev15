@@ -23,7 +23,7 @@ public class CoconutEffect : MonoBehaviour
 						coll.GetComponent<PlayerStats> ().IsInCoconutArea = true;
 						if (isCoconutConsumed == true) {
 								coll.GetComponent<PlayerStats> ().IsInCoconutArea = false;
-								this.gameObject.SetActive (false);
+								this.gameObject.transform.renderer.enabled = false;
 						}
 				}
 		}
