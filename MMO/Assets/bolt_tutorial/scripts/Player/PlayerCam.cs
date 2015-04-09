@@ -10,7 +10,7 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
         Vector3 camPos = new Vector3();
         Vector3 offset;
 		// camera target
-		Transform _target;
+		public Transform _target;
 
 //  // if we are aiming or not
 //  bool _aiming = false;
@@ -55,7 +55,8 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
             pos.y = _target.transform.position.y;
             pos.z = _target.transform.position.z;
 
-            transform.position = pos; 
+            transform.position = pos;
+            //_target.gameObject.GetComponent<TestPlayerBehaviour>().mainCam = this.gameObject;
         }
 
 		public new Camera camera {
@@ -69,6 +70,7 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 		void Awake ()
 		{
 				DontDestroyOnLoad (gameObject);
+                //_target.gameObject.GetComponent<TestPlayerBehaviour>().mainCam = this.gameObject;
 //    _distance = runningDistance;
 		}
 
@@ -155,7 +157,7 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
                             started = true; 
 
                         }
-						
+                        //_target.gameObject.GetComponent<TestPlayerBehaviour>().mainCam = this.gameObject;
 						/*camPos.y = transform.position.y;
                         camPos.x = transform.position.x;
                         camPos.z = transform.position.z ;*/

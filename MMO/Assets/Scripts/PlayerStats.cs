@@ -61,7 +61,14 @@ public class PlayerStats : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-            
+            GameObject go = GameObject.Find("Canvas");
+            HUDScript hs = go.GetComponentInChildren<HUDScript>();
+            hs.a1Time = tailSlapCooldown;
+            hs.a2Time = boomNanaCooldown;
+            hs.a3Time = aoeCooldown;
+            hs.a4Time = ccCooldown;
+            hs.a5Time = buffCooldown;
+            hs.a6Time = cprCooldown;
 		}
 
 		public void makeTheStatChange ()
