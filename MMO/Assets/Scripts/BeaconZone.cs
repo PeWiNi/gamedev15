@@ -27,7 +27,7 @@ public class BeaconZone : MonoBehaviour
 		float teamTwoZoneThreeScore;
 		float lastTimeOne = 0;
 		float lastTimeTwo = 0;
-		float activeTime = 60f;
+		float activeTime = 600f;
 		public float beaconOneActivationTimer;
 		public float beaconTwoActivationTimer;
 		public float beaconThreeActivationTimer;

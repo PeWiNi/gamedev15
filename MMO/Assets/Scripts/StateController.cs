@@ -32,7 +32,7 @@ public class StateController : MonoBehaviour
 		public int teamNumber;
 		float stunnedStartFromCC;
 		float stunnedDurationFromCC;
-		public float coconutDuration = 60f; 
+		public float coconutDuration = 120f; 
 		public float coconutChannelTime = 5f;
 		GameObject beaconOne;
 		GameObject beaconTwo;
@@ -74,12 +74,12 @@ public class StateController : MonoBehaviour
 				StateController targetSC = target.GetComponent<StateController> ();
 				targetSC.getHit (damage);
 
-            // FIND HUD AND ANIMATE DAMAGE EFFECT.
-                GameObject go = GameObject.Find("Canvas");
-                go.GetComponentInChildren<HUDScript>().damageEff();
-                //TestPlayerBehaviour tpb = this.gameObject.GetComponent<TestPlayerBehaviour>();
-              //  Debug.Log(tpb.mainCam.GetComponentInChildren<HUDScript>());   
-            // tpb.mainCam.gameObject.GetComponentInChildren<HUDScript>().damageEff();
+				// FIND HUD AND ANIMATE DAMAGE EFFECT.
+				GameObject go = GameObject.Find ("Canvas");
+				go.GetComponentInChildren<HUDScript> ().damageEff ();
+				//TestPlayerBehaviour tpb = this.gameObject.GetComponent<TestPlayerBehaviour>();
+				//  Debug.Log(tpb.mainCam.GetComponentInChildren<HUDScript>());   
+				// tpb.mainCam.gameObject.GetComponentInChildren<HUDScript>().damageEff();
 		}
 	
 		public void attackBeacon (GameObject target, float damage)

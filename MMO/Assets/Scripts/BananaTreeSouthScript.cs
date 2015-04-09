@@ -41,7 +41,7 @@ public class BananaTreeSouthScript : MonoBehaviour
 		IEnumerator BananaSouthSpawner ()
 		{
 				if (isSouthBananaUp == false) {
-						yield return new WaitForSeconds (5f);
+						yield return new WaitForSeconds (90f);
 						banana = (GameObject)Instantiate (bananaSouth, new Vector3 (x + bananaTreeSouth.transform.position.x, bananaTreeSouth.transform.position.y, z + bananaTreeSouth.transform.position.z), Quaternion.identity);
 						banana.name = "bananaSouth";
 						//Instantiate (bananaSouth);

@@ -59,28 +59,28 @@ public class ForestAreaScript : MonoBehaviour
 						}
 						yield return new WaitForSeconds (1f);	
 				}
-				if (beeHives02.Count != 3) {
-						GameObject beeHive = (GameObject)Instantiate (beeHiveTrap, new Vector3 (Random.Range (-20, +20) + forestObject02.transform.position.x, forestObject02.transform.position.y, Random.Range (-20, +20) + forestObject02.transform.position.z), Quaternion.identity);
-						beeHive.name = "BeeHiveTrap";			
-						beeHives02.Add (beeHive);
-						//Debug.Log ("the object: " + beeHiveTrap.name);
-						//Debug.Log ("beeHive list " + beeHives.Count);
-						if (beeHives02.Count == 3) {
-								isThreeBeeHiveUpListTwo = true;
-						}
-						yield return new WaitForSeconds (1f);	
-				}
-				if (beeHives03.Count != 3) {
-						GameObject beeHive = (GameObject)Instantiate (beeHiveTrap, new Vector3 (Random.Range (-20, +20) + forestObject03.transform.position.x, forestObject03.transform.position.y, Random.Range (-20, +20) + forestObject03.transform.position.z), Quaternion.identity);
-						beeHive.name = "BeeHiveTrap";			
-						beeHives03.Add (beeHive);
-						//Debug.Log ("the object: " + beeHiveTrap.name);
-						//Debug.Log ("beeHive list " + beeHives.Count);
-						if (beeHives03.Count == 3) {
-								isThreeBeeHiveUpListThree = true;
-						}
-						yield return new WaitForSeconds (1f);	
-				}
+//				if (beeHives02.Count != 3) {
+//						GameObject beeHive = (GameObject)Instantiate (beeHiveTrap, new Vector3 (Random.Range (-20, +20) + forestObject02.transform.position.x, forestObject02.transform.position.y, Random.Range (-20, +20) + forestObject02.transform.position.z), Quaternion.identity);
+//						beeHive.name = "BeeHiveTrap";			
+//						beeHives02.Add (beeHive);
+//						//Debug.Log ("the object: " + beeHiveTrap.name);
+//						//Debug.Log ("beeHive list " + beeHives.Count);
+//						if (beeHives02.Count == 3) {
+//								isThreeBeeHiveUpListTwo = true;
+//						}
+//						yield return new WaitForSeconds (1f);	
+//				}
+//				if (beeHives03.Count != 3) {
+//						GameObject beeHive = (GameObject)Instantiate (beeHiveTrap, new Vector3 (Random.Range (-20, +20) + forestObject03.transform.position.x, forestObject03.transform.position.y, Random.Range (-20, +20) + forestObject03.transform.position.z), Quaternion.identity);
+//						beeHive.name = "BeeHiveTrap";			
+//						beeHives03.Add (beeHive);
+//						//Debug.Log ("the object: " + beeHiveTrap.name);
+//						//Debug.Log ("beeHive list " + beeHives.Count);
+//						if (beeHives03.Count == 3) {
+//								isThreeBeeHiveUpListThree = true;
+//						}
+//						yield return new WaitForSeconds (1f);	
+//				}
 		}
 
 		/// <summary>
@@ -102,28 +102,28 @@ public class ForestAreaScript : MonoBehaviour
 						}
 						yield return new WaitForSeconds (1f);
 				}
-				if (antNests02.Count != 2) {
-						GameObject antNest = (GameObject)Instantiate (antNestTrap, new Vector3 (Random.Range (-20, +20) + forestObject02.transform.position.x, forestObject02.transform.position.y, Random.Range (-20, +20) + forestObject02.transform.position.z), Quaternion.identity);
-						antNest.name = "AntNestTrap";
-						antNests02.Add (antNest);
-						//Debug.Log ("the object: " + antNestTrap.name);
-						//Debug.Log ("antNest list " + antNests.Count);
-						if (antNests02.Count == 2) {
-								isTwoAntNestUpListTwo = true; 
-						}
-						yield return new WaitForSeconds (1f);
-				}
-				if (antNests03.Count != 2) {
-						GameObject antNest = (GameObject)Instantiate (antNestTrap, new Vector3 (Random.Range (-20, +20) + forestObject03.transform.position.x, forestObject03.transform.position.y, Random.Range (-20, +20) + forestObject03.transform.position.z), Quaternion.identity);
-						antNest.name = "AntNestTrap";
-						antNests03.Add (antNest);
-						//Debug.Log ("the object: " + antNestTrap.name);
-						//Debug.Log ("antNest list " + antNests.Count);
-						if (antNests03.Count == 2) {
-								isTwoAntNestUpListThree = true; 
-						}
-						yield return new WaitForSeconds (1f);
-				}
+//				if (antNests02.Count != 2) {
+//						GameObject antNest = (GameObject)Instantiate (antNestTrap, new Vector3 (Random.Range (-20, +20) + forestObject02.transform.position.x, forestObject02.transform.position.y, Random.Range (-20, +20) + forestObject02.transform.position.z), Quaternion.identity);
+//						antNest.name = "AntNestTrap";
+//						antNests02.Add (antNest);
+//						//Debug.Log ("the object: " + antNestTrap.name);
+//						//Debug.Log ("antNest list " + antNests.Count);
+//						if (antNests02.Count == 2) {
+//								isTwoAntNestUpListTwo = true; 
+//						}
+//						yield return new WaitForSeconds (1f);
+//				}
+//				if (antNests03.Count != 2) {
+//						GameObject antNest = (GameObject)Instantiate (antNestTrap, new Vector3 (Random.Range (-20, +20) + forestObject03.transform.position.x, forestObject03.transform.position.y, Random.Range (-20, +20) + forestObject03.transform.position.z), Quaternion.identity);
+//						antNest.name = "AntNestTrap";
+//						antNests03.Add (antNest);
+//						//Debug.Log ("the object: " + antNestTrap.name);
+//						//Debug.Log ("antNest list " + antNests.Count);
+//						if (antNests03.Count == 2) {
+//								isTwoAntNestUpListThree = true; 
+//						}
+//						yield return new WaitForSeconds (1f);
+//				}
 		}
 	
 		/// <summary>

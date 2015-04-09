@@ -41,7 +41,7 @@ public class BananaTreeNorthScript : MonoBehaviour
 		IEnumerator BananaNorthSpawner ()
 		{
 				if (isNorthBananaUp == false) {
-						yield return new WaitForSeconds (5f);
+						yield return new WaitForSeconds (90f);
 						banana = (GameObject)Instantiate (bananaNorth, new Vector3 (x + this.gameObject.transform.position.x, this.gameObject.transform.position.y, z + this.gameObject.transform.position.z), Quaternion.identity);
 						banana.name = "bananaNorth";
 						isNorthBananaUp = true;
