@@ -42,14 +42,18 @@ public class HUDScript : MonoBehaviour
     public GameObject Action6;
     private Image a6Over;
     public string a6Key = "r";
-    public float a6Time = 3f;
+    public float a6Time = 10f;
     private bool a6Cooldown;
     #endregion
+    private UnityEngine.UI.Slider castBar;
+    public UnityEngine.UI.Text dmgDealt;
 
     // Use this for initialization
     void Start()
     {
         SetupActionBar();
+        castBar = this.gameObject.GetComponentInChildren<UnityEngine.UI.Slider>();
+        castBar.gameObject.SetActive(false);
     }
 
     public void damageEff()
@@ -75,12 +79,12 @@ public class HUDScript : MonoBehaviour
         #endregion
 
         #region ActionBar
-        ActionBarOnPress(ref a1Over, a1Key, ref a1Cooldown, a1Time); // tail
-        ActionBarOnRelease(ref a2Over, a2Key, ref a2Cooldown, a2Time); // boom
-        ActionBarOnPress(ref a3Over, a3Key, ref a3Cooldown, a3Time); // aoe
-        ActionBarOnPress(ref a4Over, a4Key, ref a4Cooldown, a4Time); // cc
-        ActionBarOnPress(ref a5Over, a5Key, ref a5Cooldown, a5Time); // buff
-        ActionBarOnPress(ref a6Over, a6Key, ref a6Cooldown, a6Time); // Cpr
+        ActionBarOnPress(ref a1Over, a1Key, ref a1Cooldown, a1Time); // Tail
+        ActionBarOnRelease(ref a2Over, a2Key, ref a2Cooldown, a2Time); // Boom
+        ActionBarOnPress(ref a3Over, a3Key, ref a3Cooldown, a3Time, 3, true); // AoE
+        ActionBarOnPress(ref a4Over, a4Key, ref a4Cooldown, a4Time); // CC
+        ActionBarOnPress(ref a5Over, a5Key, ref a5Cooldown, a5Time); // Buff
+        ActionBarOnPress(ref a6Over, a6Key, ref a6Cooldown, a6Time, 5, false); // CPR
         #endregion
     }
 
@@ -117,27 +121,58 @@ public class HUDScript : MonoBehaviour
         {
             onCooldown = true;
             overlayImage.fillAmount = 0.0f;
+            dmgDealt.color = new Color(dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
         }
         if (onCooldown == true)
         {
             overlayImage.fillAmount += (1.0f / cooldownTimer * Time.deltaTime);
+            dmgDealt.color = new Color(dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, dmgDealt.color.a - (1.0f / cooldownTimer * Time.deltaTime));
             if (overlayImage.fillAmount == 1.0f)
                 onCooldown = false;
         }
     }
 
-    public void ActionBarOnPress(ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer)
+    public void ActionBarOnPress(ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer, float castTime = 0, bool channeled = false)
     {
         if (Input.GetKeyDown(key) && !onCooldown)
         {
             onCooldown = true;
             overlayImage.fillAmount = 0.0f;
+            if(castTime != 0)
+                ActivateCastBar(castTime, channeled);
+
         }
         if (onCooldown == true)
         {
             overlayImage.fillAmount += (1.0f / cooldownTimer * Time.deltaTime);
+            if (castTime != 0)
+                UpdateCastBar(castTime, channeled);
             if (overlayImage.fillAmount == 1.0f)
                 onCooldown = false;
+        }
+    }
+
+    private void ActivateCastBar(float duration, bool channeled)
+    {
+        castBar.gameObject.SetActive(true);
+        castBar.maxValue = duration;
+        if (channeled)
+            castBar.value = duration;
+        else
+            castBar.value = 0;
+    }
+
+    private void UpdateCastBar(float duration, bool channeled)
+    {
+        if (channeled) {
+            castBar.value -= Time.deltaTime;
+            if (castBar.value == 0)
+                castBar.gameObject.SetActive(false);
+        }
+        else {
+            castBar.value += Time.deltaTime;
+            if (castBar.value == castBar.maxValue)
+                castBar.gameObject.SetActive(false);
         }
     }
 }
