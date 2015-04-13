@@ -48,8 +48,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		{
 				Start ();
 				Transform aim = this.transform.GetChild (3);
-				aim.renderer.enabled = false;
-				Screen.showCursor = false;
+				aim.GetComponent<Renderer>().enabled = false;
+				Cursor.visible = false;
 
                 
 
@@ -113,16 +113,16 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetMouseButtonDown (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
-						aim.renderer.enabled = true;
-						aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.collider.bounds.size.x) / 2);
-						aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.collider.bounds.size.z / 2) + (ps.boomnanaRange / 4));
+						aim.GetComponent<Renderer>().enabled = true;
+						aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.GetComponent<Collider>().bounds.size.x) / 2);
+						aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.GetComponent<Collider>().bounds.size.z / 2) + (ps.boomnanaRange / 4));
 						//vfx.aim.renderer.enabled = true;
 						//aimOverlay(1, range, 0.5f);
 				}
 				if (Input.GetMouseButtonUp (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
-						aim.renderer.enabled = false;
+						aim.GetComponent<Renderer>().enabled = false;
 
 						// Mouse0 = Left Click
 						//Debug.Log("Player pos: "+transform.position);
@@ -652,7 +652,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		void jump ()
 		{
 				gravity.y = ps.jumpHeight;
-				transform.rigidbody.velocity = gravity;
+				transform.GetComponent<Rigidbody>().velocity = gravity;
 				sc.isJumping = true;
 		}
 		
@@ -687,7 +687,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
     
 		public void ColorChanged ()
 		{
-				renderer.material.color = state.TestPlayerColor;
+				GetComponent<Renderer>().material.color = state.TestPlayerColor;
 		}
 
 		public void splitUp ()

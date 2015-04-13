@@ -60,7 +60,7 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
         }
 
 		public new Camera camera {
-				get { return cam.camera; }
+				get { return cam.GetComponent<Camera>(); }
 		}
 
 //  public System.Func<int> getHealth;

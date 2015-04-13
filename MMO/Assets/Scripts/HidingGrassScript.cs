@@ -23,7 +23,7 @@ public class HidingGrassScript : MonoBehaviour
 				if (coll.gameObject.tag == "player") {
 						if (coll.transform.localScale != biggestScaledMonguin) {
 								var child = coll.transform.GetChild (5);
-								coll.renderer.enabled = false;
+								coll.GetComponent<Renderer>().enabled = false;
 								child.GetComponent<Canvas> ().enabled = false;
 						}
 				}
@@ -35,7 +35,7 @@ public class HidingGrassScript : MonoBehaviour
 				if (coll.gameObject.tag == "player") {
 						if (coll.transform.localScale != biggestScaledMonguin) {
 								var child = coll.transform.GetChild (5);
-								coll.renderer.enabled = true;
+								coll.GetComponent<Renderer>().enabled = true;
 								child.GetComponent<Canvas> ().enabled = true;
 						}
 				}

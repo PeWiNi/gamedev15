@@ -236,7 +236,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		public override void OnEvent (CoconutAvailableEvent evnt)
 		{
 				BoltEntity target = evnt.TargEnt;
-				target.gameObject.transform.renderer.enabled = true;
+				target.gameObject.transform.GetComponent<Renderer>().enabled = true;
 		}
 		
 		public override void OnEvent (BeaconOneCapturingEvent evnt)

@@ -47,12 +47,12 @@ public class BuffScript : MonoBehaviour
             //Make it "fire" upwards
             boost.transform.Rotate(Vector3.right, -90);
             //"Scale" according to size of user
-            boost.particleSystem.startLifetime += 0.2f * this.gameObject.transform.collider.bounds.size.y; //Works, makes the particles last longer and therefore moves further in y-axis (scaling it accoding to height of mesh)
+            boost.GetComponent<ParticleSystem>().startLifetime += 0.2f * this.gameObject.transform.GetComponent<Collider>().bounds.size.y; //Works, makes the particles last longer and therefore moves further in y-axis (scaling it accoding to height of mesh)
             //boost.particleSystem.shape.radius = 2;
-            boost.particleSystem.transform.localScale.Scale(this.transform.lossyScale); //doesn't work 
+            boost.GetComponent<ParticleSystem>().transform.localScale.Scale(this.transform.lossyScale); //doesn't work 
             //TODO: Make at least the radius of particle system (shape) scale with size of user
             //Start and Deactivate (Initialize it without it being activated)
-            boost.particleSystem.Play();
+            boost.GetComponent<ParticleSystem>().Play();
             boost.SetActive(false);
         }
 
@@ -135,8 +135,8 @@ public class BuffScript : MonoBehaviour
 
                 if (boostTimer <= ps.buffDuration && boostTimer > 0)
                 {
-                    boost.transform.position = new Vector3(this.gameObject.transform.position.x, (this.gameObject.transform.position.y - (this.gameObject.transform.collider.bounds.size.y / 2)), this.gameObject.transform.position.z);
-                    boost.particleSystem.startColor = new Color(boost.particleSystem.startColor.r, boost.particleSystem.startColor.g, boost.particleSystem.startColor.b, boostAlpha);
+                    boost.transform.position = new Vector3(this.gameObject.transform.position.x, (this.gameObject.transform.position.y - (this.gameObject.transform.GetComponent<Collider>().bounds.size.y / 2)), this.gameObject.transform.position.z);
+                    boost.GetComponent<ParticleSystem>().startColor = new Color(boost.GetComponent<ParticleSystem>().startColor.r, boost.GetComponent<ParticleSystem>().startColor.g, boost.GetComponent<ParticleSystem>().startColor.b, boostAlpha);
                     secondsTimer += Time.deltaTime;
                     if (secondsTimer > 1.0f)
                     {
