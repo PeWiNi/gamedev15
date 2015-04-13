@@ -532,52 +532,52 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //			
 //		}
 
-		void movementInput ()
-		{
-				up = false;
-				down = false;
-				left = false;
-				right = false;
-				position = player.transform.position;
-				if (Input.GetKey (moveUp) && !sc.isStunned) {
-						up = true;
-						if (Input.GetKey (sprint)) {
-								position.z += sc.getSpeed ();
-						} else { 
-								position.z += sc.getSpeed ();
-						}
-						sc.isMoving = true;
-				}
-		
-				if (Input.GetKey (moveDown) && !sc.isStunned) {
-						down = true;
-						if (Input.GetKey (sprint)) {
-								position.z -= sc.getSpeed ();
-						} else {
-								position.z -= sc.getSpeed ();
-						}
-						sc.isMoving = true;
-				}
-		
-				if (Input.GetKey (moveRight) && !sc.isStunned) {
-						right = true;
-						if (Input.GetKey (sprint)) {
-								position.x += sc.getSpeed ();
-						} else {
-								position.x += sc.getSpeed ();
-						}
-						sc.isMoving = true;
-				}
-				if (Input.GetKey (moveLeft) && !sc.isStunned) {
-						left = true;
-						if (Input.GetKey (sprint)) {
-								position.x -= sc.getSpeed ();
-						} else {
-								position.x -= sc.getSpeed ();
-						}
-						sc.isMoving = true;
-				}
-		} 
+//		void movementInput ()
+//		{
+//				up = false;
+//				down = false;
+//				left = false;
+//				right = false;
+//				position = player.transform.position;
+//				if (Input.GetKey (moveUp) && !sc.isStunned) {
+//						up = true;
+//						if (Input.GetKey (sprint)) {
+//								position.z += sc.getSpeed ();
+//						} else { 
+//								position.z += sc.getSpeed ();
+//						}
+//						sc.isMoving = true;
+//				}
+//		
+//				if (Input.GetKey (moveDown) && !sc.isStunned) {
+//						down = true;
+//						if (Input.GetKey (sprint)) {
+//								position.z -= sc.getSpeed ();
+//						} else {
+//								position.z -= sc.getSpeed ();
+//						}
+//						sc.isMoving = true;
+//				}
+//		
+//				if (Input.GetKey (moveRight) && !sc.isStunned) {
+//						right = true;
+//						if (Input.GetKey (sprint)) {
+//								position.x += sc.getSpeed ();
+//						} else {
+//								position.x += sc.getSpeed ();
+//						}
+//						sc.isMoving = true;
+//				}
+//				if (Input.GetKey (moveLeft) && !sc.isStunned) {
+//						left = true;
+//						if (Input.GetKey (sprint)) {
+//								position.x -= sc.getSpeed ();
+//						} else {
+//								position.x -= sc.getSpeed ();
+//						}
+//						sc.isMoving = true;
+//				}
+//		} 
 		/*
 		void setRotation (bool up, bool down, bool left, bool right)
 		{
