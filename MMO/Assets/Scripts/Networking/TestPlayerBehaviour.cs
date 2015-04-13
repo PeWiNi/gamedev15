@@ -298,12 +298,12 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == true) {
 						Debug.Log (Time.time);
 						if (Input.GetKeyDown (KeyCode.T) && !sc.isStunned && !sc.isDead) {
-								this.gameObject.GetComponent<PlayerStats> ().channeledTime = Time.time;
-								Debug.Log (this.gameObject.GetComponent<StateController> ().coconutChannelTime);
-								Debug.Log (this.gameObject.GetComponent<PlayerStats> ().channeledTime);
+//								this.gameObject.GetComponent<PlayerStats> ().channeledTime = Time.time;
+//								Debug.Log (this.gameObject.GetComponent<StateController> ().coconutChannelTime);
+//								Debug.Log (this.gameObject.GetComponent<PlayerStats> ().channeledTime);
 								
 								//if (Time.time - this.gameObject.GetComponent<PlayerStats> ().channeledTime - Time.time >= this.gameObject.GetComponent<StateController> ().coconutChannelTime) {
-								Debug.Log (this.gameObject.GetComponent<PlayerStats> ().channeledTime);
+								//Debug.Log (this.gameObject.GetComponent<PlayerStats> ().channeledTime);
 								if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == false) {
 										StartCoroutine ("consumeCoconut");
 										//consumeCoconut ();
@@ -697,27 +697,25 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		IEnumerator consumeCoconut ()
 		{
 				yield return new WaitForSeconds (1);
-				Debug.Log ("1");
-				if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == true) {
-						this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
+				if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == false) {
+						breakOffTheCoconutChanneling ();
+						//	this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
 						yield break;
 				}
 				yield return new WaitForSeconds (1);
-				Debug.Log ("2");
-				if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == true) {
-						this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
+				if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == false) {
+						breakOffTheCoconutChanneling ();
+						//this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
 						yield break;
 				}
 				yield return new WaitForSeconds (1);
-				Debug.Log ("3");
-				if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == true) {
-						this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
+				if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == false) {
+						breakOffTheCoconutChanneling ();
 						yield break;
 				}
 				yield return new WaitForSeconds (1);
-				Debug.Log ("4");
-				if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == true) {
-						this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
+				if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == false) {
+						breakOffTheCoconutChanneling ();
 						yield break;
 				}
 				yield return new WaitForSeconds (1);
@@ -741,8 +739,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 										}
 								}
 						}
+						
 				}
-				//}
 		}
 
 		public void coconutEffectExpire ()
@@ -762,6 +760,23 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 										using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
 												evnt.TargEnt = be;	
 												evnt.isAffectedByCoconut = false;
+												evnt.StoppedInCoconutConsume = false;
+										}
+								}
+						}
+				}
+		}
+
+		public void breakOffTheCoconutChanneling ()
+		{
+				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+				while (entities.MoveNext()) {
+						if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+								BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+								// Create Event and use the be, if it is the one that is colliding.
+								if (be.gameObject == this.gameObject) {
+										using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
+												evnt.TargEnt = be;	
 												evnt.StoppedInCoconutConsume = false;
 										}
 								}
