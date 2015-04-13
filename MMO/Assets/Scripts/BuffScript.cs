@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class BuffScript : MonoBehaviour
@@ -99,6 +99,8 @@ public class BuffScript : MonoBehaviour
                 }
 				if (Input.GetKeyDown (tpb.buffKey) && available) {
 
+			float currentHP = (ps.hp * ps.buffCostFactor); 
+			gameObject.GetComponent<StateController>().takeBuffDamage(this.gameObject, currentHP);
 
                     // ADD VFX
 
@@ -109,16 +111,8 @@ public class BuffScript : MonoBehaviour
                     
 
                     // Calculate in seconds!
-                    
-
-
-
-
-
 
 						Debug.Log ("BUFFING!!");
-						float currentHP = (ps.hp * ps.buffCostFactor);
-                        gameObject.GetComponent<StateController>().attack(this.gameObject, currentHP);
 						//ps.hp -= currentHP;
 
 						float tailSlapDamageBuffed = ps.tailSlapDamage * ps.buffDamageFactor;
