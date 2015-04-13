@@ -47,6 +47,7 @@ public class HUDScript : MonoBehaviour
     #endregion
     private UnityEngine.UI.Slider castBar;
     public UnityEngine.UI.Text dmgDealt;
+    private string currentCast;
 
     // Use this for initialization
     void Start()
@@ -86,6 +87,15 @@ public class HUDScript : MonoBehaviour
         ActionBarOnPress(ref a5Over, a5Key, ref a5Cooldown, a5Time); // Buff
         ActionBarOnPress(ref a6Over, a6Key, ref a6Cooldown, a6Time, 5, false); // CPR
         #endregion
+
+        if (gameObject.GetComponent<PlayerStats>().IsInCoconutArea && Input.GetKeyUp(KeyCode.T))
+        {
+            ActivateCastBar(5, true, "coconut");
+        }
+        if (gameObject.GetComponent<PlayerStats>().IsInCoconutArea && currentCast.Equals("coconut"))
+        {
+            UpdateCastBar(5, true);
+        }
     }
 
     private void SetupActionBar()
@@ -139,39 +149,41 @@ public class HUDScript : MonoBehaviour
             onCooldown = true;
             overlayImage.fillAmount = 0.0f;
             if(castTime != 0)
-                ActivateCastBar(castTime, channeled);
+                ActivateCastBar(castTime, channeled, key);
 
         }
         if (onCooldown == true)
         {
             overlayImage.fillAmount += (1.0f / cooldownTimer * Time.deltaTime);
-            if (castTime != 0)
-                UpdateCastBar(castTime, channeled);
             if (overlayImage.fillAmount == 1.0f)
                 onCooldown = false;
         }
+        if (castTime != 0 && castBar.IsActive() && currentCast.Equals(key))
+            UpdateCastBar(castTime, channeled);
     }
 
-    private void ActivateCastBar(float duration, bool channeled)
+    private void ActivateCastBar(float duration, bool channeled, string synchronize)
     {
         castBar.gameObject.SetActive(true);
-        castBar.maxValue = duration;
         if (channeled)
-            castBar.value = duration;
+            castBar.value = 1;
         else
             castBar.value = 0;
+        currentCast = synchronize;
     }
 
     private void UpdateCastBar(float duration, bool channeled)
     {
-        if (channeled) {
-            castBar.value -= Time.deltaTime;
+        if (channeled)
+        {
+            castBar.value -= 1.0f / duration * Time.deltaTime;
             if (castBar.value == 0)
                 castBar.gameObject.SetActive(false);
         }
-        else {
-            castBar.value += Time.deltaTime;
-            if (castBar.value == castBar.maxValue)
+        else
+        {
+            castBar.value += 1.0f / duration * Time.deltaTime;
+            if (castBar.value == 1)
                 castBar.gameObject.SetActive(false);
         }
     }
