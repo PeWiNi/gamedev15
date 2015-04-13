@@ -141,26 +141,32 @@ public class HUDScript : MonoBehaviour
 						onCooldown = true;
 						overlayImage.fillAmount = 0.0f;
 						dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
+			if (castTime != 0)
+				ActivateCastBar (castTime, channeled);
 			if(key == a1Key){
 				dmgDealt.text = "Miss!";
 			}
 			if(key == a3Key){
 				dmgDealt.text = "Channeling AOE!";
+				Text a = castBar.GetComponentInChildren<Text>();
+				a.color = Color.red;
+				a.text = "Puking All Over The Place";
 			}
 			if(key == a4Key){
 				dmgDealt.text = "Stunning!";
 			}
 			if(key == a6Key){
 				dmgDealt.text = "Resurrecting!";
+				Text a = castBar.GetComponentInChildren<Text>();
+				a.color = Color.red;
+				a.text = "Monguin CPR";
 			}
-						if (castTime != 0)
-								ActivateCastBar (castTime, channeled);
 
 				}
 				if (onCooldown == true) {
 						overlayImage.fillAmount += (1.0f / cooldownTimer * Time.deltaTime);
 			
-						if (castTime != 0 )
+						if (castTime != 0)
 								UpdateCastBar (castTime, channeled);
 						if (overlayImage.fillAmount == 1.0f)
 								onCooldown = false;
