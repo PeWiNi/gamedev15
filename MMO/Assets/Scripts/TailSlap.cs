@@ -42,7 +42,7 @@ public class TailSlap : MonoBehaviour
 												BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 												// Create Event and use the be, if it is the one that is colliding.
 
-												if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+						if (be.gameObject == coll.gameObject && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().gameObject) { // Check for enemy, deal full damage
 														if (available) {
 																Debug.Log ("SLAPPING DA TAIL");
 																if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
@@ -87,7 +87,7 @@ public class TailSlap : MonoBehaviour
 																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 																// Create Event and use the be, if it is the one that is colliding.
 						
-																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+								if (be.gameObject == coll.gameObject && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().gameObject) { // Check for enemy, deal full damage
 																		if (available) {
 																				//Debug.Log ("loloololollloo");
 																				//Debug.Log ("SLAPPING DA TAIL");
@@ -120,7 +120,7 @@ public class TailSlap : MonoBehaviour
 																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 																// Create Event and use the be, if it is the one that is colliding.
 								
-																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+								if (be.gameObject == coll.gameObject && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().gameObject) { // Check for enemy, deal full damage
 																		if (available) {
 																				Debug.Log ("SLAPPING DA TAIL");
 																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {
@@ -156,7 +156,7 @@ public class TailSlap : MonoBehaviour
 																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 																// Create Event and use the be, if it is the one that is colliding.
 								
-																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+								if (be.gameObject == coll.gameObject && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().gameObject) { // Check for enemy, deal full damage
 																		if (available) {
 																				Debug.Log ("SLAPPING DA TAIL");
 																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {
@@ -188,7 +188,7 @@ public class TailSlap : MonoBehaviour
 																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 																// Create Event and use the be, if it is the one that is colliding.
 								
-																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+								if (be.gameObject == coll.gameObject && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().gameObject) { // Check for enemy, deal full damage
 																		if (available) {
 																				Debug.Log ("SLAPPING DA TAIL");
 																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {
@@ -224,7 +224,7 @@ public class TailSlap : MonoBehaviour
 																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 																// Create Event and use the be, if it is the one that is colliding.
 								
-																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+								if (be.gameObject == coll.gameObject && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().gameObject) { // Check for enemy, deal full damage
 																		if (available) {
 																				Debug.Log ("SLAPPING DA TAIL");
 																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {
@@ -256,7 +256,7 @@ public class TailSlap : MonoBehaviour
 																BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 																// Create Event and use the be, if it is the one that is colliding.
 								
-																if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
+								if (be.gameObject == coll.gameObject && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().gameObject) { // Check for enemy, deal full damage
 																		if (available) {
 																				Debug.Log ("SLAPPING DA TAIL");
 																				using (var evnt = BeaconEvent.Create(Bolt.GlobalTargets.Everyone)) {

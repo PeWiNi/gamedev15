@@ -92,7 +92,7 @@ public class AOE : MonoBehaviour
                     {
                         BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
                         // Create Event and use the be, if it is the one that is colliding.
-                        if (be.gameObject == coll.gameObject)
+						if (be.gameObject == coll.gameObject && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().gameObject)
                         { // Check for enemy, deal full damage
                                 //Debug.Log("AOE TICKING");
                                 if (coll.gameObject.GetComponent<PlayerStats>().teamNumber != this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
