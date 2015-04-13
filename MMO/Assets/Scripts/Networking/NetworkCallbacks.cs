@@ -238,6 +238,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		{
 				BoltEntity target = evnt.TargEnt;
 				target.gameObject.transform.GetComponent<Renderer>().enabled = true;
+<<<<<<< HEAD
 				target.gameObject.GetComponent<CoconutEffect> ().isCoconutNotConsumed = evnt.isCoconutNotConsumed;
 		}
 
@@ -246,6 +247,8 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				BoltEntity target = evnt.TargEnt;
 				target.gameObject.transform.GetComponent<Renderer>().enabled = false;
 				target.gameObject.GetComponent<CoconutEffect> ().isCoconutNotConsumed = evnt.isCoconutNotConsumed;
+=======
+>>>>>>> origin/master
 		}
 		
 		public override void OnEvent (BeaconOneCapturingEvent evnt)

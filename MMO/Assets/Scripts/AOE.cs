@@ -101,6 +101,10 @@ public class AOE : MonoBehaviour
                                         Debug.Log("Sending Event with dmg = " + ps.aoeTickDamageFactor);
                                     using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone))
                                     {
+									GameObject go = GameObject.Find ("Canvas");
+									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+									
+									hs.dmgDealt.text = "" + ps.aoeTickDamageFactor;
                                         evnt.TargEnt = be;
                                         evnt.TickDamage = ps.aoeTickDamageFactor;
                                     }
@@ -110,6 +114,10 @@ public class AOE : MonoBehaviour
                                     // deal half damage!!!
                                     using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone))
                                     {
+									GameObject go = GameObject.Find ("Canvas");
+									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+									
+									hs.dmgDealt.text = "" + ps.aoeTickDamageFactor / 2;
                                         evnt.TargEnt = be;
                                         evnt.TickDamage = ps.aoeTickDamageFactor / 2;
                                     }

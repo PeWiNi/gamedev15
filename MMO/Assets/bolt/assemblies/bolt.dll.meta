@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 guid: ee5444c7157166543a486331b9e5825a
+<<<<<<< HEAD
 timeCreated: 1428916494
 licenseType: Free
 PluginImporter:
@@ -9,6 +10,12 @@ PluginImporter:
     BoltEntity: -2500
     BoltPoll: -10000
     BoltSend: 10000
+=======
+PluginImporter:
+  serializedVersion: 1
+  iconMap: {}
+  executionOrder: {}
+>>>>>>> origin/master
   isPreloaded: 0
   platformData:
     Any:

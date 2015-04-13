@@ -42,13 +42,17 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		int startup = 0;
 	
 		Vector3 camPos;
-		KeyCode sprint = KeyCode.LeftShift;
+		//KeyCode sprint = KeyCode.LeftShift;
 
 		void Awake ()
 		{
 				Start ();
 				Transform aim = this.transform.GetChild (3);
+<<<<<<< HEAD
 				aim.GetComponent<Renderer> ().enabled = false;
+=======
+				aim.GetComponent<Renderer>().enabled = false;
+>>>>>>> origin/master
 				Cursor.visible = false;
 
                 
@@ -111,16 +115,26 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetMouseButtonDown (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
+<<<<<<< HEAD
 						aim.GetComponent<Renderer> ().enabled = true;
 						aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.GetComponent<Collider> ().bounds.size.x) / 2);
 						aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.GetComponent<Collider> ().bounds.size.z / 2) + (ps.boomnanaRange / 4));
+=======
+						aim.GetComponent<Renderer>().enabled = true;
+						aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.GetComponent<Collider>().bounds.size.x) / 2);
+						aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.GetComponent<Collider>().bounds.size.z / 2) + (ps.boomnanaRange / 4));
+>>>>>>> origin/master
 						//vfx.aim.renderer.enabled = true;
 						//aimOverlay(1, range, 0.5f);
 				}
 				if (Input.GetMouseButtonUp (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
+<<<<<<< HEAD
 						aim.GetComponent<Renderer> ().enabled = false;
+=======
+						aim.GetComponent<Renderer>().enabled = false;
+>>>>>>> origin/master
 
 						// Mouse0 = Left Click
 						//Debug.Log("Player pos: "+transform.position);
@@ -205,12 +219,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetKey (moveUp) && !sc.isStunned && !sc.isDead) {
 						up = true;
 						if (sc.canMove) {
-								if (Input.GetKey (sprint)) {
-										position.z += sc.getSpeed ();
-								} else {
+								
 										position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
 										//position.z += sc.getSpeed ();
-								}
+								
 								sc.isMoving = true;
 						}
 				}
@@ -218,12 +230,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetKey (moveDown) && !sc.isStunned && !sc.isDead) {
 						down = true;
 						if (sc.canMove) {
-								if (Input.GetKey (sprint)) {
-										position.z -= sc.getSpeed ();
-								} else {
+								
 										position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
 										//position.z -= sc.getSpeed ();
-								}
+								
 								sc.isMoving = true;
 						}
 				}
@@ -231,12 +241,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetKey (moveRight) && !sc.isStunned && !sc.isDead) {
 						right = true;
 						if (sc.canMove) {
-								if (Input.GetKey (sprint)) {
-										position.x += sc.getSpeed ();
-								} else {
+								
 										position = position + (transform.right * sc.movementspeed * Time.deltaTime);
 										//position.x += sc.getSpeed ();
-								}
+								
 								sc.isMoving = true;
 						}
 						
@@ -244,12 +252,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetKey (moveLeft) && !sc.isStunned && !sc.isDead) {
 						left = true;
 						if (sc.canMove) {
-								if (Input.GetKey (sprint)) {
-										position.x -= sc.getSpeed ();
-								} else {
+								
 										position = position - (transform.right * sc.movementspeed * Time.deltaTime);
-										//position.x -= sc.getSpeed ();
-								}
+									//position.x -= sc.getSpeed ();
+								
 								sc.isMoving = true;
 						}
 				}
@@ -546,52 +552,52 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //			
 //		}
 
-		void movementInput ()
-		{
-				up = false;
-				down = false;
-				left = false;
-				right = false;
-				position = player.transform.position;
-				if (Input.GetKey (moveUp) && !sc.isStunned) {
-						up = true;
-						if (Input.GetKey (sprint)) {
-								position.z += sc.getSpeed ();
-						} else { 
-								position.z += sc.getSpeed ();
-						}
-						sc.isMoving = true;
-				}
-		
-				if (Input.GetKey (moveDown) && !sc.isStunned) {
-						down = true;
-						if (Input.GetKey (sprint)) {
-								position.z -= sc.getSpeed ();
-						} else {
-								position.z -= sc.getSpeed ();
-						}
-						sc.isMoving = true;
-				}
-		
-				if (Input.GetKey (moveRight) && !sc.isStunned) {
-						right = true;
-						if (Input.GetKey (sprint)) {
-								position.x += sc.getSpeed ();
-						} else {
-								position.x += sc.getSpeed ();
-						}
-						sc.isMoving = true;
-				}
-				if (Input.GetKey (moveLeft) && !sc.isStunned) {
-						left = true;
-						if (Input.GetKey (sprint)) {
-								position.x -= sc.getSpeed ();
-						} else {
-								position.x -= sc.getSpeed ();
-						}
-						sc.isMoving = true;
-				}
-		} 
+//		void movementInput ()
+//		{
+//				up = false;
+//				down = false;
+//				left = false;
+//				right = false;
+//				position = player.transform.position;
+//				if (Input.GetKey (moveUp) && !sc.isStunned) {
+//						up = true;
+//						if (Input.GetKey (sprint)) {
+//								position.z += sc.getSpeed ();
+//						} else { 
+//								position.z += sc.getSpeed ();
+//						}
+//						sc.isMoving = true;
+//				}
+//		
+//				if (Input.GetKey (moveDown) && !sc.isStunned) {
+//						down = true;
+//						if (Input.GetKey (sprint)) {
+//								position.z -= sc.getSpeed ();
+//						} else {
+//								position.z -= sc.getSpeed ();
+//						}
+//						sc.isMoving = true;
+//				}
+//		
+//				if (Input.GetKey (moveRight) && !sc.isStunned) {
+//						right = true;
+//						if (Input.GetKey (sprint)) {
+//								position.x += sc.getSpeed ();
+//						} else {
+//								position.x += sc.getSpeed ();
+//						}
+//						sc.isMoving = true;
+//				}
+//				if (Input.GetKey (moveLeft) && !sc.isStunned) {
+//						left = true;
+//						if (Input.GetKey (sprint)) {
+//								position.x -= sc.getSpeed ();
+//						} else {
+//								position.x -= sc.getSpeed ();
+//						}
+//						sc.isMoving = true;
+//				}
+//		} 
 		/*
 		void setRotation (bool up, bool down, bool left, bool right)
 		{
@@ -658,7 +664,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		void jump ()
 		{
 				gravity.y = ps.jumpHeight;
+<<<<<<< HEAD
 				transform.GetComponent<Rigidbody> ().velocity = gravity;
+=======
+				transform.GetComponent<Rigidbody>().velocity = gravity;
+>>>>>>> origin/master
 				sc.isJumping = true;
 		}
 		
@@ -693,7 +703,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
     
 		public void ColorChanged ()
 		{
+<<<<<<< HEAD
 				GetComponent<Renderer> ().material.color = state.TestPlayerColor;
+=======
+				GetComponent<Renderer>().material.color = state.TestPlayerColor;
+>>>>>>> origin/master
 		}
 
 		public void splitUp ()

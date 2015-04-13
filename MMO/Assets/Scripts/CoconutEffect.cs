@@ -20,8 +20,16 @@ public class CoconutEffect : MonoBehaviour
 		void OnTriggerStay (Collider coll)
 		{
 				if (coll.gameObject.tag == "player") {
+<<<<<<< HEAD
 						if (isCoconutNotConsumed == true)
 								coll.GetComponent<PlayerStats> ().IsInCoconutArea = true;
+=======
+						coll.GetComponent<PlayerStats> ().IsInCoconutArea = true;
+						if (isCoconutConsumed == true) {
+								coll.GetComponent<PlayerStats> ().IsInCoconutArea = false;
+								this.gameObject.transform.GetComponent<Renderer>().enabled = false;
+						}
+>>>>>>> origin/master
 				}
 		}
 
