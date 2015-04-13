@@ -17,17 +17,17 @@ public class SoundController : MonoBehaviour {
 	void Start () {
 		GameObject jP = Instantiate(Resources.Load("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
 		                            new Vector3(-1000, 0, -1000), Quaternion.identity) as GameObject;
-		jumpPlayer = jP.audio;
+		jumpPlayer = jP.GetComponent<AudioSource>();
 
 		GameObject bP = Instantiate(Resources.Load("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
 		                            new Vector3(-1000, 0, -1000), Quaternion.identity) as GameObject;
-		movementPlayer = bP.audio;
+		movementPlayer = bP.GetComponent<AudioSource>();
 
 		GameObject sP = Instantiate(Resources.Load("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
 		                            new Vector3(-1000, 0, -1000), Quaternion.identity) as GameObject;
-		stunnedPlayer = sP.audio;
+		stunnedPlayer = sP.GetComponent<AudioSource>();
 
-		soundPlayer = gameObject.audio;
+		soundPlayer = gameObject.GetComponent<AudioSource>();
 		//Debug.Log (nut.name + "  " + coconut.name);
 	}
 	// Update is called once per frame

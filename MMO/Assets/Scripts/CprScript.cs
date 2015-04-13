@@ -52,7 +52,7 @@ public class CprScript : MonoBehaviour
                             {
                                 self = be;
                             }
-                            if (be.gameObject == coll.gameObject)
+							if (be.gameObject == coll.gameObject && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().gameObject)
                             {
                                 if (coll.gameObject.GetComponent<PlayerStats>().teamNumber == this.gameObject.GetComponentInParent<PlayerStats>().teamNumber)
                                 {

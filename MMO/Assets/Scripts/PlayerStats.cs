@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour
 		public float tailSlapCooldown;
 		public float boomNanaCooldown;
 		public float cprCooldown;
-		public float aoeCooldown; 
+		public float aoeCooldown;
 		public float ccCooldown;
 		public float buffCooldown;
 		//BuffAttributes
@@ -50,7 +50,6 @@ public class PlayerStats : MonoBehaviour
 		public bool stoppedInCoconutConsume = false;
 		//BASE/RESPAWN POS
 		public Vector3 respawnPosition;
-
 		GameObject beaconOne;
 		GameObject beaconTwo;
 		GameObject beaconThree;
@@ -61,14 +60,14 @@ public class PlayerStats : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-            GameObject go = GameObject.Find("Canvas");
-            HUDScript hs = go.GetComponentInChildren<HUDScript>();
-            hs.a1Time = tailSlapCooldown;
-            hs.a2Time = boomNanaCooldown;
-            hs.a3Time = aoeCooldown;
-            hs.a4Time = ccCooldown;
-            hs.a5Time = buffCooldown;
-            hs.a6Time = cprCooldown;
+				GameObject go = GameObject.Find ("Canvas");
+				HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+				hs.a1Time = tailSlapCooldown;
+				hs.a2Time = boomNanaCooldown;
+				hs.a3Time = aoeCooldown;
+				hs.a4Time = ccCooldown;
+				hs.a5Time = buffCooldown;
+				hs.a6Time = cprCooldown;
 		}
 
 		public void makeTheStatChange ()
@@ -84,6 +83,7 @@ public class PlayerStats : MonoBehaviour
 						//}
 				}
 		}
+
 		public IEnumerator getEntities ()
 		{
 				return BoltNetwork.entities.GetEnumerator ();

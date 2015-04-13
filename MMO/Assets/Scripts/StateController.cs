@@ -14,8 +14,7 @@ public class StateController : MonoBehaviour
 		public bool isBuffed = false;
 		public bool canMove = true;
 		public bool ressStarted = false;
-
-		public float combatEnteredTime;  
+		public float combatEnteredTime;
 		public float lastAttack;
 		public float lastCombat;
 		public float combatCooldownTime;
@@ -33,14 +32,14 @@ public class StateController : MonoBehaviour
 		float stunnedStartFromCC;
 		float stunnedDurationFromCC;
 		public float coconutDuration = 120f; 
-		public float coconutChannelTime = 5f;
+		public float coconutChannelTime = 1f;
+		public float resetCoconutChannelTime = 0f;
 		GameObject beaconOne;
 		GameObject beaconTwo;
 		GameObject beaconThree;
 		BeaconZone bOne;
 		BeaconZone bTwo;
 		BeaconZone bThree;
-
 		public float buffMultiplier;
 
 		public float getSpeed ()
@@ -68,6 +67,14 @@ public class StateController : MonoBehaviour
 				}
 		}
 
+	public void takeBuffDamage(GameObject target, float damage){
+		GameObject go = GameObject.Find ("Canvas");
+		HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+		//hs.damageEff ();
+		hs.dmgDealt.text = "- " +Mathf.Ceil (damage);
+		target.GetComponent<StateController>().getHitByBuff(Mathf.Ceil(damage), target);
+	}
+
 		public void attack (GameObject target, float damage)
 		{
 				initiateCombat ();
@@ -76,7 +83,9 @@ public class StateController : MonoBehaviour
 
 				// FIND HUD AND ANIMATE DAMAGE EFFECT.
 				GameObject go = GameObject.Find ("Canvas");
-				go.GetComponentInChildren<HUDScript> ().damageEff ();
+				HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+				hs.damageEff ();
+				hs.dmgDealt.text = "- " + damage;
 				//TestPlayerBehaviour tpb = this.gameObject.GetComponent<TestPlayerBehaviour>();
 				//  Debug.Log(tpb.mainCam.GetComponentInChildren<HUDScript>());   
 				// tpb.mainCam.gameObject.GetComponentInChildren<HUDScript>().damageEff();
@@ -126,12 +135,17 @@ public class StateController : MonoBehaviour
 				//	checkIfBeaconDestoryed ();
 		}
 
+	public void getHitByBuff(float damage, GameObject target){
+		target.gameObject.GetComponent<PlayerStats> ().hp -= Mathf.Ceil(damage);
+		checkIfDead ();
+	}
+
 		public void getHit (float damage)
 		{
 				if (isBuffed) {
-						GetComponent<PlayerStats> ().hp -= (damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
+						GetComponent<PlayerStats> ().hp -= Mathf.Ceil(damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
 				} else {
-						GetComponent<PlayerStats> ().hp -= damage;
+						GetComponent<PlayerStats> ().hp -= Mathf.Ceil(damage);
 				}
 				checkIfDead ();
 		}
@@ -166,6 +180,7 @@ public class StateController : MonoBehaviour
 						return false;
 				}
 		}
+
 		public bool isAbleToBuff ()
 		{
 				if (buffStartTime == 0) {
@@ -277,7 +292,7 @@ public class StateController : MonoBehaviour
 						}
             
 				}
-		} 
+		}
      
 		void Update ()
 		{

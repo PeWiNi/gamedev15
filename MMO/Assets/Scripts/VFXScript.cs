@@ -76,15 +76,15 @@ public class VFXScript : MonoBehaviour
     {
         // Assumes that the camera is a child of the playerObj. 
         user = mainCamera.transform.parent;
-        userSize = user.collider.bounds.size;
+        userSize = user.GetComponent<Collider>().bounds.size;
 
         boostDecay = boostAlpha / boostDuration;
 
         burdenEffect = (GameObject)Instantiate(Resources.Load("Prefabs/VFX_Burdened"));
-        burdenEffect.particleSystem.Stop();
+        burdenEffect.GetComponent<ParticleSystem>().Stop();
 
         aim = user.GetChild(1);
-        aim.renderer.enabled = false;
+        aim.GetComponent<Renderer>().enabled = false;
 
         buffSetup();
         
@@ -117,9 +117,9 @@ public class VFXScript : MonoBehaviour
         {
             holdingCoconut = !holdingCoconut;
             if (holdingCoconut)
-                burdenEffect.particleSystem.Play();
+                burdenEffect.GetComponent<ParticleSystem>().Play();
             else
-                burdenEffect.particleSystem.Stop();
+                burdenEffect.GetComponent<ParticleSystem>().Stop();
             //burdenEffect.SetActive(holdingCoconut = !holdingCoconut);
         }
         if (holdingCoconut)
@@ -140,7 +140,7 @@ public class VFXScript : MonoBehaviour
         if (boostTimer <= boostDuration && boostTimer > 0)
         {
             boost.transform.position = new Vector3(user.position.x, (user.position.y - (userSize.y / 2)), user.position.z);
-            boost.particleSystem.startColor = new Color(boost.particleSystem.startColor.r, boost.particleSystem.startColor.g, boost.particleSystem.startColor.b, boostAlpha);
+            boost.GetComponent<ParticleSystem>().startColor = new Color(boost.GetComponent<ParticleSystem>().startColor.r, boost.GetComponent<ParticleSystem>().startColor.g, boost.GetComponent<ParticleSystem>().startColor.b, boostAlpha);
             secondsTimer += Time.deltaTime;
             if (secondsTimer > 1.0f)
             {
@@ -154,7 +154,7 @@ public class VFXScript : MonoBehaviour
         if (Input.GetKeyDown(aimKey))
         {
             //aim = (GameObject)Instantiate(Resources.Load("Prefabs/VFX_Burdened"));
-            aim.renderer.enabled = true;
+            aim.GetComponent<Renderer>().enabled = true;
             aimOverlay(1, range, 0.5f);
         }
         if (Input.GetKeyUp(aimKey))
@@ -174,7 +174,7 @@ public class VFXScript : MonoBehaviour
             Debug.Log("EndPos = " + endPos.x + "," + endPos.y + "," + endPos.z);
             Debug.Log("FIRING BOOMNANA FROM VFX"); 
             boomscript.spawn(GOuser, boomscript.owner, user.position, /*user.forward * range, */endPos); 
-            aim.renderer.enabled = false;
+            aim.GetComponent<Renderer>().enabled = false;
         }
         #endregion
 
@@ -209,12 +209,12 @@ public class VFXScript : MonoBehaviour
         //Make it "fire" upwards
         boost.transform.Rotate(Vector3.right, -90);
         //"Scale" according to size of user
-        boost.particleSystem.startLifetime += 0.2f * userSize.y; //Works, makes the particles last longer and therefore moves further in y-axis (scaling it accoding to height of mesh)
+        boost.GetComponent<ParticleSystem>().startLifetime += 0.2f * userSize.y; //Works, makes the particles last longer and therefore moves further in y-axis (scaling it accoding to height of mesh)
         //boost.particleSystem.shape.radius = 2;
-        boost.particleSystem.transform.localScale.Scale(user.transform.lossyScale); //doesn't work 
+        boost.GetComponent<ParticleSystem>().transform.localScale.Scale(user.transform.lossyScale); //doesn't work 
         //TODO: Make at least the radius of particle system (shape) scale with size of user
         //Start and Deactivate (Initialize it without it being activated)
-        boost.particleSystem.Play();
+        boost.GetComponent<ParticleSystem>().Play();
         boost.SetActive(false);
     }
 
@@ -227,10 +227,10 @@ public class VFXScript : MonoBehaviour
         //Create Particle System
         GameObject instance = (GameObject)Instantiate(Resources.Load("Prefabs/VFX_DmgTaken"));
         //Assign Material
-        instance.particleSystem.renderer.material = (Material)Instantiate(Resources.Load("Materials/VFX_" + type));
+        instance.GetComponent<ParticleSystem>().GetComponent<Renderer>().material = (Material)Instantiate(Resources.Load("Materials/VFX_" + type));
         //Activate it at the user position (will be center of object)
         instance.transform.position = user.position;
-        instance.particleSystem.Play();
+        instance.GetComponent<ParticleSystem>().Play();
         //Cleaning up
         Destroy(instance, 1.5f);
     }

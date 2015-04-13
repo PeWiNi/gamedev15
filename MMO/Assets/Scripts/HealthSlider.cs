@@ -19,7 +19,7 @@ public class HealthSlider : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-            healthText.text = ps.hp + "/" + ps.maxHealth;
+            healthText.text = (int)ps.hp + "/" + ps.maxHealth;
             healthSlider.value = (int)((float)(ps.hp / ps.maxHealth) * 100);
 		}
 }

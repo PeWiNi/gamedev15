@@ -39,7 +39,7 @@ public class Boomnana : MonoBehaviour {
 			movingBack = true;
 		}
 		if (movingBack){
-			rigidbody.velocity = new Vector3 (0, 0, 0);
+			GetComponent<Rigidbody>().velocity = new Vector3 (0, 0, 0);
 			transform.position = Vector3.MoveTowards (transform.position, owner.gameObject.transform.position, 8.0f);
 		} else {
 			transform.position = Vector3.MoveTowards(transform.position, endpoint, 8.0f);	
@@ -65,6 +65,10 @@ public class Boomnana : MonoBehaviour {
                         {// STUN THE OWNER
                             using (var evnt = CCEvent.Create(Bolt.GlobalTargets.Everyone))
                             { 
+								GameObject go = GameObject.Find ("Canvas");
+								HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+								
+								hs.dmgDealt.text = "Stunned!";
                                 evnt.TargEnt = be;
                                 evnt.Duration = owner.GetComponent<PlayerStats>().ccDuration;
                                 Destroy(this.gameObject);
@@ -78,6 +82,10 @@ public class Boomnana : MonoBehaviour {
                                 // deal full damage!!!
                                 using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone))
                                 {
+									GameObject go = GameObject.Find ("Canvas");
+									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+									
+									hs.dmgDealt.text = "" + this.owner.GetComponent<PlayerStats>().boomNanaDamage;
                                     evnt.TargEnt = be;
                                     evnt.Damage = this.owner.GetComponent<PlayerStats>().boomNanaDamage;
                                 }
@@ -90,6 +98,10 @@ public class Boomnana : MonoBehaviour {
                                     // deal half damage!!!
                                     using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone))
                                     {
+										GameObject go = GameObject.Find ("Canvas");
+										HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+										
+										hs.dmgDealt.text = "" + this.owner.GetComponent<PlayerStats>().boomNanaDamage / 2;
                                         evnt.TargEnt = be;
                                         evnt.Damage = this.owner.GetComponent<PlayerStats>().boomNanaDamage / 2;
                                     }
