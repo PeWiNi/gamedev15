@@ -42,7 +42,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		int startup = 0;
 	
 		Vector3 camPos;
-		KeyCode sprint = KeyCode.LeftShift;
+		//KeyCode sprint = KeyCode.LeftShift;
 
 		void Awake ()
 		{
@@ -207,12 +207,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetKey (moveUp) && !sc.isStunned && !sc.isDead) {
 						up = true;
 						if (sc.canMove) {
-								if (Input.GetKey (sprint)) {
-										position.z += sc.getSpeed ();
-								} else {
+								
 										position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
 										//position.z += sc.getSpeed ();
-								}
+								
 								sc.isMoving = true;
 						}
 				}
@@ -220,12 +218,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetKey (moveDown) && !sc.isStunned && !sc.isDead) {
 						down = true;
 						if (sc.canMove) {
-								if (Input.GetKey (sprint)) {
-										position.z -= sc.getSpeed ();
-								} else {
+								
 										position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
 										//position.z -= sc.getSpeed ();
-								}
+								
 								sc.isMoving = true;
 						}
 				}
@@ -233,12 +229,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetKey (moveRight) && !sc.isStunned && !sc.isDead) {
 						right = true;
 						if (sc.canMove) {
-								if (Input.GetKey (sprint)) {
-										position.x += sc.getSpeed ();
-								} else {
+								
 										position = position + (transform.right * sc.movementspeed * Time.deltaTime);
 										//position.x += sc.getSpeed ();
-								}
+								
 								sc.isMoving = true;
 						}
 						
@@ -246,12 +240,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetKey (moveLeft) && !sc.isStunned && !sc.isDead) {
 						left = true;
 						if (sc.canMove) {
-								if (Input.GetKey (sprint)) {
-										position.x -= sc.getSpeed ();
-								} else {
+								
 										position = position - (transform.right * sc.movementspeed * Time.deltaTime);
-										//position.x -= sc.getSpeed ();
-								}
+									//position.x -= sc.getSpeed ();
+								
 								sc.isMoving = true;
 						}
 				}
