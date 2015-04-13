@@ -72,7 +72,7 @@ public class StateController : MonoBehaviour
 		HUDScript hs = go.GetComponentInChildren<HUDScript> ();
 		//hs.damageEff ();
 		hs.dmgDealt.text = "- " +Mathf.Ceil (damage);
-		target.GetComponent<StateController>().getHitByBuff(Mathf.Ceil(damage));
+		target.GetComponent<StateController>().getHitByBuff(Mathf.Ceil(damage), target);
 	}
 
 		public void attack (GameObject target, float damage)
@@ -135,8 +135,8 @@ public class StateController : MonoBehaviour
 				//	checkIfBeaconDestoryed ();
 		}
 
-	public void getHitByBuff(float damage){
-		GetComponent<PlayerStats> ().hp -= Mathf.Ceil(damage);
+	public void getHitByBuff(float damage, GameObject target){
+		target.gameObject.GetComponent<PlayerStats> ().hp -= Mathf.Ceil(damage);
 		checkIfDead ();
 	}
 
