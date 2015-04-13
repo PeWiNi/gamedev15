@@ -14,8 +14,7 @@ public class StateController : MonoBehaviour
 		public bool isBuffed = false;
 		public bool canMove = true;
 		public bool ressStarted = false;
-
-		public float combatEnteredTime;  
+		public float combatEnteredTime;
 		public float lastAttack;
 		public float lastCombat;
 		public float combatCooldownTime;
@@ -32,7 +31,7 @@ public class StateController : MonoBehaviour
 		public int teamNumber;
 		float stunnedStartFromCC;
 		float stunnedDurationFromCC;
-		public float coconutDuration = 120f; 
+		public float coconutDuration = 120f;
 		public float coconutChannelTime = 5f;
 		GameObject beaconOne;
 		GameObject beaconTwo;
@@ -40,7 +39,6 @@ public class StateController : MonoBehaviour
 		BeaconZone bOne;
 		BeaconZone bTwo;
 		BeaconZone bThree;
-
 		public float buffMultiplier;
 
 		public float getSpeed ()
@@ -76,7 +74,9 @@ public class StateController : MonoBehaviour
 
 				// FIND HUD AND ANIMATE DAMAGE EFFECT.
 				GameObject go = GameObject.Find ("Canvas");
-				go.GetComponentInChildren<HUDScript> ().damageEff ();
+				HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+				hs.damageEff ();
+				hs.dmgDealt.text = "- " + damage;
 				//TestPlayerBehaviour tpb = this.gameObject.GetComponent<TestPlayerBehaviour>();
 				//  Debug.Log(tpb.mainCam.GetComponentInChildren<HUDScript>());   
 				// tpb.mainCam.gameObject.GetComponentInChildren<HUDScript>().damageEff();
@@ -166,6 +166,7 @@ public class StateController : MonoBehaviour
 						return false;
 				}
 		}
+
 		public bool isAbleToBuff ()
 		{
 				if (buffStartTime == 0) {
@@ -277,7 +278,7 @@ public class StateController : MonoBehaviour
 						}
             
 				}
-		} 
+		}
      
 		void Update ()
 		{
