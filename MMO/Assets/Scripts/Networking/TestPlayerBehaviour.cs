@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -48,20 +48,18 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		{
 				Start ();
 				Transform aim = this.transform.GetChild (3);
-				aim.renderer.enabled = false;
-				Screen.showCursor = false;
+				aim.GetComponent<Renderer> ().enabled = false;
+				Cursor.visible = false;
 
                 
 
-                PlayerCam[] cams = FindObjectsOfType<PlayerCam>();
-                foreach (PlayerCam p in cams)
-                {
-                    if (p.gameObject.GetComponent<PlayerCam>()._target == this.gameObject)
-                    {
-                        mainCam = p.gameObject;
-                        break;
-                    }
-                }
+				PlayerCam[] cams = FindObjectsOfType<PlayerCam> ();
+				foreach (PlayerCam p in cams) {
+						if (p.gameObject.GetComponent<PlayerCam> ()._target == this.gameObject) {
+								mainCam = p.gameObject;
+								break;
+						}
+				}
 
 		}
 
@@ -113,16 +111,16 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetMouseButtonDown (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
-						aim.renderer.enabled = true;
-						aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.collider.bounds.size.x) / 2);
-						aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.collider.bounds.size.z / 2) + (ps.boomnanaRange / 4));
+						aim.GetComponent<Renderer> ().enabled = true;
+						aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.GetComponent<Collider> ().bounds.size.x) / 2);
+						aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.GetComponent<Collider> ().bounds.size.z / 2) + (ps.boomnanaRange / 4));
 						//vfx.aim.renderer.enabled = true;
 						//aimOverlay(1, range, 0.5f);
 				}
 				if (Input.GetMouseButtonUp (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
-						aim.renderer.enabled = false;
+						aim.GetComponent<Renderer> ().enabled = false;
 
 						// Mouse0 = Left Click
 						//Debug.Log("Player pos: "+transform.position);
@@ -305,19 +303,27 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				down = false;
 
 				if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == true) {
-						Debug.Log (this.gameObject.GetComponent<PlayerStats> ().channeledTime = Time.time);
-						if (Time.time - this.gameObject.GetComponent<PlayerStats> ().channeledTime <= this.gameObject.GetComponent<StateController> ().coconutChannelTime && sc.isStunned) {
-								this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = true;
-						}
+						Debug.Log (Time.time);
 						if (Input.GetKeyDown (KeyCode.T) && !sc.isStunned && !sc.isDead) {
 								this.gameObject.GetComponent<PlayerStats> ().channeledTime = Time.time;
+								Debug.Log (this.gameObject.GetComponent<StateController> ().coconutChannelTime);
+								Debug.Log (this.gameObject.GetComponent<PlayerStats> ().channeledTime);
+								
+								//if (Time.time - this.gameObject.GetComponent<PlayerStats> ().channeledTime - Time.time >= this.gameObject.GetComponent<StateController> ().coconutChannelTime) {
+								Debug.Log (this.gameObject.GetComponent<PlayerStats> ().channeledTime);
 								if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == false) {
 										StartCoroutine ("consumeCoconut");
+										//consumeCoconut ();
 								}
+								//}
+//								} else if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == true) {
+//										this.gameObject.GetComponent<PlayerStats> ().channeledTime = this.gameObject.GetComponent<StateController> ().resetCoconutChannelTime;
+//								}
 						}
 				}
 				if (this.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect == true) {
 						if (Time.time - this.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration >= this.gameObject.GetComponent<StateController> ().coconutDuration) {
+								Debug.Log ("triggerede");
 								coconutEffectExpire ();
 						}	
 						if (sc.isDead) {
@@ -652,7 +658,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		void jump ()
 		{
 				gravity.y = ps.jumpHeight;
-				transform.rigidbody.velocity = gravity;
+				transform.GetComponent<Rigidbody> ().velocity = gravity;
 				sc.isJumping = true;
 		}
 		
@@ -687,7 +693,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
     
 		public void ColorChanged ()
 		{
-				renderer.material.color = state.TestPlayerColor;
+				GetComponent<Renderer> ().material.color = state.TestPlayerColor;
 		}
 
 		public void splitUp ()
@@ -697,30 +703,58 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 
 		IEnumerator consumeCoconut ()
 		{
-				yield return new WaitForSeconds (5f);
+				yield return new WaitForSeconds (1);
+				Debug.Log ("1");
+				if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == true) {
+						this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
+						yield break;
+				}
+				yield return new WaitForSeconds (1);
+				Debug.Log ("2");
+				if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == true) {
+						this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
+						yield break;
+				}
+				yield return new WaitForSeconds (1);
+				Debug.Log ("3");
+				if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == true) {
+						this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
+						yield break;
+				}
+				yield return new WaitForSeconds (1);
+				Debug.Log ("4");
+				if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == true) {
+						this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
+						yield break;
+				}
+				yield return new WaitForSeconds (1);
 				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 				while (entities.MoveNext()) {
 						if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 								BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 								// Create Event and use the be, if it is the one that is colliding.
+								if (be.gameObject == coconut.gameObject) {
+										using (var evnt = CoconutUnavailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
+												evnt.TargEnt = be;
+												evnt.isCoconutNotConsumed = false;
+										}
+								}				
 								if (be.gameObject == this.gameObject) {
 										using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
 												evnt.TargEnt = be;	
 												evnt.isAffectedByCoconut = true;
 												evnt.CoconutEffectDuration = Time.time;
+												evnt.StoppedInCoconutConsume = true;
 										}
 								}
 						}
 				}
-				coconut.gameObject.GetComponent<CoconutEffect> ().isCoconutConsumed = true;
-				//this.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration = Time.time;
+				//}
 		}
 
 		public void coconutEffectExpire ()
 		{
 				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-				//this.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect = false;
-				coconut.gameObject.GetComponent<CoconutEffect> ().isCoconutConsumed = false;
 				while (entities.MoveNext()) {
 						if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 								BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
@@ -728,12 +762,14 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 								if (be.gameObject == coconut.gameObject) {
 										using (var evnt = CoconutAvailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
 												evnt.TargEnt = be;
+												evnt.isCoconutNotConsumed = true;
 										}
 								}
 								if (be.gameObject == this.gameObject) {
 										using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
 												evnt.TargEnt = be;	
 												evnt.isAffectedByCoconut = false;
+												evnt.StoppedInCoconutConsume = false;
 										}
 								}
 						}

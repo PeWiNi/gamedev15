@@ -22,7 +22,7 @@ public class PlayerObjectBehaviour : Bolt.EntityEventListener<IPlayerState>
 		void Update ()
 		{
 				if (resetColorTime < Time.time) {
-						renderer.material.color = state.PlayerColor;
+						GetComponent<Renderer>().material.color = state.PlayerColor;
 				}
 		}
 
@@ -93,14 +93,14 @@ public class PlayerObjectBehaviour : Bolt.EntityEventListener<IPlayerState>
 
 		public void ColorChanged ()
 		{
-				renderer.material.color = state.PlayerColor;
+				GetComponent<Renderer>().material.color = state.PlayerColor;
 		}
 
 
 		public override void OnEvent (FlashColorEvent evnt)
 		{
 				resetColorTime = Time.time + 0.25f;
-				renderer.material.color = evnt.FlashColor;
+				GetComponent<Renderer>().material.color = evnt.FlashColor;
 		}
 
 		void AbilityActiveIndexChanged ()
