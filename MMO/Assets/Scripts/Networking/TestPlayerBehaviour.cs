@@ -48,11 +48,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		{
 				Start ();
 				Transform aim = this.transform.GetChild (3);
-<<<<<<< HEAD
 				aim.GetComponent<Renderer> ().enabled = false;
-=======
-				aim.GetComponent<Renderer>().enabled = false;
->>>>>>> origin/master
 				Cursor.visible = false;
 
                 
@@ -115,26 +111,17 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				if (Input.GetMouseButtonDown (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
-<<<<<<< HEAD
 						aim.GetComponent<Renderer> ().enabled = true;
 						aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.GetComponent<Collider> ().bounds.size.x) / 2);
 						aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.GetComponent<Collider> ().bounds.size.z / 2) + (ps.boomnanaRange / 4));
-=======
-						aim.GetComponent<Renderer>().enabled = true;
-						aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.GetComponent<Collider>().bounds.size.x) / 2);
-						aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.GetComponent<Collider>().bounds.size.z / 2) + (ps.boomnanaRange / 4));
->>>>>>> origin/master
 						//vfx.aim.renderer.enabled = true;
 						//aimOverlay(1, range, 0.5f);
 				}
 				if (Input.GetMouseButtonUp (1)) {
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
-<<<<<<< HEAD
 						aim.GetComponent<Renderer> ().enabled = false;
-=======
-						aim.GetComponent<Renderer>().enabled = false;
->>>>>>> origin/master
+
 
 						// Mouse0 = Left Click
 						//Debug.Log("Player pos: "+transform.position);
@@ -220,8 +207,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						up = true;
 						if (sc.canMove) {
 								
-										position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
-										//position.z += sc.getSpeed ();
+								position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
+								//position.z += sc.getSpeed ();
 								
 								sc.isMoving = true;
 						}
@@ -231,8 +218,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						down = true;
 						if (sc.canMove) {
 								
-										position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
-										//position.z -= sc.getSpeed ();
+								position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
+								//position.z -= sc.getSpeed ();
 								
 								sc.isMoving = true;
 						}
@@ -242,8 +229,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						right = true;
 						if (sc.canMove) {
 								
-										position = position + (transform.right * sc.movementspeed * Time.deltaTime);
-										//position.x += sc.getSpeed ();
+								position = position + (transform.right * sc.movementspeed * Time.deltaTime);
+								//position.x += sc.getSpeed ();
 								
 								sc.isMoving = true;
 						}
@@ -253,8 +240,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						left = true;
 						if (sc.canMove) {
 								
-										position = position - (transform.right * sc.movementspeed * Time.deltaTime);
-									//position.x -= sc.getSpeed ();
+								position = position - (transform.right * sc.movementspeed * Time.deltaTime);
+								//position.x -= sc.getSpeed ();
 								
 								sc.isMoving = true;
 						}
@@ -664,11 +651,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		void jump ()
 		{
 				gravity.y = ps.jumpHeight;
-<<<<<<< HEAD
 				transform.GetComponent<Rigidbody> ().velocity = gravity;
-=======
-				transform.GetComponent<Rigidbody>().velocity = gravity;
->>>>>>> origin/master
 				sc.isJumping = true;
 		}
 		
@@ -703,11 +686,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
     
 		public void ColorChanged ()
 		{
-<<<<<<< HEAD
 				GetComponent<Renderer> ().material.color = state.TestPlayerColor;
-=======
-				GetComponent<Renderer>().material.color = state.TestPlayerColor;
->>>>>>> origin/master
 		}
 
 		public void splitUp ()
