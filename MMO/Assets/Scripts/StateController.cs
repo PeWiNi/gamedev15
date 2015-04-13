@@ -31,8 +31,9 @@ public class StateController : MonoBehaviour
 		public int teamNumber;
 		float stunnedStartFromCC;
 		float stunnedDurationFromCC;
-		public float coconutDuration = 120f;
-		public float coconutChannelTime = 5f;
+		public float coconutDuration = 120f; 
+		public float coconutChannelTime = 1f;
+		public float resetCoconutChannelTime = 0f;
 		GameObject beaconOne;
 		GameObject beaconTwo;
 		GameObject beaconThree;
