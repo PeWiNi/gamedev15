@@ -12,7 +12,7 @@ public class HUDScript : MonoBehaviour
 		private float HUDTimer = 0;
 		public float HUDEffectIntensity = 0.3f;
 		public float HUDEffectDecay = 0.004f;
-	public float FadeFactor = 0.75f;
+		public float FadeFactor = 0.75f;
 
     #region Action Bar
 		public GameObject Action1;
@@ -48,7 +48,7 @@ public class HUDScript : MonoBehaviour
     #endregion
 		private UnityEngine.UI.Slider castBar;
 		public UnityEngine.UI.Text dmgDealt;
-    private string currentCast;
+		private string currentCast;
 
 		// Use this for initialization
 		void Start ()
@@ -91,14 +91,12 @@ public class HUDScript : MonoBehaviour
 				ActionBarOnPress (ref a6Over, a6Key, ref a6Cooldown, a6Time, 5, false); // CPR
 				#endregion
 
-        if (gameObject.GetComponent<PlayerStats>().IsInCoconutArea && Input.GetKeyUp(KeyCode.T))
-        {
-            ActivateCastBar(5, true, "coconut");
-        }
-        if (gameObject.GetComponent<PlayerStats>().IsInCoconutArea && currentCast.Equals("coconut"))
-        {
-            UpdateCastBar(5, true);
-        }
+//				if (gameObject.GetComponent<PlayerStats> ().IsInCoconutArea && Input.GetKeyUp (KeyCode.T)) {
+//						ActivateCastBar (5, true, "coconut");
+//				}
+//				if (gameObject.GetComponent<PlayerStats> ().IsInCoconutArea && currentCast.Equals ("coconut")) {
+//						UpdateCastBar (5, true);
+//				}
 		}
 
 		private void SetupActionBar ()
@@ -151,26 +149,26 @@ public class HUDScript : MonoBehaviour
 						onCooldown = true;
 						overlayImage.fillAmount = 0.0f;
 						dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
-			if (castTime != 0)
-                ActivateCastBar(castTime, channeled, key);
-			if(key == a1Key){
-				dmgDealt.text = "Miss!";
-			}
-			if(key == a3Key){
-				dmgDealt.text = "Channeling AOE!";
-				Text a = castBar.GetComponentInChildren<Text>();
-				a.color = Color.red;
-				a.text = "Puking All Over The Place";
-			}
-			if(key == a4Key){
-				dmgDealt.text = "Stunning!";
-			}
-			if(key == a6Key){
-				dmgDealt.text = "Resurrecting!";
-				Text a = castBar.GetComponentInChildren<Text>();
-				a.color = Color.red;
-				a.text = "Monguin CPR";
-			}
+						if (castTime != 0)
+								ActivateCastBar (castTime, channeled, key);
+						if (key == a1Key) {
+								dmgDealt.text = "Miss!";
+						}
+						if (key == a3Key) {
+								dmgDealt.text = "Channeling AOE!";
+								Text a = castBar.GetComponentInChildren<Text> ();
+								a.color = Color.red;
+								a.text = "Puking All Over The Place";
+						}
+						if (key == a4Key) {
+								dmgDealt.text = "Stunning!";
+						}
+						if (key == a6Key) {
+								dmgDealt.text = "Resurrecting!";
+								Text a = castBar.GetComponentInChildren<Text> ();
+								a.color = Color.red;
+								a.text = "Monguin CPR";
+						}
 
 				}
 				if (onCooldown == true) {
@@ -179,32 +177,29 @@ public class HUDScript : MonoBehaviour
 						if (overlayImage.fillAmount == 1.0f)
 								onCooldown = false;
 				}
-        if (castTime != 0 && castBar.IsActive() && currentCast.Equals(key))
-            UpdateCastBar(castTime, channeled);
+				if (castTime != 0 && castBar.IsActive () && currentCast.Equals (key))
+						UpdateCastBar (castTime, channeled);
 		}
 
-    private void ActivateCastBar(float duration, bool channeled, string synchronize)
+		private void ActivateCastBar (float duration, bool channeled, string synchronize)
 		{
 				castBar.gameObject.SetActive (true);
 				if (channeled)
-            castBar.value = 1;
+						castBar.value = 1;
 				else
 						castBar.value = 0;
-        currentCast = synchronize;
+				currentCast = synchronize;
 		}
 
 		private void UpdateCastBar (float duration, bool channeled)
 		{
-        if (channeled)
-        {
-            castBar.value -= 1.0f / duration * Time.deltaTime;
+				if (channeled) {
+						castBar.value -= 1.0f / duration * Time.deltaTime;
 						if (castBar.value == 0)
 								castBar.gameObject.SetActive (false);
 				} else {
-        else
-        {
-            castBar.value += 1.0f / duration * Time.deltaTime;
-            if (castBar.value == 1)
+						castBar.value += 1.0f / duration * Time.deltaTime;
+						if (castBar.value == 1)
 								castBar.gameObject.SetActive (false);
 				}
 		}

@@ -153,6 +153,10 @@ public class StateController : MonoBehaviour
 		public void stun (GameObject target, float duration)
 		{
 				Debug.Log ("GETTING STUNNED!");
+		GameObject go = GameObject.Find ("Canvas");
+		HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+		hs.dmgDealt.text = "Stunned!";
+		hs.dmgDealt.color = new Color (hs.dmgDealt.color.r, hs.dmgDealt.color.g, hs.dmgDealt.color.b, 1);
 				stunnedStartFromCC = Time.time;
 				stunnedDurationFromCC = duration;
 				isStunned = true;
