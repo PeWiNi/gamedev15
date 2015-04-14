@@ -112,8 +112,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 						Transform aim = this.transform.GetChild (3);
 						aim.GetComponent<Renderer> ().enabled = true;
-						aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.GetComponent<Collider> ().bounds.size.x) / 2);
-						aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.GetComponent<Collider> ().bounds.size.z / 2) + (ps.boomnanaRange / 4));
+                        aim.localScale = new Vector3(1f, 0, ps.boomnanaRange / 4);
+						aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 4));
 						//vfx.aim.renderer.enabled = true;
 						//aimOverlay(1, range, 0.5f);
 				}

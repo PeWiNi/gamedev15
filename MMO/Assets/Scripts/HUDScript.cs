@@ -35,17 +35,13 @@ public class HUDScript : MonoBehaviour
 		public string a4Key = "2";
 		public float a4Time = 3f;
 		private bool a4Cooldown;
-		public GameObject Action5;
-		private Image a5Over;
-		public string a5Key = "3";
-		public float a5Time = 3f;
-		private bool a5Cooldown;
 		public GameObject Action6;
 		private Image a6Over;
 		public string a6Key = "r";
 		public float a6Time = 10f;
 		private bool a6Cooldown;
     #endregion
+
 		private UnityEngine.UI.Slider castBar;
 		public UnityEngine.UI.Text dmgDealt;
 		private string currentCast;
@@ -67,52 +63,54 @@ public class HUDScript : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, dmgDealt.color.a - (1.0f / FadeFactor * Time.deltaTime));
+			dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, dmgDealt.color.a - (1.0f / FadeFactor * Time.deltaTime));
 		
-				#region Damage Effect
-				if (HUDTimer <= 0) // Disable when the effect has ended
-						takingDamageHUD.enabled = false;
-				//if (Input.GetKeyDown(redKey)) // Change to taking damage event 
-				//{
-				//    //Creates HUDeffect when damaged
-				//    HUDTimer = HUDEffectIntensity;
-				//    takingDamageHUD.enabled = true;
-				//}
-				takingDamageHUD.color = new Color (takingDamageHUD.color.r, takingDamageHUD.color.g, takingDamageHUD.color.b, HUDTimer);
-				HUDTimer -= HUDEffectDecay;
-				#endregion
+			#region Damage Effect
+			if (HUDTimer <= 0) // Disable when the effect has ended
+				takingDamageHUD.enabled = false;
+			//if (Input.GetKeyDown(redKey)) // Change to taking damage event 
+			//{
+			//    //Creates HUDeffect when damaged
+			//    HUDTimer = HUDEffectIntensity;
+			//    takingDamageHUD.enabled = true;
+			//}
+			takingDamageHUD.color = new Color (takingDamageHUD.color.r, takingDamageHUD.color.g, takingDamageHUD.color.b, HUDTimer);
+			HUDTimer -= HUDEffectDecay;
+			#endregion
 
-				#region ActionBar
-				ActionBarOnPress (ref a1Over, a1Key, ref a1Cooldown, a1Time); // Tail
-				ActionBarOnRelease (ref a2Over, a2Key, ref a2Cooldown, a2Time); // Boom
-				ActionBarOnPress (ref a3Over, a3Key, ref a3Cooldown, a3Time, 3, true); // AoE
-				ActionBarOnPress (ref a4Over, a4Key, ref a4Cooldown, a4Time); // CC
-				ActionBarOnPress (ref a5Over, a5Key, ref a5Cooldown, a5Time); // Buff
-				ActionBarOnPress (ref a6Over, a6Key, ref a6Cooldown, a6Time, 5, false); // CPR
-				#endregion
+			#region ActionBar
+			ActionBarOnPress (ref a1Over, a1Key, ref a1Cooldown, a1Time); // Tail
+			ActionBarOnRelease (ref a2Over, a2Key, ref a2Cooldown, a2Time); // Boom
+			ActionBarOnPress (ref a3Over, a3Key, ref a3Cooldown, a3Time, 4.5f, true); // AoE
+			ActionBarOnPress (ref a4Over, a4Key, ref a4Cooldown, a4Time); // CC
+			ActionBarOnPress (ref a6Over, a6Key, ref a6Cooldown, a6Time); // CPR
+			#endregion
 
-//				if (gameObject.GetComponent<PlayerStats> ().IsInCoconutArea && Input.GetKeyUp (KeyCode.T)) {
-//						ActivateCastBar (5, true, "coconut");
-//				}
-//				if (gameObject.GetComponent<PlayerStats> ().IsInCoconutArea && currentCast.Equals ("coconut")) {
-//						UpdateCastBar (5, true);
-//				}
+            if (gameObject.GetComponent<PlayerStats> ().IsInCoconutArea)
+            {
+                dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
+                dmgDealt.text = "Press T to pick up coconut";
+            }
+			if (gameObject.GetComponent<PlayerStats> ().IsInCoconutArea && Input.GetKeyUp (KeyCode.T)) {
+				ActivateCastBar (5, true, "coconut");
+			}
+			if (gameObject.GetComponent<PlayerStats> ().IsInCoconutArea && currentCast.Equals ("coconut")) {
+				UpdateCastBar (5, true);
+			}
 		}
 
 		private void SetupActionBar ()
 		{
-				a1Over = Action1.transform.GetChild (0).GetComponent<Image> ();
-				Action1.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a1Key);
-				a2Over = Action2.transform.GetChild (0).GetComponent<Image> ();
-				Action2.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a2Key);
-				a3Over = Action3.transform.GetChild (0).GetComponent<Image> ();
-				Action3.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a3Key);
-				a4Over = Action4.transform.GetChild (0).GetComponent<Image> ();
-				Action4.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a4Key);
-				a5Over = Action5.transform.GetChild (0).GetComponent<Image> ();
-				Action5.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a5Key);
-				a6Over = Action6.transform.GetChild (0).GetComponent<Image> ();
-				Action6.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a6Key);
+			a1Over = Action1.transform.GetChild (0).GetComponent<Image> ();
+			Action1.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a1Key);
+			a2Over = Action2.transform.GetChild (0).GetComponent<Image> ();
+			Action2.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a2Key);
+			a3Over = Action3.transform.GetChild (0).GetComponent<Image> ();
+			Action3.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a3Key);
+			a4Over = Action4.transform.GetChild (0).GetComponent<Image> ();
+			Action4.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a4Key);
+			a6Over = Action6.transform.GetChild (0).GetComponent<Image> ();
+			Action6.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a6Key);
 		}
 
 		private string toUpper (string s)
