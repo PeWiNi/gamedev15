@@ -5,9 +5,9 @@ using System.Collections;
 public class ServerCallbacks : Bolt.GlobalEventListener
 {
 
-		public override void SceneLoadLocalDone (string map)
-		{
-				CoconutManager.Instantiate ();
-		}
+	public override void SceneLoadLocalDone (string map)
+	{
+		CoconutManager.Instantiate ();
+	}
       
 }

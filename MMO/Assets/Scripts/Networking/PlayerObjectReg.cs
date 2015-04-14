@@ -5,28 +5,28 @@ using System.Linq;
 
 public class PlayerObjectReg
 {
-		public  List<PlayerObject> playerObjects = new List<PlayerObject> (); 
+	public  List<PlayerObject> playerObjects = new List<PlayerObject> (); 
 //		public static List<PlayerObject> teamOnePlayerObjects = new List<PlayerObject> ();
 //		public static List<PlayerObject> teamTwoPlayerObjects = new List<PlayerObject> ();
 		
-		 PlayerObject createPlayer (BoltConnection connection)
-		{
-				PlayerObject po;
+	PlayerObject createPlayer (BoltConnection connection)
+	{
+		PlayerObject po;
 
-				po = new PlayerObject ();
-				po.connection = connection;
+		po = new PlayerObject ();
+		po.connection = connection;
 
-				if (po.connection != null) {
-						po.connection.UserData = po;
-				}
-				playerObjects.Add (po);
+		if (po.connection != null) {
+			po.connection.UserData = po;
+		}
+		playerObjects.Add (po);
 //				if (BoltInit.hasPickedTeamOne) {
 //						teamOnePlayerObjects.Add (po);
 //				} else if (BoltInit.hasPickedTeamTwo) {
 //						teamTwoPlayerObjects.Add (po);
 //				}
-				return po;
-		}
+		return po;
+	}
 
 //		public static IEnumerable<PlayerObject> allTeamOnePlayerObjects {
 //				get { return teamOnePlayerObjects; }
@@ -36,9 +36,9 @@ public class PlayerObjectReg
 //				get { return teamTwoPlayerObjects; }
 //		}
 
-		public  IEnumerable<PlayerObject> allPlayerObjects {
-				get { return playerObjects; }
-		}
+	public  IEnumerable<PlayerObject> allPlayerObjects {
+		get { return playerObjects; }
+	}
 
 //		public static PlayerObject serverTeamOnePlayerObject {
 //				get {
@@ -50,27 +50,27 @@ public class PlayerObjectReg
 //				get { return teamTwoPlayerObjects.First (x => x.isServer); }
 //		}
 
-		public  PlayerObject serverPlayerObject {
-				get { return playerObjects.First (x => x.isServer); }
-		}
+	public  PlayerObject serverPlayerObject {
+		get { return playerObjects.First (x => x.isServer); }
+	}
 
-		public  PlayerObject createServerPlayerObject ()
-		{
-				return createPlayer (null);
-		}
+	public  PlayerObject createServerPlayerObject ()
+	{
+		return createPlayer (null);
+	}
 
-		public  PlayerObject createClientPlayerObject (BoltConnection connection)
-		{
-				return createPlayer (connection);
-		}
+	public  PlayerObject createClientPlayerObject (BoltConnection connection)
+	{
+		return createPlayer (connection);
+	}
 
-		public  PlayerObject getPlayerObject (BoltConnection connection)
-		{
-				if (connection == null) {
-						return serverPlayerObject;
-				}
-				return (PlayerObject)connection.UserData;
+	public  PlayerObject getPlayerObject (BoltConnection connection)
+	{
+		if (connection == null) {
+			return serverPlayerObject;
 		}
+		return (PlayerObject)connection.UserData;
+	}
 
 //		public static void DestoryTeamOnePlayerOnDisconnection (BoltConnection connection)
 //		{
@@ -94,15 +94,15 @@ public class PlayerObjectReg
 //		}
 
 
-		public  void DestoryOnDisconnection (BoltConnection connection)
-		{
-				foreach (PlayerObject p in playerObjects.ToArray()) {
-						if (p.connection == connection) {
-								//BoltNetwork.Destroy (p.gameObject);
-								playerObjects.Remove (p);
-						}
-				}
+	public  void DestoryOnDisconnection (BoltConnection connection)
+	{
+		foreach (PlayerObject p in playerObjects.ToArray()) {
+			if (p.connection == connection) {
+				//BoltNetwork.Destroy (p.gameObject);
+				playerObjects.Remove (p);
+			}
 		}
+	}
 
 //		public static CoconutObject createCoconutObject ()
 //		{

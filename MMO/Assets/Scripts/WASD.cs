@@ -5,39 +5,39 @@ using System;
 public class WASD : MonoBehaviour
 {
 
-		/*TODO: Make state controller, so you don't connect/split during combat.
+	/*TODO: Make state controller, so you don't connect/split during combat.
 	 * 
 	 * */
-		//Bolt.EntityEventListener<ICoconutState> state;
-		BoltEntity entity;
-		BoltEntity me;
-		public float stunnedStart;
-		GameObject coconut;
-		Coconut nut;
-		StateController sc;
-		PlayerStats ps;
-		int nutId;
-		// Use this for initialization
-		void Start ()
-		{
+	//Bolt.EntityEventListener<ICoconutState> state;
+	BoltEntity entity;
+	BoltEntity me;
+	public float stunnedStart;
+	GameObject coconut;
+	Coconut nut;
+	StateController sc;
+	PlayerStats ps;
+	int nutId;
+	// Use this for initialization
+	void Start ()
+	{
 				
-				//coconut = BoltNetwork.Attach (BoltPrefabs.Coconut_1) as GameObject;
-				//GameObject.Find ("Coconut 1(Clone)");
-				//coconut = GameObject.Find ("Coconut 1(Clone)");
-				//nut = coconut.GetComponent<Coconut> ();
-				//Debug.Log ("Coconut: " + coconut + ", nutScript: " + nut);
-				sc = this.gameObject.GetComponent<StateController> ();
-				ps = this.gameObject.GetComponent<PlayerStats> ();
-				nutId = (GameObject.FindWithTag ("nut")as GameObject).GetInstanceID ();
-				coconut = GameObject.FindWithTag ("nut") as GameObject;
+		//coconut = BoltNetwork.Attach (BoltPrefabs.Coconut_1) as GameObject;
+		//GameObject.Find ("Coconut 1(Clone)");
+		//coconut = GameObject.Find ("Coconut 1(Clone)");
+		//nut = coconut.GetComponent<Coconut> ();
+		//Debug.Log ("Coconut: " + coconut + ", nutScript: " + nut);
+		sc = this.gameObject.GetComponent<StateController> ();
+		ps = this.gameObject.GetComponent<PlayerStats> ();
+		nutId = (GameObject.FindWithTag ("nut")as GameObject).GetInstanceID ();
+		coconut = GameObject.FindWithTag ("nut") as GameObject;
 				
 				
 
-		}
+	}
 
-		// Update is called once per frame
-		void Update ()
-		{
+	// Update is called once per frame
+	void Update ()
+	{
 //				if (nut == null) {
 //						//nutId = (GameObject.FindWithTag ("nut")as GameObject).GetInstanceID ();
 //						nut = (GameObject.FindWithTag ("nut") as GameObject).GetComponent<Coconut> ();
@@ -66,13 +66,13 @@ public class WASD : MonoBehaviour
 //				
 //						}
 //				}
-		}
+	}
 
-		void OnCollisionEnter (Collision coll)
-		{ // Working!!
-				if (coll.gameObject.tag.Equals("Terrain") && sc != null) { 
-						sc.isJumping = false;
-				}
+	void OnCollisionEnter (Collision coll)
+	{ // Working!!
+		if (coll.gameObject.tag.Equals ("Terrain") && sc != null) { 
+			sc.isJumping = false;
+		}
 
 //				if (Input.GetKey (KeyCode.E)) {
 //						if (coll.gameObject.Equals (GameObject.FindWithTag ("nut") as GameObject)) {
@@ -95,13 +95,13 @@ public class WASD : MonoBehaviour
 //						}
 //				}
 
-				if (coll.gameObject.name.Equals ("Boomnana(Clone)")) {
-						if (coll.gameObject.GetComponent<Boomnana> ().owner == this.gameObject) {
-								sc.isStunned = true;
-								stunnedStart = Time.time;
-								Destroy (coll.gameObject); 
-						}
-				}
+		if (coll.gameObject.name.Equals ("Boomnana(Clone)")) {
+			if (coll.gameObject.GetComponent<Boomnana> ().owner == this.gameObject) {
+				sc.isStunned = true;
+				stunnedStart = Time.time;
+				Destroy (coll.gameObject); 
+			}
+		}
 
 //				if (Input.GetKey (KeyCode.Q)) {
 //						if (nut.getHolder () != null) {
@@ -117,35 +117,36 @@ public class WASD : MonoBehaviour
 //								}
 //						}
 //				}
-		}
+	}
 
-		public void updateNutPosWhenHeld (Vector3 pos)
-		{
-				this.nut.updateNutPositionRemote (pos);
-		}
+	public void updateNutPosWhenHeld (Vector3 pos)
+	{
+		this.nut.updateNutPositionRemote (pos);
+	}
 
-		public void updateNutPositionRemote (Vector3 newPos, GameObject go)
-		{
-				nut.updateNutPositionRemote (newPos);
-				nut.setCapture (go);
-		}
-		public void removeNutCapture (Vector3 pos)
-		{
-				nut.removeCapture (pos);
-		}
+	public void updateNutPositionRemote (Vector3 newPos, GameObject go)
+	{
+		nut.updateNutPositionRemote (newPos);
+		nut.setCapture (go);
+	}
 
-		public bool isOwnerOfNut ()
-		{
-				return (GameObject.FindWithTag ("nut") as GameObject).GetComponent<Coconut> ().entity.isOwner;
-		}
+	public void removeNutCapture (Vector3 pos)
+	{
+		nut.removeCapture (pos);
+	}
 
-		void OnTriggerStay (Collider coll)
-		{
-				if (Input.GetKeyDown (KeyCode.E)) {
-						if (coll.gameObject.tag == "nut") {
-								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
-								coll.GetComponent<Coconut> ().setCapture (this.gameObject);
-                                sc.isHolding = true;
+	public bool isOwnerOfNut ()
+	{
+		return (GameObject.FindWithTag ("nut") as GameObject).GetComponent<Coconut> ().entity.isOwner;
+	}
+
+	void OnTriggerStay (Collider coll)
+	{
+		if (Input.GetKeyDown (KeyCode.E)) {
+			if (coll.gameObject.tag == "nut") {
+				//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
+				coll.GetComponent<Coconut> ().setCapture (this.gameObject);
+				sc.isHolding = true;
 //								foreach (BoltEntity b in BoltNetwork.entities) {
 //										GameObject bGo = b.gameObject;
 //										if (bGo.tag == "player") {
@@ -172,17 +173,17 @@ public class WASD : MonoBehaviour
 ////												evnt.CoconutPosition = transform.position;
 ////										}
 //								}
-						}
-				}
+			}
+		}
 
-				if (Input.GetKeyDown (KeyCode.Q)) {
-						if (coll.gameObject.tag == "nut" && sc.isHolding) {
-								Debug.Log ("Q pressed"); 
-								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
-								coll.GetComponent<Coconut> ().removeCapture (new Vector3 ());
-                                sc.isHolding = false;
-								//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.ReleaseControl ();
-								//this.gameObject.GetComponent<WASD> ().entity.TakeControl ();
+		if (Input.GetKeyDown (KeyCode.Q)) {
+			if (coll.gameObject.tag == "nut" && sc.isHolding) {
+				Debug.Log ("Q pressed"); 
+				//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.TakeControl ();
+				coll.GetComponent<Coconut> ().removeCapture (new Vector3 ());
+				sc.isHolding = false;
+				//GameObject.FindWithTag ("nut").GetComponent<Coconut> ().entity.ReleaseControl ();
+				//this.gameObject.GetComponent<WASD> ().entity.TakeControl ();
 //								foreach (BoltEntity b in BoltNetwork.entities) {
 //										GameObject bGo = b.gameObject;
 //										if (bGo.tag == "player") {
@@ -194,23 +195,23 @@ public class WASD : MonoBehaviour
 //												}
 //										}						
 //								}
-						} 
-				}
-				
-				// If attack (melee), deal damage to that enemy
-                //if (Input.GetKey (transform.gameObject.GetComponent<TestPlayerBehaviour> ().tailSlapKey)) {
-                //        if (coll.gameObject.tag == "player") { // USE TAG INSTEAD OF NAME
-                //                if (coll.gameObject.GetComponent<StateController> ().teamNumber != sc.teamNumber) {
-                //                    sc.attack(coll.gameObject, ps.tailSlapDamage);
-
-                //                        //coll.gameObject.GetComponent<StateController> ().initiateCombat ();
-                //                        ////If hit
-                //                        //coll.gameObject.GetComponent<StateController>().getHit(ps.tailSlapDamage);
-                //                        ////ANIMATE TAILSLAP!
-                //                }
-                //        }
-                //}
+			} 
 		}
+				
+		// If attack (melee), deal damage to that enemy
+		//if (Input.GetKey (transform.gameObject.GetComponent<TestPlayerBehaviour> ().tailSlapKey)) {
+		//        if (coll.gameObject.tag == "player") { // USE TAG INSTEAD OF NAME
+		//                if (coll.gameObject.GetComponent<StateController> ().teamNumber != sc.teamNumber) {
+		//                    sc.attack(coll.gameObject, ps.tailSlapDamage);
+
+		//                        //coll.gameObject.GetComponent<StateController> ().initiateCombat ();
+		//                        ////If hit
+		//                        //coll.gameObject.GetComponent<StateController>().getHit(ps.tailSlapDamage);
+		//                        ////ANIMATE TAILSLAP!
+		//                }
+		//        }
+		//}
+	}
 
 
 }
