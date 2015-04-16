@@ -3,37 +3,37 @@ using System.Collections;
 
 public class CoconutEffect : MonoBehaviour
 {
-		public bool isCoconutNotConsumed = true; 
+	public bool isCoconutNotConsumed = true; 
 	
 
-		// Use this for initialization
-		void Start ()
-		{
+	// Use this for initialization
+	void Start ()
+	{
 	
-		}
+	}
 	
-		// Update is called once per frame
-		void Update ()
-		{
-		}
+	// Update is called once per frame
+	void Update ()
+	{
+	}
 		
-		void OnTriggerStay (Collider coll)
-		{
-				if (coll.gameObject.tag == "player") {
-						if (isCoconutNotConsumed == true)
-								coll.GetComponent<PlayerStats> ().IsInCoconutArea = true;
-				}
+	void OnTriggerStay (Collider coll)
+	{
+		if (coll.gameObject.tag == "player") {
+			if (isCoconutNotConsumed == true)
+				coll.GetComponent<PlayerStats> ().IsInCoconutArea = true;
 		}
+	}
 
-		void OnTriggerExit (Collider coll)
-		{
-				if (coll.gameObject.tag == "player") {
-						coll.GetComponent<PlayerStats> ().IsInCoconutArea = false;
-						if (isCoconutNotConsumed == true) {
-								if (coll.GetComponent<PlayerStats> ().hasCoconutEffect == false) {
-										coll.GetComponent<PlayerStats> ().stoppedInCoconutConsume = true;
-								}
-						}
+	void OnTriggerExit (Collider coll)
+	{
+		if (coll.gameObject.tag == "player") {
+			coll.GetComponent<PlayerStats> ().IsInCoconutArea = false;
+			if (isCoconutNotConsumed == true) {
+				if (coll.GetComponent<PlayerStats> ().hasCoconutEffect == false) {
+					coll.GetComponent<PlayerStats> ().stoppedInCoconutConsume = true;
+				}
+			}
 //						}
 //						IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 //						while (entities.MoveNext()) {
@@ -50,7 +50,7 @@ public class CoconutEffect : MonoBehaviour
 //												}
 //										}
 //								}
-				}
 		}
+	}
 }
 
