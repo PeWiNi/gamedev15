@@ -60,7 +60,8 @@ public class CCScript : MonoBehaviour
 
 		IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 		if (coll.gameObject.tag == "player") {
-
+			TestPlayerBehaviour tt = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+			GameObject player = tt.gameObject;
 			if (Input.GetKeyDown (tpb.ccKey) && available) {
 				while (entities.MoveNext()) {
 					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
@@ -68,10 +69,10 @@ public class CCScript : MonoBehaviour
 						// Create Event and use the be, if it is the one that is colliding.
 						//if (be.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().player.gameObject)
 						//{
-						if (be.gameObject == coll.gameObject && be.gameObject != this.gameObject) { // Check for enemy, deal full damage
+						if (be.gameObject == coll.gameObject && be.gameObject != player) { // Check for enemy, deal full damage
 
 
-							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != ps.teamNumber && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour> ().gameObject) {
+							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != ps.teamNumber && coll.gameObject != player) {
 								// deal full damage!!!
 								using (var evnt = CCEvent.Create(Bolt.GlobalTargets.Everyone)) {
 									GameObject go = GameObject.Find ("Canvas");
@@ -85,6 +86,9 @@ public class CCScript : MonoBehaviour
 								}
 
 								//gameObject.GetComponentInParent<StateController>().stun(this.gameObject, 0);
+							}
+							if(coll.gameObject == player){
+								Debug.Log("Casting player found as Collider");
 							}
 							available = false;
 							lastUsed = Time.time;

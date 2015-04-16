@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ScoreTwoManager : MonoBehaviour
 {
 	public static float totalTwoScore;
+	public static float totalKillScore;
 	Text textTwo;
 
 
@@ -13,6 +14,7 @@ public class ScoreTwoManager : MonoBehaviour
 	{
 		textTwo = GetComponent<Text> ();
 		totalTwoScore = 0;
+		totalKillScore = 0;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +24,10 @@ public class ScoreTwoManager : MonoBehaviour
 		textTwo.text = "Team Two Score: " + totalTwoScore;
 	}
 
+	public static void addDeathPoints(float score){
+		totalKillScore += score;
+		totalTwoScore += totalKillScore;
+	}
 	/// <summary>
 	/// Sets the team two total score.
 	/// </summary>
@@ -29,6 +35,7 @@ public class ScoreTwoManager : MonoBehaviour
 	public static void setTeamTwoTotalScore (float totalScore)
 	{
 		totalTwoScore = totalScore;
+		totalTwoScore += totalKillScore;
 	}
 }
 

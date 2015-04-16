@@ -61,13 +61,13 @@ public class Boomnana : MonoBehaviour
 					if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
 						// CHECKS IF IT HIT ITSELF
 						if (coll.gameObject == owner && movingBack) {// STUN THE OWNER
-							using (var evnt = CCEvent.Create(Bolt.GlobalTargets.Everyone)) { 
+							using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone)) { 
 								GameObject go = GameObject.Find ("Canvas");
 								HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-								
-								hs.dmgDealt.text = "Stunned!";
+								float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.25f);
+								hs.dmgDealt.text = "";
 								evnt.TargEnt = be;
-								evnt.Duration = owner.GetComponent<PlayerStats> ().ccDuration;
+								evnt.Damage = damageDealt;
 								Destroy (this.gameObject);
 							}
                             
@@ -77,26 +77,12 @@ public class Boomnana : MonoBehaviour
 								using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone)) {
 									GameObject go = GameObject.Find ("Canvas");
 									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-									
-									hs.dmgDealt.text = "" + this.owner.GetComponent<PlayerStats> ().boomNanaDamage;
+									float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.85f);
+									hs.dmgDealt.text = "" + damageDealt;// 85% of target health//this.owner.GetComponent<PlayerStats> ().boomNanaDamage;
 									evnt.TargEnt = be;
-									evnt.Damage = this.owner.GetComponent<PlayerStats> ().boomNanaDamage;
+									evnt.Damage = damageDealt;
 								}
 								Destroy (this.gameObject);
-							} else { // check for friendly player, deal 50% dmg.
-								if (coll.gameObject != owner) {
-									// deal half damage!!!
-									using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone)) {
-										GameObject go = GameObject.Find ("Canvas");
-										HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-										
-										hs.dmgDealt.text = "" + this.owner.GetComponent<PlayerStats> ().boomNanaDamage / 2;
-										evnt.TargEnt = be;
-										evnt.Damage = this.owner.GetComponent<PlayerStats> ().boomNanaDamage / 2;
-									}
-									Destroy (this.gameObject);
-								}
-                                
 							}
 						}
 						//  Debug.Log("BoltEntity.gameObject matches coll.gameObject");

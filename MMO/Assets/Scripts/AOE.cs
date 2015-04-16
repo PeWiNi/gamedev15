@@ -65,7 +65,7 @@ public class AOE : MonoBehaviour
 		}
                 
 		// check timer for duration and Cooldown
-		if (Time.time - lastUsed >= ps.aoeDuration + 0.1f && !available) {
+		if (Time.time - lastUsed >= (ps.aoeDuration + 0.0001f) && !available) {
 			sc.canMove = true;
 			sc.isChanneling = false;
 			Debug.Log ("AOE DONE!");
@@ -79,9 +79,9 @@ public class AOE : MonoBehaviour
 
 	void OnTriggerStay (Collider coll)
 	{
-		if (sc.isChanneling && (currentTimer - lastTick) > tickTimer) {
-			//Debug.Log("Ticking");   
-			lastTick = currentTimer;
+		if (sc.isChanneling && ((currentTimer - lastTick) > tickTimer) || (lastTick == lastUsed)){
+			Debug.Log("Ticking");   
+			lastTick = Time.time;
 			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 			if (coll.gameObject.tag == "player" && sc.isChanneling) {
 				while (entities.MoveNext()) {

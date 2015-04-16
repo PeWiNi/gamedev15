@@ -151,6 +151,7 @@ public class StatSplitter : MonoBehaviour
 		splitBoom (noP);
 		splitTail (noP);
 		splitAoe (noP);
+		splitScale(noP);
 	}
 
 

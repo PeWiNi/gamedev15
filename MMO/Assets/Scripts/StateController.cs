@@ -180,6 +180,19 @@ public class StateController : MonoBehaviour
 				ressStarted = true;
 				this.gameObject.GetComponent<DeathSpawner> ().startRespawn ();
 			}
+
+			switch(teamNumber){
+			case 1:
+				using (var evnt = KillScoreOneEvent.Create(Bolt.GlobalTargets.Everyone)) { 
+					evnt.Score = 5;
+				}
+				break;
+			case 2:
+				using (var evnt = KillScoreOneEvent.Create(Bolt.GlobalTargets.Everyone)) { 
+					evnt.Score = 5;
+				}
+				break;
+			}
             
 			return isDead;
 		} else {
