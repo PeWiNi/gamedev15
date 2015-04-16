@@ -24,54 +24,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 <<<<<<< HEAD
-																																																																																																																																																																																																																																																																																																																																																																																																																																				GlobalSection(MonoDevelopProperties) = preSolution
+						GlobalSection(MonoDevelopProperties) = preSolution
 =======
-																																																																																																																																																																																																																																																																																																																																																																																																																																																			GlobalSection(MonoDevelopProperties) = preSolution
-=======
-																																																																																																																																																																																																																																																																																																																																																																																																																																		GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> origin/master
->>>>>>> b04501186a16e08e8edf98ee55c57f38decbf031
-=======
-																																																																																																																																																																																																																																																																																																																																																																																																																								GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> origin/master
-=======
-																																																																																																																																																																																																																																																																																																																																																																																																										GlobalSection(MonoDevelopProperties) = preSolution
-=======
-<<<<<<< HEAD
-																																																																																																																																																																																																																																																																																																																																																																																																				GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> origin/master
-=======
-																																																																																																																																																																																																																																																																																																																																																																																																																					GlobalSection(MonoDevelopProperties) = preSolution
-=======
-																																																																																																																																																																																																																																																																																																																																																																																																			GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> origin/master
-=======
-																																																																																																																																																																																																																																																																																																																																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> 5989e57dae8e394c7bcce90c5026a45f0e8e088a
-=======
-<<<<<<< HEAD
-																																																																																																																																																																																																																																																																																																																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> fd158c5abf30a6eb491d1d54549209e0acdb63fe
->>>>>>> origin/master
->>>>>>> origin/master
-=======
-																																																																																																																																																																																																																																																																																																																																																																																													GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> c315572b2547b90b1f7d3881c0f734547bbfa7c7
-=======
-																																																																																																																																																																																																																																																																																																																																																																			GlobalSection(MonoDevelopProperties) = preSolution
-=======
-																																																																																																																																																																																																																																																																																																																																																					GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> b8710f58776ab6b56abf57ab8f48b42a4f2f9925
->>>>>>> origin/master
-=======
-																																																																																																																																																																																																																																																																																																																																	GlobalSection(MonoDevelopProperties) = preSolution
-=======
-																																																																																																																																																																																																																																																																																																																GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> origin/master
-=======
-																																																																																																																																																																																																																																																																																																																																					GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> origin/master
->>>>>>> origin/master
+			GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> 4b4a29e1a3ea953fab90f29fb4b15cbd7de4d9fa
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
@@ -83,11 +39,35 @@ Global
 		$2.scope = text/x-csharp
 		$0.TextStylePolicy = $3
 		$3.FileWidth = 120
-		$3.TabWidth = 4
+		$3.TabsToSpaces = False
 		$3.EolMarker = Unix
-		$3.inheritsSet = Mono
+		$3.inheritsSet = VisualStudio
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
+		$0.DotNetNamingPolicy = $4
+		$4.DirectoryNamespaceAssociation = None
+		$4.ResourceNamePolicy = FileFormatDefault
+		$0.TextStylePolicy = $5
+		$5.inheritsSet = null
+		$5.scope = text/x-shader
+		$0.TextStylePolicy = $6
+		$6.inheritsSet = null
+		$6.scope = text/x-unitytxt
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
+		GlobalSection(MonoDevelopProperties) = preSolution
 	EndGlobalSection
 
 EndGlobal

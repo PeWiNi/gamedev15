@@ -66,7 +66,6 @@ public class PlayerStats : MonoBehaviour
 		hs.a2Time = boomNanaCooldown;
 		hs.a3Time = aoeCooldown;
 		hs.a4Time = ccCooldown;
-		hs.a5Time = buffCooldown;
 		hs.a6Time = cprCooldown;
 	}
 
