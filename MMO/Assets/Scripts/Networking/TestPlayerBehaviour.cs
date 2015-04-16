@@ -110,6 +110,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			aim.GetComponent<Renderer> ().enabled = true;
                         aim.localScale = new Vector3(1f, 0, ps.boomnanaRange / 4);
 			aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 4));
+			aim.localEulerAngles = new Quaternion(90.0f, 0.0f, 0.0f, 0).eulerAngles;
 			//vfx.aim.renderer.enabled = true;
 			//aimOverlay(1, range, 0.5f);
 		}

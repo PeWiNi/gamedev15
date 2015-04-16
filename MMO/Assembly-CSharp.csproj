@@ -39,17 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-<<<<<<< HEAD
 	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
 	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
-=======
-	  <HintPath>F:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
-	</Reference>
-	<Reference Include="UnityEditor">
-	  <HintPath>F:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
->>>>>>> 4b4a29e1a3ea953fab90f29fb4b15cbd7de4d9fa
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +134,6 @@
      <None Include="Assets\bolt\resources\icons\ATTRIBUTION.txt" />
      <None Include="Assets\Shaders\Shader1.shader" />
  <Reference Include="UnityEngine.UI">
-<<<<<<< HEAD
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="bolt">
@@ -158,24 +150,6 @@
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-=======
- <HintPath>F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="bolt">
- <HintPath>F:/GitRepository/gamedev15/MMO/Assets/bolt/assemblies/bolt.dll</HintPath>
- </Reference>
- <Reference Include="bolt.user">
- <HintPath>F:/GitRepository/gamedev15/MMO/Assets/bolt/assemblies/bolt.user.dll</HintPath>
- </Reference>
- <Reference Include="udpkit.common">
- <HintPath>F:/GitRepository/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.common.dll</HintPath>
- </Reference>
- <Reference Include="udpkit">
- <HintPath>F:/GitRepository/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>F:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
->>>>>>> 4b4a29e1a3ea953fab90f29fb4b15cbd7de4d9fa
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
