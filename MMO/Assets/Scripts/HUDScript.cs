@@ -63,7 +63,7 @@ public class HUDScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-			dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, dmgDealt.color.a - (1.0f / FadeFactor * Time.deltaTime));
+		dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, dmgDealt.color.a - (1.0f / FadeFactor * Time.deltaTime));
 		
 		#region Damage Effect
 		if (HUDTimer <= 0) // Disable when the effect has ended
@@ -85,18 +85,6 @@ public class HUDScript : MonoBehaviour
 		ActionBarOnPress (ref a4Over, a4Key, ref a4Cooldown, a4Time); // CC
 		ActionBarOnPress (ref a6Over, a6Key, ref a6Cooldown, a6Time); // CPR
 		#endregion
-
-            if (gameObject.GetComponent<PlayerStats> ().IsInCoconutArea)
-            {
-                dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
-                dmgDealt.text = "Press T to pick up coconut";
-            }
-			if (gameObject.GetComponent<PlayerStats> ().IsInCoconutArea && Input.GetKeyUp (KeyCode.T)) {
-				ActivateCastBar (5, true, "coconut");
-			}
-			if (gameObject.GetComponent<PlayerStats> ().IsInCoconutArea && currentCast.Equals ("coconut")) {
-				UpdateCastBar (5, true);
-			}
 	}
 
 	private void SetupActionBar ()
