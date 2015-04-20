@@ -23,6 +23,11 @@ public class MenuScript : MonoBehaviour
     string serverAddress = "";
     int serverPort = 27000;
 
+    public static float AmbientLight = 0.2f;
+    public static float MasterSoundLevel = 1.0f;
+    public static float MusicSoundLevel = 1.0f;
+    public static float SFXSoundLevel = 1.0f;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -52,6 +57,18 @@ public class MenuScript : MonoBehaviour
     void Awake()
     {
         serverPort = BoltRuntimeSettings.instance.debugStartPort;
+    }
+
+    void Update()
+    {
+        //Brightness Settings Update(s)
+        RenderSettings.ambientLight = new Color(AmbientLight, AmbientLight, AmbientLight, 1.0f);
+        //TODO: Account for all light sources and/or figure out how to change the "brightness" of the Renderer
+
+        //Sound Settings Update(s)
+        AudioListener.volume = MasterSoundLevel;
+        //TODO: Add Music controller and set volume
+        GameObject.Find("SoundController").GetComponent<SoundController>().getSoundPlayer().volume = SFXSoundLevel; //Example of how to set the SFX - dunno if works in practice
     }
 
     #region GUI Functions
@@ -120,7 +137,8 @@ public class MenuScript : MonoBehaviour
         TeamMenu.SetActive(true);
     }
     #endregion
-    
+
+    #region Bolt Server Functions
     public void StartServer()
     {
         foreach (string value in BoltScenes.AllScenes) 
@@ -151,6 +169,27 @@ public class MenuScript : MonoBehaviour
         else if (isServer == true) 
             StartServer();
     }
+    #endregion
+
+    #region Options Functions
+    public void Brightness()
+    {
+        AmbientLight = GameObject.Find("BrightnessSlider").GetComponent<Slider>().value;
+    }
+    public void MasterVolume()
+    {
+        MasterSoundLevel = GameObject.Find("MasterSlider").GetComponent<Slider>().value;
+    }
+    public void MusicVolume()
+    {
+        MasterSoundLevel = GameObject.Find("MusicSlider").GetComponent<Slider>().value;
+    }
+    public void SFXVolume()
+    {
+        MasterSoundLevel = GameObject.Find("SFXSlider").GetComponent<Slider>().value;
+    }
+    #endregion
+
     public void Exit()
     {
         Application.Quit();
