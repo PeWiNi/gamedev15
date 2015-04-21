@@ -19,19 +19,23 @@ Global
 		{8192261E-49C1-5D1B-2642-3A3BC4092658}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8192261E-49C1-5D1B-2642-3A3BC4092658}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8192261E-49C1-5D1B-2642-3A3BC4092658}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-					GlobalSection(MonoDevelopProperties) = preSolution
+<<<<<<< HEAD
+																			GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																											GlobalSection(MonoDevelopProperties) = preSolution
 =======
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+															GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> e1f441f130ad5a2ab51fad36aae88f0e3928e8f5
+=======
 	EndGlobalSection
 		GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> 4b4a29e1a3ea953fab90f29fb4b15cbd7de4d9fa
+>>>>>>> origin/master
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

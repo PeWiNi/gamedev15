@@ -48,6 +48,8 @@ public class PlayerStats : MonoBehaviour
 	public bool IsInCoconutArea = false;
 	public bool hasCoconutEffect = false;
 	public bool stoppedInCoconutConsume = false;
+	public bool canPickUpCoconut = true;
+	//public bool canPickUpCoconut = true;
 	//BASE/RESPAWN POS
 	public Vector3 respawnPosition;
 	GameObject beaconOne;

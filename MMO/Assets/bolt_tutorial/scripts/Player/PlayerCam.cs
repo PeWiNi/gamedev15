@@ -2,6 +2,18 @@
 
 public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 {
+
+
+	/*
+
+create method in TPB where we give this camera.
+create method here, where we instantiate new HUD prefab.
+
+
+	 */
+
+
+
 //		// damp velocity of camera
 //		Vector3 _velocity;
 		float zoom = 50.0f;
