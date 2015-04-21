@@ -231,7 +231,12 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect = evnt.isAffectedByCoconut;
 		target.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration = evnt.CoconutEffectDuration;
+		target.gameObject.GetComponent<PlayerStats> ().ccDuration = evnt.CoconutCCBuffDuration;
+		target.gameObject.GetComponent<PlayerStats> ().tailSlapDamage = evnt.CoconutTailSlapDmgBuff;
+		target.gameObject.GetComponent<PlayerStats> ().boomNanaDamage = evnt.CoconutBoomnanaDmgBuff;
+		target.gameObject.GetComponent<PlayerStats> ().aoeTickDamageFactor = evnt.CoconutAOEDmgBuff;
 		target.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = evnt.StoppedInCoconutConsume;
+
 	}
 
 	public override void OnEvent (CoconutAvailableEvent evnt)
@@ -239,6 +244,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.transform.GetComponent<Renderer> ().enabled = true;
 		target.gameObject.GetComponent<CoconutEffect> ().isCoconutNotConsumed = evnt.isCoconutNotConsumed;
+		target.gameObject.GetComponent<CoconutEffect> ().coconutPickUpTime = evnt.CoconutPickedUpTime;
 	}
 
 	public override void OnEvent (CoconutUnavailableEvent evnt)
@@ -246,8 +252,31 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.transform.GetComponent<Renderer> ().enabled = false;
 		target.gameObject.GetComponent<CoconutEffect> ().isCoconutNotConsumed = evnt.isCoconutNotConsumed;
+		target.gameObject.GetComponent<CoconutEffect> ().coconutPickUpTime = evnt.CoconutPickedUpTime;
+	}
+
+	public override void OnEvent (PlayerBeingBuffedEvent evnt)
+	{
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<PlayerStats> ().canPickUpCoconut = evnt.CanPickUpCoconut;
 	}
 		
+	public override void OnEvent (BeaconCapturingEvent evnt)
+	{
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<BeaconCaptureScript> ().teamOneCaptureValue = evnt.TeamOneCaptureValue;
+		target.gameObject.GetComponent<BeaconCaptureScript> ().teamTwoCaptureValue = evnt.TeamTwoCaptureValue;
+	}
+
+	public override void OnEvent (BeaconUnderControlEvent evnt)
+	{
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl = evnt.BeaconUnderTeamOneControl;
+		target.gameObject.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl = evnt.BeaconUnderTeamTwoControl;
+		target.gameObject.GetComponent<BeaconCaptureScript> ().beaconOneHealth = evnt.BeaconTeamOneHealth;
+		target.gameObject.GetComponent<BeaconCaptureScript> ().beaconTwoHealth = evnt.BeaconTeamTwoHealth;
+	}
+
 	public override void OnEvent (BeaconOneCapturingEvent evnt)
 	{
 		BoltEntity beaconOne = evnt.BeaconOne;

@@ -31,7 +31,8 @@ public class StateController : MonoBehaviour
 	public int teamNumber;
 	float stunnedStartFromCC;
 	float stunnedDurationFromCC;
-	public float coconutDuration = 120f;
+	//public float coconutBuffDuration = 30;
+	public float buffedPlayerDuration = 30;
 	public float coconutChannelTime = 1f;
 	public float resetCoconutChannelTime = 0f;
 	GameObject beaconOne;
@@ -234,6 +235,7 @@ public class StateController : MonoBehaviour
 		bOne = beaconOne.GetComponent<BeaconZone> ();
 		bTwo = beaconTwo.GetComponent<BeaconZone> ();
 		bThree = beaconThree.GetComponent<BeaconZone> ();
+		Debug.Log (buffedPlayerDuration.ToString ());
 	}
 
 	void start ()
