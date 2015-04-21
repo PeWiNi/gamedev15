@@ -36,6 +36,16 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	string currRotStr = "N";
 	int startup = 0;
 	Vector3 camPos;
+	public float playerBuffDmg;
+	public float tailSlapDmg;
+	public float boomnanaDmg; 
+	public float aoeDmg;
+	public float ccDuration;
+	public float buffedTailSlapDmg;
+	public float buffedBoomnanaDmg;
+	public float buffedAOEBuffDmg;
+	public float buffedCcDuration;
+	public float ccDurationFactor = 1.35f;
 	//KeyCode sprint = KeyCode.LeftShift;
 
 	void Awake ()
@@ -291,34 +301,38 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		down = false;
 
 		if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == true) {
-			Debug.Log (Time.time);
 			if (Input.GetKeyDown (KeyCode.T) && !sc.isStunned && !sc.isDead) {
-//								this.gameObject.GetComponent<PlayerStats> ().channeledTime = Time.time;
-//								Debug.Log (this.gameObject.GetComponent<StateController> ().coconutChannelTime);
-//								Debug.Log (this.gameObject.GetComponent<PlayerStats> ().channeledTime);
-								
-				//if (Time.time - this.gameObject.GetComponent<PlayerStats> ().channeledTime - Time.time >= this.gameObject.GetComponent<StateController> ().coconutChannelTime) {
-				//Debug.Log (this.gameObject.GetComponent<PlayerStats> ().channeledTime);
 				if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == false) {
-					StartCoroutine ("consumeCoconut");
-					//consumeCoconut ();
+					consumeCoconut ();
 				}
-				//}
-//								} else if (this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume == true) {
-//										this.gameObject.GetComponent<PlayerStats> ().channeledTime = this.gameObject.GetComponent<StateController> ().resetCoconutChannelTime;
-//								}
 			}
 		}
 		if (this.gameObject.GetComponent<PlayerStats> ().hasCoconutEffect == true) {
-			if (Time.time - this.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration >= this.gameObject.GetComponent<StateController> ().coconutDuration) {
-				Debug.Log ("triggerede");
+			if (this.gameObject.GetComponent<PlayerStats> ().canPickUpCoconut == true) {
+				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+				while (entities.MoveNext()) {
+					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+						// Create Event and use the be, if it is the one that is colliding.
+						//CoconutEffect buff the player
+						if (be.gameObject == this.gameObject) {
+							using (var evnt = PlayerBeingBuffedEvent.Create(Bolt.GlobalTargets.Everyone)) {
+								evnt.TargEnt = be;
+								evnt.CanPickUpCoconut = false;
+							}
+						}
+					}
+				
+				}
+			}
+			if (Time.time - this.gameObject.GetComponent<PlayerStats> ().coconutEffectDuration >= this.gameObject.GetComponent<StateController> ().buffedPlayerDuration) {
+				Debug.Log (Time.time);
 				coconutEffectExpire ();
 			}	
 			if (sc.isDead) {
 				coconutEffectExpire ();
 			}
 		}
-			
 		//				if (startup == 0) {
 //						Start ();
 //				}	
@@ -684,52 +698,25 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		GetComponent<Renderer> ().material.color = state.TestPlayerColor;
 	}
 
-	public void splitUp ()
+	public void consumeCoconut ()
 	{
-				
-	}
-
-	IEnumerator consumeCoconut ()
-	{
-		yield return new WaitForSeconds (1);
-		if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == false) {
-			breakOffTheCoconutChanneling ();
-			//	this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
-			yield break;
-		}
-		yield return new WaitForSeconds (1);
-		if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == false) {
-			breakOffTheCoconutChanneling ();
-			//this.gameObject.GetComponent<PlayerStats> ().stoppedInCoconutConsume = false;
-			yield break;
-		}
-		yield return new WaitForSeconds (1);
-		if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == false) {
-			breakOffTheCoconutChanneling ();
-			yield break;
-		}
-		yield return new WaitForSeconds (1);
-		if (this.gameObject.GetComponent<PlayerStats> ().IsInCoconutArea == false) {
-			breakOffTheCoconutChanneling ();
-			yield break;
-		}
-		yield return new WaitForSeconds (1);
+		playerDmgBuff ();
+		playerCcDurationBuff ();
 		IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 		while (entities.MoveNext()) {
 			if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 				BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 				// Create Event and use the be, if it is the one that is colliding.
-				if (be.gameObject == coconut.gameObject) {
-					using (var evnt = CoconutUnavailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-						evnt.TargEnt = be;
-						evnt.isCoconutNotConsumed = false;
-					}
-				}				
+				//CoconutEffect buff the player
 				if (be.gameObject == this.gameObject) {
 					using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
 						evnt.TargEnt = be;	
 						evnt.isAffectedByCoconut = true;
 						evnt.CoconutEffectDuration = Time.time;
+						evnt.CoconutCCBuffDuration = buffedCcDuration;
+						evnt.CoconutTailSlapDmgBuff = buffedTailSlapDmg;
+						evnt.CoconutBoomnanaDmgBuff = buffedBoomnanaDmg;
+						evnt.CoconutAOEDmgBuff = buffedAOEBuffDmg;
 						evnt.StoppedInCoconutConsume = true;
 					}
 				}
@@ -745,16 +732,19 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 				BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 				// Create Event and use the be, if it is the one that is colliding.
-				if (be.gameObject == coconut.gameObject) {
-					using (var evnt = CoconutAvailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-						evnt.TargEnt = be;
-						evnt.isCoconutNotConsumed = true;
-					}
-				}
+				//CoconutEffect buff expire from the player
 				if (be.gameObject == this.gameObject) {
+					using (var evnt = PlayerBeingBuffedEvent.Create(Bolt.GlobalTargets.Everyone)) {
+						evnt.TargEnt = be;
+						evnt.CanPickUpCoconut = true;
+					}
 					using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
 						evnt.TargEnt = be;	
 						evnt.isAffectedByCoconut = false;
+						evnt.CoconutTailSlapDmgBuff = tailSlapDmg;
+						evnt.CoconutBoomnanaDmgBuff = boomnanaDmg;
+						evnt.CoconutAOEDmgBuff = aoeDmg;
+						evnt.CoconutCCBuffDuration = ccDuration;
 						evnt.StoppedInCoconutConsume = false;
 					}
 				}
@@ -771,13 +761,36 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				// Create Event and use the be, if it is the one that is colliding.
 				if (be.gameObject == this.gameObject) {
 					using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TargEnt = be;	
+						evnt.TargEnt = be;
+						evnt.isAffectedByCoconut = false;
+						evnt.CoconutTailSlapDmgBuff = tailSlapDmg;
+						evnt.CoconutBoomnanaDmgBuff = boomnanaDmg;
+						evnt.CoconutAOEDmgBuff = aoeDmg;
+						evnt.CoconutCCBuffDuration = ccDuration;
 						evnt.StoppedInCoconutConsume = false;
 					}
 				}
 			}
 		}
 	}
+
+	public void playerDmgBuff ()
+	{
+		playerBuffDmg = this.gameObject.GetComponent<PlayerStats> ().buffDamageFactor;
+		tailSlapDmg = this.gameObject.GetComponent<PlayerStats> ().tailSlapDamage;
+		boomnanaDmg = this.gameObject.GetComponent<PlayerStats> ().boomNanaDamage;
+		aoeDmg = this.gameObject.GetComponent<PlayerStats> ().aoeTickDamageFactor;
+		buffedTailSlapDmg = tailSlapDmg * playerBuffDmg;
+		buffedBoomnanaDmg = boomnanaDmg * playerBuffDmg;
+		buffedAOEBuffDmg = aoeDmg * playerBuffDmg;
+	}
+
+	public void playerCcDurationBuff ()
+	{
+		ccDuration = this.GetComponent<PlayerStats> ().ccDuration;
+		buffedCcDuration = ccDuration * ccDurationFactor;
+	}
+	
 	/*void OnGUI ()
 		{
 				if (entity.isOwner) {
