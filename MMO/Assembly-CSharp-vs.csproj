@@ -87,6 +87,7 @@
      <Compile Include="Assets\Scripts\Networking\TestPlayerBehaviour.cs" />
      <Compile Include="Assets\Scripts\Networking\coconutObjectOld.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\RotateGO.cs" />
      <Compile Include="Assets\Scripts\ScoreOneManager.cs" />
      <Compile Include="Assets\Scripts\ScoreTwoManager.cs" />
      <Compile Include="Assets\Scripts\SnowScript.cs" />
