@@ -326,6 +326,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //						Start ();
 //				}	
 //				startup = 1;
+
+		if(Input.GetKeyDown(cprKey)){
+
+		}
 	}
 
 	

@@ -148,10 +148,10 @@ public class StatSplitter : MonoBehaviour
 	public void splitStats (int noP)
 	{
 		splitHp (noP);
-		splitBoom (noP);
+		//splitBoom (noP);
 		splitTail (noP);
 		splitAoe (noP);
-		splitScale(noP);
+		//splitScale(noP);
 	}
 
 
