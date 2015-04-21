@@ -36,7 +36,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	string currRotStr = "N";
 	int startup = 0;
 	Vector3 camPos;
-<<<<<<< HEAD
 	public float playerBuffDmg;
 	public float tailSlapDmg;
 	public float boomnanaDmg; 
@@ -47,9 +46,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public float buffedAOEBuffDmg;
 	public float buffedCcDuration;
 	public float ccDurationFactor = 1.35f;
-=======
 	private bool boomUsed = false;
->>>>>>> origin/master
 	//KeyCode sprint = KeyCode.LeftShift;
 
 	void Awake ()
@@ -121,9 +118,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (3);
 			aim.GetComponent<Renderer> ().enabled = true;
-                        aim.localScale = new Vector3(1f, 0, ps.boomnanaRange / 4);
+			aim.localScale = new Vector3 (1f, 0, ps.boomnanaRange / 4);
 			aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 4));
-			aim.localEulerAngles = new Quaternion(90.0f, 0.0f, 0.0f, 0).eulerAngles;
+			aim.localEulerAngles = new Quaternion (90.0f, 0.0f, 0.0f, 0).eulerAngles;
 			//vfx.aim.renderer.enabled = true;
 			//aimOverlay(1, range, 0.5f);
 		}
