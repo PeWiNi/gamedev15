@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{CAEB3896-DDD4-15A7-D54A-C105D91C147F}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_0_1;UNITY_5_0;UNITY_5;ENABLE_LICENSE_RENAME;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_NEW_HIERARCHY;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_NONPRO;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+<<<<<<< HEAD
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+=======
+	  <HintPath>F:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>F:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+>>>>>>> 4b4a29e1a3ea953fab90f29fb4b15cbd7de4d9fa
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\NewBehaviourScript1.cs" />
+     <Compile Include="Assets\Scripts\AOE.cs" />
+     <Compile Include="Assets\Scripts\AntNest.cs" />
+     <Compile Include="Assets\Scripts\AutoAttack.cs" />
+     <Compile Include="Assets\Scripts\BananaTreeNorthScript.cs" />
+     <Compile Include="Assets\Scripts\BananaTreeSouthScript.cs" />
+     <Compile Include="Assets\Scripts\BaseStats.cs" />
+     <Compile Include="Assets\Scripts\BeaconZone.cs" />
+     <Compile Include="Assets\Scripts\BeeHive.cs" />
+     <Compile Include="Assets\Scripts\Boomnana.cs" />
+     <Compile Include="Assets\Scripts\BuffScript.cs" />
+     <Compile Include="Assets\Scripts\CCScript.cs" />
+     <Compile Include="Assets\Scripts\CaptureScript.cs" />
+     <Compile Include="Assets\Scripts\Coconut.cs" />
+     <Compile Include="Assets\Scripts\CoconutEffect.cs" />
+     <Compile Include="Assets\Scripts\CombatScript.cs" />
+     <Compile Include="Assets\Scripts\CprScript.cs" />
+     <Compile Include="Assets\Scripts\DeathSpawner.cs" />
+     <Compile Include="Assets\Scripts\ForestAreaScript.cs" />
+     <Compile Include="Assets\Scripts\GameTimeManager.cs" />
+     <Compile Include="Assets\Scripts\GameTimer.cs" />
+     <Compile Include="Assets\Scripts\HUDScript.cs" />
+     <Compile Include="Assets\Scripts\HealthSlider.cs" />
+     <Compile Include="Assets\Scripts\HidingGrassScript.cs" />
+     <Compile Include="Assets\Scripts\InputHandler.cs" />
+     <Compile Include="Assets\Scripts\MenuScript.cs" />
+     <Compile Include="Assets\Scripts\Networking\CoconutController.cs" />
+     <Compile Include="Assets\Scripts\Networking\CoconutManager.cs" />
+     <Compile Include="Assets\Scripts\Networking\Menu.cs" />
+     <Compile Include="Assets\Scripts\Networking\NetworkCallbacks.cs" />
+     <Compile Include="Assets\Scripts\Networking\PlayerCallbacks.cs" />
+     <Compile Include="Assets\Scripts\Networking\PlayerObject.cs" />
+     <Compile Include="Assets\Scripts\Networking\PlayerObjectBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Networking\PlayerObjectReg.cs" />
+     <Compile Include="Assets\Scripts\Networking\SelectTeamMenu.cs" />
+     <Compile Include="Assets\Scripts\Networking\ServerCallbacks.cs" />
+     <Compile Include="Assets\Scripts\Networking\TerrainController.cs" />
+     <Compile Include="Assets\Scripts\Networking\TestPlayerBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Networking\coconutObjectOld.cs" />
+     <Compile Include="Assets\Scripts\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\ScoreOneManager.cs" />
+     <Compile Include="Assets\Scripts\ScoreTwoManager.cs" />
+     <Compile Include="Assets\Scripts\SnowScript.cs" />
+     <Compile Include="Assets\Scripts\SoundController.cs" />
+     <Compile Include="Assets\Scripts\StatSplitter.cs" />
+     <Compile Include="Assets\Scripts\StateController.cs" />
+     <Compile Include="Assets\Scripts\SwampScript.cs" />
+     <Compile Include="Assets\Scripts\TailSlap.cs" />
+     <Compile Include="Assets\Scripts\ThornyVineScript.cs" />
+     <Compile Include="Assets\Scripts\VFXScript.cs" />
+     <Compile Include="Assets\Scripts\WASD.cs" />
+     <Compile Include="Assets\SimpleMovement.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltDebugStart.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltDebugStartSettings.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltInit.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltLauncher.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltNetworkUtils.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltShutdownPoll.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltUnityDebugDrawer.cs" />
+     <Compile Include="Assets\bolt\scripts\aoi\BoltAOI.cs" />
+     <Compile Include="Assets\bolt\scripts\aoi\BoltPOI.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\DotNet\DotNetInterface.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\DotNet\DotNetPlatform.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\DotNet\DotNetSocket.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\Native\NativePInvoke.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\Native\NativePlatform.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\Native\NativeSocket.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\Null\NullPlatform.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\Null\NullSocket.cs" />
+     <Compile Include="Assets\bolt\scripts\upnp\BoltUPnP.cs" />
+     <Compile Include="Assets\bolt_tutorial\scripts\Player\PlayerCam.cs" />
+     <None Include="Assets\Shaders\Projection.shader" />
+     <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
+     <None Include="Assets\Shaders\Grayscale.shader" />
+     <None Include="Assets\Shaders\AimShader.shader" />
+     <None Include="Assets\bolt\resources\backgrounds\ATTRIBUTION.txt" />
+     <None Include="Assets\Shaders\SwampDisplacementShader.shader" />
+     <None Include="Assets\bolt\assemblies\upnp\Mono.Nat.LICENSE.txt" />
+     <None Include="Assets\Shaders\SimpleShader.shader" />
+     <None Include="Assets\Shaders\LeavesShader.shader" />
+     <None Include="Assets\bolt\documentation\DOCUMENTATION.txt" />
+     <None Include="Assets\Shaders\IceShader.shader" />
+     <None Include="Assets\bolt\resources\BoltShaderPOI.shader" />
+     <None Include="Assets\Shaders\SwampShader.shader" />
+     <None Include="Assets\bolt\resources\icons\ATTRIBUTION.txt" />
+     <None Include="Assets\Shaders\Shader1.shader" />
+ <Reference Include="UnityEngine.UI">
+<<<<<<< HEAD
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="bolt">
+ <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/bolt/assemblies/bolt.dll</HintPath>
+ </Reference>
+ <Reference Include="bolt.user">
+ <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/bolt/assemblies/bolt.user.dll</HintPath>
+ </Reference>
+ <Reference Include="udpkit.common">
+ <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.common.dll</HintPath>
+ </Reference>
+ <Reference Include="udpkit">
+ <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+=======
+ <HintPath>F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="bolt">
+ <HintPath>F:/GitRepository/gamedev15/MMO/Assets/bolt/assemblies/bolt.dll</HintPath>
+ </Reference>
+ <Reference Include="bolt.user">
+ <HintPath>F:/GitRepository/gamedev15/MMO/Assets/bolt/assemblies/bolt.user.dll</HintPath>
+ </Reference>
+ <Reference Include="udpkit.common">
+ <HintPath>F:/GitRepository/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.common.dll</HintPath>
+ </Reference>
+ <Reference Include="udpkit">
+ <HintPath>F:/GitRepository/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>F:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+>>>>>>> 4b4a29e1a3ea953fab90f29fb4b15cbd7de4d9fa
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

@@ -36,6 +36,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	string currRotStr = "N";
 	int startup = 0;
 	Vector3 camPos;
+<<<<<<< HEAD
 	public float playerBuffDmg;
 	public float tailSlapDmg;
 	public float boomnanaDmg; 
@@ -46,6 +47,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public float buffedAOEBuffDmg;
 	public float buffedCcDuration;
 	public float ccDurationFactor = 1.35f;
+=======
+	private bool boomUsed = false;
+>>>>>>> origin/master
 	//KeyCode sprint = KeyCode.LeftShift;
 
 	void Awake ()
@@ -117,8 +121,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (3);
 			aim.GetComponent<Renderer> ().enabled = true;
-			aim.localScale = new Vector3 (0.5f, ps.boomnanaRange / 2, (this.gameObject.transform.GetComponent<Collider> ().bounds.size.x) / 2);
-			aim.localPosition = new Vector3 (0, 5, (this.gameObject.transform.GetComponent<Collider> ().bounds.size.z / 2) + (ps.boomnanaRange / 4));
+                        aim.localScale = new Vector3(1f, 0, ps.boomnanaRange / 4);
+			aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 4));
+			aim.localEulerAngles = new Quaternion(90.0f, 0.0f, 0.0f, 0).eulerAngles;
 			//vfx.aim.renderer.enabled = true;
 			//aimOverlay(1, range, 0.5f);
 		}
@@ -140,10 +145,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			
 			//Vector3 mousePos = Camera.ScreenToWorldPoint (Input.mousePosition);
 			//Debug.Log(mousePos);
-			if (((Time.time * 1000) - timeSinceLastBoom) >= (ps.boomNanaCooldown * 1000) && !sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+			if (!boomUsed || ((Time.time * 1000) - timeSinceLastBoom) >= (ps.boomNanaCooldown * 1000) && !sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
 				GameObject boom = Instantiate (Resources.Load ("Prefabs/Boomnana", typeof(GameObject)) as GameObject,
 				                               new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z), Quaternion.identity) as GameObject;
 				Boomnana boomscript = boom.GetComponent<Boomnana> ();
+				boomUsed = true;
 				// set position, add velocity.
 				// if return after x sec, unless OnCollision triggers.
                              

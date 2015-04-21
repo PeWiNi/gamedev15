@@ -5,12 +5,14 @@ using UnityEngine.UI;
 public class ScoreOneManager : MonoBehaviour
 {
 	public static float totalOneScore;
+	public static float totalKillScore;
 	Text textOne;
 
 	void Awake ()
 	{
 		textOne = GetComponent<Text> ();
 		totalOneScore = 0;
+		totalKillScore = 0;
 	}
 
 	
@@ -21,6 +23,10 @@ public class ScoreOneManager : MonoBehaviour
 		textOne.text = "Team One Score: " + totalOneScore;			
 	}
 
+	public static void addDeathPoints(float score){
+		totalKillScore += score;
+		totalOneScore += totalKillScore;
+	}
 	/// <summary>
 	/// Sets the team one total score.
 	/// </summary>
@@ -28,6 +34,7 @@ public class ScoreOneManager : MonoBehaviour
 	public static void setTeamOneTotalScore (float totalScore)
 	{
 		totalOneScore = totalScore;
+		totalOneScore += totalKillScore;
 	}
 	
 }

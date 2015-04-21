@@ -377,7 +377,12 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		ScoreTwoManager.totalTwoScore = evnt.TeamTwoTotalScore;
 		ScoreTwoManager.setTeamTwoTotalScore (ScoreTwoManager.totalTwoScore);
 	}
-
+	public override void OnEvent(KillScoreOneEvent evnt){
+		ScoreOneManager.addDeathPoints(evnt.Score);
+	}
+	public override void OnEvent(KillScoreTwoEvent evnt){
+		ScoreTwoManager.addDeathPoints(evnt.Score);
+	}
 		
 //		public override void SceneLoadRemoteDone (BoltConnection connection)
 //		{
