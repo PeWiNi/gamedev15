@@ -13,8 +13,23 @@ public class MenuScript : MonoBehaviour
     GameObject AudioMenu;
     GameObject VideoMenu;
     GameObject ControlsMenu;
+
+    enum State {
+        Main,
+        Play,
+        Options,
+        Team,
+        JoinGame,
+        Audio,
+        Video,
+        Controls,
+    }
+    State state;
+
     GameObject ResolutionPanel;
     GameObject DisplayModePanel;
+
+    GameObject BackButton;
 
     public static bool hasPickedTeamOne = false;
     public static bool hasPickedTeamTwo = false;
@@ -35,13 +50,14 @@ public class MenuScript : MonoBehaviour
 
     public static KeyCode[] KeyBindings;
     KeyCode keyHolder = KeyCode.A;
-    Button[] KeyBindButtons;
+    bool keyChange = false;
+    Button keyBind;
     #endregion
 
     // Use this for initialization
 	void Start ()
     {
-        resolutionList = new string[] {"1920x1080", "1280x720", "1024x768" };
+        resolutionList = new string[] { "1920x1080", "1366x768", "1280x768", "1280x720", "1024x768", "800x600" };
         #region Find GameObject(s)
         MainMenu = transform.Find("Main").gameObject;
         PlayMenu = transform.Find("Play").gameObject;
@@ -54,17 +70,12 @@ public class MenuScript : MonoBehaviour
         VideoMenu = transform.Find("Video").gameObject;
         ControlsMenu = transform.Find("Controls").gameObject;
 
-        ResolutionPanel = GameObject.Find("ResolutionPanel");
+        ControlsMenu.SetActive(true);
+        BackButton = GameObject.Find("ControlsBackButton");
+
+        VideoMenu.SetActive(true);
+        ResolutionPanel = GameObject.Find("ResolutionScrollPanel");
         DisplayModePanel = GameObject.Find("DisplayPanel");
-        /*
-        foreach (string text in resolutionList) //Failed attempt of making a dynamic list of possible resolutions (they are too small and always apply the text form last generated to buttonText)
-        {
-            Button btn = Instantiate((GameObject)Resources.Load("Prefabs/UIButton")).GetComponent<Button>();
-            btn.transform.parent = ResolutionPanel.transform;
-            btn.GetComponentInChildren<Text>().text = text;
-            btn.onClick.AddListener(() => { resolution(text); });
-        }
-         */
         Button[] resolutions = ResolutionPanel.GetComponentsInChildren<Button>();
         int i = 0;
         foreach (Button btn in resolutions)
@@ -81,7 +92,6 @@ public class MenuScript : MonoBehaviour
             }
             i++;
         }
-        KeyBindButtons = ControlsMenu.GetComponentsInChildren<Button>();
 
         ResolutionPanel.SetActive(false);
         DisplayModePanel.SetActive(false);
@@ -89,6 +99,7 @@ public class MenuScript : MonoBehaviour
 
 
         #region Disable all Menus but Main
+        state = State.Main;
         MainMenu.SetActive(true);
         PlayMenu.SetActive(false);
         OptionsMenu.SetActive(false);
@@ -120,27 +131,64 @@ public class MenuScript : MonoBehaviour
         AudioListener.volume = MasterSoundLevel;
         //TODO: Add Music controller and set volume
         //GameObject.Find("SoundController").GetComponent<SoundController>().getSoundPlayer().volume = SFXSoundLevel; //Example of how to set the SFX - dunno if works in practice
+
+        #region Controls
+        makeKeyBindings();
+
+        if (keyChange && keyHolder != KeyCode.None)
+        {
+            keyBind.GetComponentInChildren<Text>().text = keyHolder.ToString();
+            keyChange = false;
+        }
+
+        // Failed attempt of checking for multi-bound keys 
+        if (state == State.Controls)
+        {
+            bool fakau = false;
+            for (int i = 0; i < KeyBindings.Length; i++)
+                for (int j = 0; j < KeyBindings.Length; j++)
+                {
+                    if (!fakau && i != j && (KeyBindings[i] == KeyBindings[j] || 
+                        KeyBindings[i] == KeyCode.W || KeyBindings[i] == KeyCode.A || KeyBindings[i] == KeyCode.S || KeyBindings[i] == KeyCode.D))
+                    {
+                        BackButton.SetActive(false);
+                        Debug.Log("EQUALS FOUND");
+                        fakau = true;
+                    }
+                    else if(!fakau)
+                    {
+                        BackButton.SetActive(true);
+                        Debug.Log("Keybinds are " + KeyBindings[i].ToString() + " and " + KeyBindings[j].ToString() + " (i, j) = (" + i + ", " + j + ")");
+                        Debug.Log("EQUALS NOT FOUND");
+                    }
+                }
+        }
+        #endregion
     }
 
     #region GUI Functions
     public void Play()
     {
+        state = State.Play;
         MainMenu.SetActive(false);
         PlayMenu.SetActive(true);
     }
     public void Options()
     {
+        state = State.Options;
         MainMenu.SetActive(false);
         OptionsMenu.SetActive(true);
     }
     public void BackToMain()
     {
+        state = State.Main;
         MainMenu.SetActive(true);
         PlayMenu.SetActive(false);
         OptionsMenu.SetActive(false);
     }
     public void NewGame()
     {
+        state = State.Team;
         isServer = true;
         isClient = false;
         PlayMenu.SetActive(false);
@@ -148,6 +196,7 @@ public class MenuScript : MonoBehaviour
     }
     public void JoinGame()
     {
+        state = State.JoinGame;
         isServer = false;
         isClient = true;
         PlayMenu.SetActive(false);
@@ -155,27 +204,32 @@ public class MenuScript : MonoBehaviour
     }
     public void BackToPlay()
     {
+        state = State.Play;
         PlayMenu.SetActive(true);
         TeamMenu.SetActive(false);
         JoinGameMenu.SetActive(false);
     }
     public void Audio()
     {
+        state = State.Audio;
         OptionsMenu.SetActive(false);
         AudioMenu.SetActive(true);
     }
     public void Video()
     {
+        state = State.Video;
         OptionsMenu.SetActive(false);
         VideoMenu.SetActive(true);
     }
     public void Controls()
     {
+        state = State.Controls;
         OptionsMenu.SetActive(false);
         ControlsMenu.SetActive(true);
     }
     public void BackToOptions()
     {
+        state = State.Options;
         OptionsMenu.SetActive(true);
         AudioMenu.SetActive(false);
         VideoMenu.SetActive(false);
@@ -246,7 +300,8 @@ public class MenuScript : MonoBehaviour
     //Controls
     public void KeyBind(Button b)
     {
-        b.GetComponentInChildren<Text>().text = keyHolder.ToString();
+        keyChange = true;
+        keyBind = b;
     }
 
     public void SetResolution() //Borderless not currently supported
@@ -273,19 +328,35 @@ public class MenuScript : MonoBehaviour
 
     void OnGUI()
     {
-        Event e = Event.current;
-        if (e.isKey) {
-            keyHolder = e.keyCode;
-            Debug.Log("Detected key code: " + e.keyCode);
+        if (keyChange) {
+            Event e = Event.current;
+            if (e.isKey) {
+                keyHolder = e.keyCode;
+            }
+        }
+        else if (keyHolder != KeyCode.None) {
+            keyHolder = KeyCode.None;
         }
     }
     KeyCode[] makeKeyBindings()
     {
+        if (state != State.Controls)
+            ControlsMenu.SetActive(true);
+        if (state == State.Controls) {
+            BackButton.SetActive(true);
+
+        }
+        Button[] KeyBindButtons = ControlsMenu.GetComponentsInChildren<Button>();
         KeyCode TailSlap    = (KeyCode)System.Enum.Parse(typeof(KeyCode), KeyBindButtons[1].GetComponentInChildren<Text>().text);
         KeyCode BOOMnana    = (KeyCode)System.Enum.Parse(typeof(KeyCode), KeyBindButtons[2].GetComponentInChildren<Text>().text);
         KeyCode BananaPuke  = (KeyCode)System.Enum.Parse(typeof(KeyCode), KeyBindButtons[3].GetComponentInChildren<Text>().text);
         KeyCode FishSlam    = (KeyCode)System.Enum.Parse(typeof(KeyCode), KeyBindButtons[4].GetComponentInChildren<Text>().text);
         KeyCode Heal        = (KeyCode)System.Enum.Parse(typeof(KeyCode), KeyBindButtons[5].GetComponentInChildren<Text>().text);
+        if (state != State.Controls)
+            ControlsMenu.SetActive(false);
+        if (state == State.Controls)
+            BackButton.SetActive(false);
+
 
         return KeyBindings = new KeyCode[] { TailSlap, BOOMnana, BananaPuke, FishSlam, Heal };
     }
