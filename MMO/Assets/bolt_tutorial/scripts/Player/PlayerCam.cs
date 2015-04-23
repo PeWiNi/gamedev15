@@ -161,9 +161,9 @@ create method here, where we instantiate new HUD prefab.
 						
                         if (!started)
                         { 
-                            camPos.z = _target.position.z-120;
+                            camPos.z = _target.position.z-80;
                             camPos.x = _target.position.x;
-                            camPos.y = _target.position.y+95; 
+                            camPos.y = _target.position.y+45; 
                             transform.position = camPos;
                             offset = _target.transform.position - transform.position;
                             started = true; 
@@ -198,8 +198,9 @@ create method here, where we instantiate new HUD prefab.
             float desiredAngle = _target.transform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
             transform.position = (_target.transform.position) - ( rotation*offset); // boomnana -> range = new offset from position * angle.
-
-            transform.LookAt(_target.transform);
+		Vector3 lookPos = _target.position;
+		lookPos.y += 30;
+            transform.LookAt(lookPos);
 
              
 

@@ -31,23 +31,25 @@ public class CprScript : MonoBehaviour
 		if (Input.GetKeyDown (tpb.cprKey)) {
 			if (available) {
 				int resources = this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas;
-				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-				int teammates = 0;
-				BoltEntity self = new BoltEntity ();
-				while (entities.MoveNext()) {
 
-					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
-						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
-						// Create Event and use the be, if it is the one that is colliding.
-						if (be.gameObject == tpb.entity.gameObject) {
-							self = be;
-							using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
-								evnt.TargEnt = be;
+					IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+					int teammates = 0;
+					BoltEntity self = new BoltEntity ();
+					while (entities.MoveNext()) {
+
+						if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+							BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+							// Create Event and use the be, if it is the one that is colliding.
+							if (be.gameObject == tpb.entity.gameObject) {
+								self = be;
+								using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
+									evnt.TargEnt = self;
+								}
+								available = false;
+								this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
 							}
-							available = false;
-							this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
 						}
-					}
+
 				}
 			}
 		}		

@@ -108,17 +108,18 @@ public class StatSplitter : MonoBehaviour
 
 	public void splitScale (int noP)
 	{
-		float scaleMax = 3;
-		if (noP < 3) {
-			// split normally
-			scaleFactor = scaleMax / noP;
-		} else if (noP > 3 && noP < 10) {
-			// split /10 + 1
-			scaleFactor = (scaleMax / noP) + 1;
-		} else {
-			//scale = 1;
-			scaleFactor = 1;
-		}
+		scaleFactor = 2;
+//		float scaleMax = 3;
+//		if (noP < 3) {
+//			// split normally
+//			scaleFactor = scaleMax / noP;
+//		} else if (noP > 3 && noP < 10) {
+//			// split /10 + 1
+//			scaleFactor = (scaleMax / noP) + 1;
+//		} else {
+//			//scale = 1;
+//			scaleFactor = 1;
+//		}
 	}
 
 	public void splitAoe (int noP)
@@ -148,10 +149,10 @@ public class StatSplitter : MonoBehaviour
 	public void splitStats (int noP)
 	{
 		splitHp (noP);
-		//splitBoom (noP);
+		splitBoom (noP);
 		splitTail (noP);
 		splitAoe (noP);
-		//splitScale(noP);
+		splitScale(noP);
 	}
 
 
