@@ -355,12 +355,12 @@ public class MenuScript : MonoBehaviour
     }
     public void MusicVolume()
     {
-        MasterSoundLevel = GameObject.Find("MusicSlider").GetComponent<Slider>().value;
+        MusicSoundLevel = GameObject.Find("MusicSlider").GetComponent<Slider>().value;
         GameObject.Find("MusicTextValue").GetComponent<Text>().text = "" + System.Math.Ceiling(MusicSoundLevel * 100f);
     }
     public void SFXVolume()
     {
-        MasterSoundLevel = GameObject.Find("SFXSlider").GetComponent<Slider>().value;
+        SFXSoundLevel = GameObject.Find("SFXSlider").GetComponent<Slider>().value;
         GameObject.Find("SFXTextValue").GetComponent<Text>().text = "" + System.Math.Ceiling(SFXSoundLevel * 100f);
     }
     //Controls
