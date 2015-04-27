@@ -28,6 +28,7 @@ public class GameTimeManager : MonoBehaviour
 		beacon04 = GameObject.Find ("BeaconZone04");
 	}
 
+
 	// Update is called once per frame
 	void Update ()
 	{

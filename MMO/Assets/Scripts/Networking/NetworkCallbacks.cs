@@ -82,7 +82,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 		StatSplitter sp = new StatSplitter ();
 		sp.splitStats (teamOneMembers);
-		sp.splitScale (teamOneMembers);
+		//sp.splitScale (teamOneMembers);
 		IEnumerator players = por.allPlayerObjects.GetEnumerator ();
 		int currentPlayerIndex = 0;
 		while (players.MoveNext()) {
@@ -107,7 +107,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 		sp = new StatSplitter ();
 		sp.splitStats (teamTwoMembers);
-		sp.splitScale (teamTwoMembers);
+		//sp.splitScale (teamTwoMembers);
 		currentPlayerIndex = 0;
 		players = por.allPlayerObjects.GetEnumerator ();
 		while (players.MoveNext()) {

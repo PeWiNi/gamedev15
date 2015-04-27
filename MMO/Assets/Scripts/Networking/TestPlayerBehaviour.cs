@@ -119,7 +119,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			Transform aim = this.transform.GetChild (3);
 			aim.GetComponent<Renderer> ().enabled = true;
 			aim.localScale = new Vector3 (1f, 0, ps.boomnanaRange / 4);
-			aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 4));
+			aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 2));
 			aim.localEulerAngles = new Quaternion (90.0f, 0.0f, 0.0f, 0).eulerAngles;
 			//vfx.aim.renderer.enabled = true;
 			//aimOverlay(1, range, 0.5f);
@@ -340,6 +340,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //						Start ();
 //				}	
 //				startup = 1;
+
+		if(Input.GetKeyDown(cprKey)){
+
+		}
 	}
 
 	

@@ -2,6 +2,18 @@
 
 public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 {
+
+
+	/*
+
+create method in TPB where we give this camera.
+create method here, where we instantiate new HUD prefab.
+
+
+	 */
+
+
+
 //		// damp velocity of camera
 //		Vector3 _velocity;
 		float zoom = 50.0f;
@@ -149,9 +161,9 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
 						
                         if (!started)
                         { 
-                            camPos.z = _target.position.z-120;
+                            camPos.z = _target.position.z-80;
                             camPos.x = _target.position.x;
-                            camPos.y = _target.position.y+95; 
+                            camPos.y = _target.position.y+45; 
                             transform.position = camPos;
                             offset = _target.transform.position - transform.position;
                             started = true; 
@@ -186,8 +198,9 @@ public class PlayerCam : BoltSingletonPrefab<PlayerCam>
             float desiredAngle = _target.transform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
             transform.position = (_target.transform.position) - ( rotation*offset); // boomnana -> range = new offset from position * angle.
-
-            transform.LookAt(_target.transform);
+		Vector3 lookPos = _target.position;
+		lookPos.y += 30;
+            transform.LookAt(lookPos);
 
              
 
