@@ -32,6 +32,7 @@ public class GameTimeManager : MonoBehaviour
 		bThree = beaconThree.GetComponent<BeaconZone> ();
 	}
 
+
 	// Update is called once per frame
 	void Update ()
 	{
@@ -41,7 +42,7 @@ public class GameTimeManager : MonoBehaviour
 		if (!wonByBeacon) {
 			if (time > 0) {
 				setGameTimer (time);
-				text.text = "Game Ends In: " + time;
+				text.text = "Game Ends In: " + time + " minutes";
 			}
 			checkWinningTeamByScore ();
 		}

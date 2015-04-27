@@ -30,20 +30,24 @@ public class CprScript : MonoBehaviour
 		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
 		if (Input.GetKeyDown (tpb.cprKey)) {
 			if (available) {
-				int resources = this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas;
-
+//				BoltEntity self = this.GetComponentInParent<TestPlayerBehaviour>().entity;
+//				int resources = this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas;
+//				using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
+//					evnt.TargEnt = self;
+//				}
+//				available = false;
+//				this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
 					IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-					int teammates = 0;
-					BoltEntity self = new BoltEntity ();
+					//int teammates = 0;
+					//BoltEntity self = this.GetComponentInParent<TestPlayerBehaviour>().entity;
 					while (entities.MoveNext()) {
 
 						if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 							BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 							// Create Event and use the be, if it is the one that is colliding.
-							if (be.gameObject == tpb.entity.gameObject) {
-								self = be;
+							if (be.gameObject == this.gameObject.GetComponentInParent<PlayerStats>().gameObject) {
 								using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
-									evnt.TargEnt = self;
+									evnt.TargEnt = be;
 								}
 								available = false;
 								this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
