@@ -20,10 +20,11 @@ public class ScoreOneManager : MonoBehaviour
 	void Update ()
 	{	
 		setTeamOneTotalScore (totalOneScore);
-		textOne.text = "Team One Score: " + totalOneScore;			
+		textOne.text = "Team Fish Score: " + totalOneScore;			
 	}
 
-	public static void addDeathPoints(float score){
+	public static void addDeathPoints (float score)
+	{
 		totalKillScore += score;
 		totalOneScore += totalKillScore;
 	}

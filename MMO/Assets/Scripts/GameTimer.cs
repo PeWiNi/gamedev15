@@ -9,22 +9,18 @@ public class GameTimer : MonoBehaviour
 	float decreasingTime;
 	bool isTimerDecreasing;
 	float lastTime = 0;
-	GameObject beaconOne;
-	GameObject beaconTwo;
-	GameObject beaconThree;
-	BeaconZone bOne;
-	BeaconZone bTwo;
-	BeaconZone bThree;
+	GameObject beacon01;
+	GameObject beacon02;
+	GameObject beacon03;
+	GameObject beacon04;
 
 	// Use this for initialization
 	void Start ()
 	{	
-		beaconOne = GameObject.Find ("BeaconZone01");
-		beaconTwo = GameObject.Find ("BeaconZone02");
-		beaconThree = GameObject.Find ("BeaconZone03");
-		bOne = beaconOne.GetComponent<BeaconZone> ();
-		bTwo = beaconTwo.GetComponent<BeaconZone> ();
-		bThree = beaconThree.GetComponent<BeaconZone> ();
+		beacon01 = GameObject.Find ("BeaconZone01");
+		beacon02 = GameObject.Find ("BeaconZone02");
+		beacon03 = GameObject.Find ("BeaconZone03");
+		beacon04 = GameObject.Find ("BeaconZone04");
 		gameTimer = 1;
 		gameTimerLimit = 20;
 	}
@@ -56,7 +52,9 @@ public class GameTimer : MonoBehaviour
 
 	void checkBeaconActivation ()
 	{
-		if (bOne.zoneOneTeamOneActive && bTwo.zoneTwoTeamOneActive && bThree.zoneThreeTeamOneActive || bOne.zoneOneTeamTwoActive && bTwo.zoneTwoTeamTwoActive && bThree.zoneThreeTeamTwoActive) {
+		if (beacon01.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl && beacon02.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl && beacon03.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl && beacon04.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl) {
+			gameTimerLimit = 0;
+		} else if (beacon01.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl && beacon02.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl && beacon03.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl && beacon04.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl) {
 			gameTimerLimit = 0;
 		}
 	}

@@ -35,12 +35,8 @@ public class StateController : MonoBehaviour
 	public float buffedPlayerDuration = 30;
 	public float coconutChannelTime = 1f;
 	public float resetCoconutChannelTime = 0f;
-	GameObject beaconOne;
-	GameObject beaconTwo;
-	GameObject beaconThree;
-	BeaconZone bOne;
-	BeaconZone bTwo;
-	BeaconZone bThree;
+	GameObject beacon;
+	BeaconCaptureScript bZone;
 	public float buffMultiplier;
 
 	public float getSpeed ()
@@ -93,49 +89,31 @@ public class StateController : MonoBehaviour
 		// tpb.mainCam.gameObject.GetComponentInChildren<HUDScript>().damageEff();
 	}
 	
-	public void attackBeacon (GameObject target, float damage)
-	{
-		StateController targetSC = target.GetComponent<StateController> ();
-		targetSC.beaconHit (damage);
-	}
+//	public void attackBeacon (GameObject target, float damage)
+//	{
+//		StateController targetSC = target.GetComponent<StateController> ();
+//		targetSC.beaconHit (damage);
+//	}
 	
-	public void beaconHit (float damage)
-	{
-		if (isBuffed) {
-			if (bOne.zoneOneTeamOneActive == true) {
-				bOne.beaconHealth -= (damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
-			} else if (bOne.zoneOneTeamTwoActive == true) {
-				bOne.beaconHealth -= (damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
-			}
-			if (bTwo.zoneTwoTeamOneActive == true) {
-				bTwo.beaconHealth -= (damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
-			} else if (bTwo.zoneTwoTeamTwoActive == true) {
-				bTwo.beaconHealth -= (damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
-			}
-			if (bThree.zoneThreeTeamOneActive == true) {
-				bThree.beaconHealth -= (damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
-			} else if (bThree.zoneThreeTeamTwoActive == true) {
-				bThree.beaconHealth -= (damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
-			}
-		} else {
-			if (bOne.zoneOneTeamOneActive == true) {
-				bOne.beaconHealth -= damage;
-			} else if (bOne.zoneOneTeamTwoActive == true) {
-				bOne.beaconHealth -= damage;
-			}
-			if (bTwo.zoneTwoTeamOneActive == true) {
-				bTwo.beaconHealth -= damage;
-			} else if (bTwo.zoneTwoTeamTwoActive == true) {
-				bTwo.beaconHealth -= damage;
-			}
-			if (bTwo.zoneThreeTeamOneActive == true) {
-				bThree.beaconHealth -= damage;
-			} else if (bTwo.zoneThreeTeamTwoActive == true) {
-				bThree.beaconHealth -= damage;
-			}
-		}
-		//	checkIfBeaconDestoryed ();
-	}
+//	public void beaconHit (float damage)
+//	{
+//		if (isBuffed) {
+//			if (bZone.beaconUnderTeamOneControl == true) {
+//				bZone.beaconOneHealth -= Mathf.Ceil (damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
+//			} 
+//			if (bZone.beaconUnderTeamTwoControl == true) {
+//				bZone.beaconTwoHealth -= Mathf.Ceil (damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
+//			} 
+//		} else {
+//			if (bZone.beaconUnderTeamOneControl == true) {
+//				bZone.beaconOneHealth -= Mathf.Ceil (damage);
+//			}
+//			if (bZone.beaconUnderTeamTwoControl == true) {
+//				bZone.beaconTwoHealth -= Mathf.Ceil (damage);
+//			}
+//		}
+//		//	checkIfBeaconDestoryed ();
+//	}
 
 	public void getHitByBuff (float damage, GameObject target)
 	{
@@ -182,7 +160,7 @@ public class StateController : MonoBehaviour
 				this.gameObject.GetComponent<DeathSpawner> ().startRespawn ();
 			}
 
-			switch(teamNumber){
+			switch (teamNumber) {
 			case 1:
 				using (var evnt = KillScoreOneEvent.Create(Bolt.GlobalTargets.Everyone)) { 
 					evnt.Score = 5;
@@ -229,13 +207,8 @@ public class StateController : MonoBehaviour
 
 	void Start ()
 	{
-		beaconOne = GameObject.Find ("BeaconZone01");
-		beaconTwo = GameObject.Find ("BeaconZone02");
-		beaconThree = GameObject.Find ("BeaconZone03");
-		bOne = beaconOne.GetComponent<BeaconZone> ();
-		bTwo = beaconTwo.GetComponent<BeaconZone> ();
-		bThree = beaconThree.GetComponent<BeaconZone> ();
-		Debug.Log (buffedPlayerDuration.ToString ());
+//		beacon = GameObject.FindGameObjectWithTag ("beacon");
+//		bZone = beacon.GetComponent<BeaconCaptureScript> ();
 	}
 
 	void start ()

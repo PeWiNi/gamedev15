@@ -52,12 +52,7 @@ public class PlayerStats : MonoBehaviour
 	//public bool canPickUpCoconut = true;
 	//BASE/RESPAWN POS
 	public Vector3 respawnPosition;
-	GameObject beaconOne;
-	GameObject beaconTwo;
-	GameObject beaconThree;
-	BeaconZone bOne;
-	BeaconZone bTwo;
-	BeaconZone bThree;
+
 
 	// Use this for initialization
 	void Start ()

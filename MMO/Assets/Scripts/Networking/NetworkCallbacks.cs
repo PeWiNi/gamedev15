@@ -264,8 +264,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	public override void OnEvent (BeaconCapturingEvent evnt)
 	{
 		BoltEntity target = evnt.TargEnt;
-		target.gameObject.GetComponent<BeaconCaptureScript> ().teamOneCaptureValue = evnt.TeamOneCaptureValue;
-		target.gameObject.GetComponent<BeaconCaptureScript> ().teamTwoCaptureValue = evnt.TeamTwoCaptureValue;
+		target.gameObject.GetComponent<BeaconCaptureScript> ().captureValue = evnt.CaptureValue;
 	}
 
 	public override void OnEvent (BeaconUnderControlEvent evnt)
@@ -273,41 +272,10 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl = evnt.BeaconUnderTeamOneControl;
 		target.gameObject.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl = evnt.BeaconUnderTeamTwoControl;
-		target.gameObject.GetComponent<BeaconCaptureScript> ().beaconOneHealth = evnt.BeaconTeamOneHealth;
-		target.gameObject.GetComponent<BeaconCaptureScript> ().beaconTwoHealth = evnt.BeaconTeamTwoHealth;
-	}
-
-	public override void OnEvent (BeaconOneCapturingEvent evnt)
-	{
-		BoltEntity beaconOne = evnt.BeaconOne;
-		beaconOne.gameObject.GetComponent<BeaconZone> ().zoneOneTeamOneActive = evnt.ZoneOneTeamOne;
-		beaconOne.gameObject.GetComponent<BeaconZone> ().zoneOneTeamTwoActive = evnt.ZoneOneTeamTwo;
-		beaconOne.gameObject.GetComponent<BeaconZone> ().beaconOneTimer = evnt.BeaconOneTimer;
-		beaconOne.gameObject.GetComponent<BeaconZone> ().beaconOneActivationTimer = evnt.ActiveOneTimer;
-	}
-
-	public override void OnEvent (BeaconTwoCapturingEvent evnt)
-	{
-		BoltEntity beaconTwo = evnt.BeaconTwo;
-		beaconTwo.gameObject.GetComponent<BeaconZone> ().zoneTwoTeamOneActive = evnt.ZoneTwoTeamOne;
-		beaconTwo.gameObject.GetComponent<BeaconZone> ().zoneTwoTeamTwoActive = evnt.ZoneTwoTeamTwo;
-		beaconTwo.gameObject.GetComponent<BeaconZone> ().beaconTwoTimer = evnt.BeaconTwoTimer;
-		beaconTwo.gameObject.GetComponent<BeaconZone> ().beaconTwoActivationTimer = evnt.ActiveTwoTimer;
-	}
-
-	public override void OnEvent (BeaconThreeCapturingEvent evnt)
-	{
-		BoltEntity beaconThree = evnt.BeaconThree;
-		beaconThree.gameObject.GetComponent<BeaconZone> ().zoneThreeTeamOneActive = evnt.ZoneThreeTeamOne;
-		beaconThree.gameObject.GetComponent<BeaconZone> ().zoneThreeTeamTwoActive = evnt.ZoneThreeTeamTwo;
-		beaconThree.gameObject.GetComponent<BeaconZone> ().beaconThreeTimer = evnt.BeaconThreeTimer;
-		beaconThree.gameObject.GetComponent<BeaconZone> ().beaconThreeActivationTimer = evnt.ActiveThreeTimer;
-	}
-
-	public override void OnEvent (BeaconEvent evnt)
-	{
-		BoltEntity target = evnt.TargEnt;
-		target.gameObject.GetComponent<StateController> ().attackBeacon (target.gameObject, evnt.Damage);
+		target.gameObject.GetComponent<BeaconCaptureScript> ().teamOneIsCapturing = evnt.TeamOneIsCapturing;
+		target.gameObject.GetComponent<BeaconCaptureScript> ().teamTwoIsCapturing = evnt.TeamTwoIsCapturing;
+		target.gameObject.GetComponent<BeaconCaptureScript> ().beaconIsNeutral = evnt.BeaconIsNeutral;
+		target.gameObject.GetComponent<BeaconCaptureScript> ().bonusPointsGiven = evnt.BonusPointsGiven;
 	}
 		
 	public override void OnEvent (AoeEvent evnt)
@@ -377,11 +345,13 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		ScoreTwoManager.totalTwoScore = evnt.TeamTwoTotalScore;
 		ScoreTwoManager.setTeamTwoTotalScore (ScoreTwoManager.totalTwoScore);
 	}
-	public override void OnEvent(KillScoreOneEvent evnt){
-		ScoreOneManager.addDeathPoints(evnt.Score);
+	public override void OnEvent (KillScoreOneEvent evnt)
+	{
+		ScoreOneManager.addDeathPoints (evnt.Score);
 	}
-	public override void OnEvent(KillScoreTwoEvent evnt){
-		ScoreTwoManager.addDeathPoints(evnt.Score);
+	public override void OnEvent (KillScoreTwoEvent evnt)
+	{
+		ScoreTwoManager.addDeathPoints (evnt.Score);
 	}
 		
 //		public override void SceneLoadRemoteDone (BoltConnection connection)

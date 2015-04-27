@@ -9,12 +9,10 @@ public class GameTimeManager : MonoBehaviour
 	bool isSlowed;
 	bool wonByBeacon = false;
 	bool wonByScore = false;
-	GameObject beaconOne;
-	GameObject beaconTwo;
-	GameObject beaconThree;
-	BeaconZone bOne;
-	BeaconZone bTwo;
-	BeaconZone bThree;
+	GameObject beacon01;
+	GameObject beacon02;
+	GameObject beacon03;
+	GameObject beacon04;
 
 	void Awake ()
 	{
@@ -24,24 +22,22 @@ public class GameTimeManager : MonoBehaviour
 	void Start ()
 	{
 		time = 20;
-		beaconOne = GameObject.Find ("BeaconZone01");
-		beaconTwo = GameObject.Find ("BeaconZone02");
-		beaconThree = GameObject.Find ("BeaconZone03"); 
-		bOne = beaconOne.GetComponent<BeaconZone> ();
-		bTwo = beaconTwo.GetComponent<BeaconZone> ();
-		bThree = beaconThree.GetComponent<BeaconZone> ();
+		beacon01 = GameObject.Find ("BeaconZone01");
+		beacon02 = GameObject.Find ("BeaconZone02");
+		beacon03 = GameObject.Find ("BeaconZone03"); 
+		beacon04 = GameObject.Find ("BeaconZone04");
 	}
 
 	// Update is called once per frame
 	void Update ()
 	{
 		if (!wonByScore) {
-			checkWinningReamByBeacon ();
+			checkWinningTeamByBeacon ();
 		}
 		if (!wonByBeacon) {
 			if (time > 0) {
 				setGameTimer (time);
-				text.text = "Game Ends In: " + time;
+				text.text = "Game Ends In: " + time + " minutes";
 			}
 			checkWinningTeamByScore ();
 		}
@@ -56,15 +52,15 @@ public class GameTimeManager : MonoBehaviour
 		time = timer;
 	}
 
-	public void checkWinningReamByBeacon ()
+	public void checkWinningTeamByBeacon ()
 	{
-		if (bOne.zoneOneTeamOneActive && bTwo.zoneTwoTeamOneActive && bThree.zoneThreeTeamOneActive) {
+		if (beacon01.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl && beacon02.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl && beacon03.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl && beacon04.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl) {
 			time = 0;
-			text.text = "Team one WON!!!";
+			text.text = "ALL BEACONS HAVE BEEN CAPTURED BY TEAM FISH, FISH WINS!";
 			wonByBeacon = true;
-		} else if (bOne.zoneOneTeamTwoActive && bTwo.zoneTwoTeamTwoActive && bThree.zoneThreeTeamTwoActive) {
+		} else if (beacon01.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl && beacon02.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl && beacon03.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl && beacon04.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl) {
 			time = 0;
-			text.text = "Team two WON!!!";
+			text.text = "ALL BEACONS HAVE BEEN CAPTURED BY TEAM BANANA, BANANA WINS!";
 			wonByBeacon = true;
 		}
 	}
@@ -77,10 +73,10 @@ public class GameTimeManager : MonoBehaviour
 		// what should happen if it's a tie?
 		if (time == 0) {
 			if (ScoreOneManager.totalOneScore > ScoreTwoManager.totalTwoScore) {
-				text.text = "Team one WON!!!";
+				text.text = "TEAM FISH WINS ON POINTS!";
 				wonByScore = true;
 			} else if (ScoreOneManager.totalOneScore < ScoreTwoManager.totalTwoScore) {
-				text.text = "Team two WON!!!";
+				text.text = "TEAM BANANA WINS ON POINTS!";
 				wonByScore = true;
 			} 
 		}

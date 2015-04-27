@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\BananaTreeSouthScript.cs" />
      <Compile Include="Assets\Scripts\BaseStats.cs" />
      <Compile Include="Assets\Scripts\BeaconCaptureScript.cs" />
-     <Compile Include="Assets\Scripts\BeaconZone.cs" />
      <Compile Include="Assets\Scripts\BeeHive.cs" />
      <Compile Include="Assets\Scripts\Boomnana.cs" />
      <Compile Include="Assets\Scripts\BuffScript.cs" />
