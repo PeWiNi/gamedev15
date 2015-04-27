@@ -33,6 +33,7 @@ public class CoconutEffect : MonoBehaviour
 								// Create Event and use the be, if it is the one that is colliding.
 								//The Coconut is consumed
 								if (be.gameObject == this.gameObject) {
+									this.gameObject.GetComponent<Light> ().enabled = false;
 									using (var evnt = CoconutUnavailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
 										evnt.TargEnt = be;
 										evnt.isCoconutNotConsumed = false;
@@ -70,6 +71,7 @@ public class CoconutEffect : MonoBehaviour
 				// Create Event and use the be, if it is the one that is colliding.
 				//The Coconut respawns
 				if (be.gameObject == this.gameObject) {
+					this.gameObject.GetComponent<Light> ().enabled = true;
 					using (var evnt = CoconutAvailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
 						evnt.TargEnt = be;
 						evnt.isCoconutNotConsumed = true;
