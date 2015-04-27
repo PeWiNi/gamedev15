@@ -52,7 +52,7 @@ public class TailSlap : MonoBehaviour
 										evnt.TargEnt = be; 
 										evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
 									}
-								} else if(coll.gameObject == this.GetComponentInParent<PlayerStats>().gameObject){
+								} else if(!be.isOwner){
 									//Do nothing.
 								} else { // check for friendly player, deal 50% dmg.
 									// deal half damage!!!

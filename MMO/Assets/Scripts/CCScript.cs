@@ -69,7 +69,7 @@ public class CCScript : MonoBehaviour
 						// Create Event and use the be, if it is the one that is colliding.
 						//if (be.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour>().player.gameObject)
 						//{
-						if (be.gameObject == coll.gameObject && be.gameObject != player) { // Check for enemy, deal full damage
+						if (be.gameObject == coll.gameObject && !be.isOwner) { // Check for enemy, deal full damage
 
 
 							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != ps.teamNumber && coll.gameObject != player) {

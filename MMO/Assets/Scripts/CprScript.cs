@@ -45,12 +45,15 @@ public class CprScript : MonoBehaviour
 						if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 							BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 							// Create Event and use the be, if it is the one that is colliding.
+						if(be.isOwner){
+							using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
+								evnt.TargEnt = be;
+							}
+							available = false;
+							this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
+						}
 							if (be.gameObject == this.gameObject.GetComponentInParent<PlayerStats>().gameObject) {
-								using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
-									evnt.TargEnt = be;
-								}
-								available = false;
-								this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
+								
 							}
 						}
 
