@@ -23,6 +23,8 @@ public class MenuScript : MonoBehaviour
         Audio,
         Video,
         Controls,
+        Pause,
+        Playing,
     }
     State state;
 
@@ -30,11 +32,13 @@ public class MenuScript : MonoBehaviour
     GameObject DisplayModePanel;
 
     GameObject BackButton;
+    GameObject RestartButton;
 
+    public static bool isPaused = false;
     public static bool hasPickedTeamOne = false;
     public static bool hasPickedTeamTwo = false;
-    bool isServer = false;
-    bool isClient = false;
+    public static bool isServer = false;
+    public static bool isClient = false;
 
     string map;
     string serverAddress = "";
@@ -86,7 +90,7 @@ public class MenuScript : MonoBehaviour
                 btn.GetComponentInChildren<Text>().text = text;
                 btn.onClick.AddListener(() => { resolution(text); });
             }
-            catch (System.Exception e)
+            catch
             {
                btn.gameObject.SetActive(false);
             }
@@ -108,6 +112,14 @@ public class MenuScript : MonoBehaviour
         AudioMenu.SetActive(false);
         VideoMenu.SetActive(false);
         ControlsMenu.SetActive(false);
+        #endregion
+        #region InGameMenu
+        try {
+            RestartButton = GameObject.Find("RestartButton");
+            RestartButton.SetActive(false);
+            if (isServer)
+                RestartButton.SetActive(true);
+        } catch { }
         #endregion
     }
 
@@ -144,22 +156,22 @@ public class MenuScript : MonoBehaviour
         // Failed attempt of checking for multi-bound keys 
         if (state == State.Controls)
         {
-            bool fakau = false;
+            bool conflict = false;
             for (int i = 0; i < KeyBindings.Length; i++)
                 for (int j = 0; j < KeyBindings.Length; j++)
                 {
-                    if (!fakau && i != j && (KeyBindings[i] == KeyBindings[j] || 
+                    if (!conflict && i != j && (KeyBindings[i] == KeyBindings[j] || 
                         KeyBindings[i] == KeyCode.W || KeyBindings[i] == KeyCode.A || KeyBindings[i] == KeyCode.S || KeyBindings[i] == KeyCode.D))
                     {
                         BackButton.SetActive(false);
-                        Debug.Log("EQUALS FOUND");
-                        fakau = true;
+                        Debug.Log("CONFLICT FOUND");
+                        conflict = true;
                     }
-                    else if(!fakau)
+                    else if(!conflict)
                     {
                         BackButton.SetActive(true);
                         Debug.Log("Keybinds are " + KeyBindings[i].ToString() + " and " + KeyBindings[j].ToString() + " (i, j) = (" + i + ", " + j + ")");
-                        Debug.Log("EQUALS NOT FOUND");
+                        Debug.Log("CONFLICT NOT FOUND");
                     }
                 }
         }
@@ -172,6 +184,39 @@ public class MenuScript : MonoBehaviour
         state = State.Play;
         MainMenu.SetActive(false);
         PlayMenu.SetActive(true);
+    }
+    public void Pause()
+    {
+        Image img = GameObject.Find("FadeBackground").GetComponent<Image>();
+        Text pause = GameObject.Find("PlayButton").GetComponent<Button>().GetComponentInChildren<Text>();
+        Button resume = GameObject.Find("ResumeButton").GetComponent<Button>();
+        if (pause.text.Equals("PAUSE")) {
+            state = State.Pause;
+            pause.text = "UNPAUSE";
+            isPaused = true;
+            //Cosmetics
+            img.color = new Color(img.color.r, img.color.g, img.color.b, 240f / 255f);
+            resume.interactable = false;
+            resume.GetComponentInChildren<Text>().color = new Color(resume.GetComponentInChildren<Text>().color.r, resume.GetComponentInChildren<Text>().color.g, resume.GetComponentInChildren<Text>().color.b, .5f);
+        }
+        else if (pause.text.Equals("UNPAUSE")) {
+            state = State.Main;
+            pause.text = "PAUSE";
+            isPaused = false;
+            //Cosmetics
+            img.color = new Color(img.color.r, img.color.g, img.color.b, 200f / 255f);
+            resume.interactable = true;
+            resume.GetComponentInChildren<Text>().color = new Color(resume.GetComponentInChildren<Text>().color.r, resume.GetComponentInChildren<Text>().color.g, resume.GetComponentInChildren<Text>().color.b, 1f);
+        }
+    }
+    public void Restart()
+    {
+        //TODO: Tell clients that the server is restarting and ensure that they stay on the server (or that they are able to reconnect)
+        StartServer();
+    }
+    public void Resume()
+    {
+        GameObject.Find("HUD").GetComponent<HUDScript>().ShowMenu(true);
     }
     public void Options()
     {
@@ -246,6 +291,7 @@ public class MenuScript : MonoBehaviour
     #region Bolt Server Functions
     public void StartServer()
     {
+        state = State.Playing;
         makeKeyBindings();
         foreach (string value in BoltScenes.AllScenes) 
             map = value;
@@ -254,6 +300,7 @@ public class MenuScript : MonoBehaviour
     }
     void StartClient()
     {
+        state = State.Playing;
         makeKeyBindings();
         BoltLauncher.StartClient(UdpEndPoint.Any);
         BoltNetwork.Connect(new UdpEndPoint(UdpIPv4Address.Parse(serverAddress), (ushort)serverPort));
