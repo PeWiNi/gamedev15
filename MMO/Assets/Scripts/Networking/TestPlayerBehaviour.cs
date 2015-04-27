@@ -83,6 +83,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //				state.TeamMemberId = BoltInit.teamMemberId;
 		//Debug.Log ("team" + BoltInit.teamMemberId);
 		//state.TeamMemberId = gameObject.GetComponent<BoltInit> ().teamMemberId;
+        /*
 		if (entity.isOwner) {
 			if (BoltInit.hasPickedTeamOne == true) {
 				state.TeamMemberId = 1;
@@ -96,7 +97,24 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			}	
 			//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
 			//state.TeamMemberId = BoltInit.teamMemberId;
-		}  
+        } */
+        if (entity.isOwner)
+        {
+            if (MenuScript.hasPickedTeamOne == true)
+            {
+                state.TeamMemberId = 1;
+                state.TestPlayerColor = new Color(0, 1, 0, 1);
+                Debug.Log("Team nr." + state.TeamMemberId.ToString());
+            }
+            if (MenuScript.hasPickedTeamTwo == true)
+            {
+                state.TeamMemberId = 2;
+                state.TestPlayerColor = new Color(1, 0, 0, 1);
+                Debug.Log("Team nr." + state.TeamMemberId.ToString());
+            }
+            //state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
+            //state.TeamMemberId = BoltInit.teamMemberId;
+        }  
 		state.AddCallback ("TestPlayerColor", ColorChanged);
 		state.AddCallback ("TeamMemberId", TeamSelection);
 

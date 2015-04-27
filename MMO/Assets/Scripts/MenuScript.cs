@@ -40,7 +40,7 @@ public class MenuScript : MonoBehaviour
     public static bool isServer = false;
     public static bool isClient = false;
 
-    string map;
+    static string map;
     string serverAddress = "";
     int serverPort = 27000;
 
@@ -212,7 +212,7 @@ public class MenuScript : MonoBehaviour
     public void Restart()
     {
         //TODO: Tell clients that the server is restarting and ensure that they stay on the server (or that they are able to reconnect)
-        StartServer();
+        BoltNetwork.LoadScene(map);
     }
     public void Resume()
     {
