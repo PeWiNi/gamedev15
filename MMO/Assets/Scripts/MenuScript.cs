@@ -99,6 +99,22 @@ public class MenuScript : MonoBehaviour
 
         ResolutionPanel.SetActive(false);
         DisplayModePanel.SetActive(false);
+
+        #region Fix Sliders
+        AudioMenu.SetActive(true);
+        VideoMenu.SetActive(true);
+        Transform MasterHandle = GameObject.Find("MasterHandle").transform;
+        MasterHandle.localPosition = new Vector3(50, MasterHandle.localPosition.y, MasterHandle.localPosition.z);
+        Transform MusicHandle = GameObject.Find("MusicHandle").transform;
+        MusicHandle.localPosition = new Vector3(50, MusicHandle.localPosition.y, MusicHandle.localPosition.z);
+        Transform SFXHandle = GameObject.Find("SFXHandle").transform;
+        SFXHandle.localPosition = new Vector3(50, SFXHandle.localPosition.y, SFXHandle.localPosition.z);
+        RectTransform BrightnessFill = GameObject.Find("BrightnessFill").GetComponent<RectTransform>();
+        BrightnessFill.offsetMin = new Vector2(-5, BrightnessFill.offsetMin.y);
+        BrightnessFill.offsetMax = new Vector2(5, BrightnessFill.offsetMax.y);
+        Transform BrightnessHandle = GameObject.Find("BrightnessHandle").transform;
+        BrightnessHandle.localPosition = new Vector3(0, BrightnessHandle.localPosition.y, BrightnessHandle.localPosition.z);
+        #endregion
         #endregion
 
 

@@ -12,7 +12,9 @@ public class ScoreOneManager : MonoBehaviour
 	{
 		textOne = GetComponent<Text> ();
 		totalOneScore = 0;
-		totalKillScore = 0;
+        totalKillScore = 0;
+        if (MenuScript.hasPickedTeamOne)
+            textOne.color = new Color(248f / 255f, 190f / 255f, 2f / 255f, 1f);
 	}
 
 	
