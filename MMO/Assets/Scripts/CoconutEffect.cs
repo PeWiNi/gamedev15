@@ -3,10 +3,10 @@ using System.Collections;
 
 public class CoconutEffect : MonoBehaviour
 {
-	public bool isCoconutNotConsumed = true;
-
+	[SerializeField]
+	public bool
+		isCoconutNotConsumed = true;
 	public float coconutReappearsTimer = 60;
-	public float coconutPickUpTime;
 	
 
 	// Use this for initialization
@@ -37,7 +37,6 @@ public class CoconutEffect : MonoBehaviour
 									using (var evnt = CoconutUnavailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
 										evnt.TargEnt = be;
 										evnt.isCoconutNotConsumed = false;
-										evnt.CoconutPickedUpTime = Time.time;
 									}
 								}
 							}
@@ -75,7 +74,6 @@ public class CoconutEffect : MonoBehaviour
 					using (var evnt = CoconutAvailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
 						evnt.TargEnt = be;
 						evnt.isCoconutNotConsumed = true;
-						evnt.CoconutPickedUpTime = Time.time;
 					}
 				}
 			}
