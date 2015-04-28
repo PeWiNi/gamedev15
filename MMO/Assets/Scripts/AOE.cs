@@ -60,6 +60,7 @@ public class AOE : MonoBehaviour
 			sc.isChanneling = true;
 			available = false;
 			lastTick = Time.time;
+			GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_BP_Start");
 		}
 		if (sc.isJumping && !available) {
 			sc.canMove = true;
@@ -78,7 +79,12 @@ public class AOE : MonoBehaviour
 			available = true;
 		}
 		currentTimer = Time.time;
+		if(sc.isChanneling){
+			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Once;
+			GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_BP_End");
+		}
 	}
+
 
 	void OnTriggerStay (Collider coll)
 	{

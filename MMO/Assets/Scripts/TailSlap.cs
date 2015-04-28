@@ -22,6 +22,9 @@ public class TailSlap : MonoBehaviour
 		if ((Time.time - lastUsed) >= gameObject.GetComponentInParent<PlayerStats> ().tailSlapCooldown) {
 			available = true;
 		}
+		if(Input.GetKeyDown (KeyCode.Mouse0)){
+			GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_TS");
+		}
 	}
 
 	void OnTriggerStay (Collider coll)
@@ -32,7 +35,7 @@ public class TailSlap : MonoBehaviour
 			sc = gameObject.GetComponentInParent<StateController> ();
 			ps = gameObject.GetComponentInParent<PlayerStats> ();
 			if (Input.GetKeyDown (KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
-					
+
 				GameObject go = GameObject.Find ("Canvas");
 				HUDScript hs = go.GetComponentInChildren<HUDScript> ();
 				

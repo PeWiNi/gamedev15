@@ -51,6 +51,9 @@ public class CCScript : MonoBehaviour
 		if (Time.time - lastUsed >= ps.ccCooldown) {
 			available = true;
 		}
+
+
+
 	}
 
 	void OnTriggerStay (Collider coll)
@@ -63,6 +66,7 @@ public class CCScript : MonoBehaviour
 			TestPlayerBehaviour tt = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
 			GameObject player = tt.gameObject;
 			if (Input.GetKeyDown (tpb.ccKey) && available) {
+				GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_TS");
 				while (entities.MoveNext()) {
 					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;

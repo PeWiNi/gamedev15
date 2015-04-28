@@ -44,9 +44,9 @@ public class Boomnana : MonoBehaviour
 		}
 		if (movingBack) {
 			GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
-			transform.position = Vector3.MoveTowards (transform.position, owner.gameObject.transform.position, 8.0f);
+			transform.position = Vector3.MoveTowards (transform.position, owner.gameObject.transform.position, 15.0f);
 		} else {
-			transform.position = Vector3.MoveTowards (transform.position, endpoint, 8.0f);	
+			transform.position = Vector3.MoveTowards (transform.position, endpoint, 15.0f);	
 		}
 	}
 

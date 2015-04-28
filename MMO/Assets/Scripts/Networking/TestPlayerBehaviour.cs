@@ -17,7 +17,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public KeyCode moveLeft = KeyCode.A;
 	public KeyCode tailSlapKey;// = KeyCode.Mouse1;
 	public KeyCode boomNanaKey;// = KeyCode.Mouse0;
-	
+
+	private Animator anim;
 
 	public KeyCode ccKey;
 	public KeyCode cprKey;
@@ -47,12 +48,28 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public float buffedCcDuration;
 	public float ccDurationFactor = 1.35f;
 	private bool boomUsed = false;
+
+	public Animation animation;
+//
+	private AnimationState idle;
+	private AnimationState walk;
+	private AnimationState death;
+	private AnimationState buffAnim;
+	private AnimationState jump1;
+	private AnimationState jump2;
+	private AnimationState tail;
+	private AnimationState boom;
+	private AnimationState puke_start;
+	private AnimationState puke_end;
+	private AnimationState fish;
+
 	//KeyCode sprint = KeyCode.LeftShift;
 
 	void Awake ()
 	{
 		Start ();
-		Transform aim = this.transform.GetChild (3);
+		anim = GetComponent<Animator>();
+		Transform aim = this.transform.GetChild (6);
 		aim.GetComponent<Renderer> ().enabled = false;
 		Cursor.visible = false;
 
@@ -122,6 +139,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 
 	public override void SimulateController ()
 	{
+//		if(animation.isPlaying){
+//			animation.CrossFade("M_Idle", 1.0f);
+//		}
+
+
 		if (startup == 0) {
 			this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
 			mainCam.gameObject.GetComponent<PlayerCam> ().setStartLocation (transform.position);
@@ -134,7 +156,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		position = player.transform.position;
 		if (Input.GetMouseButtonDown (1)) {
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
-			Transform aim = this.transform.GetChild (3);
+			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = true;
 			aim.localScale = new Vector3 (1f, 0, ps.boomnanaRange / 4);
 			aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 2));
@@ -144,9 +166,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		}
 		if (Input.GetMouseButtonUp (1)) {
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
-			Transform aim = this.transform.GetChild (3);
+			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = false;
-
+			animation.Play("M_BM");
 
 			// Mouse0 = Left Click
 			//Debug.Log("Player pos: "+transform.position);
@@ -364,18 +386,18 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		}
 	}
 
-	
+	void animateMovement(){
+		if(sc.isMoving){
+			animation["M_Walk"].wrapMode = WrapMode.Loop;
+			animation["M_Walk"].layer = 1;
+			animation.Play("M_Walk");
+		}
+	}
 
 	// Use this for initialization
 	void Start ()
 	{
-		//mainCam = BoltNetwork.FindEntity().
-//				GameObject snowInit = Instantiate (snow) as GameObject; 
-//				Destroy (snow);
-//				snow = snowInit;
-//				Vector3 snowpos = new Vector3 (this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
-//				snow.transform.position = snowpos;
-//				snow.transform.Rotate (new Vector3 (90, 0, 0));
+
 		player = this.gameObject;
 //				GameObject camObj = Instantiate (mainCam) as GameObject;// this.mainCam.gameObject;
 		//GameObject camObj = Instantiate(Resources.Load("Prefabs/PlayerCam", typeof(GameObject)) as GameObject,
@@ -393,6 +415,77 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		sound = gameObject.GetComponent<SoundController> ();
 		playerId = gameObject.GetInstanceID ();
 		coconut = GameObject.FindGameObjectWithTag ("nut");
+
+
+		/*
+		childObject = Camera.main.gameObject;
+		childAnim = childObject.animation;
+		chMotor = GetComponent(CharacterMotor);
+		ch = GetComponent(CharacterController);
+		height = ch.height;
+		h = height;
+		speed = walkSpeed;
+	}
+	
+	function Update()
+	{
+		if(childAnim.GetClip("fpsrun") && childAnim.GetClip("fpswalk"))
+		{
+			if (ch.isGrounded && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+			{
+				speed = runSpeed;
+				childObject.animation.CrossFade("fpsrun", 0.25f);
+			}
+			
+			else
+				childObject.animation.CrossFade("fpswalk", 0.25f);    
+		}
+		*/
+		
+
+		//ANIMATIONS
+		animation = this.gameObject.GetComponent<Animation>();
+		animation.wrapMode = WrapMode.Loop;
+
+		walk = animation["M_Walk"];
+		death = animation["M_Death"];
+		buffAnim = animation["M_Buff"];
+		jump1 = animation["M_Jump1"];
+		jump2 = animation["M_Jump2"];
+		tail = animation["M_TS"];
+		boom = animation["M_BM"];
+		puke_start = animation["M_BP_Start"];
+		puke_end = animation["M_BP_End"];
+		fish = animation["M_FS"];
+
+//		AnimationClip ac = animation.GetClip("M_Death");
+//		Debug.Log(ac.name);
+		//animation.CrossFade("M_Death",0.25f);
+		//idle = animation["M_Death"];
+		//animation.Play("M_Death");
+
+		animation["M_Death"].wrapMode = WrapMode.Once;
+		animation["M_Death"].layer = 1;
+		animation["M_Jump1"].wrapMode = WrapMode.Once;
+		animation["M_Jump1"].speed = 2;
+		animation["M_Jump1"].layer = 1;
+		animation["M_Jump2"].wrapMode = WrapMode.Once;
+		animation["M_Jump2"].speed = 2;
+		animation["M_Jump2"].layer = 1;
+		animation["M_TS"].wrapMode = WrapMode.Once;
+		animation["M_TS"].speed = 2;
+		animation["M_TS"].layer = 1;
+		animation["M_BM"].wrapMode = WrapMode.Once;
+		animation["M_BM"].speed = 2;
+		animation["M_BM"].layer = 1;
+		animation["M_FS"].wrapMode = WrapMode.Once;
+		animation["M_FS"].speed = 2;
+		animation["M_FS"].layer = 1;
+
+
+
+
+
 		//				mainCam.camera.enabled = true;
 //				mainCam.camera.gameObject.SetActive (true);
 		//Destroy (camObj);
@@ -687,6 +780,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		gravity.y = ps.jumpHeight;
 		transform.GetComponent<Rigidbody> ().velocity = gravity;
 		sc.isJumping = true;
+		animation.Play("M_Jump2");
 	}
 		
 	void buff ()
