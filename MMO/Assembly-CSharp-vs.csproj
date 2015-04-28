@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\AOE.cs" />
      <Compile Include="Assets\Scripts\AntNest.cs" />
      <Compile Include="Assets\Scripts\AutoAttack.cs" />
+     <Compile Include="Assets\Scripts\BananaScript.cs" />
      <Compile Include="Assets\Scripts\BananaTreeNorthScript.cs" />
      <Compile Include="Assets\Scripts\BananaTreeSouthScript.cs" />
      <Compile Include="Assets\Scripts\BaseStats.cs" />
