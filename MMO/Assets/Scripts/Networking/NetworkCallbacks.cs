@@ -244,7 +244,6 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.transform.GetComponent<Renderer> ().enabled = true;
 		target.gameObject.GetComponent<CoconutEffect> ().isCoconutNotConsumed = evnt.isCoconutNotConsumed;
-		target.gameObject.GetComponent<CoconutEffect> ().coconutPickUpTime = evnt.CoconutPickedUpTime;
 	}
 
 	public override void OnEvent (CoconutUnavailableEvent evnt)
@@ -252,7 +251,6 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.transform.GetComponent<Renderer> ().enabled = false;
 		target.gameObject.GetComponent<CoconutEffect> ().isCoconutNotConsumed = evnt.isCoconutNotConsumed;
-		target.gameObject.GetComponent<CoconutEffect> ().coconutPickUpTime = evnt.CoconutPickedUpTime;
 	}
 
 	public override void OnEvent (PlayerBeingBuffedEvent evnt)
@@ -276,6 +274,20 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		target.gameObject.GetComponent<BeaconCaptureScript> ().teamTwoIsCapturing = evnt.TeamTwoIsCapturing;
 		target.gameObject.GetComponent<BeaconCaptureScript> ().beaconIsNeutral = evnt.BeaconIsNeutral;
 		target.gameObject.GetComponent<BeaconCaptureScript> ().bonusPointsGiven = evnt.BonusPointsGiven;
+	}
+
+	public override void OnEvent (BananaAvailableEvent evnt)
+	{
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.transform.GetComponent<Renderer> ().enabled = true;
+		target.gameObject.GetComponent<BananaScript> ().isBananaUp = evnt.BananaIsUp;
+	}
+
+	public override void OnEvent (BananaUnavailableEvent evnt)
+	{
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.transform.GetComponent<Renderer> ().enabled = false;
+		target.gameObject.GetComponent<BananaScript> ().isBananaUp = evnt.BananaIsUp;
 	}
 		
 	public override void OnEvent (AoeEvent evnt)
