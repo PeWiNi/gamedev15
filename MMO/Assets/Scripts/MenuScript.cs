@@ -97,12 +97,12 @@ public class MenuScript : MonoBehaviour
             i++;
         }
 
-        ResolutionPanel.SetActive(false);
-        DisplayModePanel.SetActive(false);
-
         #region Fix Sliders
         AudioMenu.SetActive(true);
         VideoMenu.SetActive(true);
+        RectTransform ScrollHandle = GameObject.Find("ScrollHandle").GetComponent<RectTransform>();
+        ScrollHandle.offsetMin = new Vector2(-10, -10);
+        ScrollHandle.offsetMax = new Vector2(10, 10);
         Transform MasterHandle = GameObject.Find("MasterHandle").transform;
         MasterHandle.localPosition = new Vector3(50, MasterHandle.localPosition.y, MasterHandle.localPosition.z);
         Transform MusicHandle = GameObject.Find("MusicHandle").transform;
@@ -115,6 +115,9 @@ public class MenuScript : MonoBehaviour
         Transform BrightnessHandle = GameObject.Find("BrightnessHandle").transform;
         BrightnessHandle.localPosition = new Vector3(0, BrightnessHandle.localPosition.y, BrightnessHandle.localPosition.z);
         #endregion
+
+        ResolutionPanel.SetActive(false);
+        DisplayModePanel.SetActive(false);
         #endregion
 
 
