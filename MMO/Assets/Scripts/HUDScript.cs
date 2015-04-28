@@ -5,6 +5,8 @@ using System.Collections;
 public class HUDScript : MonoBehaviour
 {
 	private float secondsTimer = 0;
+    private GameObject Menu;
+    private bool menu = false;
 
 	// Damage Effect
 	public KeyCode redKey; // Change to taking damage event
@@ -52,6 +54,9 @@ public class HUDScript : MonoBehaviour
 		SetupActionBar ();
 		castBar = this.gameObject.GetComponentInChildren<UnityEngine.UI.Slider> ();
 		castBar.gameObject.SetActive (false);
+
+        Menu = GameObject.Find("InGameMenu");
+        Menu.SetActive(false);
 	}
 
 	public void damageEff ()
@@ -78,14 +83,24 @@ public class HUDScript : MonoBehaviour
 		HUDTimer -= HUDEffectDecay;
 		#endregion
 
-		#region ActionBar
-		ActionBarOnPress (ref a1Over, a1Key, ref a1Cooldown, a1Time); // Tail
-		ActionBarOnRelease (ref a2Over, a2Key, ref a2Cooldown, a2Time); // Boom
-		ActionBarOnPress (ref a3Over, a3Key, ref a3Cooldown, a3Time, 3, true); // AoE
-		ActionBarOnPress (ref a4Over, a4Key, ref a4Cooldown, a4Time); // CC
-		ActionBarOnPress (ref a6Over, a6Key, ref a6Cooldown, a6Time); // CPR
-		#endregion
+        #region ActionBar
+            ActionBarOnPress(ref a1Over, a1Key, ref a1Cooldown, a1Time); // Tail
+            ActionBarOnRelease(ref a2Over, a2Key, ref a2Cooldown, a2Time); // Boom
+            ActionBarOnPress(ref a3Over, a3Key, ref a3Cooldown, a3Time, 3, true); // AoE
+            ActionBarOnPress(ref a4Over, a4Key, ref a4Cooldown, a4Time); // CC
+            ActionBarOnPress(ref a6Over, a6Key, ref a6Cooldown, a6Time); // CPR
+        #endregion
+
+        if (Input.GetKeyUp(KeyCode.Escape)) 
+            ShowMenu(menu);
 	}
+
+    public void ShowMenu(bool isActive)
+    {
+        Menu.SetActive(!isActive);
+        menu = !isActive;
+        Cursor.visible = !isActive;
+    }
 
 	private void SetupActionBar ()
 	{
@@ -114,14 +129,18 @@ public class HUDScript : MonoBehaviour
 
 	public void ActionBarOnRelease (ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer)
 	{
-		if (Input.GetKeyUp (key) && !onCooldown) {
-			onCooldown = true;
-			overlayImage.fillAmount = 0.0f;
-			dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
-		
-			dmgDealt.text = "Throwing BoomNana!";
-	
-		}
+        if (!menu)
+        {
+            if (Input.GetKeyUp(key) && !onCooldown)
+            {
+                onCooldown = true;
+                overlayImage.fillAmount = 0.0f;
+                dmgDealt.color = new Color(dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
+
+                dmgDealt.text = "Throwing BoomNana!";
+
+            }
+        }
 		if (onCooldown == true) {
 			overlayImage.fillAmount += (1.0f / cooldownTimer * Time.deltaTime);
 			if (overlayImage.fillAmount == 1.0f)
@@ -131,32 +150,40 @@ public class HUDScript : MonoBehaviour
 
 	public void ActionBarOnPress (ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer, float castTime = 0, bool channeled = false)
 	{
-		if (Input.GetKeyDown (key) && !onCooldown) {
-			onCooldown = true;
-			overlayImage.fillAmount = 0.0f;
-			dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
-			if (castTime != 0)
-				ActivateCastBar (castTime, channeled, key);
-			if (key == a1Key) {
-				dmgDealt.text = "Miss!";
-			}
-			if (key == a3Key) {
-				dmgDealt.text = "Channeling AOE!";
-				Text a = castBar.GetComponentInChildren<Text> ();
-				a.color = Color.red;
-				a.text = "Puking All Over The Place";
-			}
-			if (key == a4Key) {
-				dmgDealt.text = "Stunning!";
-			}
-			if (key == a6Key) {
-				dmgDealt.text = "Resurrecting!";
-				Text a = castBar.GetComponentInChildren<Text> ();
-				a.color = Color.red;
-				a.text = "Monguin CPR";
-			}
+        if (!menu)
+        {
+            if (Input.GetKeyDown(key) && !onCooldown)
+            {
+                onCooldown = true;
+                overlayImage.fillAmount = 0.0f;
+                dmgDealt.color = new Color(dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
+                if (castTime != 0)
+                    ActivateCastBar(castTime, channeled, key);
+                if (key == a1Key)
+                {
+                    dmgDealt.text = "Miss!";
+                }
+                if (key == a3Key)
+                {
+                    dmgDealt.text = "Channeling AOE!";
+                    Text a = castBar.GetComponentInChildren<Text>();
+                    a.color = Color.red;
+                    a.text = "Puking All Over The Place";
+                }
+                if (key == a4Key)
+                {
+                    dmgDealt.text = "Stunning!";
+                }
+                if (key == a6Key)
+                {
+                    dmgDealt.text = "Resurrecting!";
+                    Text a = castBar.GetComponentInChildren<Text>();
+                    a.color = Color.red;
+                    a.text = "Monguin CPR";
+                }
 
-		}
+            }
+        }
 		if (onCooldown == true) {
 			overlayImage.fillAmount += (1.0f / cooldownTimer * Time.deltaTime);
 			

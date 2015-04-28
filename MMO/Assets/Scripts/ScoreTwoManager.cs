@@ -15,6 +15,8 @@ public class ScoreTwoManager : MonoBehaviour
 		textTwo = GetComponent<Text> ();
 		totalTwoScore = 0;
 		totalKillScore = 0;
+        if (MenuScript.hasPickedTeamTwo)
+            textTwo.color = new Color(248f / 255f, 190f / 255f, 2f / 255f, 1f);
 	}
 	
 	// Update is called once per frame
