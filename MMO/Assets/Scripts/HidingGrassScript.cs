@@ -13,7 +13,7 @@ public class HidingGrassScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		biggestScaledMonguin = new Vector3 (3, 3, 3);
+		biggestScaledMonguin = new Vector3 (5, 5, 5);
 	}
 	
 	// Update is called once per frame
