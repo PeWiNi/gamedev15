@@ -168,7 +168,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = false;
-			animation.Play("M_BM");
+			animation.wrapMode = WrapMode.Once;
+			animation.PlayQueued("M_BM");
 
 			// Mouse0 = Left Click
 			//Debug.Log("Player pos: "+transform.position);
@@ -315,6 +316,20 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (!Input.GetKey (moveLeft) && !Input.GetKey (moveRight) && !Input.GetKey (moveUp) && !Input.GetKey (moveDown)) {
 			sc.isMoving = false;
 		}
+		if(sc.isMoving){
+			animation.PlayQueued("M_Walk");
+			//animation.wrapMode = WrapMode.Loop;
+		}
+		if(!sc.isMoving && animation.IsPlaying("M_Walk")){
+			animation.wrapMode = WrapMode.Once;
+			animation.Play("M_Idle");
+		}
+//		if(!sc.isChanneling && animation.IsPlaying("M_BP_Start")){
+//			animation.wrapMode = WrapMode.Once;
+//			animation.Play("M_BP_End");
+//			animation.CrossFadeQueued("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+//		}
+
 		if (sc.isMoving && !sound.getMovementPlayer ().isPlaying) {
 			sound.getMovementPlayer ().clip = sound.movementclip;
 			sound.getMovementPlayer ().Play ();
@@ -463,7 +478,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		//animation.CrossFade("M_Death",0.25f);
 		//idle = animation["M_Death"];
 		//animation.Play("M_Death");
-
+		animation["M_Walk"].layer = 0;
 		animation["M_Death"].wrapMode = WrapMode.Once;
 		animation["M_Death"].layer = 1;
 		animation["M_Jump1"].wrapMode = WrapMode.Once;
@@ -476,11 +491,17 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		animation["M_TS"].speed = 2;
 		animation["M_TS"].layer = 1;
 		animation["M_BM"].wrapMode = WrapMode.Once;
-		animation["M_BM"].speed = 2;
+		animation["M_BM"].speed = 3;
 		animation["M_BM"].layer = 1;
 		animation["M_FS"].wrapMode = WrapMode.Once;
 		animation["M_FS"].speed = 2;
 		animation["M_FS"].layer = 1;
+		animation["M_BP_Start"].wrapMode = WrapMode.Once;
+		animation["M_BP_Start"].speed = 1;
+		animation["M_BP_Start"].layer = 1;
+		animation["M_BP_End"].wrapMode = WrapMode.Once;
+		animation["M_BP_End"].speed = 1;
+		animation["M_BP_End"].layer = 1;
 
 
 
@@ -780,7 +801,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		gravity.y = ps.jumpHeight;
 		transform.GetComponent<Rigidbody> ().velocity = gravity;
 		sc.isJumping = true;
-		animation.Play("M_Jump2");
+		animation.wrapMode = WrapMode.Once;
+		animation.CrossFade("M_Jump2", 0.5f, PlayMode.StopAll);
+		//animation.Play("M_Jump2");
 	}
 		
 	void buff ()

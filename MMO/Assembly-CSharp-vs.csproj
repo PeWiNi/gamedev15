@@ -124,6 +124,7 @@
      <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
      <None Include="Assets\Shaders\Grayscale.shader" />
      <None Include="Assets\Shaders\AimShader.shader" />
+     <None Include="Assets\Shaders\Gradient.shader" />
      <None Include="Assets\bolt\resources\backgrounds\ATTRIBUTION.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Shaders\SwampDisplacementShader.shader" />
