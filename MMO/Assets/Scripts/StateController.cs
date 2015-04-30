@@ -38,6 +38,7 @@ public class StateController : MonoBehaviour
 	GameObject beacon;
 	BeaconCaptureScript bZone;
 	public float buffMultiplier;
+	public bool gotHitInHidingGrass;
 
 	public float getSpeed ()
 	{
@@ -125,8 +126,10 @@ public class StateController : MonoBehaviour
 	{
 		if (isBuffed) {
 			GetComponent<PlayerStats> ().hp -= Mathf.Ceil (damage / gameObject.GetComponent<PlayerStats> ().buffDamageFactor);
+			gotHitInHidingGrass = true;
 		} else {
 			GetComponent<PlayerStats> ().hp -= Mathf.Ceil (damage);
+			gotHitInHidingGrass = true;
 		}
 		checkIfDead ();
 	}

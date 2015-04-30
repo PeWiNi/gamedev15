@@ -14,7 +14,11 @@ public class CCScript : MonoBehaviour
 	float lastUsed;
 	PlayerStats ps;
 	TestPlayerBehaviour tpb;
+<<<<<<< HEAD
+	public bool CCUsedInHidingGrass;
+=======
 	bool inUse = false;
+>>>>>>> origin/master
 
 	// Use this for initialization
 	void Start ()
@@ -29,25 +33,24 @@ public class CCScript : MonoBehaviour
 
 		ps = gameObject.GetComponentInParent<PlayerStats> ();
 		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
-
-		if (ps.teamNumber == 1) {
-			if (AntNest.playerOneIsBuffed == false) {
-				if (ps.trapAntNestBuffed == true) {
-					float ccDurationBuffed = ps.ccDuration / AntNest.playerBuffCcDuration;
-					ps.ccDuration = ccDurationBuffed;
-					ps.trapAntNestBuffed = false;
-				}
-			}
-		}
-		if (ps.teamNumber == 2) {
-			if (AntNest.playerTwoIsBuffed == false) {
-				if (ps.trapAntNestBuffed == true) {
-					float ccDurationBuffed = ps.ccDuration / AntNest.playerBuffCcDuration;
-					ps.ccDuration = ccDurationBuffed;
-					ps.trapAntNestBuffed = false;
-				}
-			}
-		}
+//		if (ps.teamNumber == 1) {
+//			if (AntNest.playerOneIsBuffed == false) {
+//				if (ps.trapAntNestBuffed == true) {
+//					float ccDurationBuffed = ps.ccDuration / AntNest.playerBuffCcDuration;
+//					ps.ccDuration = ccDurationBuffed;
+//					ps.trapAntNestBuffed = false;
+//				}
+//			}
+//		}
+//		if (ps.teamNumber == 2) {
+//			if (AntNest.playerTwoIsBuffed == false) {
+//				if (ps.trapAntNestBuffed == true) {
+//					float ccDurationBuffed = ps.ccDuration / AntNest.playerBuffCcDuration;
+//					ps.ccDuration = ccDurationBuffed;
+//					ps.trapAntNestBuffed = false;
+//				}
+//			}
+//		}
 
 		if (Time.time - lastUsed >= ps.ccCooldown) {
 			available = true;
@@ -65,15 +68,23 @@ public class CCScript : MonoBehaviour
 
 	void OnTriggerStay (Collider coll)
 	{
+<<<<<<< HEAD
+=======
 
 		//Debug.Log(coll.tag);
 
 		if (inUse) {
 			available = false;
 			lastUsed = Time.time;
+>>>>>>> origin/master
 		IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+		if (coll.gameObject.name == "HidingGrass") {
+			if (Input.GetKeyDown (tpb.ccKey) && available) {
+				CCUsedInHidingGrass = true;
+			}
+		}
 		if (coll.gameObject.tag == "player") {
-			TestPlayerBehaviour tt = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+			TestPlayerBehaviour tt = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
 			GameObject player = tt.gameObject;
 
 				while (entities.MoveNext()) {
@@ -100,8 +111,8 @@ public class CCScript : MonoBehaviour
 
 								//gameObject.GetComponentInParent<StateController>().stun(this.gameObject, 0);
 							}
-							if(coll.gameObject == player){
-								Debug.Log("Casting player found as Collider");
+							if (coll.gameObject == player) {
+								Debug.Log ("Casting player found as Collider");
 							}
 							//else
 							//{ // check for friendly player, deal 50% dmg.

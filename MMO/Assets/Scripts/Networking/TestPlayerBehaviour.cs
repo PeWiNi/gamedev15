@@ -15,15 +15,20 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 	public KeyCode moveRight = KeyCode.D;
 	public KeyCode moveLeft = KeyCode.A;
+<<<<<<< HEAD
+	public KeyCode tailSlapKey;
+	public KeyCode boomNanaKey;
+=======
 	public KeyCode tailSlapKey;// = KeyCode.Mouse1;
 	public KeyCode boomNanaKey;// = KeyCode.Mouse0;
 
 	private Animator anim;
+>>>>>>> origin/master
 
 	public KeyCode ccKey;
 	public KeyCode cprKey;
 	public KeyCode aoeKey;
-	public KeyCode buffKey = KeyCode.R;
+	public KeyCode buffKey;
 	bool up, down, left, right;
 	Vector3 position;
 	public GameObject mainCam;
@@ -47,6 +52,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public float buffedAOEBuffDmg;
 	public float buffedCcDuration;
 	public float ccDurationFactor = 1.35f;
+<<<<<<< HEAD
+	public bool boomUsed = false;
+	public bool BoomNanaUsedInHidingGrass;
+=======
 	private bool boomUsed = false;
 
 	public Animation animation;
@@ -64,6 +73,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	private AnimationState puke_end;
 	private AnimationState fish;
 
+>>>>>>> origin/master
 	//KeyCode sprint = KeyCode.LeftShift;
 
 	void Awake ()
@@ -101,7 +111,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //				state.TeamMemberId = BoltInit.teamMemberId;
 		//Debug.Log ("team" + BoltInit.teamMemberId);
 		//state.TeamMemberId = gameObject.GetComponent<BoltInit> ().teamMemberId;
-        /*
+		/*
 		if (entity.isOwner) {
 			if (BoltInit.hasPickedTeamOne == true) {
 				state.TeamMemberId = 1;
@@ -116,23 +126,20 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
 			//state.TeamMemberId = BoltInit.teamMemberId;
         } */
-        if (entity.isOwner)
-        {
-            if (MenuScript.hasPickedTeamOne == true)
-            {
-                state.TeamMemberId = 1;
-                state.TestPlayerColor = new Color(0, 1, 0, 1);
-                Debug.Log("Team nr." + state.TeamMemberId.ToString());
-            }
-            if (MenuScript.hasPickedTeamTwo == true)
-            {
-                state.TeamMemberId = 2;
-                state.TestPlayerColor = new Color(1, 0, 0, 1);
-                Debug.Log("Team nr." + state.TeamMemberId.ToString());
-            }
-            //state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
-            //state.TeamMemberId = BoltInit.teamMemberId;
-        }  
+		if (entity.isOwner) {
+			if (MenuScript.hasPickedTeamOne == true) {
+				state.TeamMemberId = 1;
+				state.TestPlayerColor = new Color (0, 1, 0, 1);
+				Debug.Log ("Team nr." + state.TeamMemberId.ToString ());
+			}
+			if (MenuScript.hasPickedTeamTwo == true) {
+				state.TeamMemberId = 2;
+				state.TestPlayerColor = new Color (1, 0, 0, 1);
+				Debug.Log ("Team nr." + state.TeamMemberId.ToString ());
+			}
+			//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
+			//state.TeamMemberId = BoltInit.teamMemberId;
+		}  
 		state.AddCallback ("TestPlayerColor", ColorChanged);
 		state.AddCallback ("TeamMemberId", TeamSelection);
 
@@ -155,7 +162,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (wasd != null) {
 		} 
 		position = player.transform.position;
-		if (Input.GetMouseButtonDown (1)) {
+		if (Input.GetKeyDown (boomNanaKey)) {
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = true;
@@ -165,12 +172,16 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			//vfx.aim.renderer.enabled = true;
 			//aimOverlay(1, range, 0.5f);
 		}
-		if (Input.GetMouseButtonUp (1)) {
+		if (Input.GetKeyUp (boomNanaKey)) {
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = false;
+<<<<<<< HEAD
+			BoomNanaUsedInHidingGrass = true;
+=======
 			animation.wrapMode = WrapMode.Once;
 			animation.Play("M_BM");
+>>>>>>> origin/master
 
 			// Mouse0 = Left Click
 			//Debug.Log("Player pos: "+transform.position);
@@ -299,9 +310,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (position != Vector3.zero) {
 			transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
 		}
-		if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff () && !sc.isDead) {
-			buff ();
-		}
+//		if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff () && !sc.isDead) {
+//			buff ();
+//		}
 		if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned && !sc.isDead) {
 			jump ();
 			sound.getJumpPlayer ().PlayOneShot (sound.jumpclip);
@@ -397,9 +408,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //				}	
 //				startup = 1;
 
-		if(Input.GetKeyDown(cprKey)){
-
-		}
+//		if (Input.GetKeyDown (keyCpr)) {
+//
+//		}
 	}
 
 	void animateMovement(){
@@ -512,6 +523,12 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		//				mainCam.camera.enabled = true;
 //				mainCam.camera.gameObject.SetActive (true);
 		//Destroy (camObj);
+		KeyCode[] bindings = MenuScript.KeyBindings;
+		bindings [0] = tailSlapKey;
+		bindings [1] = boomNanaKey;
+		bindings [2] = aoeKey;
+		bindings [3] = ccKey;
+		bindings [4] = cprKey;
 	}
 		
 	/*void checkCameraAngle ()
