@@ -15,15 +15,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 	public KeyCode moveRight = KeyCode.D;
 	public KeyCode moveLeft = KeyCode.A;
-<<<<<<< HEAD
+
 	public KeyCode tailSlapKey;
 	public KeyCode boomNanaKey;
-=======
-	public KeyCode tailSlapKey;// = KeyCode.Mouse1;
-	public KeyCode boomNanaKey;// = KeyCode.Mouse0;
 
 	private Animator anim;
->>>>>>> origin/master
 
 	public KeyCode ccKey;
 	public KeyCode cprKey;
@@ -52,11 +48,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public float buffedAOEBuffDmg;
 	public float buffedCcDuration;
 	public float ccDurationFactor = 1.35f;
-<<<<<<< HEAD
 	public bool boomUsed = false;
 	public bool BoomNanaUsedInHidingGrass;
-=======
-	private bool boomUsed = false;
 
 	public Animation animation;
 //
@@ -73,13 +66,12 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	private AnimationState puke_end;
 	private AnimationState fish;
 
->>>>>>> origin/master
 	//KeyCode sprint = KeyCode.LeftShift;
 
 	void Awake ()
 	{
 		Start ();
-		anim = GetComponent<Animator>();
+		anim = GetComponent<Animator> ();
 		Transform aim = this.transform.GetChild (6);
 		aim.GetComponent<Renderer> ().enabled = false;
 		Cursor.visible = false;
@@ -176,12 +168,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = false;
-<<<<<<< HEAD
 			BoomNanaUsedInHidingGrass = true;
-=======
 			animation.wrapMode = WrapMode.Once;
-			animation.Play("M_BM");
->>>>>>> origin/master
+			animation.Play ("M_BM");
 
 			// Mouse0 = Left Click
 			//Debug.Log("Player pos: "+transform.position);
@@ -328,13 +317,13 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (!Input.GetKey (moveLeft) && !Input.GetKey (moveRight) && !Input.GetKey (moveUp) && !Input.GetKey (moveDown)) {
 			sc.isMoving = false;
 		}
-		if(sc.isMoving){
-			animation.PlayQueued("M_Walk");
+		if (sc.isMoving) {
+			animation.PlayQueued ("M_Walk");
 			//animation.wrapMode = WrapMode.Loop;
 		}
-		if(!sc.isMoving && animation.IsPlaying("M_Walk")){
+		if (!sc.isMoving && animation.IsPlaying ("M_Walk")) {
 			animation.wrapMode = WrapMode.Once;
-			animation.Play("M_Idle");
+			animation.Play ("M_Idle");
 		}
 //		if(!sc.isChanneling && animation.IsPlaying("M_BP_Start")){
 //			animation.wrapMode = WrapMode.Once;
@@ -413,11 +402,12 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //		}
 	}
 
-	void animateMovement(){
-		if(sc.isMoving){
-			animation["M_Walk"].wrapMode = WrapMode.Loop;
-			animation["M_Walk"].layer = 1;
-			animation.Play("M_Walk");
+	void animateMovement ()
+	{
+		if (sc.isMoving) {
+			animation ["M_Walk"].wrapMode = WrapMode.Loop;
+			animation ["M_Walk"].layer = 1;
+			animation.Play ("M_Walk");
 		}
 	}
 
@@ -471,49 +461,49 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		
 
 		//ANIMATIONS
-		animation = this.gameObject.GetComponent<Animation>();
+		animation = this.gameObject.GetComponent<Animation> ();
 		animation.wrapMode = WrapMode.Loop;
 
-		walk = animation["M_Walk"];
-		death = animation["M_Death"];
-		buffAnim = animation["M_Buff"];
-		jump1 = animation["M_Jump1"];
-		jump2 = animation["M_Jump2"];
-		tail = animation["M_TS"];
-		boom = animation["M_BM"];
-		puke_start = animation["M_BP_Start"];
-		puke_end = animation["M_BP_End"];
-		fish = animation["M_FS"];
+		walk = animation ["M_Walk"];
+		death = animation ["M_Death"];
+		buffAnim = animation ["M_Buff"];
+		jump1 = animation ["M_Jump1"];
+		jump2 = animation ["M_Jump2"];
+		tail = animation ["M_TS"];
+		boom = animation ["M_BM"];
+		puke_start = animation ["M_BP_Start"];
+		puke_end = animation ["M_BP_End"];
+		fish = animation ["M_FS"];
 
 //		AnimationClip ac = animation.GetClip("M_Death");
 //		Debug.Log(ac.name);
 		//animation.CrossFade("M_Death",0.25f);
 		//idle = animation["M_Death"];
 		//animation.Play("M_Death");
-		animation["M_Walk"].layer = 0;
-		animation["M_Death"].wrapMode = WrapMode.Once;
-		animation["M_Death"].layer = 1;
-		animation["M_Jump1"].wrapMode = WrapMode.Once;
-		animation["M_Jump1"].speed = 2;
-		animation["M_Jump1"].layer = 1;
-		animation["M_Jump2"].wrapMode = WrapMode.Once;
-		animation["M_Jump2"].speed = 2;
-		animation["M_Jump2"].layer = 1;
-		animation["M_TS"].wrapMode = WrapMode.Once;
-		animation["M_TS"].speed = 2;
-		animation["M_TS"].layer = 1;
-		animation["M_BM"].wrapMode = WrapMode.Once;
-		animation["M_BM"].speed = 3;
-		animation["M_BM"].layer = 1;
-		animation["M_FS"].wrapMode = WrapMode.Once;
-		animation["M_FS"].speed = 2;
-		animation["M_FS"].layer = 1;
-		animation["M_BP_Start"].wrapMode = WrapMode.Once;
-		animation["M_BP_Start"].speed = 1;
-		animation["M_BP_Start"].layer = 1;
-		animation["M_BP_End"].wrapMode = WrapMode.Once;
-		animation["M_BP_End"].speed = 1;
-		animation["M_BP_End"].layer = 1;
+		animation ["M_Walk"].layer = 0;
+		animation ["M_Death"].wrapMode = WrapMode.Once;
+		animation ["M_Death"].layer = 1;
+		animation ["M_Jump1"].wrapMode = WrapMode.Once;
+		animation ["M_Jump1"].speed = 2;
+		animation ["M_Jump1"].layer = 1;
+		animation ["M_Jump2"].wrapMode = WrapMode.Once;
+		animation ["M_Jump2"].speed = 2;
+		animation ["M_Jump2"].layer = 1;
+		animation ["M_TS"].wrapMode = WrapMode.Once;
+		animation ["M_TS"].speed = 2;
+		animation ["M_TS"].layer = 1;
+		animation ["M_BM"].wrapMode = WrapMode.Once;
+		animation ["M_BM"].speed = 3;
+		animation ["M_BM"].layer = 1;
+		animation ["M_FS"].wrapMode = WrapMode.Once;
+		animation ["M_FS"].speed = 2;
+		animation ["M_FS"].layer = 1;
+		animation ["M_BP_Start"].wrapMode = WrapMode.Once;
+		animation ["M_BP_Start"].speed = 1;
+		animation ["M_BP_Start"].layer = 1;
+		animation ["M_BP_End"].wrapMode = WrapMode.Once;
+		animation ["M_BP_End"].speed = 1;
+		animation ["M_BP_End"].layer = 1;
 
 
 
@@ -821,7 +811,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		transform.GetComponent<Rigidbody> ().velocity = gravity;
 		sc.isJumping = true;
 		animation.wrapMode = WrapMode.Once;
-		animation.CrossFade("M_Jump2", 0.5f, PlayMode.StopAll);
+		animation.CrossFade ("M_Jump2", 0.5f, PlayMode.StopAll);
 		//animation.Play("M_Jump2");
 	}
 		
