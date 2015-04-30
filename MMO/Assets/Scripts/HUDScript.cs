@@ -109,13 +109,25 @@ public class HUDScript : MonoBehaviour
         #region Capture
         try {
             captureSlider1.value = bcs1.GetComponent<BeaconCaptureScript>().captureValue;
-            captureSlider2.value = bcs2.GetComponent<BeaconCaptureScript>().captureValue;
-            captureSlider3.value = bcs3.GetComponent<BeaconCaptureScript>().captureValue;
-            captureSlider4.value = bcs4.GetComponent<BeaconCaptureScript>().captureValue;
         } catch {
             captureSlider1.gameObject.SetActive(false);
+        }
+        try {
+            captureSlider2.value = bcs2.GetComponent<BeaconCaptureScript>().captureValue;
+        }
+        catch {
             captureSlider2.gameObject.SetActive(false);
+        }
+        try {
+            captureSlider3.value = bcs3.GetComponent<BeaconCaptureScript>().captureValue;
+        }
+        catch {
             captureSlider3.gameObject.SetActive(false);
+        }
+        try {
+            captureSlider4.value = bcs4.GetComponent<BeaconCaptureScript>().captureValue;
+        }
+        catch {
             captureSlider4.gameObject.SetActive(false);
         }
         #endregion
