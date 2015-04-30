@@ -20,10 +20,11 @@ public class TailSlap : MonoBehaviour
 
 	void Update ()
 	{
+		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
 		if ((Time.time - lastUsed) >= gameObject.GetComponentInParent<PlayerStats> ().tailSlapCooldown) {
 			available = true;
 		}
-		if (Input.GetKeyDown (KeyCode.Mouse0)) {
+		if (Input.GetKeyDown (tpb.tailSlapKey)) {
 			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_TS");
 		}
 	}
