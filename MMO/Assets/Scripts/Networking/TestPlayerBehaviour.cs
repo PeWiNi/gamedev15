@@ -15,20 +15,22 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 	public KeyCode moveRight = KeyCode.D;
 	public KeyCode moveLeft = KeyCode.A;
-	public KeyCode tailSlapKey;// = KeyCode.Mouse1;
-	public KeyCode boomNanaKey;// = KeyCode.Mouse0;
+
+	public KeyCode tailSlapKey;
+	public KeyCode boomNanaKey;
 
 	private Animator anim;
 
 	public KeyCode ccKey;
 	public KeyCode cprKey;
 	public KeyCode aoeKey;
-	public KeyCode buffKey = KeyCode.R;
+	public KeyCode buffKey;
 	bool up, down, left, right;
 	Vector3 position;
 	public GameObject mainCam;
 	public GameObject snow;
 	public GameObject coconut;
+	HUDScript hud;
 	public static Bolt.NetworkId playerNetworkId;
 	float timeSinceLastBoom;
 	float currentRotationFace;
@@ -47,11 +49,13 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public float buffedAOEBuffDmg;
 	public float buffedCcDuration;
 	public float ccDurationFactor = 1.35f;
-	private bool boomUsed = false;
+	public bool boomUsed = false;
+	public bool BoomNanaUsedInHidingGrass;
 
 	public Animation animation;
 //
 	private AnimationState idle;
+	private AnimationState thefish;
 	private AnimationState walk;
 	private AnimationState death;
 	private AnimationState buffAnim;
@@ -68,7 +72,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	void Awake ()
 	{
 		Start ();
-		anim = GetComponent<Animator>();
+		anim = GetComponent<Animator> ();
 		Transform aim = this.transform.GetChild (6);
 		aim.GetComponent<Renderer> ().enabled = false;
 		Cursor.visible = false;
@@ -100,7 +104,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //				state.TeamMemberId = BoltInit.teamMemberId;
 		//Debug.Log ("team" + BoltInit.teamMemberId);
 		//state.TeamMemberId = gameObject.GetComponent<BoltInit> ().teamMemberId;
-        /*
+		/*
 		if (entity.isOwner) {
 			if (BoltInit.hasPickedTeamOne == true) {
 				state.TeamMemberId = 1;
@@ -115,23 +119,20 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
 			//state.TeamMemberId = BoltInit.teamMemberId;
         } */
-        if (entity.isOwner)
-        {
-            if (MenuScript.hasPickedTeamOne == true)
-            {
-                state.TeamMemberId = 1;
-                state.TestPlayerColor = new Color(0, 1, 0, 1);
-                Debug.Log("Team nr." + state.TeamMemberId.ToString());
-            }
-            if (MenuScript.hasPickedTeamTwo == true)
-            {
-                state.TeamMemberId = 2;
-                state.TestPlayerColor = new Color(1, 0, 0, 1);
-                Debug.Log("Team nr." + state.TeamMemberId.ToString());
-            }
-            //state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
-            //state.TeamMemberId = BoltInit.teamMemberId;
-        }  
+		if (entity.isOwner) {
+			if (MenuScript.hasPickedTeamOne == true) {
+				state.TeamMemberId = 1;
+				state.TestPlayerColor = new Color (0, 1, 0, 1);
+				Debug.Log ("Team nr." + state.TeamMemberId.ToString ());
+			}
+			if (MenuScript.hasPickedTeamTwo == true) {
+				state.TeamMemberId = 2;
+				state.TestPlayerColor = new Color (1, 0, 0, 1);
+				Debug.Log ("Team nr." + state.TeamMemberId.ToString ());
+			}
+			//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
+			//state.TeamMemberId = BoltInit.teamMemberId;
+		}  
 		state.AddCallback ("TestPlayerColor", ColorChanged);
 		state.AddCallback ("TeamMemberId", TeamSelection);
 
@@ -154,7 +155,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (wasd != null) {
 		} 
 		position = player.transform.position;
-		if (Input.GetMouseButtonDown (1)) {
+		if (Input.GetKeyDown (boomNanaKey)) {
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = true;
@@ -164,11 +165,15 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			//vfx.aim.renderer.enabled = true;
 			//aimOverlay(1, range, 0.5f);
 		}
-		if (Input.GetMouseButtonUp (1)) {
+		if (Input.GetKeyUp (boomNanaKey)) {
+			Debug.Log ("BOOOOMNANAAAAA");
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = false;
-			animation.Play("M_BM");
+			BoomNanaUsedInHidingGrass = true;
+
+			animation.wrapMode = WrapMode.Once;
+			animation.Play ("M_BM");
 
 			// Mouse0 = Left Click
 			//Debug.Log("Player pos: "+transform.position);
@@ -297,9 +302,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (position != Vector3.zero) {
 			transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
 		}
-		if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff () && !sc.isDead) {
-			buff ();
-		}
+//		if (Input.GetKeyDown (buffKey) && !sc.isBuffed && sc.isAbleToBuff () && !sc.isDead) {
+//			buff ();
+//		}
 		if (Input.GetKeyDown (KeyCode.Space) && !sc.isJumping && !sc.isStunned && !sc.isDead) {
 			jump ();
 			sound.getJumpPlayer ().PlayOneShot (sound.jumpclip);
@@ -315,6 +320,20 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (!Input.GetKey (moveLeft) && !Input.GetKey (moveRight) && !Input.GetKey (moveUp) && !Input.GetKey (moveDown)) {
 			sc.isMoving = false;
 		}
+		if (sc.isMoving) {
+			animation.PlayQueued ("M_Walk");
+			//animation.wrapMode = WrapMode.Loop;
+		}
+		if (!sc.isMoving && animation.IsPlaying ("M_Walk")) {
+			animation.wrapMode = WrapMode.Once;
+			animation.Play ("M_Idle");
+		}
+//		if(!sc.isChanneling && animation.IsPlaying("M_BP_Start")){
+//			animation.wrapMode = WrapMode.Once;
+//			animation.Play("M_BP_End");
+//			animation.CrossFadeQueued("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+//		}
+
 		if (sc.isMoving && !sound.getMovementPlayer ().isPlaying) {
 			sound.getMovementPlayer ().clip = sound.movementclip;
 			sound.getMovementPlayer ().Play ();
@@ -381,16 +400,26 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //				}	
 //				startup = 1;
 
-		if(Input.GetKeyDown(cprKey)){
-
+//		if (Input.GetKeyDown (keyCpr)) {
+//
+//		}
+		if (MenuScript.keybindChanged == true) {
+			KeyCode[] bindings = MenuScript.KeyBindings;
+			tailSlapKey = bindings [0];
+			boomNanaKey = bindings [1];
+			aoeKey = bindings [2];
+			ccKey = bindings [3];
+			cprKey = bindings [4];
+			MenuScript.keybindChanged = false;
 		}
 	}
 
-	void animateMovement(){
-		if(sc.isMoving){
-			animation["M_Walk"].wrapMode = WrapMode.Loop;
-			animation["M_Walk"].layer = 1;
-			animation.Play("M_Walk");
+	void animateMovement ()
+	{
+		if (sc.isMoving) {
+			animation ["M_Walk"].wrapMode = WrapMode.Loop;
+			animation ["M_Walk"].layer = 1;
+			animation.Play ("M_Walk");
 		}
 	}
 
@@ -444,43 +473,50 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		
 
 		//ANIMATIONS
-		animation = this.gameObject.GetComponent<Animation>();
+		animation = this.gameObject.GetComponent<Animation> ();
 		animation.wrapMode = WrapMode.Loop;
 
-		walk = animation["M_Walk"];
-		death = animation["M_Death"];
-		buffAnim = animation["M_Buff"];
-		jump1 = animation["M_Jump1"];
-		jump2 = animation["M_Jump2"];
-		tail = animation["M_TS"];
-		boom = animation["M_BM"];
-		puke_start = animation["M_BP_Start"];
-		puke_end = animation["M_BP_End"];
-		fish = animation["M_FS"];
+		walk = animation ["M_Walk"];
+		death = animation ["M_Death"];
+		buffAnim = animation ["M_Buff"];
+		jump1 = animation ["M_Jump1"];
+		jump2 = animation ["M_Jump2"];
+		tail = animation ["M_TS"];
+		boom = animation ["M_BM"];
+		puke_start = animation ["M_BP_Start"];
+		puke_end = animation ["M_BP_End"];
+		fish = animation ["M_FS"];
 
 //		AnimationClip ac = animation.GetClip("M_Death");
 //		Debug.Log(ac.name);
 		//animation.CrossFade("M_Death",0.25f);
 		//idle = animation["M_Death"];
 		//animation.Play("M_Death");
+		animation ["M_Walk"].layer = 0;
+		animation ["M_Death"].wrapMode = WrapMode.Once;
+		animation ["M_Death"].layer = 1;
+		animation ["M_Jump1"].wrapMode = WrapMode.Once;
+		animation ["M_Jump1"].speed = 2;
+		animation ["M_Jump1"].layer = 1;
+		animation ["M_Jump2"].wrapMode = WrapMode.Once;
+		animation ["M_Jump2"].speed = 2;
+		animation ["M_Jump2"].layer = 1;
+		animation ["M_TS"].wrapMode = WrapMode.Once;
+		animation ["M_TS"].speed = 2;
+		animation ["M_TS"].layer = 1;
+		animation ["M_BM"].wrapMode = WrapMode.Once;
+		animation ["M_BM"].speed = 3;
+		animation ["M_BM"].layer = 1;
+		animation ["M_FS"].wrapMode = WrapMode.Once;
+		animation ["M_FS"].speed = 1;
+		animation ["M_FS"].layer = 1;
+		animation ["M_BP_Start"].wrapMode = WrapMode.Once;
+		animation ["M_BP_Start"].speed = 1;
+		animation ["M_BP_Start"].layer = 1;
+		animation ["M_BP_End"].wrapMode = WrapMode.Once;
+		animation ["M_BP_End"].speed = 1;
+		animation ["M_BP_End"].layer = 1;
 
-		animation["M_Death"].wrapMode = WrapMode.Once;
-		animation["M_Death"].layer = 1;
-		animation["M_Jump1"].wrapMode = WrapMode.Once;
-		animation["M_Jump1"].speed = 2;
-		animation["M_Jump1"].layer = 1;
-		animation["M_Jump2"].wrapMode = WrapMode.Once;
-		animation["M_Jump2"].speed = 2;
-		animation["M_Jump2"].layer = 1;
-		animation["M_TS"].wrapMode = WrapMode.Once;
-		animation["M_TS"].speed = 2;
-		animation["M_TS"].layer = 1;
-		animation["M_BM"].wrapMode = WrapMode.Once;
-		animation["M_BM"].speed = 2;
-		animation["M_BM"].layer = 1;
-		animation["M_FS"].wrapMode = WrapMode.Once;
-		animation["M_FS"].speed = 2;
-		animation["M_FS"].layer = 1;
 
 
 
@@ -489,6 +525,17 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		//				mainCam.camera.enabled = true;
 //				mainCam.camera.gameObject.SetActive (true);
 		//Destroy (camObj);
+		KeyCode[] bindings = MenuScript.KeyBindings;
+		tailSlapKey = bindings [0];
+		boomNanaKey = bindings [1];
+		aoeKey = bindings [2];
+		ccKey = bindings [3];
+		cprKey = bindings [4];
+		HUDScript.a1Key = tailSlapKey.ToString ().ToLower ();
+		HUDScript.a2Key = boomNanaKey.ToString ().ToLower ();
+		HUDScript.a3Key = aoeKey.ToString ().ToLower ();
+		HUDScript.a4Key = ccKey.ToString ().ToLower ();
+		HUDScript.a6Key = cprKey.ToString ().ToLower ();
 	}
 		
 	/*void checkCameraAngle ()
@@ -780,7 +827,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		gravity.y = ps.jumpHeight;
 		transform.GetComponent<Rigidbody> ().velocity = gravity;
 		sc.isJumping = true;
-		animation.Play("M_Jump2");
+		animation.wrapMode = WrapMode.Once;
+		animation.CrossFade ("M_Jump2", 0.5f, PlayMode.StopAll);
+		//animation.Play("M_Jump2");
 	}
 		
 	void buff ()

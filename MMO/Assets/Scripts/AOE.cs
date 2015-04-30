@@ -12,6 +12,11 @@ public class AOE : MonoBehaviour
 	float lastTick;
 	float tickTimer;
 	float currentTimer;
+
+	public bool AOEUsedInHidingGrass;
+
+	bool animating = false;
+
 	/* channeled, so canceled if moving.
      * should be going on for as long as not moving, or until duration is done.
      * Lock movement, but be able to rotate
@@ -60,18 +65,32 @@ public class AOE : MonoBehaviour
 			sc.isChanneling = true;
 			available = false;
 			lastTick = Time.time;
-			GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_BP_Start");
+			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
+			animating = true;
+			
+//			GetComponentInParent<TestPlayerBehaviour>().animation.PlayQueued("M_BP_End");
+//			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
 		}
 		if (sc.isJumping && !available) {
 			sc.canMove = true;
 			sc.isChanneling = false;
 						
 		}
+
+		if (Time.time - lastUsed >= (ps.aoeDuration - 0.5f) && animating) {
+			Debug.Log ("gonna start END ANIM");
+			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
+			GetComponentInParent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+			animating = false;
+		}
                 
 		// check timer for duration and Cooldown
 		if (Time.time - lastUsed >= (ps.aoeDuration + 0.0001f) && !available) {
 			sc.canMove = true;
 			sc.isChanneling = false;
+
 			Debug.Log ("AOE DONE!");
 
 		} 
@@ -79,17 +98,25 @@ public class AOE : MonoBehaviour
 			available = true;
 		}
 		currentTimer = Time.time;
-		if(sc.isChanneling){
-			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Once;
-			GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_BP_End");
+		if (sc.isChanneling && GetComponentInParent<TestPlayerBehaviour> ().animation.IsPlaying ("M_BP_Start")) {
+//			GetComponentInParent<TestPlayerBehaviour>().animation.CrossFadeQueued("M_BP_End", 0.05f, QueueMode.PlayNow);
+//			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
+
+			//GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
+			//GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_BP_End", PlayMode.StopSameLayer);
 		}
 	}
 
 
 	void OnTriggerStay (Collider coll)
 	{
-		if (sc.isChanneling && ((currentTimer - lastTick) > tickTimer) || (lastTick == lastUsed)){
-			Debug.Log("Ticking");   
+		if (coll.gameObject.name == "HidingGrass") {
+			if (Input.GetKeyDown (tpb.aoeKey) && available) {
+				AOEUsedInHidingGrass = true;
+			}
+		}
+		if (sc.isChanneling && ((currentTimer - lastTick) > tickTimer) || (lastTick == lastUsed)) {
+			Debug.Log ("Ticking");   
 			lastTick = Time.time;
 			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 			if (coll.gameObject.tag == "player" && sc.isChanneling) {
@@ -99,7 +126,7 @@ public class AOE : MonoBehaviour
 						// Create Event and use the be, if it is the one that is colliding.
 						if (be.gameObject == coll.gameObject/* && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour> ().gameObject*/) { // Check for enemy, deal full damage
 							//Debug.Log("AOE TICKING");
-							Debug.Log("Found the colliding GO");
+							Debug.Log ("Found the colliding GO");
 							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
 								// deal full damage!!!
 								Debug.Log ("Sending Event with dmg = " + ps.aoeTickDamageFactor);
@@ -110,7 +137,7 @@ public class AOE : MonoBehaviour
 									hs.dmgDealt.text = "" + ps.aoeTickDamageFactor;
 									evnt.TargEnt = be;
 									evnt.TickDamage = ps.aoeTickDamageFactor;
-									Debug.Log("Ticking for "+ ps.aoeTickDamageFactor+".");
+									Debug.Log ("Ticking for " + ps.aoeTickDamageFactor + ".");
 								}
 							} else { // check for friendly player, deal 50% dmg.
 								// deal half damage!!!

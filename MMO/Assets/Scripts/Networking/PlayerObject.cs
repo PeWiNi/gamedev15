@@ -21,10 +21,10 @@ public class PlayerObject
 		if (!character) {
 						
 			character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3dWithColliders);
-			if (BoltInit.hasPickedTeamOne) {
+			if (MenuScript.hasPickedTeamOne) {
 				//character.renderer.material.color = Color.red;
 				teamId = 1;
-			} else if (BoltInit.hasPickedTeamTwo) {
+			} else if (MenuScript.hasPickedTeamTwo) {
 				// character.renderer.material.color = Color.green;
 				teamId = 2;
 			}
@@ -40,9 +40,9 @@ public class PlayerObject
 		}
 				
 		// teleport entity to a random spawn position
-		if (BoltInit.hasPickedTeamOne == true) {
+		if (MenuScript.hasPickedTeamOne == true) {
 			character.transform.position = SpawnRandomPositionTeamOne ();
-		} else if (BoltInit.hasPickedTeamTwo == true) {
+		} else if (MenuScript.hasPickedTeamTwo == true) {
 			character.transform.position = SpawnRandomPositionTeamTwo ();
 		}
 	}
@@ -51,15 +51,15 @@ public class PlayerObject
 	{
 		float x = Random.Range (-10f, +10f);
 		float z = Random.Range (-10f, +10f);
-		character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 100f, 5f, z + 115f);
-		return new Vector3 (x + 100f, 5f, z + 115f);
+		character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 100, 15f, z + 100);
+		return new Vector3 (x + 100, 5f, z + 100);
 	}
 		
 	Vector3 SpawnRandomPositionTeamTwo ()
 	{
 		float x = Random.Range (-10f, +10f);
 		float z = Random.Range (-10f, +10f);
-		character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 770f, 5f, z + 115f);
-		return new Vector3 (x + 770f, 5f, z + 115f);
+		character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 100, 15f, z + 100);
+		return new Vector3 (x + 100, 5f, z + 100);
 	}
 }

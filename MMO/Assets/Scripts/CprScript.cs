@@ -11,6 +11,7 @@ public class CprScript : MonoBehaviour
 	float lastUsed;
 	bool available = true;
 	TestPlayerBehaviour tpb;
+	public bool CprUsedInHidingGrass;
 
 	void start ()
 	{
@@ -37,31 +38,41 @@ public class CprScript : MonoBehaviour
 //				}
 //				available = false;
 //				this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
-					IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-					//int teammates = 0;
-					//BoltEntity self = this.GetComponentInParent<TestPlayerBehaviour>().entity;
-					while (entities.MoveNext()) {
+				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+				//int teammates = 0;
+				//BoltEntity self = this.GetComponentInParent<TestPlayerBehaviour>().entity;
+				while (entities.MoveNext()) {
 
-						if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
-							BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
-							// Create Event and use the be, if it is the one that is colliding.
-						if(be.isOwner){
+					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
+						// Create Event and use the be, if it is the one that is colliding.
+						if (be.isOwner) {
 							using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
 								evnt.TargEnt = be;
 							}
 							available = false;
 							this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
 						}
-							if (be.gameObject == this.gameObject.GetComponentInParent<PlayerStats>().gameObject) {
+						if (be.gameObject == this.gameObject.GetComponentInParent<PlayerStats> ().gameObject) {
 								
-							}
 						}
+					}
 
 				}
 			}
 		}		
 	}
 
+
+	void OnTriggerStay (Collider coll)
+	{
+		if (coll.gameObject.name == "HidingGrass") {
+			if (Input.GetKeyDown (tpb.cprKey) && available) {
+				Debug.Log ("CC key pressed: " + Input.GetKeyDown (tpb.cprKey));
+				CprUsedInHidingGrass = true;
+			}
+		}
+	}
 //	void OnTriggerStay (Collider coll)
 //	{
 //		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
