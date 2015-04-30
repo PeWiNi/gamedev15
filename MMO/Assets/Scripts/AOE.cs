@@ -12,6 +12,8 @@ public class AOE : MonoBehaviour
 	float lastTick;
 	float tickTimer;
 	float currentTimer;
+	public bool AOEUsedInHidingGrass;
+
 	/* channeled, so canceled if moving.
      * should be going on for as long as not moving, or until duration is done.
      * Lock movement, but be able to rotate
@@ -82,8 +84,13 @@ public class AOE : MonoBehaviour
 
 	void OnTriggerStay (Collider coll)
 	{
-		if (sc.isChanneling && ((currentTimer - lastTick) > tickTimer) || (lastTick == lastUsed)){
-			Debug.Log("Ticking");   
+		if (coll.gameObject.name == "HidingGrass") {
+			if (Input.GetKeyDown (tpb.aoeKey) && available) {
+				AOEUsedInHidingGrass = true;
+			}
+		}
+		if (sc.isChanneling && ((currentTimer - lastTick) > tickTimer) || (lastTick == lastUsed)) {
+			Debug.Log ("Ticking");   
 			lastTick = Time.time;
 			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 			if (coll.gameObject.tag == "player" && sc.isChanneling) {
@@ -93,7 +100,7 @@ public class AOE : MonoBehaviour
 						// Create Event and use the be, if it is the one that is colliding.
 						if (be.gameObject == coll.gameObject/* && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour> ().gameObject*/) { // Check for enemy, deal full damage
 							//Debug.Log("AOE TICKING");
-							Debug.Log("Found the colliding GO");
+							Debug.Log ("Found the colliding GO");
 							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
 								// deal full damage!!!
 								Debug.Log ("Sending Event with dmg = " + ps.aoeTickDamageFactor);
@@ -104,7 +111,7 @@ public class AOE : MonoBehaviour
 									hs.dmgDealt.text = "" + ps.aoeTickDamageFactor;
 									evnt.TargEnt = be;
 									evnt.TickDamage = ps.aoeTickDamageFactor;
-									Debug.Log("Ticking for "+ ps.aoeTickDamageFactor+".");
+									Debug.Log ("Ticking for " + ps.aoeTickDamageFactor + ".");
 								}
 							} else { // check for friendly player, deal 50% dmg.
 								// deal half damage!!!

@@ -9,6 +9,7 @@ public class TailSlap : MonoBehaviour
 	StateController sc;
 	PlayerStats ps;
 	TestPlayerBehaviour tpb;
+	public bool TailSlapUsedInHidingGrass;
 
 	void start ()
 	{
@@ -28,10 +29,15 @@ public class TailSlap : MonoBehaviour
 	{
 
 		IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+		if (coll.gameObject.name == "HidingGrass") {
+			if (Input.GetKeyDown (tpb.tailSlapKey) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+				TailSlapUsedInHidingGrass = true;
+			}
+		}
 		if (coll.gameObject.tag == "player") {
 			sc = gameObject.GetComponentInParent<StateController> ();
 			ps = gameObject.GetComponentInParent<PlayerStats> ();
-			if (Input.GetKeyDown (KeyCode.Mouse0) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+			if (Input.GetKeyDown (tpb.tailSlapKey) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
 					
 				GameObject go = GameObject.Find ("Canvas");
 				HUDScript hs = go.GetComponentInChildren<HUDScript> ();
@@ -52,7 +58,7 @@ public class TailSlap : MonoBehaviour
 										evnt.TargEnt = be; 
 										evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
 									}
-								} else if(!be.isOwner){
+								} else if (!be.isOwner) {
 									//Do nothing.
 								} else { // check for friendly player, deal 50% dmg.
 									// deal half damage!!!
