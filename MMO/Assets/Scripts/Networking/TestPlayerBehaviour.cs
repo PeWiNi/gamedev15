@@ -30,6 +30,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public GameObject mainCam;
 	public GameObject snow;
 	public GameObject coconut;
+	HUDScript hud;
 	public static Bolt.NetworkId playerNetworkId;
 	float timeSinceLastBoom;
 	float currentRotationFace;
@@ -165,7 +166,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			//aimOverlay(1, range, 0.5f);
 		}
 		if (Input.GetKeyUp (boomNanaKey)) {
-			Debug.Log("BOOOOMNANAAAAA");
+			Debug.Log ("BOOOOMNANAAAAA");
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = false;
@@ -402,6 +403,15 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //		if (Input.GetKeyDown (keyCpr)) {
 //
 //		}
+		if (MenuScript.keybindChanged == true) {
+			KeyCode[] bindings = MenuScript.KeyBindings;
+			tailSlapKey = bindings [0];
+			boomNanaKey = bindings [1];
+			aoeKey = bindings [2];
+			ccKey = bindings [3];
+			cprKey = bindings [4];
+			MenuScript.keybindChanged = false;
+		}
 	}
 
 	void animateMovement ()
@@ -516,11 +526,16 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 //				mainCam.camera.gameObject.SetActive (true);
 		//Destroy (camObj);
 		KeyCode[] bindings = MenuScript.KeyBindings;
-		bindings [0] = tailSlapKey;
-		bindings [1] = boomNanaKey;
-		bindings [2] = aoeKey;
-		bindings [3] = ccKey;
-		bindings [4] = cprKey;
+		tailSlapKey = bindings [0];
+		boomNanaKey = bindings [1];
+		aoeKey = bindings [2];
+		ccKey = bindings [3];
+		cprKey = bindings [4];
+		HUDScript.a1Key = tailSlapKey.ToString ().ToLower ();
+		HUDScript.a2Key = boomNanaKey.ToString ().ToLower ();
+		HUDScript.a3Key = aoeKey.ToString ().ToLower ();
+		HUDScript.a4Key = ccKey.ToString ().ToLower ();
+		HUDScript.a6Key = cprKey.ToString ().ToLower ();
 	}
 		
 	/*void checkCameraAngle ()
