@@ -165,6 +165,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			//aimOverlay(1, range, 0.5f);
 		}
 		if (Input.GetKeyUp (boomNanaKey)) {
+			Debug.Log("BOOOOMNANAAAAA");
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = false;
