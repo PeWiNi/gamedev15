@@ -52,6 +52,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public Animation animation;
 //
 	private AnimationState idle;
+	private AnimationState thefish;
 	private AnimationState walk;
 	private AnimationState death;
 	private AnimationState buffAnim;
@@ -169,7 +170,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = false;
 			animation.wrapMode = WrapMode.Once;
-			animation.PlayQueued("M_BM");
+			animation.Play("M_BM");
 
 			// Mouse0 = Left Click
 			//Debug.Log("Player pos: "+transform.position);
@@ -502,6 +503,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		animation["M_BP_End"].wrapMode = WrapMode.Once;
 		animation["M_BP_End"].speed = 1;
 		animation["M_BP_End"].layer = 1;
+
 
 
 
