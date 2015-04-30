@@ -207,6 +207,7 @@ ModelImporter:
     7400018: M_FS
     7400020: M_TS
     9500000: //RootNode
+    11100000: //RootNode
     13700000: ears
     13700002: leftEye
     13700004: monguinBody
@@ -2576,7 +2577,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

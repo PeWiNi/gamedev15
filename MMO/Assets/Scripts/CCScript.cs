@@ -14,7 +14,11 @@ public class CCScript : MonoBehaviour
 	float lastUsed;
 	PlayerStats ps;
 	TestPlayerBehaviour tpb;
+<<<<<<< HEAD
 	public bool CCUsedInHidingGrass;
+=======
+	bool inUse = false;
+>>>>>>> origin/master
 
 	// Use this for initialization
 	void Start ()
@@ -51,10 +55,28 @@ public class CCScript : MonoBehaviour
 		if (Time.time - lastUsed >= ps.ccCooldown) {
 			available = true;
 		}
+		if(Input.GetKeyDown (tpb.ccKey) && available){
+			inUse = true;
+
+			//GetComponentInParent<TestPlayerBehaviour>().gameObject.transform.FindChild("fish_forFS_withanimation").gameObject.GetComponent<FishAnimScript>()
+			//.playAnimation();
+			GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_FS");
+		}
+
+
 	}
 
 	void OnTriggerStay (Collider coll)
 	{
+<<<<<<< HEAD
+=======
+
+		//Debug.Log(coll.tag);
+
+		if (inUse) {
+			available = false;
+			lastUsed = Time.time;
+>>>>>>> origin/master
 		IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 		if (coll.gameObject.name == "HidingGrass") {
 			if (Input.GetKeyDown (tpb.ccKey) && available) {
@@ -64,7 +86,7 @@ public class CCScript : MonoBehaviour
 		if (coll.gameObject.tag == "player") {
 			TestPlayerBehaviour tt = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
 			GameObject player = tt.gameObject;
-			if (Input.GetKeyDown (tpb.ccKey) && available) {
+
 				while (entities.MoveNext()) {
 					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
@@ -92,8 +114,6 @@ public class CCScript : MonoBehaviour
 							if (coll.gameObject == player) {
 								Debug.Log ("Casting player found as Collider");
 							}
-							available = false;
-							lastUsed = Time.time;
 							//else
 							//{ // check for friendly player, deal 50% dmg.
 							//    // deal half damage!!!
@@ -111,6 +131,7 @@ public class CCScript : MonoBehaviour
 					//}
 				}
 			}
+			inUse = false;
 		}
 
 

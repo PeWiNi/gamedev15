@@ -1,9 +1,14 @@
 fileFormatVersion: 2
 guid: ee5444c7157166543a486331b9e5825a
+timeCreated: 1430207242
+licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
-  executionOrder: {}
+  executionOrder:
+    BoltEntity: -2500
+    BoltPoll: -10000
+    BoltSend: 10000
   isPreloaded: 0
   platformData:
     Any:

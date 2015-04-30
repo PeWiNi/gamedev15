@@ -12,8 +12,12 @@ public class AOE : MonoBehaviour
 	float lastTick;
 	float tickTimer;
 	float currentTimer;
+<<<<<<< HEAD
 	public bool AOEUsedInHidingGrass;
 
+=======
+	bool animating = false;
+>>>>>>> origin/master
 	/* channeled, so canceled if moving.
      * should be going on for as long as not moving, or until duration is done.
      * Lock movement, but be able to rotate
@@ -62,17 +66,32 @@ public class AOE : MonoBehaviour
 			sc.isChanneling = true;
 			available = false;
 			lastTick = Time.time;
+			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Once;
+			GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_BP_Start");
+			animating = true;
+			
+//			GetComponentInParent<TestPlayerBehaviour>().animation.PlayQueued("M_BP_End");
+//			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
 		}
 		if (sc.isJumping && !available) {
 			sc.canMove = true;
 			sc.isChanneling = false;
 						
 		}
+
+		if(Time.time - lastUsed >= (ps.aoeDuration - 0.5f) && animating){
+			Debug.Log("gonna start END ANIM");
+			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Once;
+			GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_BP_End");
+			GetComponentInParent<TestPlayerBehaviour>().animation.CrossFadeQueued("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+			animating = false;
+		}
                 
 		// check timer for duration and Cooldown
 		if (Time.time - lastUsed >= (ps.aoeDuration + 0.0001f) && !available) {
 			sc.canMove = true;
 			sc.isChanneling = false;
+
 			Debug.Log ("AOE DONE!");
 
 		} 
@@ -80,7 +99,15 @@ public class AOE : MonoBehaviour
 			available = true;
 		}
 		currentTimer = Time.time;
+		if(sc.isChanneling && GetComponentInParent<TestPlayerBehaviour>().animation.IsPlaying("M_BP_Start")){
+//			GetComponentInParent<TestPlayerBehaviour>().animation.CrossFadeQueued("M_BP_End", 0.05f, QueueMode.PlayNow);
+//			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
+
+			//GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
+			//GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_BP_End", PlayMode.StopSameLayer);
+		}
 	}
+
 
 	void OnTriggerStay (Collider coll)
 	{

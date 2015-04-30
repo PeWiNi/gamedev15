@@ -9,7 +9,6 @@ public class HUDScript : MonoBehaviour
     private bool menu = false;
 
 	// Damage Effect
-	public KeyCode redKey; // Change to taking damage event
 	public RawImage takingDamageHUD;
 	private float HUDTimer = 0;
 	public float HUDEffectIntensity = 0.3f;
@@ -44,16 +43,30 @@ public class HUDScript : MonoBehaviour
 	private bool a6Cooldown;
     #endregion
 
-	private UnityEngine.UI.Slider castBar;
-	public UnityEngine.UI.Text dmgDealt;
-	private string currentCast;
+    private Slider castBar;
+	public Text dmgDealt;
+    private string currentCast;
+
+    public GameObject bcs1;
+    public GameObject bcs2;
+    public GameObject bcs3;
+    public GameObject bcs4;
+    private Slider captureSlider1;
+    private Slider captureSlider2;
+    private Slider captureSlider3;
+    private Slider captureSlider4;
 
 	// Use this for initialization
 	void Start ()
 	{
 		SetupActionBar ();
-		castBar = this.gameObject.GetComponentInChildren<UnityEngine.UI.Slider> ();
-		castBar.gameObject.SetActive (false);
+		castBar = GameObject.Find("CastBar").GetComponent<Slider>();
+        castBar.gameObject.SetActive(false);
+
+        captureSlider1 = GameObject.Find("CaptureSlider1").GetComponent<Slider>();
+        captureSlider2 = GameObject.Find("CaptureSlider2").GetComponent<Slider>();
+        captureSlider3 = GameObject.Find("CaptureSlider3").GetComponent<Slider>();
+        captureSlider4 = GameObject.Find("CaptureSlider4").GetComponent<Slider>();
 
         Menu = GameObject.Find("InGameMenu");
         Menu.SetActive(false);
@@ -63,7 +76,15 @@ public class HUDScript : MonoBehaviour
 	{
 		HUDTimer = HUDEffectIntensity;
 		takingDamageHUD.enabled = true;
+        takingDamageHUD.color = new Color(246f/255f, 49f/255f, 1f/255f);
 	}
+
+    public void healEff()
+    {
+        HUDTimer = HUDEffectIntensity;
+        takingDamageHUD.enabled = true;
+        takingDamageHUD.color = new Color(136f/255f, 204f/255f, 68f/255f);
+    }
 
 	// Update is called once per frame
 	void Update ()
@@ -73,12 +94,6 @@ public class HUDScript : MonoBehaviour
 		#region Damage Effect
 		if (HUDTimer <= 0) // Disable when the effect has ended
 			takingDamageHUD.enabled = false;
-		//if (Input.GetKeyDown(redKey)) // Change to taking damage event 
-		//{
-		//    //Creates HUDeffect when damaged
-		//    HUDTimer = HUDEffectIntensity;
-		//    takingDamageHUD.enabled = true;
-		//}
 		takingDamageHUD.color = new Color (takingDamageHUD.color.r, takingDamageHUD.color.g, takingDamageHUD.color.b, HUDTimer);
 		HUDTimer -= HUDEffectDecay;
 		#endregion
@@ -89,6 +104,20 @@ public class HUDScript : MonoBehaviour
             ActionBarOnPress(ref a3Over, a3Key, ref a3Cooldown, a3Time, 3, true); // AoE
             ActionBarOnPress(ref a4Over, a4Key, ref a4Cooldown, a4Time); // CC
             ActionBarOnPress(ref a6Over, a6Key, ref a6Cooldown, a6Time); // CPR
+        #endregion
+
+        #region Capture
+        try {
+            captureSlider1.value = bcs1.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSlider2.value = bcs2.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSlider3.value = bcs3.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSlider4.value = bcs4.GetComponent<BeaconCaptureScript>().captureValue;
+        } catch {
+            captureSlider1.gameObject.SetActive(false);
+            captureSlider2.gameObject.SetActive(false);
+            captureSlider3.gameObject.SetActive(false);
+            captureSlider4.gameObject.SetActive(false);
+        }
         #endregion
 
         if (Input.GetKeyUp(KeyCode.Escape)) 
