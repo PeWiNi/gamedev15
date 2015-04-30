@@ -110,10 +110,10 @@ public class BeaconCaptureScript : MonoBehaviour
 	{
 		increaseScoreValue = 7;
 		captureValue = 50;
-		beacon01 = GameObject.Find ("BeaconZone01");
-		beacon02 = GameObject.Find ("BeaconZone02");
-		beacon03 = GameObject.Find ("BeaconZone03");
-		beacon04 = GameObject.Find ("BeaconZone04");
+		beacon01 = GameObject.Find ("BeaconNorth");
+		beacon02 = GameObject.Find ("BeaconSouth");
+		beacon03 = GameObject.Find ("BeaconWest");
+		beacon04 = GameObject.Find ("BeaconEast");
 	}
 	
 	// Update is called once per frame
