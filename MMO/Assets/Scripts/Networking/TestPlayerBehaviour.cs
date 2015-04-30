@@ -170,6 +170,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = false;
 			BoomNanaUsedInHidingGrass = true;
+
 			animation.wrapMode = WrapMode.Once;
 			animation.Play ("M_BM");
 
@@ -497,7 +498,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		animation ["M_BM"].speed = 3;
 		animation ["M_BM"].layer = 1;
 		animation ["M_FS"].wrapMode = WrapMode.Once;
-		animation ["M_FS"].speed = 2;
+		animation ["M_FS"].speed = 1;
 		animation ["M_FS"].layer = 1;
 		animation ["M_BP_Start"].wrapMode = WrapMode.Once;
 		animation ["M_BP_Start"].speed = 1;

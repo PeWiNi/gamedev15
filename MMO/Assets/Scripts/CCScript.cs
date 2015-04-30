@@ -55,8 +55,8 @@ public class CCScript : MonoBehaviour
 		if (Input.GetKeyDown (tpb.ccKey) && available) {
 			inUse = true;
 
-			//GetComponentInParent<TestPlayerBehaviour>().gameObject.transform.FindChild("fish_forFS_withanimation").gameObject.GetComponent<FishAnimScript>()
-			//.playAnimation();
+			GetComponentInParent<TestPlayerBehaviour>().gameObject.transform.FindChild("fish_forFS_withanimation").gameObject.GetComponent<FishAnimScript>()
+			.playAnimation();
 			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_FS");
 		}
 

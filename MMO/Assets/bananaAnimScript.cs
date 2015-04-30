@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FishAnimScript : MonoBehaviour {
+public class bananaAnimScript : MonoBehaviour {
 	public Animation anim;
 	//
 	private AnimationState slap;
@@ -9,7 +9,7 @@ public class FishAnimScript : MonoBehaviour {
 	void Start () {
 		anim = this.gameObject.GetComponent<Animation>();
 		slap = anim["Take 001"];
-
+		
 		anim["Take 001"].wrapMode = WrapMode.Once;
 		anim["Take 001"].speed = 1;
 		anim["Take 001"].layer = 0;
