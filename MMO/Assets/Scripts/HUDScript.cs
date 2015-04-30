@@ -112,9 +112,7 @@ public class HUDScript : MonoBehaviour
 			captureSlider1.value = bcs1.GetComponent<BeaconCaptureScript> ().captureValue;
 		} catch {
 			captureSlider1.gameObject.SetActive (false);
-        } catch {
-            captureSlider1.gameObject.SetActive(false);
-        }
+        } 
         try {
             captureSlider2.value = bcs2.GetComponent<BeaconCaptureScript>().captureValue;
         }
