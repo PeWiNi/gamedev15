@@ -26,58 +26,60 @@ public class HidingGrassScript : MonoBehaviour
 		// should also consider unit size!
 		if (coll.gameObject.tag == "player") {
 			if (coll.transform.localScale != biggestScaledMonguin) {
-				var child = coll.transform.GetChild (5);
+				coll.GetComponent<TestPlayerBehaviour> ().isInsideHidingGrass = true;
+				var meshChild = coll.transform.GetChild (2);
+				var canvasChild = coll.transform.GetChild (8);
 				if (coll.GetComponent<StateController> ().gotHitInHidingGrass == true) {
-					coll.GetComponent<Renderer> ().enabled = true;
-					child.GetComponent<Canvas> ().enabled = true;
+					meshChild.gameObject.SetActive (true);
+					canvasChild.GetComponent<Canvas> ().enabled = true;
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
 						hideReenabledTimer = 0;
 						coll.GetComponent<StateController> ().gotHitInHidingGrass = false;
 					}
 				} else if (coll.GetComponentInChildren<CCScript> ().CCUsedInHidingGrass == true) {
-					coll.GetComponent<Renderer> ().enabled = true;
-					child.GetComponent<Canvas> ().enabled = true;
+					meshChild.gameObject.SetActive (true);
+					canvasChild.GetComponent<Canvas> ().enabled = true;
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
 						hideReenabledTimer = 0;
 						coll.GetComponentInChildren<CCScript> ().CCUsedInHidingGrass = false;
 					}
 				} else if (coll.GetComponentInChildren<TailSlap> ().TailSlapUsedInHidingGrass == true) {
-					coll.GetComponent<Renderer> ().enabled = true;
-					child.GetComponent<Canvas> ().enabled = true;
+					meshChild.gameObject.SetActive (true);
+					canvasChild.GetComponent<Canvas> ().enabled = true;
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
 						coll.GetComponentInChildren<TailSlap> ().TailSlapUsedInHidingGrass = false;
 						hideReenabledTimer = 0;
 					}
 				} else if (coll.GetComponentInChildren<CprScript> ().CprUsedInHidingGrass == true) {
-					coll.GetComponent<Renderer> ().enabled = true;
-					child.GetComponent<Canvas> ().enabled = true;
+					meshChild.gameObject.SetActive (true);
+					canvasChild.GetComponent<Canvas> ().enabled = true;
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
 						coll.GetComponentInChildren<CprScript> ().CprUsedInHidingGrass = false;
 						hideReenabledTimer = 0;
 					}
 				} else if (coll.GetComponentInChildren<AOE> ().AOEUsedInHidingGrass == true) {
-					coll.GetComponent<Renderer> ().enabled = true;
-					child.GetComponent<Canvas> ().enabled = true;
+					meshChild.gameObject.SetActive (true);
+					canvasChild.GetComponent<Canvas> ().enabled = true;
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledAOETime) {
 						coll.GetComponentInChildren<AOE> ().AOEUsedInHidingGrass = false;
 						hideReenabledTimer = 0;
 					}
 				} else if (coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass == true) {
-					coll.GetComponent<Renderer> ().enabled = true;
-					child.GetComponent<Canvas> ().enabled = true;
+					meshChild.gameObject.SetActive (true);
+					canvasChild.GetComponent<Canvas> ().enabled = true;
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
 						coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass = false;
 						hideReenabledTimer = 0;
 					}
 				} else {
-					coll.GetComponent<Renderer> ().enabled = false;
-					child.GetComponent<Canvas> ().enabled = false;
+					meshChild.gameObject.SetActive (false);
+					canvasChild.GetComponent<Canvas> ().enabled = false;
 				}
 			}
 		}
@@ -88,9 +90,11 @@ public class HidingGrassScript : MonoBehaviour
 		// should also consider unit size!
 		if (coll.gameObject.tag == "player") {
 			if (coll.transform.localScale != biggestScaledMonguin) {
-				var child = coll.transform.GetChild (5);
-				coll.GetComponent<Renderer> ().enabled = true;
-				child.GetComponent<Canvas> ().enabled = true;
+				coll.GetComponent<TestPlayerBehaviour> ().isInsideHidingGrass = false;
+				var meshChild = coll.transform.GetChild (2);
+				var canvasChild = coll.transform.GetChild (8);
+				meshChild.gameObject.SetActive (true);
+				canvasChild.GetComponent<Canvas> ().enabled = true;
 				if (coll.GetComponentInChildren<CCScript> ().CCUsedInHidingGrass == true) {
 					coll.GetComponentInChildren<CCScript> ().CCUsedInHidingGrass = false;
 				}

@@ -132,28 +132,28 @@ public class BeaconCaptureScript : MonoBehaviour
 	/// <param name="coll">Coll.</param>
 	void OnTriggerEnter (Collider coll)
 	{
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconZone01") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconNorth") {
 			teamOneCaptureList.Add (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconZone01") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconNorth") {
 			teamTwoCaptureList.Add (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconZone02") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconSouth") {
 			teamOneCaptureList.Add (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconZone02") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconSouth") {
 			teamTwoCaptureList.Add (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconZone03") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconWest") {
 			teamOneCaptureList.Add (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconZone03") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconWest") {
 			teamTwoCaptureList.Add (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconZone04") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconEast") {
 			teamOneCaptureList.Add (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconZone04") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconEast") {
 			teamTwoCaptureList.Add (coll.gameObject);
 		}
 	}
@@ -164,28 +164,28 @@ public class BeaconCaptureScript : MonoBehaviour
 	/// <param name="coll">Coll.</param>
 	void OnTriggerExit (Collider coll)
 	{
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconZone01") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconNorth") {
 			teamOneCaptureList.Remove (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconZone01") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconNorth") {
 			teamTwoCaptureList.Remove (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconZone02") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconSouth") {
 			teamOneCaptureList.Remove (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconZone02") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconSouth") {
 			teamTwoCaptureList.Remove (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconZone03") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconWest") {
 			teamOneCaptureList.Remove (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconZone03") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconWest") {
 			teamTwoCaptureList.Remove (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconZone04") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconEast") {
 			teamOneCaptureList.Remove (coll.gameObject);
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconZone04") {
+		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconEast") {
 			teamTwoCaptureList.Remove (coll.gameObject);
 		}
 	}
@@ -393,19 +393,19 @@ public class BeaconCaptureScript : MonoBehaviour
 		if (beaconUnderTeamOneControl == true) {
 			if (bonusPointsGiven == false) {
 				bool haveCalculated = false;
-				if (this.gameObject.name == "BeaconZone01") {
+				if (this.gameObject.name == "BeaconNorth") {
 					teamOneScore01 = oneScore + bonusPoints;
 					haveCalculated = true;
 				}
-				if (this.gameObject.name == "BeaconZone02") {
+				if (this.gameObject.name == "BeaconSouth") {
 					teamOneScore02 = oneScore + bonusPoints;
 					haveCalculated = true;
 				}
-				if (this.gameObject.name == "BeaconZone03") {
+				if (this.gameObject.name == "BeaconWest") {
 					teamOneScore03 = oneScore + bonusPoints;
 					haveCalculated = true;
 				}
-				if (this.gameObject.name == "BeaconZone04") {
+				if (this.gameObject.name == "BeaconEast") {
 					teamOneScore04 = oneScore + bonusPoints;
 					haveCalculated = true;
 				}
@@ -416,35 +416,35 @@ public class BeaconCaptureScript : MonoBehaviour
 					bonusPointsGiven = true;
 				}
 			}
-			if (this.gameObject.name == "BeaconZone01") {
+			if (this.gameObject.name == "BeaconNorth") {
 				StartCoroutine ("addScoreTeamOne", teamOneScore01);
 			}
-			if (this.gameObject.name == "BeaconZone02") {
+			if (this.gameObject.name == "BeaconSouth") {
 				StartCoroutine ("addScoreTeamOne", teamOneScore02);
 			}
-			if (this.gameObject.name == "BeaconZone03") {
+			if (this.gameObject.name == "BeaconWest") {
 				StartCoroutine ("addScoreTeamOne", teamOneScore03);
 			} 
-			if (this.gameObject.name == "BeaconZone04") {
+			if (this.gameObject.name == "BeaconEast") {
 				StartCoroutine ("addScoreTeamOne", teamOneScore04);
 			}
 		}
 		if (beaconUnderTeamTwoControl == true) {
 			if (bonusPointsGiven == false) {
 				bool haveCalculated = false;
-				if (this.gameObject.name == "BeaconZone01") {
+				if (this.gameObject.name == "BeaconNorth") {
 					teamTwoScore01 = twoScore + bonusPoints;
 					haveCalculated = true;
 				}
-				if (this.gameObject.name == "BeaconZone02") {
+				if (this.gameObject.name == "BeaconSouth") {
 					teamTwoScore02 = twoScore + bonusPoints;
 					haveCalculated = true;
 				}
-				if (this.gameObject.name == "BeaconZone03") {
+				if (this.gameObject.name == "BeaconWest") {
 					teamTwoScore03 = twoScore + bonusPoints;
 					haveCalculated = true;
 				}
-				if (this.gameObject.name == "BeaconZone04") {
+				if (this.gameObject.name == "BeaconEast") {
 					teamTwoScore04 = twoScore + bonusPoints;
 					haveCalculated = true;
 				}
@@ -455,16 +455,16 @@ public class BeaconCaptureScript : MonoBehaviour
 					bonusPointsGiven = true;
 				}
 			}
-			if (this.gameObject.name == "BeaconZone01") {
+			if (this.gameObject.name == "BeaconNorth") {
 				StartCoroutine ("addScoreTeamTwo", teamTwoScore01);
 			}
-			if (this.gameObject.name == "BeaconZone02") {
+			if (this.gameObject.name == "BeaconSouth") {
 				StartCoroutine ("addScoreTeamTwo", teamTwoScore02);
 			}
-			if (this.gameObject.name == "BeaconZone03") {
+			if (this.gameObject.name == "BeaconWest") {
 				StartCoroutine ("addScoreTeamTwo", teamTwoScore03);
 			}
-			if (this.gameObject.name == "BeaconZone04") {
+			if (this.gameObject.name == "BeaconEast") {
 				StartCoroutine ("addScoreTeamTwo", teamTwoScore04);
 			}
 		}
@@ -480,19 +480,19 @@ public class BeaconCaptureScript : MonoBehaviour
 		yield return new WaitForSeconds (10f);
 		if (GameTimeManager.time >= 1) {
 			oneScore = teamOneScore + increaseScoreValue;
-			if (this.gameObject.name == "BeaconZone01") {
+			if (this.gameObject.name == "BeaconNorth") {
 				teamOneScore01 = oneScore;
 				checkOne = true;
 			}
-			if (this.gameObject.name == "BeaconZone02") {
+			if (this.gameObject.name == "BeaconSouth") {
 				teamOneScore02 = oneScore;
 				checkOne = true;
 			}
-			if (this.gameObject.name == "BeaconZone03") {
+			if (this.gameObject.name == "BeaconWest") {
 				teamOneScore03 = oneScore; 
 				checkOne = true;
 			}
-			if (this.gameObject.name == "BeaconZone04") {
+			if (this.gameObject.name == "BeaconEast") {
 				teamOneScore04 = oneScore;
 				checkOne = true;
 			}
@@ -509,19 +509,19 @@ public class BeaconCaptureScript : MonoBehaviour
 		yield return new WaitForSeconds (10f);
 		if (GameTimeManager.time >= 1) {
 			twoScore = teamTwoScore + increaseScoreValue;
-			if (this.gameObject.name == "BeaconZone01") {
+			if (this.gameObject.name == "BeaconNorth") {
 				teamTwoScore01 = twoScore;
 				checkTwo = true;
 			}
-			if (this.gameObject.name == "BeaconZone02") {
+			if (this.gameObject.name == "BeaconSouth") {
 				teamTwoScore02 = twoScore;
 				checkTwo = true;
 			}
-			if (this.gameObject.name == "BeaconZone03") {
+			if (this.gameObject.name == "BeaconWest") {
 				teamTwoScore03 = twoScore;
 				checkTwo = true;
 			}
-			if (this.gameObject.name == "BeaconZone04") {
+			if (this.gameObject.name == "BeaconEast") {
 				teamOneScore04 = twoScore;
 				checkTwo = true;
 			}

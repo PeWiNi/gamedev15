@@ -280,14 +280,14 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	{
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.transform.GetComponent<Renderer> ().enabled = true;
-		target.gameObject.GetComponent<BananaScript> ().isBananaUp = evnt.BananaIsUp;
+		target.gameObject.GetComponent<BananaScript> ().bananaIsNotUp = evnt.BananaIsNotUp;
 	}
 
 	public override void OnEvent (BananaUnavailableEvent evnt)
 	{
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.transform.GetComponent<Renderer> ().enabled = false;
-		target.gameObject.GetComponent<BananaScript> ().isBananaUp = evnt.BananaIsUp;
+		target.gameObject.GetComponent<BananaScript> ().bananaIsNotUp = evnt.BananaIsNotUp;
 	}
 		
 	public override void OnEvent (AoeEvent evnt)

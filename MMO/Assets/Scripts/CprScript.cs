@@ -66,9 +66,8 @@ public class CprScript : MonoBehaviour
 
 	void OnTriggerStay (Collider coll)
 	{
-		if (coll.gameObject.name == "HidingGrass") {
+		if (coll.gameObject.tag == "grass") {
 			if (Input.GetKeyDown (tpb.cprKey) && available) {
-				Debug.Log ("CC key pressed: " + Input.GetKeyDown (tpb.cprKey));
 				CprUsedInHidingGrass = true;
 			}
 		}

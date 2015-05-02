@@ -67,30 +67,30 @@ public class BuffScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (ps.teamNumber == 1) {
-			if (BeeHive.playerOneIsBuffed == false) {
-				if (ps.trapBeeHiveBuffed == true) {
-					float tailSlapDamageBuffed = ps.tailSlapDamage / ps.buffDamageFactor;
-					ps.tailSlapDamage = tailSlapDamageBuffed;
-					Debug.Log ("" + ps.tailSlapDamage);
-					float boomnanaDamageBuffed = ps.boomNanaDamage / ps.buffDamageFactor;
-					ps.boomNanaDamage = boomnanaDamageBuffed;
-					ps.trapBeeHiveBuffed = false;
-				}
-			}
-		}
-		if (ps.teamNumber == 2) {
-			if (BeeHive.playerTwoIsBuffed == false) {
-				if (ps.trapBeeHiveBuffed == true) {
-					float tailSlapDamageBuffed = ps.tailSlapDamage / ps.buffDamageFactor;
-					ps.tailSlapDamage = tailSlapDamageBuffed;
-					Debug.Log ("" + ps.tailSlapDamage);
-					float boomnanaDamageBuffed = ps.boomNanaDamage / ps.buffDamageFactor;
-					ps.boomNanaDamage = boomnanaDamageBuffed;
-					ps.trapBeeHiveBuffed = false;
-				}
-			}
-		}
+//		if (ps.teamNumber == 1) {
+//			if (BeeHive.playerOneIsBuffed == false) {
+//				if (ps.trapBeeHiveBuffed == true) {
+//					float tailSlapDamageBuffed = ps.tailSlapDamage / ps.buffDamageFactor;
+//					ps.tailSlapDamage = tailSlapDamageBuffed;
+//					Debug.Log ("" + ps.tailSlapDamage);
+//					float boomnanaDamageBuffed = ps.boomNanaDamage / ps.buffDamageFactor;
+//					ps.boomNanaDamage = boomnanaDamageBuffed;
+//					ps.trapBeeHiveBuffed = false;
+//				}
+//			}
+//		}
+//		if (ps.teamNumber == 2) {
+//			if (BeeHive.playerTwoIsBuffed == false) {
+//				if (ps.trapBeeHiveBuffed == true) {
+//					float tailSlapDamageBuffed = ps.tailSlapDamage / ps.buffDamageFactor;
+//					ps.tailSlapDamage = tailSlapDamageBuffed;
+//					Debug.Log ("" + ps.tailSlapDamage);
+//					float boomnanaDamageBuffed = ps.boomNanaDamage / ps.buffDamageFactor;
+//					ps.boomNanaDamage = boomnanaDamageBuffed;
+//					ps.trapBeeHiveBuffed = false;
+//				}
+//			}
+//		}
 
 		if (boostTimer <= 0) {
 			boost.SetActive (false);

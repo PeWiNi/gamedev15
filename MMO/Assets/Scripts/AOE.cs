@@ -110,7 +110,7 @@ public class AOE : MonoBehaviour
 
 	void OnTriggerStay (Collider coll)
 	{
-		if (coll.gameObject.name == "HidingGrass") {
+		if (coll.gameObject.tag == "grass") {
 			if (Input.GetKeyDown (tpb.aoeKey) && available) {
 				AOEUsedInHidingGrass = true;
 			}

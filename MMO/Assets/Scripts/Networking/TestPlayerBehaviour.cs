@@ -51,6 +51,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public float ccDurationFactor = 1.35f;
 	public bool boomUsed = false;
 	public bool BoomNanaUsedInHidingGrass;
+	public bool isInsideHidingGrass;
 
 	public Animation animation;
 //
@@ -170,8 +171,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (6);
 			aim.GetComponent<Renderer> ().enabled = false;
-			BoomNanaUsedInHidingGrass = true;
-
+			if (isInsideHidingGrass == true) {
+				BoomNanaUsedInHidingGrass = true;
+			}
 			animation.wrapMode = WrapMode.Once;
 			animation.Play ("M_BM");
 
