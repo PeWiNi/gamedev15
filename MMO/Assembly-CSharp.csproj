@@ -102,6 +102,7 @@
      <Compile Include="Assets\Scripts\VFXScript.cs" />
      <Compile Include="Assets\Scripts\WASD.cs" />
      <Compile Include="Assets\SimpleMovement.cs" />
+     <Compile Include="Assets\VFXProjector.cs" />
      <Compile Include="Assets\bananaAnimScript.cs" />
      <Compile Include="Assets\bolt\scripts\BoltDebugStart.cs" />
      <Compile Include="Assets\bolt\scripts\BoltDebugStartSettings.cs" />
@@ -145,16 +146,16 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="bolt">
- <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/bolt/assemblies/bolt.dll</HintPath>
+ <HintPath>C:/Users/BeefUnicorn/Documents/GitHub/gamedev15/MMO/Assets/bolt/assemblies/bolt.dll</HintPath>
  </Reference>
  <Reference Include="bolt.user">
- <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/bolt/assemblies/bolt.user.dll</HintPath>
+ <HintPath>C:/Users/BeefUnicorn/Documents/GitHub/gamedev15/MMO/Assets/bolt/assemblies/bolt.user.dll</HintPath>
  </Reference>
  <Reference Include="udpkit.common">
- <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.common.dll</HintPath>
+ <HintPath>C:/Users/BeefUnicorn/Documents/GitHub/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.common.dll</HintPath>
  </Reference>
  <Reference Include="udpkit">
- <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.dll</HintPath>
+ <HintPath>C:/Users/BeefUnicorn/Documents/GitHub/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
