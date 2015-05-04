@@ -40,6 +40,7 @@ public class MenuScript : MonoBehaviour
 	public static bool hasPickedTeamTwo = false;
 	public static bool isServer = false;
 	public static bool isClient = false;
+    public static string playerName;
 
 	static string map;
 	string serverAddress = "";
@@ -310,6 +311,8 @@ public class MenuScript : MonoBehaviour
     #region Bolt Server Functions
 	public void StartServer ()
 	{
+        playerName = GameObject.Find("NameField").GetComponent<InputField>().text;
+
 		state = State.Playing;
 		makeKeyBindings ();
 		foreach (string value in BoltScenes.AllScenes) 
@@ -318,7 +321,9 @@ public class MenuScript : MonoBehaviour
 		BoltNetwork.LoadScene (map);
 	}
 	void StartClient ()
-	{
+    {
+        playerName = GameObject.Find("NameField").GetComponent<InputField>().text;
+
 		state = State.Playing;
 		makeKeyBindings ();
 		BoltLauncher.StartClient (UdpEndPoint.Any);

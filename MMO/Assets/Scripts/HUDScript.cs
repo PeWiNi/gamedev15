@@ -13,7 +13,7 @@ public class HUDScript : MonoBehaviour
 	private float HUDTimer = 0;
 	public float HUDEffectIntensity = 0.3f;
 	public float HUDEffectDecay = 0.004f;
-	public float FadeFactor = 0.75f;
+	float FadeFactor = 0.75f;
 
     #region Action Bar
     public GameObject Action1;
@@ -47,10 +47,6 @@ public class HUDScript : MonoBehaviour
 	public Text announcementText;
     private KeyCode currentCast;
 
-	public GameObject BeaconNorth;
-    public GameObject BeaconWest;
-    public GameObject BeaconEast;
-    public GameObject BeaconSouth;
 	private Slider captureSliderNorth;
 	private Slider captureSliderWest;
 	private Slider captureSliderEast;
@@ -88,15 +84,40 @@ public class HUDScript : MonoBehaviour
 
 	// Update is called once per frame
 	void Update ()
-	{
+    {
+
 		announcementText.color = new Color (announcementText.color.r, announcementText.color.g, announcementText.color.b, announcementText.color.a - (1.0f / FadeFactor * Time.deltaTime));
 		
 		#region Damage Effect
 		if (HUDTimer <= 0) // Disable when the effect has ended
 			takingDamageHUD.enabled = false;
 		takingDamageHUD.color = new Color (takingDamageHUD.color.r, takingDamageHUD.color.g, takingDamageHUD.color.b, HUDTimer);
-		HUDTimer -= HUDEffectDecay;
-		#endregion
+        HUDTimer -= HUDEffectDecay;
+        #endregion
+        GameObject monguin = GameObject.Find("PlayerObject3dWithColliders(Clone)");
+        StateController sc = monguin.GetComponent<StateController>();
+        if (sc.respawnTime > 0 && sc.ressStarted) {
+            announcementText.text = "You are dead.. Respawning in " + System.Math.Floor(sc.respawnTime) + " seconds";
+            announcementText.color = new Color(announcementText.color.r, announcementText.color.g, announcementText.color.b, 1.0f);
+            HUDTimer = 1.0f;
+            takingDamageHUD.enabled = true;
+        }
+
+        monguin.GetComponentInChildren<Text>().text = MenuScript.playerName;
+        if (MenuScript.hasPickedTeamOne) { //Fish
+            foreach (SkinnedMeshRenderer smr in monguin.GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                smr.material.mainTexture = Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Fish");
+                smr.material.SetTexture(1, Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Fish_normal"));
+            }
+        }
+        if (MenuScript.hasPickedTeamTwo) { //Banana
+            foreach (SkinnedMeshRenderer smr in monguin.GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                smr.material.mainTexture = Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Banana");
+                smr.material.SetTexture(1, Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Banana_normal"));
+            }
+        }
 
         #region ActionBar
         UpdateActionBarText();
@@ -109,24 +130,24 @@ public class HUDScript : MonoBehaviour
 
 		#region Capture
 		try {
-            captureSliderNorth.value = BeaconNorth.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSliderNorth.value = GameObject.Find("BeaconNorth").GetComponent<BeaconCaptureScript>().captureValue;
 		} catch {
 			captureSliderNorth.gameObject.SetActive (false);
         } 
         try {
-            captureSliderWest.value = BeaconWest.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSliderWest.value = GameObject.Find("BeaconWest").GetComponent<BeaconCaptureScript>().captureValue;
         }
         catch {
 			captureSliderWest.gameObject.SetActive (false);
         }
         try {
-            captureSliderEast.value = BeaconEast.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSliderEast.value = GameObject.Find("BeaconEast").GetComponent<BeaconCaptureScript>().captureValue;
         }
         catch {
 			captureSliderEast.gameObject.SetActive (false);
         }
         try {
-            captureSliderSouth.value = BeaconSouth.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSliderSouth.value = GameObject.Find("BeaconSouth").GetComponent<BeaconCaptureScript>().captureValue;
         }
         catch {
 			captureSliderSouth.gameObject.SetActive (false);
