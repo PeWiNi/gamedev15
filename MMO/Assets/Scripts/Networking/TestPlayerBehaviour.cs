@@ -535,11 +535,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		aoeKey = bindings [2];
 		ccKey = bindings [3];
 		cprKey = bindings [4];
-		HUDScript.a1Key = tailSlapKey.ToString ().ToLower ();
-		HUDScript.a2Key = boomNanaKey.ToString ().ToLower ();
-		HUDScript.a3Key = aoeKey.ToString ().ToLower ();
-		HUDScript.a4Key = ccKey.ToString ().ToLower ();
-		HUDScript.a6Key = cprKey.ToString ().ToLower ();
 	}
 		
 	/*void checkCameraAngle ()
