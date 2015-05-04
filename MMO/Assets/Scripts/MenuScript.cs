@@ -112,7 +112,7 @@ public class MenuScript : MonoBehaviour
 		BrightnessFill.offsetMin = new Vector2 (-5, 0);
 		BrightnessFill.offsetMax = new Vector2 (5, 0);
 		Transform BrightnessHandle = GameObject.Find ("BrightnessHandle").transform;
-		BrightnessHandle.localPosition = new Vector3 (0, BrightnessHandle.localPosition.y, BrightnessHandle.localPosition.z);
+		BrightnessHandle.localPosition = new Vector3 (0, 0, BrightnessHandle.localPosition.z);
 		#endregion
 
 		ResolutionPanel.SetActive (false);
@@ -222,7 +222,14 @@ public class MenuScript : MonoBehaviour
 		}
 	}
 	public void Restart ()
-	{
+    {
+        #region Announcement
+        GameObject go = GameObject.Find("Canvas");
+        HUDScript hs = go.GetComponentInChildren<HUDScript>();
+
+        hs.announcementText.text = "Server Restarting!";
+        hs.announcementText.color = new Color(hs.announcementText.color.r, hs.announcementText.color.g, hs.announcementText.color.b, 1.0f);
+        #endregion
 		//TODO: Tell clients that the server is restarting and ensure that they stay on the server (or that they are able to reconnect)
 		BoltNetwork.LoadScene (map);
 	}
