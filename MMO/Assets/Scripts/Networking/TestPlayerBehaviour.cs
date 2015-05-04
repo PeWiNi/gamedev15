@@ -156,7 +156,19 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (wasd != null) {
 		} 
 		position = player.transform.position;
-		if (Input.GetKeyUp (boomNanaKey)) {
+
+		if (Input.GetKeyDown (boomNanaKey)) {
+			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
+			Transform aim = this.transform.GetChild (6);
+			aim.GetComponent<Renderer> ().enabled = true;
+			aim.localScale = new Vector3 (1f, 0, ps.boomnanaRange / 4);
+			aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 2));
+			aim.localEulerAngles = new Quaternion (90.0f, 0.0f, 0.0f, 0).eulerAngles;
+			//vfx.aim.renderer.enabled = true;
+			//aimOverlay(1, range, 0.5f);
+		}
+		if (Input.GetKeyUp (boomNanaKey) && !GetComponent<StateController>().isDead && !sc.isStunned && ! sc.isChanneling) {
+
 			Debug.Log ("BOOOOMNANAAAAA");
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			if (isInsideHidingGrass == true) {
@@ -250,7 +262,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			up = true;
 			if (sc.canMove) {
 								
-				position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
+				//position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
 				//position.z += sc.getSpeed ();
 								
 				sc.isMoving = true;
@@ -261,7 +273,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			down = true;
 			if (sc.canMove) {
 								
-				position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
+				//position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
 				//position.z -= sc.getSpeed ();
 								
 				sc.isMoving = true;
@@ -272,7 +284,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			right = true;
 			if (sc.canMove) {
 								
-				position = position + (transform.right * sc.movementspeed * Time.deltaTime);
+				//position = position + (transform.right * sc.movementspeed * Time.deltaTime);
 				//position.x += sc.getSpeed ();
 								
 				sc.isMoving = true;
@@ -283,12 +295,43 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			left = true;
 			if (sc.canMove) {
 								
-				position = position - (transform.right * sc.movementspeed * Time.deltaTime);
+				//position = position - (transform.right * sc.movementspeed * Time.deltaTime);
 				//position.x -= sc.getSpeed ();
 								
 				sc.isMoving = true;
 			}
 		}
+
+
+		if(up){
+			if (sc.canMove) {
+				if(right){
+					position = position + (transform.forward * sc.movementspeed * Time.deltaTime)/2;
+					position = position + (transform.right * sc.movementspeed * Time.deltaTime)/2;
+				}else if(left){
+					position = position + (transform.forward * sc.movementspeed * Time.deltaTime)/2;
+					position = position - (transform.right * sc.movementspeed * Time.deltaTime)/2;
+				}else{
+					position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
+				}
+			}
+		}else 
+		if(down){
+			if (sc.canMove) {
+				if(right){
+					position = position - (transform.forward * sc.movementspeed * Time.deltaTime)/2;
+					position = position + (transform.right * sc.movementspeed * Time.deltaTime)/2;
+				}else if(left){
+					position = position - (transform.forward * sc.movementspeed * Time.deltaTime)/2;
+					position = position - (transform.right * sc.movementspeed * Time.deltaTime)/2;
+				}else{
+					position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
+				}
+			}
+		}else 
+		if(right){position = position + (transform.right * sc.movementspeed * Time.deltaTime);}
+		else if(left){position = position - (transform.right * sc.movementspeed * Time.deltaTime);}
+
 		if (position != Vector3.zero) {
 			transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
 		}
@@ -311,6 +354,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			sc.isMoving = false;
 		}
 		if (sc.isMoving) {
+			walk.speed = 6;
+			animation ["M_Walk"].speed = 6;
 			animation.PlayQueued ("M_Walk");
 			//animation.wrapMode = WrapMode.Loop;
 		}
@@ -407,6 +452,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	void animateMovement ()
 	{
 		if (sc.isMoving) {
+			animation ["M_Walk"].speed = 6;
 			animation ["M_Walk"].wrapMode = WrapMode.Loop;
 			animation ["M_Walk"].layer = 1;
 			animation.Play ("M_Walk");
@@ -482,6 +528,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		//animation.CrossFade("M_Death",0.25f);
 		//idle = animation["M_Death"];
 		//animation.Play("M_Death");
+		animation ["M_Walk"].speed = 4;
 		animation ["M_Walk"].layer = 0;
 		animation ["M_Death"].wrapMode = WrapMode.Once;
 		animation ["M_Death"].layer = 1;
@@ -848,7 +895,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
     
 	public void ColorChanged ()
 	{
-		GetComponent<Renderer> ().material.color = state.TestPlayerColor;
+		//GetComponent<Renderer> ().material.color = state.TestPlayerColor;
 	}
 
 	public void consumeCoconut ()

@@ -18,6 +18,8 @@ public class BananaScript : MonoBehaviour
 					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 						if (be.gameObject == this.gameObject) {
+							this.gameObject.GetComponentInChildren<ParticleSystem> ().enableEmission = false;
+							//this.gameObject.GetComponent<ParticleSystem> ().enableEmission = false;
 							using (var evnt = BananaUnavailableEvent.Create(Bolt.GlobalTargets.Everyone)) {
 								evnt.TargEnt = be;
 								evnt.BananaIsNotUp = true;
@@ -35,11 +37,13 @@ public class BananaScript : MonoBehaviour
 	IEnumerator BananaSpawner ()
 	{
 		IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-		yield return new WaitForSeconds (10f);
+		yield return new WaitForSeconds (60f);
 		while (entities.MoveNext()) {
 			if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 				BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 				if (be.gameObject == this.gameObject) {
+					this.gameObject.GetComponentInChildren<ParticleSystem> ().enableEmission = true;
+					//this.gameObject.GetComponent<ParticleSystem> ().enableEmission = true;
 					using (var evnt = BananaAvailableEvent.Create(Bolt.GlobalTargets.Everyone)) {
 						evnt.TargEnt = be;
 						evnt.BananaIsNotUp = false;

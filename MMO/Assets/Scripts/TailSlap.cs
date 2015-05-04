@@ -24,7 +24,7 @@ public class TailSlap : MonoBehaviour
 		if ((Time.time - lastUsed) >= gameObject.GetComponentInParent<PlayerStats> ().tailSlapCooldown) {
 			available = true;
 		}
-		if (Input.GetKeyDown (tpb.tailSlapKey)) {
+		if (Input.GetKeyDown (tpb.tailSlapKey) && !sc.isStunned && !sc.isChanneling && !sc.isDead) {
 			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_TS");
 		}
 	}
@@ -34,7 +34,7 @@ public class TailSlap : MonoBehaviour
 
 		IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 		if (coll.gameObject.tag == "grass") {
-			if (Input.GetKeyDown (tpb.tailSlapKey) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+			if (Input.GetKeyDown (tpb.tailSlapKey)) {
 				TailSlapUsedInHidingGrass = true;
 			}
 		}

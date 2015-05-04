@@ -52,7 +52,7 @@ public class CCScript : MonoBehaviour
 		if (Time.time - lastUsed >= ps.ccCooldown) {
 			available = true;
 		}
-		if (Input.GetKeyDown (tpb.ccKey) && available) {
+		if (Input.GetKeyDown (tpb.ccKey) && available && !GetComponentInParent<StateController>().isDead) {
 			inUse = true;
 
 			GetComponentInParent<TestPlayerBehaviour> ().gameObject.transform.FindChild ("fish_forFS_withanimation").gameObject.GetComponent<FishAnimScript> ()
@@ -66,16 +66,16 @@ public class CCScript : MonoBehaviour
 	void OnTriggerStay (Collider coll)
 	{
 		//Debug.Log(coll.tag);
-
+		if (coll.gameObject.tag == "grass") {
+			if (Input.GetKeyDown (tpb.ccKey) && available) {
+				CCUsedInHidingGrass = true;
+				Debug.Log (CCUsedInHidingGrass.ToString ());
+			}
+		}
 		if (inUse) {
 			available = false;
 			lastUsed = Time.time;
 			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-			if (coll.gameObject.tag == "grass") {
-				if (Input.GetKeyDown (tpb.ccKey) && available) {
-					CCUsedInHidingGrass = true;
-				}
-			}
 			if (coll.gameObject.tag == "player") {
 				TestPlayerBehaviour tt = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
 				GameObject player = tt.gameObject;
