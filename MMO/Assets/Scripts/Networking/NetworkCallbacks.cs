@@ -211,16 +211,16 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	}
 
 	public override void Connected (BoltConnection connection)
-    {
-        #region Announcement
-        GameObject go = GameObject.Find("Canvas");
-        HUDScript hs = go.GetComponentInChildren<HUDScript>();
+	{
+		#region Announcement
+		GameObject go = GameObject.Find ("Canvas");
+		HUDScript hs = go.GetComponentInChildren<HUDScript> ();
 
-        hs.announcementText.text = "Player connected!";
-        hs.announcementText.color = new Color(hs.announcementText.color.r, hs.announcementText.color.g, hs.announcementText.color.b, 1.0f);
-        #endregion
+		hs.announcementText.text = "Player connected!";
+		hs.announcementText.color = new Color (hs.announcementText.color.r, hs.announcementText.color.g, hs.announcementText.color.b, 1.0f);
+		#endregion
 
-        Debug.Log ("connected");
+		Debug.Log ("connected");
 		por.createClientPlayerObject (connection);
 		//updateStats();
 
@@ -235,21 +235,16 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	}
 	
 	public override void Disconnected (BoltConnection connection)
-<<<<<<< HEAD
 	{
+		#region Announcement
+		GameObject go = GameObject.Find ("Canvas");
+		HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+
+		hs.announcementText.text = "Player disconnected!";
+		hs.announcementText.color = new Color (hs.announcementText.color.r, hs.announcementText.color.g, hs.announcementText.color.b, 1.0f);
+		#endregion
+
 		Debug.Log ("DISCONNECTED PLAYER");
-=======
-    {
-        #region Announcement
-        GameObject go = GameObject.Find("Canvas");
-        HUDScript hs = go.GetComponentInChildren<HUDScript>();
-
-        hs.announcementText.text = "Player disconnected!";
-        hs.announcementText.color = new Color(hs.announcementText.color.r, hs.announcementText.color.g, hs.announcementText.color.b, 1.0f);
-        #endregion
-
-		Debug.Log("DISCONNECTED PLAYER");
->>>>>>> origin/master
 		por.DestoryOnDisconnection (connection);
 		playerDC = true;
 //				if (tpb.state.TeamMemberId == 1) {
@@ -446,8 +441,8 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 	public override void OnEvent (GameTimerEvent evnt)
 	{
-		if(playerDC){
-			updateStats();
+		if (playerDC) {
+			updateStats ();
 			playerDC = false;
 		}
 		GameTimeManager.time = evnt.GameTime;
