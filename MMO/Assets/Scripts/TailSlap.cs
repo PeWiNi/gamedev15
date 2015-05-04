@@ -24,7 +24,7 @@ public class TailSlap : MonoBehaviour
 		if ((Time.time - lastUsed) >= gameObject.GetComponentInParent<PlayerStats> ().tailSlapCooldown) {
 			available = true;
 		}
-		if (Input.GetKeyDown (tpb.tailSlapKey)) {
+		if (Input.GetKeyDown (tpb.tailSlapKey) && !sc.isStunned && !sc.isChanneling && !sc.isDead) {
 			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_TS");
 		}
 	}

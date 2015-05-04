@@ -152,9 +152,22 @@ public class StateController : MonoBehaviour
 //			
 //		}
 
+	private bool checkIfDying(){
+		if(!isDead){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
 	public bool checkIfDead ()
 	{
 		if (GetComponent<PlayerStats> ().hp <= 0) {
+			if(checkIfDying ()){
+				GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+				GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_Death");
+			}
 			isDead = true;
 			isStunned = true;
 			// INITIATE DEATHSPAWNER!!!

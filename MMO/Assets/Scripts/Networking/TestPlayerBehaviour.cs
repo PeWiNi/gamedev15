@@ -168,7 +168,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			//vfx.aim.renderer.enabled = true;
 			//aimOverlay(1, range, 0.5f);
 		}
-		if (Input.GetKeyUp (boomNanaKey)) {
+		if (Input.GetKeyUp (boomNanaKey) && !GetComponent<StateController>().isDead && !sc.isStunned && ! sc.isChanneling) {
 			Debug.Log ("BOOOOMNANAAAAA");
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			Transform aim = this.transform.GetChild (6);
@@ -264,7 +264,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			up = true;
 			if (sc.canMove) {
 								
-				position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
+				//position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
 				//position.z += sc.getSpeed ();
 								
 				sc.isMoving = true;
@@ -275,7 +275,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			down = true;
 			if (sc.canMove) {
 								
-				position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
+				//position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
 				//position.z -= sc.getSpeed ();
 								
 				sc.isMoving = true;
@@ -286,7 +286,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			right = true;
 			if (sc.canMove) {
 								
-				position = position + (transform.right * sc.movementspeed * Time.deltaTime);
+				//position = position + (transform.right * sc.movementspeed * Time.deltaTime);
 				//position.x += sc.getSpeed ();
 								
 				sc.isMoving = true;
@@ -297,12 +297,43 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			left = true;
 			if (sc.canMove) {
 								
-				position = position - (transform.right * sc.movementspeed * Time.deltaTime);
+				//position = position - (transform.right * sc.movementspeed * Time.deltaTime);
 				//position.x -= sc.getSpeed ();
 								
 				sc.isMoving = true;
 			}
 		}
+
+
+		if(up){
+			if (sc.canMove) {
+				if(right){
+					position = position + (transform.forward * sc.movementspeed * Time.deltaTime)/2;
+					position = position + (transform.right * sc.movementspeed * Time.deltaTime)/2;
+				}else if(left){
+					position = position + (transform.forward * sc.movementspeed * Time.deltaTime)/2;
+					position = position - (transform.right * sc.movementspeed * Time.deltaTime)/2;
+				}else{
+					position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
+				}
+			}
+		}else 
+		if(down){
+			if (sc.canMove) {
+				if(right){
+					position = position - (transform.forward * sc.movementspeed * Time.deltaTime)/2;
+					position = position + (transform.right * sc.movementspeed * Time.deltaTime)/2;
+				}else if(left){
+					position = position - (transform.forward * sc.movementspeed * Time.deltaTime)/2;
+					position = position - (transform.right * sc.movementspeed * Time.deltaTime)/2;
+				}else{
+					position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
+				}
+			}
+		}else 
+		if(right){position = position + (transform.right * sc.movementspeed * Time.deltaTime);}
+		else if(left){position = position - (transform.right * sc.movementspeed * Time.deltaTime);}
+
 		if (position != Vector3.zero) {
 			transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
 		}

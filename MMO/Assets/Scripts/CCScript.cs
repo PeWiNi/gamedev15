@@ -52,7 +52,7 @@ public class CCScript : MonoBehaviour
 		if (Time.time - lastUsed >= ps.ccCooldown) {
 			available = true;
 		}
-		if (Input.GetKeyDown (tpb.ccKey) && available) {
+		if (Input.GetKeyDown (tpb.ccKey) && available && !GetComponentInParent<StateController>().isDead) {
 			inUse = true;
 
 			GetComponentInParent<TestPlayerBehaviour> ().gameObject.transform.FindChild ("fish_forFS_withanimation").gameObject.GetComponent<FishAnimScript> ()

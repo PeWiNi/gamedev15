@@ -30,7 +30,8 @@ public class CprScript : MonoBehaviour
 
 		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
 		if (Input.GetKeyDown (tpb.cprKey)) {
-			if (available) {
+			if (available && !GetComponentInParent<StateController>().isDead && !GetComponentInParent<StateController>().isStunned 
+			    && !GetComponentInParent<StateController>().isChanneling && GetComponentInParent<StateController>().canMove) {
 //				BoltEntity self = this.GetComponentInParent<TestPlayerBehaviour>().entity;
 //				int resources = this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas;
 //				using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
