@@ -47,10 +47,10 @@ public class HUDScript : MonoBehaviour
 	public Text dmgDealt;
     private KeyCode currentCast;
 
-	public GameObject bcs1;
-	public GameObject bcs2;
-	public GameObject bcs3;
-	public GameObject bcs4;
+	public GameObject BeaconNorth;
+    public GameObject BeaconWest;
+    public GameObject BeaconEast;
+    public GameObject BeaconSouth;
 	private Slider captureSlider1;
 	private Slider captureSlider2;
 	private Slider captureSlider3;
