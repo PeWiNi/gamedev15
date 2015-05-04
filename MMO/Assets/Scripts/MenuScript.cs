@@ -109,10 +109,10 @@ public class MenuScript : MonoBehaviour
 		Transform SFXHandle = GameObject.Find ("SFXHandle").transform;
 		SFXHandle.localPosition = new Vector3 (50, SFXHandle.localPosition.y, SFXHandle.localPosition.z);
 		RectTransform BrightnessFill = GameObject.Find ("BrightnessFill").GetComponent<RectTransform> ();
-		BrightnessFill.offsetMin = new Vector2 (-5, BrightnessFill.offsetMin.y);
-		BrightnessFill.offsetMax = new Vector2 (5, BrightnessFill.offsetMax.y);
+		BrightnessFill.offsetMin = new Vector2 (-5, 0);
+		BrightnessFill.offsetMax = new Vector2 (5, 0);
 		Transform BrightnessHandle = GameObject.Find ("BrightnessHandle").transform;
-		BrightnessHandle.localPosition = new Vector3 (0, BrightnessHandle.localPosition.y, BrightnessHandle.localPosition.z);
+		BrightnessHandle.localPosition = new Vector3 (0, 0, BrightnessHandle.localPosition.z);
 		#endregion
 
 		ResolutionPanel.SetActive (false);
