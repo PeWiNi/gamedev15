@@ -57,11 +57,11 @@ public class GameTimeManager : MonoBehaviour
 	{
 		if (beacon01.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl && beacon02.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl && beacon03.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl && beacon04.GetComponent<BeaconCaptureScript> ().beaconUnderTeamOneControl) {
 			time = 0;
-			text.text = "ALL BEACONS HAVE BEEN CAPTURED BY TEAM FISH, FISH WINS!";
+			text.text = "TEAM FISH WINS, THEY HAVE CAPTURED ALL BEACONS!";
 			wonByBeacon = true;
 		} else if (beacon01.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl && beacon02.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl && beacon03.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl && beacon04.GetComponent<BeaconCaptureScript> ().beaconUnderTeamTwoControl) {
 			time = 0;
-			text.text = "ALL BEACONS HAVE BEEN CAPTURED BY TEAM BANANA, BANANA WINS!";
+			text.text = "TEAM BANANA WINS, THEY HAVE CAPTURED ALL BEACONS!";
 			wonByBeacon = true;
 		}
 	}

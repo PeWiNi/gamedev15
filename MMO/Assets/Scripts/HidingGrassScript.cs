@@ -7,8 +7,8 @@ public class HidingGrassScript : MonoBehaviour
 	[SerializeField]
 	public float 
 		hideReenabledTimer;
-	float hideUnenabledTime = 2;
-	float hideUnenabledAOETime = 6.5f;
+	public float hideUnenabledTime = 2;
+	public float hideUnenabledAOETime = 6.5f;
 
 	// Use this for initialization
 	void Start ()
@@ -29,9 +29,11 @@ public class HidingGrassScript : MonoBehaviour
 				coll.GetComponent<TestPlayerBehaviour> ().isInsideHidingGrass = true;
 				var meshChild = coll.transform.GetChild (2);
 				var canvasChild = coll.transform.GetChild (8);
+				var fishChild = coll.transform.GetChild (9);
 				if (coll.GetComponent<StateController> ().gotHitInHidingGrass == true) {
 					meshChild.gameObject.SetActive (true);
 					canvasChild.GetComponent<Canvas> ().enabled = true;
+					fishChild.gameObject.SetActive (true);
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
 						hideReenabledTimer = 0;
@@ -40,6 +42,7 @@ public class HidingGrassScript : MonoBehaviour
 				} else if (coll.GetComponentInChildren<CCScript> ().CCUsedInHidingGrass == true) {
 					meshChild.gameObject.SetActive (true);
 					canvasChild.GetComponent<Canvas> ().enabled = true;
+					fishChild.gameObject.SetActive (true);
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
 						hideReenabledTimer = 0;
@@ -48,6 +51,7 @@ public class HidingGrassScript : MonoBehaviour
 				} else if (coll.GetComponentInChildren<TailSlap> ().TailSlapUsedInHidingGrass == true) {
 					meshChild.gameObject.SetActive (true);
 					canvasChild.GetComponent<Canvas> ().enabled = true;
+					fishChild.gameObject.SetActive (true);
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
 						coll.GetComponentInChildren<TailSlap> ().TailSlapUsedInHidingGrass = false;
@@ -56,6 +60,7 @@ public class HidingGrassScript : MonoBehaviour
 				} else if (coll.GetComponentInChildren<CprScript> ().CprUsedInHidingGrass == true) {
 					meshChild.gameObject.SetActive (true);
 					canvasChild.GetComponent<Canvas> ().enabled = true;
+					fishChild.gameObject.SetActive (true);
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
 						coll.GetComponentInChildren<CprScript> ().CprUsedInHidingGrass = false;
@@ -64,14 +69,17 @@ public class HidingGrassScript : MonoBehaviour
 				} else if (coll.GetComponentInChildren<AOE> ().AOEUsedInHidingGrass == true) {
 					meshChild.gameObject.SetActive (true);
 					canvasChild.GetComponent<Canvas> ().enabled = true;
+					fishChild.gameObject.SetActive (true);
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledAOETime) {
 						coll.GetComponentInChildren<AOE> ().AOEUsedInHidingGrass = false;
 						hideReenabledTimer = 0;
+						Debug.Log ("");
 					}
 				} else if (coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass == true) {
 					meshChild.gameObject.SetActive (true);
 					canvasChild.GetComponent<Canvas> ().enabled = true;
+					fishChild.gameObject.SetActive (true);
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
 						coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass = false;
@@ -80,6 +88,7 @@ public class HidingGrassScript : MonoBehaviour
 				} else {
 					meshChild.gameObject.SetActive (false);
 					canvasChild.GetComponent<Canvas> ().enabled = false;
+					fishChild.gameObject.SetActive (false);
 				}
 			}
 		}
@@ -93,8 +102,10 @@ public class HidingGrassScript : MonoBehaviour
 				coll.GetComponent<TestPlayerBehaviour> ().isInsideHidingGrass = false;
 				var meshChild = coll.transform.GetChild (2);
 				var canvasChild = coll.transform.GetChild (8);
+				var fishChild = coll.transform.GetChild (9);
 				meshChild.gameObject.SetActive (true);
 				canvasChild.GetComponent<Canvas> ().enabled = true;
+				fishChild.gameObject.SetActive (true);
 				if (coll.GetComponentInChildren<CCScript> ().CCUsedInHidingGrass == true) {
 					coll.GetComponentInChildren<CCScript> ().CCUsedInHidingGrass = false;
 				}

@@ -34,7 +34,7 @@ public class TailSlap : MonoBehaviour
 
 		IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 		if (coll.gameObject.tag == "grass") {
-			if (Input.GetKeyDown (tpb.tailSlapKey) && ! sc.isStunned && sc.canMove && !sc.isChanneling && !sc.isDead) {
+			if (Input.GetKeyDown (tpb.tailSlapKey)) {
 				TailSlapUsedInHidingGrass = true;
 			}
 		}
