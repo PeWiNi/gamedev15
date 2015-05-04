@@ -46,9 +46,9 @@ public class VFXProjector : MonoBehaviour
             castProjection(boomAim, 10, 20, 13, 3, true);
         }
         if (Input.GetKeyDown(MenuScript.KeyBindings[2])) { //Puke
-            castProjection(pukeAim, 1, 20, 2, 6);
+            castProjection(pukeAim, 1, 20, 2, 5);
         }
-        if (Input.GetKeyDown(MenuScript.KeyBindings[0])) { //Fish
+        if (Input.GetKeyDown(MenuScript.KeyBindings[3])) { //Fish
             castProjection(fishAim, 1, 40, 2, 3);
         }
 	}
