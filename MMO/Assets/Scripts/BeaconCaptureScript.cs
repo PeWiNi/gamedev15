@@ -290,7 +290,7 @@ public class BeaconCaptureScript : MonoBehaviour
 						while (entities.MoveNext()) {
 							if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 								BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
-								if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) == 1) {
+								if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) == 1 || (teamOneCaptureList.Count - teamTwoCaptureList.Count) == 2) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
 										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
@@ -298,8 +298,7 @@ public class BeaconCaptureScript : MonoBehaviour
 											evnt.CaptureValue = captureValue - 1;
 										}
 									}
-								} else if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) == 2) {
-							
+								} else if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) == 3 || (teamOneCaptureList.Count - teamTwoCaptureList.Count) == 4) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
 										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
@@ -307,15 +306,15 @@ public class BeaconCaptureScript : MonoBehaviour
 											evnt.CaptureValue = captureValue - 2;
 										}
 									}
-								} else if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) == 3) {
+								} else if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) == 5 || (teamOneCaptureList.Count - teamTwoCaptureList.Count) == 6) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
 										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
 											evnt.TargEnt = be;
 											evnt.CaptureValue = captureValue - 4;
-										}
+										}	
 									}
-								} else if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) >= 4) {
+								} else if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) > 6) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
 										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
@@ -341,7 +340,7 @@ public class BeaconCaptureScript : MonoBehaviour
 						while (entities.MoveNext()) {
 							if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 								BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
-								if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) == 1) {
+								if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) == 1 || (teamTwoCaptureList.Count - teamOneCaptureList.Count) == 2) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
 										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
@@ -349,7 +348,7 @@ public class BeaconCaptureScript : MonoBehaviour
 											evnt.CaptureValue = captureValue + 1;
 										}
 									}
-								} else if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) == 2) {
+								} else if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) == 3 || (teamTwoCaptureList.Count - teamOneCaptureList.Count) == 4) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
 										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
@@ -357,7 +356,7 @@ public class BeaconCaptureScript : MonoBehaviour
 											evnt.CaptureValue = captureValue + 2;
 										}
 									}
-								} else if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) == 3) {
+								} else if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) == 5 || (teamTwoCaptureList.Count - teamOneCaptureList.Count) == 6) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
 										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
@@ -365,7 +364,7 @@ public class BeaconCaptureScript : MonoBehaviour
 											evnt.CaptureValue = captureValue + 4;
 										}
 									}
-								} else if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) >= 4) {
+								} else if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) > 6) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
 										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
