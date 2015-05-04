@@ -891,7 +891,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
     
 	public void ColorChanged ()
 	{
-		GetComponent<Renderer> ().material.color = state.TestPlayerColor;
+		//GetComponent<Renderer> ().material.color = state.TestPlayerColor;
 	}
 
 	public void consumeCoconut ()
