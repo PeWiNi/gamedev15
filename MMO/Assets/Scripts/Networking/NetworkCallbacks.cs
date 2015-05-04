@@ -10,6 +10,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	Vector3 position;
 	Bolt.NetworkId id;
 	PlayerObjectReg por;
+	bool playerDC = false;
 	// BoltEntity lastSplitter;
 
 	public void updateStats ()
@@ -230,6 +231,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	{
 		Debug.Log("DISCONNECTED PLAYER");
 		por.DestoryOnDisconnection (connection);
+		playerDC = true;
 //				if (tpb.state.TeamMemberId == 1) {
 //						PlayerObjectReg.DestoryTeamOnePlayerOnDisconnection (connection);
 //				} else if (tpb.state.TeamMemberId == 2) {
@@ -238,7 +240,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} disconnected", connection.RemoteEndPoint);
 //				log.Send ();
-		updateStats ();
+		//updateStats ();
 	}
 
 	public override void SceneLoadLocalDone (string map)
@@ -408,6 +410,10 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 	public override void OnEvent (GameTimerEvent evnt)
 	{
+		if(playerDC){
+			updateStats();
+			playerDC = false;
+		}
 		GameTimeManager.time = evnt.GameTime;
 		GameTimeManager.setGameTimer (GameTimeManager.time);
 	}
