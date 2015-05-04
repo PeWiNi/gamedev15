@@ -228,7 +228,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	
 	public override void Disconnected (BoltConnection connection)
 	{
-		Debug.Log("DISCONNECTED PLAYER");
+		Debug.Log ("DISCONNECTED PLAYER");
 		por.DestoryOnDisconnection (connection);
 //				if (tpb.state.TeamMemberId == 1) {
 //						PlayerObjectReg.DestoryTeamOnePlayerOnDisconnection (connection);
@@ -317,6 +317,22 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.transform.GetComponent<Renderer> ().enabled = false;
 		target.gameObject.GetComponent<CoconutEffect> ().isCoconutNotConsumed = evnt.isCoconutNotConsumed;
+	}
+
+	public override void OnEvent (UnhideInGrassEvent evnt)
+	{
+		BoltEntity target = evnt.TargEnt;
+		target.transform.GetChild (2).gameObject.SetActive (true);
+		target.transform.GetChild (8).GetComponent<Canvas> ().enabled = true;
+		target.transform.GetChild (9).gameObject.SetActive (true);
+	}
+
+	public override void OnEvent (HidingInGrassEvent evnt)
+	{
+		BoltEntity target = evnt.TargEnt;
+		target.transform.GetChild (2).gameObject.SetActive (false);
+		target.transform.GetChild (8).GetComponent<Canvas> ().enabled = false;
+		target.transform.GetChild (9).gameObject.SetActive (false);
 	}
 
 	public override void OnEvent (PlayerBeingBuffedEvent evnt)

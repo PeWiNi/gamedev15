@@ -19,7 +19,6 @@ public class BananaScript : MonoBehaviour
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 						if (be.gameObject == this.gameObject) {
 							this.gameObject.GetComponentInChildren<ParticleSystem> ().enableEmission = false;
-							//this.gameObject.GetComponent<ParticleSystem> ().enableEmission = false;
 							using (var evnt = BananaUnavailableEvent.Create(Bolt.GlobalTargets.Everyone)) {
 								evnt.TargEnt = be;
 								evnt.BananaIsNotUp = true;
@@ -43,7 +42,6 @@ public class BananaScript : MonoBehaviour
 				BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 				if (be.gameObject == this.gameObject) {
 					this.gameObject.GetComponentInChildren<ParticleSystem> ().enableEmission = true;
-					//this.gameObject.GetComponent<ParticleSystem> ().enableEmission = true;
 					using (var evnt = BananaAvailableEvent.Create(Bolt.GlobalTargets.Everyone)) {
 						evnt.TargEnt = be;
 						evnt.BananaIsNotUp = false;

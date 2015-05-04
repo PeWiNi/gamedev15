@@ -5,11 +5,11 @@ using System.Collections.Generic;
 public class BeaconCaptureScript : MonoBehaviour
 {
 	[SerializeField]
-	public List<GameObject>
-		teamOneCaptureList = new List<GameObject> ();
+	public List<Collider>
+		teamOneCaptureList = new List<Collider> ();
 	[SerializeField]
-	public List<GameObject>
-		teamTwoCaptureList = new List<GameObject> ();
+	public List<Collider>
+		teamTwoCaptureList = new List<Collider> ();
 	[SerializeField]
 	public bool
 		beaconUnderTeamOneControl;
@@ -133,28 +133,81 @@ public class BeaconCaptureScript : MonoBehaviour
 	void OnTriggerEnter (Collider coll)
 	{
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconNorth") {
-			teamOneCaptureList.Add (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamOneCaptureList.Add (col);
+					Debug.Log ("" + teamOneCaptureList.Count);
+				}
+			}
 		}
-		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconNorth") {
-			teamTwoCaptureList.Add (coll.gameObject);
+		if (coll.gameObject.tag == "player" && coll.GetComponent<CapsuleCollider> ().isTrigger && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconNorth") {
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamTwoCaptureList.Add (col);
+					Debug.Log ("" + teamTwoCaptureList.Count);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconSouth") {
-			teamOneCaptureList.Add (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamOneCaptureList.Add (col);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconSouth") {
-			teamTwoCaptureList.Add (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamTwoCaptureList.Add (col);
+					Debug.Log ("" + teamTwoCaptureList.Count);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconWest") {
-			teamOneCaptureList.Add (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamOneCaptureList.Add (col);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconWest") {
-			teamTwoCaptureList.Add (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamTwoCaptureList.Add (col);
+					Debug.Log ("" + teamTwoCaptureList.Count);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconEast") {
-			teamOneCaptureList.Add (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamOneCaptureList.Add (col);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconEast") {
-			teamTwoCaptureList.Add (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamTwoCaptureList.Add (col);
+					Debug.Log ("" + teamTwoCaptureList.Count);
+				}
+			}
 		}
 	}
 
@@ -165,28 +218,84 @@ public class BeaconCaptureScript : MonoBehaviour
 	void OnTriggerExit (Collider coll)
 	{
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconNorth") {
-			teamOneCaptureList.Remove (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamOneCaptureList.Remove (col);
+					Debug.Log ("" + teamOneCaptureList.Count);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconNorth") {
-			teamTwoCaptureList.Remove (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamTwoCaptureList.Remove (col);
+					Debug.Log ("" + teamTwoCaptureList.Count);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconSouth") {
-			teamOneCaptureList.Remove (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamOneCaptureList.Remove (col);
+					Debug.Log ("" + teamOneCaptureList.Count);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconSouth") {
-			teamTwoCaptureList.Remove (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamTwoCaptureList.Remove (col);
+					Debug.Log ("" + teamTwoCaptureList.Count);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconWest") {
-			teamOneCaptureList.Remove (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamOneCaptureList.Remove (col);
+					Debug.Log ("" + teamOneCaptureList.Count);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconWest") {
-			teamTwoCaptureList.Remove (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamTwoCaptureList.Remove (col);
+					Debug.Log ("" + teamTwoCaptureList.Count);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 1 && this.gameObject.name == "BeaconEast") {
-			teamOneCaptureList.Remove (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamOneCaptureList.Remove (col);
+					Debug.Log ("" + teamOneCaptureList.Count);
+				}
+			}
 		}
 		if (coll.gameObject.tag == "player" && coll.gameObject.GetComponent<PlayerStats> ().teamNumber == 2 && this.gameObject.name == "BeaconEast") {
-			teamTwoCaptureList.Remove (coll.gameObject);
+			Collider[] allCols = coll.GetComponents<Collider> ();
+			HashSet<Collider> hashies = new HashSet<Collider> (allCols);
+			foreach (Collider col in hashies) {
+				if (col.isTrigger && col.GetType () == typeof(CapsuleCollider)) {
+					teamTwoCaptureList.Remove (col);
+					Debug.Log ("" + teamTwoCaptureList.Count);
+				}
+			}
 		}
 	}
 
