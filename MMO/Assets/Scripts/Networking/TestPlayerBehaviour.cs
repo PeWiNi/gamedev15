@@ -136,6 +136,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		}  
 		state.AddCallback ("TestPlayerColor", ColorChanged);
 		state.AddCallback ("TeamMemberId", TeamSelection);
+		this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
 
 	}
 
@@ -147,7 +148,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 
 
 		if (startup == 0) {
-			this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
+			Debug.Log ("Making the stat change");
+			//this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
 			mainCam.gameObject.GetComponent<PlayerCam> ().setStartLocation (transform.position);
 		}
 		startup = 1;

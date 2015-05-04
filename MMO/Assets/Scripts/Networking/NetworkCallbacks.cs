@@ -26,16 +26,21 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		while (boltEnum.MoveNext()) {
 			if (boltEnum.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 				BoltEntity boltEnt = (BoltEntity)boltEnum.Current as BoltEntity;
-				if (boltEnt.tag == "player") {
+				if (boltEnt.gameObject.tag == "player") {
+					if (boltEnt.gameObject.GetComponent<PlayerStats> ().teamNumber == 1) {
+						teamOneMembers++;
+					} else {
+						teamTwoMembers++;
+					}
 					theEnum = (boltEnt.gameObject.GetComponent<PlayerStats> ().getEntities ());
-					break;
+					//break;
 				}
 			}
 			a++; 
 			Debug.Log ("Entities found FROM STATSUPDATER = " + a);
 		}
 
-		if (theEnum != null) {
+		/*if (theEnum != null) {
 			int e = 0;
 			while (theEnum.MoveNext()) {
 				//Debug.Log("Enum from player object: "+ e);
@@ -53,8 +58,8 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 					}
 				}
 			}
-			Debug.Log ("Number of BOLTENTITIES found: " + e);
-		}
+			Debug.Log ("Number of PLAYERS found: " + e + ", T1 = "+teamOneMembers+", T2 = "+ teamTwoMembers);
+		}*/
 		/* IEnumerator enumer = por.allPlayerObjects.GetEnumerator();
             // go through each entity, and check for teamnumber.
             while (enumer.MoveNext())
@@ -82,10 +87,42 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 		StatSplitter sp = new StatSplitter ();
 		sp.splitStats (teamOneMembers);
-		//sp.splitScale (teamOneMembers);
+		sp.splitScale (teamOneMembers);
 		IEnumerator players = por.allPlayerObjects.GetEnumerator ();
 		int currentPlayerIndex = 0;
-		while (players.MoveNext()) {
+
+		IEnumerator boltEnumTwo = BoltNetwork.entities.GetEnumerator ();
+		while (boltEnumTwo.MoveNext()) {
+			if (boltEnumTwo.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+				BoltEntity boltEnt = (BoltEntity)boltEnumTwo.Current as BoltEntity;
+				if (boltEnt.gameObject.tag == "player") {
+					if (boltEnt.gameObject.GetComponent<PlayerStats> ().teamNumber == 1) {
+
+						using (var evnt = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone)) {
+							// High Hp = low Tail
+							// High Boom = low Aoe
+							evnt.MaxHp = (float)sp.hpValues [currentPlayerIndex];
+							evnt.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
+							evnt.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
+							evnt.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
+							evnt.TargEnt = boltEnt;
+						}
+						using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone)) {
+							evnt.Scale = (float)sp.scaleFactor;
+							evnt.TargEnt = boltEnt;
+						}
+						currentPlayerIndex++;
+
+					}
+					//theEnum = (boltEnt.gameObject.GetComponent<PlayerStats> ().getEntities ());
+					//break;
+				}
+			}
+		}
+
+
+
+		/*while (players.MoveNext()) {
 			PlayerObject player = (PlayerObject)players.Current as PlayerObject;
 			if (player.teamId == 1) {
 				using (var evnt = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone)) {
@@ -103,13 +140,41 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				}
 			}
 			currentPlayerIndex++;
-		}
+		}*/
 
 		sp = new StatSplitter ();
 		sp.splitStats (teamTwoMembers);
-		//sp.splitScale (teamTwoMembers);
+		sp.splitScale (teamTwoMembers);
 		currentPlayerIndex = 0;
 		players = por.allPlayerObjects.GetEnumerator ();
+		IEnumerator boltEnumThree = BoltNetwork.entities.GetEnumerator ();
+		while (boltEnumThree.MoveNext()) {
+			if (boltEnumThree.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+				BoltEntity boltEnt = (BoltEntity)boltEnumThree.Current as BoltEntity;
+				if (boltEnt.gameObject.tag == "player") {
+					if (boltEnt.gameObject.GetComponent<PlayerStats> ().teamNumber == 2) {
+						
+						using (var evnt = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone)) {
+							// High Hp = low Tail
+							// High Boom = low Aoe
+							evnt.MaxHp = (float)sp.hpValues [currentPlayerIndex];
+							evnt.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
+							evnt.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
+							evnt.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
+							evnt.TargEnt = boltEnt;
+						}
+						using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone)) {
+							evnt.Scale = (float)sp.scaleFactor;
+							evnt.TargEnt = boltEnt;
+						}
+						currentPlayerIndex++;
+						
+					}
+					//theEnum = (boltEnt.gameObject.GetComponent<PlayerStats> ().getEntities ());
+					//break;
+				}
+			}
+		}/*
 		while (players.MoveNext()) {
 			PlayerObject player = (PlayerObject)players.Current as PlayerObject;
 			if (player.teamId == 2) {
@@ -128,7 +193,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				}
 			}
 			currentPlayerIndex++;
-		}
+		}*/
 
 	}
 
@@ -163,6 +228,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	
 	public override void Disconnected (BoltConnection connection)
 	{
+		Debug.Log("DISCONNECTED PLAYER");
 		por.DestoryOnDisconnection (connection);
 //				if (tpb.state.TeamMemberId == 1) {
 //						PlayerObjectReg.DestoryTeamOnePlayerOnDisconnection (connection);
