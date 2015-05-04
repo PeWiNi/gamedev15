@@ -34,7 +34,7 @@ public class StatSplitter : MonoBehaviour
 			sum += hp;
 			hpValues.Add (hp);
 		}
-		float hpLast = maximumHp - (sum);
+		float hpLast = (maximumHp/noP) + (maximumHp - (sum));
 		hpValues.Add (hpLast);
 	}
 
@@ -97,6 +97,7 @@ public class StatSplitter : MonoBehaviour
 				tailValues.Add (ts1);
 			}
 			float tsLast = maximumTail - sum;
+			Debug.Log(tsLast+ " -> last TailSlap");
 			if (tsLast < (0.8 * maximumTail)) {
 				redoCalc = true;
 			} else {
@@ -109,17 +110,17 @@ public class StatSplitter : MonoBehaviour
 	public void splitScale (int noP)
 	{
 		scaleFactor = 2;
-//		float scaleMax = 3;
-//		if (noP < 3) {
-//			// split normally
-//			scaleFactor = scaleMax / noP;
-//		} else if (noP > 3 && noP < 10) {
-//			// split /10 + 1
-//			scaleFactor = (scaleMax / noP) + 1;
-//		} else {
-//			//scale = 1;
-//			scaleFactor = 1;
-//		}
+		float scaleMax = 3;
+		if (noP < 3) {
+			// split normally
+			scaleFactor = scaleMax / noP;
+		} else if (noP > 3 && noP < 10) {
+			// split /10 + 1
+			scaleFactor = (scaleMax / noP) + 1;
+		} else {
+			//scale = 1;
+			scaleFactor = 1;
+		}
 	}
 
 	public void splitAoe (int noP)

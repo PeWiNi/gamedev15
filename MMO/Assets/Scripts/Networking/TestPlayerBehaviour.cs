@@ -136,6 +136,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		}  
 		state.AddCallback ("TestPlayerColor", ColorChanged);
 		state.AddCallback ("TeamMemberId", TeamSelection);
+		this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
 
 	}
 
@@ -147,7 +148,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 
 
 		if (startup == 0) {
-			this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
+			Debug.Log ("Making the stat change");
+			//this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
 			mainCam.gameObject.GetComponent<PlayerCam> ().setStartLocation (transform.position);
 		}
 		startup = 1;
@@ -533,11 +535,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		aoeKey = bindings [2];
 		ccKey = bindings [3];
 		cprKey = bindings [4];
-		HUDScript.a1Key = tailSlapKey.ToString ().ToLower ();
-		HUDScript.a2Key = boomNanaKey.ToString ().ToLower ();
-		HUDScript.a3Key = aoeKey.ToString ().ToLower ();
-		HUDScript.a4Key = ccKey.ToString ().ToLower ();
-		HUDScript.a6Key = cprKey.ToString ().ToLower ();
 	}
 		
 	/*void checkCameraAngle ()
