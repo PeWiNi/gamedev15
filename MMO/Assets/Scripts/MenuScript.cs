@@ -102,18 +102,27 @@ public class MenuScript : MonoBehaviour
 		VideoMenu.SetActive (true);
 		RectTransform ScrollHandle = GameObject.Find ("ScrollHandle").GetComponent<RectTransform> ();
 		ScrollHandle.offsetMin = new Vector2 (-10, -10);
-		ScrollHandle.offsetMax = new Vector2 (10, 10);
+        ScrollHandle.offsetMax = new Vector2(10, 10);
+        RectTransform MasterFill = GameObject.Find("MasterFill").GetComponent<RectTransform>();
+        MasterFill.offsetMin = new Vector2(-5, 0);
+        MasterFill.offsetMax = new Vector2(5, 0);
+        RectTransform MusicFill = GameObject.Find("MusicFill").GetComponent<RectTransform>();
+        MusicFill.offsetMin = new Vector2(-5, 0);
+        MusicFill.offsetMax = new Vector2(5, 0);
+        RectTransform SFXFill = GameObject.Find("SFXFill").GetComponent<RectTransform>();
+        SFXFill.offsetMin = new Vector2(-5, 0);
+        SFXFill.offsetMax = new Vector2(5, 0);
 		Transform MasterHandle = GameObject.Find ("MasterHandle").transform;
-		MasterHandle.localPosition = new Vector3 (50, MasterHandle.localPosition.y, MasterHandle.localPosition.z);
+		MasterHandle.localPosition = new Vector3 (50, 0, 0);
 		Transform MusicHandle = GameObject.Find ("MusicHandle").transform;
-		MusicHandle.localPosition = new Vector3 (50, MusicHandle.localPosition.y, MusicHandle.localPosition.z);
+		MusicHandle.localPosition = new Vector3 (50, 0, 0);
 		Transform SFXHandle = GameObject.Find ("SFXHandle").transform;
-		SFXHandle.localPosition = new Vector3 (50, SFXHandle.localPosition.y, SFXHandle.localPosition.z);
+		SFXHandle.localPosition = new Vector3 (50, 0, 0);
 		RectTransform BrightnessFill = GameObject.Find ("BrightnessFill").GetComponent<RectTransform> ();
 		BrightnessFill.offsetMin = new Vector2 (-5, 0);
 		BrightnessFill.offsetMax = new Vector2 (5, 0);
 		Transform BrightnessHandle = GameObject.Find ("BrightnessHandle").transform;
-		BrightnessHandle.localPosition = new Vector3 (0, 0, BrightnessHandle.localPosition.z);
+		BrightnessHandle.localPosition = new Vector3 (0, 0, 0);
 		#endregion
 
 		ResolutionPanel.SetActive (false);
