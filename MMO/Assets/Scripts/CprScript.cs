@@ -68,7 +68,8 @@ public class CprScript : MonoBehaviour
 	void OnTriggerStay (Collider coll)
 	{
 		if (coll.gameObject.tag == "grass") {
-			if (Input.GetKeyDown (tpb.cprKey) && available) {
+			if (Input.GetKeyDown (tpb.cprKey) && available &&!GetComponentInParent<StateController>().isDead && !GetComponentInParent<StateController>().isStunned 
+			    && !GetComponentInParent<StateController>().isChanneling && GetComponentInParent<StateController>().canMove) {
 				CprUsedInHidingGrass = true;
 			}
 		}

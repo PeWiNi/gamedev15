@@ -70,7 +70,7 @@ public class StateController : MonoBehaviour
 		GameObject go = GameObject.Find ("Canvas");
 		HUDScript hs = go.GetComponentInChildren<HUDScript> ();
 		//hs.damageEff ();
-		hs.dmgDealt.text = "- " + Mathf.Ceil (damage);
+        hs.announcementText.text = "- " + Mathf.Ceil(damage);
 		target.GetComponent<StateController> ().getHitByBuff (Mathf.Ceil (damage), target);
 	}
 
@@ -84,7 +84,7 @@ public class StateController : MonoBehaviour
 		GameObject go = GameObject.Find ("Canvas");
 		HUDScript hs = go.GetComponentInChildren<HUDScript> ();
 		hs.damageEff ();
-		hs.dmgDealt.text = "- " + damage;
+        hs.announcementText.text = "- " + damage;
 		//TestPlayerBehaviour tpb = this.gameObject.GetComponent<TestPlayerBehaviour>();
 		//  Debug.Log(tpb.mainCam.GetComponentInChildren<HUDScript>());   
 		// tpb.mainCam.gameObject.GetComponentInChildren<HUDScript>().damageEff();
@@ -139,8 +139,8 @@ public class StateController : MonoBehaviour
 		Debug.Log ("GETTING STUNNED!");
 		GameObject go = GameObject.Find ("Canvas");
 		HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-		hs.dmgDealt.text = "Stunned!";
-		hs.dmgDealt.color = new Color (hs.dmgDealt.color.r, hs.dmgDealt.color.g, hs.dmgDealt.color.b, 1);
+        hs.announcementText.text = "Stunned!";
+        hs.announcementText.color = new Color(hs.announcementText.color.r, hs.announcementText.color.g, hs.announcementText.color.b, 1);
 		stunnedStartFromCC = Time.time;
 		stunnedDurationFromCC = duration;
 		isStunned = true;

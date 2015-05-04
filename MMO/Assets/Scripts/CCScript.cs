@@ -94,8 +94,8 @@ public class CCScript : MonoBehaviour
 								using (var evnt = CCEvent.Create(Bolt.GlobalTargets.Everyone)) {
 									GameObject go = GameObject.Find ("Canvas");
 									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-									
-									hs.dmgDealt.text = "Stunning!";
+
+                                    hs.announcementText.text = "Stunning!";
 									Debug.Log ("TeamNumber: " + be.gameObject.GetComponent<PlayerStats> ().teamNumber + ", ps.teamNumber = " + ps.teamNumber);
 									evnt.TargEnt = coll.gameObject.GetComponent<TestPlayerBehaviour> ().entity;
 									evnt.Duration = ps.ccDuration;

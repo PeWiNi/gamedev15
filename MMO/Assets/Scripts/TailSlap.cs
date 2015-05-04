@@ -46,8 +46,8 @@ public class TailSlap : MonoBehaviour
 
 				GameObject go = GameObject.Find ("Canvas");
 				HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-				
-				hs.dmgDealt.text = "Miss";
+
+                hs.announcementText.text = "Miss";
 				while (entities.MoveNext()) {
 					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
@@ -59,7 +59,7 @@ public class TailSlap : MonoBehaviour
 								if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
 									// deal full damage!!!
 									using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone)) {
-										hs.dmgDealt.text = "" + this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
+                                        hs.announcementText.text = "" + this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage;
 										evnt.TargEnt = be; 
 										evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
 									}
@@ -68,7 +68,7 @@ public class TailSlap : MonoBehaviour
 								} else { // check for friendly player, deal 50% dmg.
 									// deal half damage!!!
 									using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone)) {
-										hs.dmgDealt.text = "" + this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage / 2;
+                                        hs.announcementText.text = "" + this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage / 2;
 										evnt.TargEnt = be;
 										evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage / 2;
 									}

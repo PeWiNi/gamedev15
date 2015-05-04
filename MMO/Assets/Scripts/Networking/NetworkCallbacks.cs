@@ -10,6 +10,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	Vector3 position;
 	Bolt.NetworkId id;
 	PlayerObjectReg por;
+	bool playerDC = false;
 	// BoltEntity lastSplitter;
 
 	public void updateStats ()
@@ -210,9 +211,16 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	}
 
 	public override void Connected (BoltConnection connection)
-	{
-				
-		Debug.Log ("connected");
+    {
+        #region Announcement
+        GameObject go = GameObject.Find("Canvas");
+        HUDScript hs = go.GetComponentInChildren<HUDScript>();
+
+        hs.announcementText.text = "Player connected!";
+        hs.announcementText.color = new Color(hs.announcementText.color.r, hs.announcementText.color.g, hs.announcementText.color.b, 1.0f);
+        #endregion
+
+        Debug.Log ("connected");
 		por.createClientPlayerObject (connection);
 		//updateStats();
 
@@ -227,9 +235,23 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	}
 	
 	public override void Disconnected (BoltConnection connection)
+<<<<<<< HEAD
 	{
 		Debug.Log ("DISCONNECTED PLAYER");
+=======
+    {
+        #region Announcement
+        GameObject go = GameObject.Find("Canvas");
+        HUDScript hs = go.GetComponentInChildren<HUDScript>();
+
+        hs.announcementText.text = "Player disconnected!";
+        hs.announcementText.color = new Color(hs.announcementText.color.r, hs.announcementText.color.g, hs.announcementText.color.b, 1.0f);
+        #endregion
+
+		Debug.Log("DISCONNECTED PLAYER");
+>>>>>>> origin/master
 		por.DestoryOnDisconnection (connection);
+		playerDC = true;
 //				if (tpb.state.TeamMemberId == 1) {
 //						PlayerObjectReg.DestoryTeamOnePlayerOnDisconnection (connection);
 //				} else if (tpb.state.TeamMemberId == 2) {
@@ -238,7 +260,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 //				var log = LogEvent.Create ();
 //				log.Message = string.Format ("{0} disconnected", connection.RemoteEndPoint);
 //				log.Send ();
-		updateStats ();
+		//updateStats ();
 	}
 
 	public override void SceneLoadLocalDone (string map)
@@ -424,6 +446,10 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
 	public override void OnEvent (GameTimerEvent evnt)
 	{
+		if(playerDC){
+			updateStats();
+			playerDC = false;
+		}
 		GameTimeManager.time = evnt.GameTime;
 		GameTimeManager.setGameTimer (GameTimeManager.time);
 	}
