@@ -44,17 +44,17 @@ public class HUDScript : MonoBehaviour
     #endregion
 
 	private Slider castBar;
-	public Text dmgDealt;
+	public Text announcementText;
     private KeyCode currentCast;
 
 	public GameObject BeaconNorth;
     public GameObject BeaconWest;
     public GameObject BeaconEast;
     public GameObject BeaconSouth;
-	private Slider captureSlider1;
-	private Slider captureSlider2;
-	private Slider captureSlider3;
-	private Slider captureSlider4;
+	private Slider captureSliderNorth;
+	private Slider captureSliderWest;
+	private Slider captureSliderEast;
+	private Slider captureSliderSouth;
 
 	// Use this for initialization
 	void Start ()
@@ -63,10 +63,10 @@ public class HUDScript : MonoBehaviour
 		castBar = GameObject.Find ("CastBar").GetComponent<Slider> ();
 		castBar.gameObject.SetActive (false);
 
-		captureSlider1 = GameObject.Find ("CaptureSlider1").GetComponent<Slider> ();
-		captureSlider2 = GameObject.Find ("CaptureSlider2").GetComponent<Slider> ();
-		captureSlider3 = GameObject.Find ("CaptureSlider3").GetComponent<Slider> ();
-		captureSlider4 = GameObject.Find ("CaptureSlider4").GetComponent<Slider> ();
+		captureSliderNorth = GameObject.Find ("CaptureSliderNorth").GetComponent<Slider> ();
+		captureSliderWest = GameObject.Find ("CaptureSliderWest").GetComponent<Slider> ();
+		captureSliderEast = GameObject.Find ("CaptureSliderEast").GetComponent<Slider> ();
+		captureSliderSouth = GameObject.Find ("CaptureSliderSouth").GetComponent<Slider> ();
 
 		Menu = GameObject.Find ("InGameMenu");
 		Menu.SetActive (false);
@@ -89,7 +89,7 @@ public class HUDScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, dmgDealt.color.a - (1.0f / FadeFactor * Time.deltaTime));
+		announcementText.color = new Color (announcementText.color.r, announcementText.color.g, announcementText.color.b, announcementText.color.a - (1.0f / FadeFactor * Time.deltaTime));
 		
 		#region Damage Effect
 		if (HUDTimer <= 0) // Disable when the effect has ended
@@ -109,32 +109,32 @@ public class HUDScript : MonoBehaviour
 
 		#region Capture
 		try {
-            captureSlider1.value = BeaconNorth.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSliderNorth.value = BeaconNorth.GetComponent<BeaconCaptureScript>().captureValue;
 		} catch {
-			captureSlider1.gameObject.SetActive (false);
+			captureSliderNorth.gameObject.SetActive (false);
         } 
         try {
-            captureSlider2.value = BeaconWest.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSliderWest.value = BeaconWest.GetComponent<BeaconCaptureScript>().captureValue;
         }
         catch {
-			captureSlider2.gameObject.SetActive (false);
+			captureSliderWest.gameObject.SetActive (false);
         }
         try {
-            captureSlider3.value = BeaconEast.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSliderEast.value = BeaconEast.GetComponent<BeaconCaptureScript>().captureValue;
         }
         catch {
-			captureSlider3.gameObject.SetActive (false);
+			captureSliderEast.gameObject.SetActive (false);
         }
         try {
-            captureSlider4.value = BeaconSouth.GetComponent<BeaconCaptureScript>().captureValue;
+            captureSliderSouth.value = BeaconSouth.GetComponent<BeaconCaptureScript>().captureValue;
         }
         catch {
-			captureSlider4.gameObject.SetActive (false);
+			captureSliderSouth.gameObject.SetActive (false);
 		}
 		#endregion
 
-		if (Input.GetKeyUp (KeyCode.Escape)) 
-			ShowMenu (menu);
+		if (Input.GetKeyUp (KeyCode.Escape))
+            ShowMenu(menu);
 	}
 
 	public void ShowMenu (bool isActive)
@@ -205,9 +205,9 @@ public class HUDScript : MonoBehaviour
 			if (Input.GetKeyUp (key) && !onCooldown) {
 				onCooldown = true;
 				overlayImage.fillAmount = 0.0f;
-				dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
+				announcementText.color = new Color (announcementText.color.r, announcementText.color.g, announcementText.color.b, 1);
 
-				dmgDealt.text = "Throwing BoomNana!";
+				announcementText.text = "Throwing BoomNana!";
 
 			}
 		}
@@ -224,23 +224,23 @@ public class HUDScript : MonoBehaviour
 			if (Input.GetKeyDown (key) && !onCooldown) {
 				onCooldown = true;
 				overlayImage.fillAmount = 0.0f;
-				dmgDealt.color = new Color (dmgDealt.color.r, dmgDealt.color.g, dmgDealt.color.b, 1);
+				announcementText.color = new Color (announcementText.color.r, announcementText.color.g, announcementText.color.b, 1);
 				if (castTime != 0)
 					ActivateCastBar (castTime, channeled, key);
 				if (key == a1Key) {
-					dmgDealt.text = "Miss!";
+					announcementText.text = "Miss!";
 				}
 				if (key == a3Key) {
-					dmgDealt.text = "Channeling AOE!";
+					announcementText.text = "Channeling AOE!";
 					Text a = castBar.GetComponentInChildren<Text> ();
 					a.color = Color.red;
 					a.text = "Puking All Over The Place";
 				}
 				if (key == a4Key) {
-					dmgDealt.text = "Stunning!";
+					announcementText.text = "Stunning!";
 				}
 				if (key == a6Key) {
-					dmgDealt.text = "Resurrecting!";
+					announcementText.text = "Resurrecting!";
 					Text a = castBar.GetComponentInChildren<Text> ();
 					a.color = Color.red;
 					a.text = "Monguin CPR";
