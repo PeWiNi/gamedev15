@@ -354,6 +354,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			sc.isMoving = false;
 		}
 		if (sc.isMoving) {
+			walk.speed = 6;
+			animation ["M_Walk"].speed = 6;
 			animation.PlayQueued ("M_Walk");
 			//animation.wrapMode = WrapMode.Loop;
 		}
@@ -450,6 +452,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	void animateMovement ()
 	{
 		if (sc.isMoving) {
+			animation ["M_Walk"].speed = 6;
 			animation ["M_Walk"].wrapMode = WrapMode.Loop;
 			animation ["M_Walk"].layer = 1;
 			animation.Play ("M_Walk");
@@ -525,6 +528,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		//animation.CrossFade("M_Death",0.25f);
 		//idle = animation["M_Death"];
 		//animation.Play("M_Death");
+		animation ["M_Walk"].speed = 4;
 		animation ["M_Walk"].layer = 0;
 		animation ["M_Death"].wrapMode = WrapMode.Once;
 		animation ["M_Death"].layer = 1;
