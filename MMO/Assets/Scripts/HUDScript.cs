@@ -16,36 +16,36 @@ public class HUDScript : MonoBehaviour
 	public float FadeFactor = 0.75f;
 
     #region Action Bar
-	public GameObject Action1;
+    public GameObject Action1;
 	private Image a1Over;
-	public static string a1Key = "mouse 0";
+	public static KeyCode a1Key = KeyCode.Mouse0;
 	public float a1Time = 3f;
 	private bool a1Cooldown;
-	public GameObject Action2;
+    public GameObject Action2;
 	private Image a2Over;
-	public static string a2Key = "mouse 1";
+    public static KeyCode a2Key = KeyCode.Mouse1;
 	public float a2Time = 3f;
 	private bool a2Cooldown;
-	public GameObject Action3;
+    public GameObject Action3;
 	private Image a3Over;
-	public static string a3Key = "1";
+    public static KeyCode a3Key = KeyCode.Alpha1;
 	public float a3Time = 3f;
 	private bool a3Cooldown;
-	public GameObject Action4;
+    public GameObject Action4;
 	private Image a4Over;
-	public static string a4Key = "2";
+    public static KeyCode a4Key = KeyCode.Alpha2;
 	public float a4Time = 3f;
 	private bool a4Cooldown;
-	public GameObject Action6;
+    public GameObject Action6;
 	private Image a6Over;
-	public static string a6Key = "r";
+    public static KeyCode a6Key = KeyCode.R;
 	public float a6Time = 10f;
 	private bool a6Cooldown;
     #endregion
 
 	private Slider castBar;
 	public Text dmgDealt;
-	private string currentCast;
+    private KeyCode currentCast;
 
 	public GameObject bcs1;
 	public GameObject bcs2;
@@ -98,9 +98,9 @@ public class HUDScript : MonoBehaviour
 		HUDTimer -= HUDEffectDecay;
 		#endregion
 
-		#region ActionBar
-		SetupActionBar ();
-		ActionBarOnPress (ref a1Over, a1Key, ref a1Cooldown, a1Time); // Tail
+        #region ActionBar
+        UpdateActionBarText();
+        ActionBarOnPress (ref a1Over, a1Key, ref a1Cooldown, a1Time); // Tail
 		ActionBarOnRelease (ref a2Over, a2Key, ref a2Cooldown, a2Time); // Boom
 		ActionBarOnPress (ref a3Over, a3Key, ref a3Cooldown, a3Time, 3, true); // AoE
 		ActionBarOnPress (ref a4Over, a4Key, ref a4Cooldown, a4Time); // CC
@@ -158,18 +158,48 @@ public class HUDScript : MonoBehaviour
 		Action6.transform.GetChild (1).GetComponent<Text> ().text = toUpper (a6Key);
 	}
 
-	private string toUpper (string s)
+    private void UpdateActionBarText ()
+    {
+        try
+        {
+            a1Key = MenuScript.KeyBindings[0];
+            a2Key = MenuScript.KeyBindings[1];
+            a3Key = MenuScript.KeyBindings[2];
+            a4Key = MenuScript.KeyBindings[3];
+            a6Key = MenuScript.KeyBindings[4];
+            Action1.transform.GetChild(1).GetComponent<Text>().text = toUpper(a1Key);
+            Action2.transform.GetChild(1).GetComponent<Text>().text = toUpper(a2Key);
+            Action3.transform.GetChild(1).GetComponent<Text>().text = toUpper(a3Key);
+            Action4.transform.GetChild(1).GetComponent<Text>().text = toUpper(a4Key);
+            Action6.transform.GetChild(1).GetComponent<Text>().text = toUpper(a6Key);
+        }
+        catch { }
+    }
+
+	private static string toUpper (KeyCode kc)
 	{
-		if (s.Equals ("mouse 0"))
+        if (kc == KeyCode.Mouse0)
 			return "LMB";
-		if (s.Equals ("mouse 1"))
+        if (kc == KeyCode.Mouse1)
 			return "RMB";
-		if (s.Equals ("mouse 2"))
-			return "MMB";
-		return s.ToUpper ();
+        if (kc == KeyCode.Mouse2)
+            return "MMB";
+        if (kc == KeyCode.Alpha0)
+            return "0";
+        if (kc == KeyCode.Alpha1)
+            return "1";
+        if (kc == KeyCode.Alpha2)
+            return "2";
+        if (kc == KeyCode.Alpha3)
+            return "3";
+        if (kc == KeyCode.Alpha4)
+            return "4";
+        if (kc == KeyCode.Alpha5)
+            return "5";
+        return kc.ToString().ToUpper();
 	}
 
-	public void ActionBarOnRelease (ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer)
+	public void ActionBarOnRelease (ref Image overlayImage, KeyCode key, ref bool onCooldown, float cooldownTimer)
 	{
 		if (!menu) {
 			if (Input.GetKeyUp (key) && !onCooldown) {
@@ -188,7 +218,7 @@ public class HUDScript : MonoBehaviour
 		}
 	}
 
-	public void ActionBarOnPress (ref Image overlayImage, string key, ref bool onCooldown, float cooldownTimer, float castTime = 0, bool channeled = false)
+	public void ActionBarOnPress (ref Image overlayImage, KeyCode key, ref bool onCooldown, float cooldownTimer, float castTime = 0, bool channeled = false)
 	{
 		if (!menu) {
 			if (Input.GetKeyDown (key) && !onCooldown) {
@@ -224,11 +254,11 @@ public class HUDScript : MonoBehaviour
 			if (overlayImage.fillAmount == 1.0f)
 				onCooldown = false;
 		}
-		if (castTime != 0 && castBar.IsActive () && currentCast.Equals (key))
+		if (castTime != 0 && castBar.IsActive () && currentCast == key)
 			UpdateCastBar (castTime, channeled);
 	}
 
-	private void ActivateCastBar (float duration, bool channeled, string synchronize)
+    private void ActivateCastBar(float duration, bool channeled, KeyCode synchronize)
 	{
 		castBar.gameObject.SetActive (true);
 		if (channeled)
