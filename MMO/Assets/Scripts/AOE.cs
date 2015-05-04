@@ -133,8 +133,8 @@ public class AOE : MonoBehaviour
 								using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone)) {
 									GameObject go = GameObject.Find ("Canvas");
 									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-									
-									hs.dmgDealt.text = "" + ps.aoeTickDamageFactor;
+
+                                    hs.announcementText.text = "" + ps.aoeTickDamageFactor;
 									evnt.TargEnt = be;
 									evnt.TickDamage = ps.aoeTickDamageFactor;
 									Debug.Log ("Ticking for " + ps.aoeTickDamageFactor + ".");
@@ -144,8 +144,8 @@ public class AOE : MonoBehaviour
 								using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone)) {
 									GameObject go = GameObject.Find ("Canvas");
 									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-									
-									hs.dmgDealt.text = "" + ps.aoeTickDamageFactor / 2;
+
+                                    hs.announcementText.text = "" + ps.aoeTickDamageFactor / 2;
 									evnt.TargEnt = be;
 									evnt.TickDamage = ps.aoeTickDamageFactor / 2;
 								}
