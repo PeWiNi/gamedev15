@@ -211,9 +211,16 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	}
 
 	public override void Connected (BoltConnection connection)
-	{
-				
-		Debug.Log ("connected");
+    {
+        #region Announcement
+        GameObject go = GameObject.Find("Canvas");
+        HUDScript hs = go.GetComponentInChildren<HUDScript>();
+
+        hs.announcementText.text = "Player connected!";
+        hs.announcementText.color = new Color(hs.announcementText.color.r, hs.announcementText.color.g, hs.announcementText.color.b, 1.0f);
+        #endregion
+
+        Debug.Log ("connected");
 		por.createClientPlayerObject (connection);
 		//updateStats();
 
@@ -228,7 +235,15 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	}
 	
 	public override void Disconnected (BoltConnection connection)
-	{
+    {
+        #region Announcement
+        GameObject go = GameObject.Find("Canvas");
+        HUDScript hs = go.GetComponentInChildren<HUDScript>();
+
+        hs.announcementText.text = "Player disconnected!";
+        hs.announcementText.color = new Color(hs.announcementText.color.r, hs.announcementText.color.g, hs.announcementText.color.b, 1.0f);
+        #endregion
+
 		Debug.Log("DISCONNECTED PLAYER");
 		por.DestoryOnDisconnection (connection);
 		playerDC = true;
