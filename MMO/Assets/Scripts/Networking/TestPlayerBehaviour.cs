@@ -74,8 +74,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	{
 		Start ();
 		anim = GetComponent<Animator> ();
-		Transform aim = this.transform.GetChild (6);
-		aim.GetComponent<Renderer> ().enabled = false;
 		Cursor.visible = false;
 
                 
@@ -158,21 +156,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (wasd != null) {
 		} 
 		position = player.transform.position;
-		if (Input.GetKeyDown (boomNanaKey)) {
-			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
-			Transform aim = this.transform.GetChild (6);
-			aim.GetComponent<Renderer> ().enabled = true;
-			aim.localScale = new Vector3 (1f, 0, ps.boomnanaRange / 4);
-			aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 2));
-			aim.localEulerAngles = new Quaternion (90.0f, 0.0f, 0.0f, 0).eulerAngles;
-			//vfx.aim.renderer.enabled = true;
-			//aimOverlay(1, range, 0.5f);
-		}
 		if (Input.GetKeyUp (boomNanaKey)) {
 			Debug.Log ("BOOOOMNANAAAAA");
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
-			Transform aim = this.transform.GetChild (6);
-			aim.GetComponent<Renderer> ().enabled = false;
 			if (isInsideHidingGrass == true) {
 				BoomNanaUsedInHidingGrass = true;
 			}
