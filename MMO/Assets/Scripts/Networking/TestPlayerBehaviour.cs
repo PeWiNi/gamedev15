@@ -165,9 +165,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			if (isInsideHidingGrass == true) {
 				BoomNanaUsedInHidingGrass = true;
 			}
-			using (var evnt = BoomAnimEvent.Create(Bolt.GlobalTargets.Everyone)) {
-				evnt.TargEnt = this.entity;
-			}
+			var evnt = BoomAnimEvent.Create(Bolt.GlobalTargets.Everyone);
+            evnt.TargEnt = this.entity;
+            evnt.Send();
 //			animation.wrapMode = WrapMode.Once;
 //			animation.Play ("M_BM");
 
@@ -244,8 +244,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 
 				Vector3 endPos = (transform.position) - (rotation * offset);
 				Debug.Log ("EndPos = " + endPos.x + "," + endPos.y + "," + endPos.z);
-				Debug.Log ("FIRING BOOMNANA FROM PLAYERBEHAVIOUR");  
-				boomscript.spawn (this.gameObject, boom, transform.position
+				Debug.Log ("FIRING BOOMNANA FROM PLAYERBEHAVIOUR");
+                Vector3 newPosBoom = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
+                boomscript.spawn(this.gameObject, boom, newPosBoom
 				                  ,/* startDir,*/endPos);
 				timeSinceLastBoom = Time.time * 1000;
 				sound.getSoundPlayer ().PlayOneShot (sound.boomnanathrowclip);
@@ -354,9 +355,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			//animation.wrapMode = WrapMode.Loop;
 		}
 		if (!sc.isMoving && animation.IsPlaying ("M_Walk")) {
-			using (var evnt = IdleAnimEvent.Create(Bolt.GlobalTargets.Everyone)) {
-				evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
-			}
+			var evnt = IdleAnimEvent.Create(Bolt.GlobalTargets.Everyone);
+            evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour>().entity;
+            evnt.Send();
 //			animation.wrapMode = WrapMode.Once;
 //			animation.Play ("M_Idle");
 		}
@@ -410,10 +411,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						// Create Event and use the be, if it is the one that is colliding.
 						//CoconutEffect buff the player
 						if (be.gameObject == this.gameObject) {
-							using (var evnt = PlayerBeingBuffedEvent.Create(Bolt.GlobalTargets.Everyone)) {
-								evnt.TargEnt = be;
-								evnt.CanPickUpCoconut = false;
-							}
+							var evnt = PlayerBeingBuffedEvent.Create(Bolt.GlobalTargets.Everyone);
+							evnt.TargEnt = be;
+                            evnt.CanPickUpCoconut = false;
+                            evnt.Send();
 						}
 					}
 				
@@ -906,16 +907,16 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				// Create Event and use the be, if it is the one that is colliding.
 				//CoconutEffect buff the player
 				if (be.gameObject == this.gameObject) {
-					using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TargEnt = be;	
-						evnt.isAffectedByCoconut = true;
-						evnt.CoconutEffectDuration = Time.time;
-						evnt.CoconutCCBuffDuration = buffedCcDuration;
-						evnt.CoconutTailSlapDmgBuff = buffedTailSlapDmg;
-						evnt.CoconutBoomnanaDmgBuff = buffedBoomnanaDmg;
-						evnt.CoconutAOEDmgBuff = buffedAOEBuffDmg;
-						evnt.StoppedInCoconutConsume = true;
-					}
+					var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone);
+					evnt.TargEnt = be;	
+					evnt.isAffectedByCoconut = true;
+					evnt.CoconutEffectDuration = Time.time;
+					evnt.CoconutCCBuffDuration = buffedCcDuration;
+					evnt.CoconutTailSlapDmgBuff = buffedTailSlapDmg;
+					evnt.CoconutBoomnanaDmgBuff = buffedBoomnanaDmg;
+					evnt.CoconutAOEDmgBuff = buffedAOEBuffDmg;
+                    evnt.StoppedInCoconutConsume = true;
+                    evnt.Send();
 				}
 			}
 						
@@ -931,19 +932,19 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				// Create Event and use the be, if it is the one that is colliding.
 				//CoconutEffect buff expire from the player
 				if (be.gameObject == this.gameObject) {
-					using (var evnt = PlayerBeingBuffedEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TargEnt = be;
-						evnt.CanPickUpCoconut = true;
-					}
-					using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TargEnt = be;	
-						evnt.isAffectedByCoconut = false;
-						evnt.CoconutTailSlapDmgBuff = tailSlapDmg;
-						evnt.CoconutBoomnanaDmgBuff = boomnanaDmg;
-						evnt.CoconutAOEDmgBuff = aoeDmg;
-						evnt.CoconutCCBuffDuration = ccDuration;
-						evnt.StoppedInCoconutConsume = false;
-					}
+					var evnt1 = PlayerBeingBuffedEvent.Create(Bolt.GlobalTargets.Everyone);
+					evnt1.TargEnt = be;
+                    evnt1.CanPickUpCoconut = true;
+                    evnt1.Send();
+					var evnt2 = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone);
+					evnt2.TargEnt = be;	
+					evnt2.isAffectedByCoconut = false;
+					evnt2.CoconutTailSlapDmgBuff = tailSlapDmg;
+					evnt2.CoconutBoomnanaDmgBuff = boomnanaDmg;
+					evnt2.CoconutAOEDmgBuff = aoeDmg;
+					evnt2.CoconutCCBuffDuration = ccDuration;
+                    evnt2.StoppedInCoconutConsume = false;
+                    evnt2.Send();
 				}
 			}
 		}
@@ -957,15 +958,15 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 				// Create Event and use the be, if it is the one that is colliding.
 				if (be.gameObject == this.gameObject) {
-					using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TargEnt = be;
-						evnt.isAffectedByCoconut = false;
-						evnt.CoconutTailSlapDmgBuff = tailSlapDmg;
-						evnt.CoconutBoomnanaDmgBuff = boomnanaDmg;
-						evnt.CoconutAOEDmgBuff = aoeDmg;
-						evnt.CoconutCCBuffDuration = ccDuration;
-						evnt.StoppedInCoconutConsume = false;
-					}
+					var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone);
+					evnt.TargEnt = be;
+					evnt.isAffectedByCoconut = false;
+					evnt.CoconutTailSlapDmgBuff = tailSlapDmg;
+					evnt.CoconutBoomnanaDmgBuff = boomnanaDmg;
+					evnt.CoconutAOEDmgBuff = aoeDmg;
+					evnt.CoconutCCBuffDuration = ccDuration;
+                    evnt.StoppedInCoconutConsume = false;
+                    evnt.Send();
 				}
 			}
 		}

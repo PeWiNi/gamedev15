@@ -54,9 +54,9 @@ public class CCScript : MonoBehaviour
 		}
 		if (Input.GetKeyDown (tpb.ccKey) && available && !GetComponentInParent<StateController>().isDead) {
 			inUse = true;
-			using (var evnt = CCAnimEvent.Create(Bolt.GlobalTargets.Everyone)) {
-				evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
-			}
+			var evnt = CCAnimEvent.Create(Bolt.GlobalTargets.Everyone);
+            evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour>().entity;
+            evnt.Send();
 //			GetComponentInParent<TestPlayerBehaviour> ().gameObject.transform.FindChild ("fish_forFS_withanimation").gameObject.GetComponent<FishAnimScript> ()
 //			.playAnimation ();
 //			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_FS");
@@ -93,16 +93,16 @@ public class CCScript : MonoBehaviour
 
 							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != ps.teamNumber && coll.gameObject != player) {
 								// deal full damage!!!
-								using (var evnt = CCEvent.Create(Bolt.GlobalTargets.Everyone)) {
-									GameObject go = GameObject.Find ("Canvas");
-									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+								var evnt = CCEvent.Create(Bolt.GlobalTargets.Everyone);
+								GameObject go = GameObject.Find ("Canvas");
+								HUDScript hs = go.GetComponentInChildren<HUDScript> ();
 
-                                    hs.announcementText.text = "Stunning!";
-									Debug.Log ("TeamNumber: " + be.gameObject.GetComponent<PlayerStats> ().teamNumber + ", ps.teamNumber = " + ps.teamNumber);
-									evnt.TargEnt = coll.gameObject.GetComponent<TestPlayerBehaviour> ().entity;
-									evnt.Duration = ps.ccDuration;
-									Debug.Log (ps.ccDuration + " = Duration");
-								}
+                                hs.announcementText.text = "Stunning!";
+								Debug.Log ("TeamNumber: " + be.gameObject.GetComponent<PlayerStats> ().teamNumber + ", ps.teamNumber = " + ps.teamNumber);
+								evnt.TargEnt = coll.gameObject.GetComponent<TestPlayerBehaviour> ().entity;
+								evnt.Duration = ps.ccDuration;
+                                Debug.Log(ps.ccDuration + " = Duration");
+                                evnt.Send();
 
 								//gameObject.GetComponentInParent<StateController>().stun(this.gameObject, 0);
 							}

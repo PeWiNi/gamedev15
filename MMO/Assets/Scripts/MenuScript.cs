@@ -308,7 +308,10 @@ public class MenuScript : MonoBehaviour
 	}
 	public void Connect ()
 	{
-		serverAddress = GameObject.Find ("ServerIP").GetComponent<Text> ().text;
+        string field = GameObject.Find("ServerIP").GetComponent<Text>().text;
+        serverAddress = field;
+        if(field.Equals("localhost"))
+            serverAddress = "127.0.0.1";
 		JoinGameMenu.SetActive (false);
 		TeamMenu.SetActive (true);
 	}

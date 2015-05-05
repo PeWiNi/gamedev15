@@ -47,18 +47,19 @@ public class AntNest : MonoBehaviour
 						ForestAreaScript.antNests01.Remove (this.gameObject);
 						Destroy (this.gameObject);
 						// if the damage isn't the same as 10 %, note; use a bool.
-						using (var evnt = AntNestTrapEvent.Create(Bolt.GlobalTargets.Everyone)) {				
-							IEnumerator playerEntities = BoltNetwork.entities.GetEnumerator ();
-							while (playerEntities.MoveNext()) {
-								if (playerEntities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
-									BoltEntity be = (BoltEntity)playerEntities.Current as BoltEntity;
-									if (be.gameObject == coll.gameObject) {
-										evnt.TargEnt = be;
-									}
+						var evnt = AntNestTrapEvent.Create(Bolt.GlobalTargets.Everyone);			
+						IEnumerator playerEntities = BoltNetwork.entities.GetEnumerator ();
+						while (playerEntities.MoveNext()) {
+							if (playerEntities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+								BoltEntity be = (BoltEntity)playerEntities.Current as BoltEntity;
+								if (be.gameObject == coll.gameObject) {
+									evnt.TargEnt = be;
 								}
 							}
-							evnt.TrapStunDuration = (coll.GetComponent<PlayerStats> ().ccDuration + 2);
-						} 
+						}
+						evnt.TrapStunDuration = (coll.GetComponent<PlayerStats> ().ccDuration + 2);
+
+                        evnt.Send();
 					}
 				}
 			} else if (coll.GetComponent<PlayerStats> ().teamNumber == 2) {
@@ -78,18 +79,19 @@ public class AntNest : MonoBehaviour
 						ForestAreaScript.antNests01.Remove (this.gameObject);
 						Destroy (this.gameObject);
 						// if the damage isn't the same as 10 %, note; use a bool.
-						using (var evnt = AntNestTrapEvent.Create(Bolt.GlobalTargets.Everyone)) {				
-							IEnumerator playerEntities = BoltNetwork.entities.GetEnumerator ();
-							while (playerEntities.MoveNext()) {
-								if (playerEntities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
-									BoltEntity be = (BoltEntity)playerEntities.Current as BoltEntity;
-									if (be.gameObject == coll.gameObject) {
-										evnt.TargEnt = be;
-									}
+						var evnt = AntNestTrapEvent.Create(Bolt.GlobalTargets.Everyone);				
+						IEnumerator playerEntities = BoltNetwork.entities.GetEnumerator ();
+						while (playerEntities.MoveNext()) {
+							if (playerEntities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+								BoltEntity be = (BoltEntity)playerEntities.Current as BoltEntity;
+								if (be.gameObject == coll.gameObject) {
+									evnt.TargEnt = be;
 								}
 							}
-							evnt.TrapStunDuration = (coll.GetComponent<PlayerStats> ().ccDuration + 2);
-						} 
+						}
+						evnt.TrapStunDuration = (coll.GetComponent<PlayerStats> ().ccDuration + 2);
+
+                        evnt.Send(); 
 					}
 				}
 			}	

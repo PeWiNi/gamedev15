@@ -60,18 +60,18 @@ public class BeeHive : MonoBehaviour
 						isTrapDestroyed = true;
 						if (isTrapDestroyed == true) {
 							// if the damage isn't the same as 10 %, note; use a bool.
-							using (var evnt = BeeHiveTrapEvent.Create(Bolt.GlobalTargets.Everyone)) {				
-								IEnumerator playerEntities = BoltNetwork.entities.GetEnumerator ();
-								while (playerEntities.MoveNext()) {
-									if (playerEntities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
-										BoltEntity be = (BoltEntity)playerEntities.Current as BoltEntity;
-										if (be.gameObject == coll.gameObject) {
-											evnt.TargEnt = be;
-										}
+							var evnt = BeeHiveTrapEvent.Create(Bolt.GlobalTargets.Everyone);				
+							IEnumerator playerEntities = BoltNetwork.entities.GetEnumerator ();
+							while (playerEntities.MoveNext()) {
+								if (playerEntities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+									BoltEntity be = (BoltEntity)playerEntities.Current as BoltEntity;
+									if (be.gameObject == coll.gameObject) {
+										evnt.TargEnt = be;
 									}
 								}
-								evnt.TrapDamage = (coll.GetComponent<PlayerStats> ().maxHealth * 10) / 100;
-							} 
+							}
+                            evnt.TrapDamage = (coll.GetComponent<PlayerStats>().maxHealth * 10) / 100;
+                            evnt.Send();
 						}
 					}
 				}
@@ -98,18 +98,18 @@ public class BeeHive : MonoBehaviour
 					isTrapDestroyed = true;
 					if (isTrapDestroyed == true) {
 						// if the damage isn't the same as 10 %, note; use a bool.
-						using (var evnt = BeeHiveTrapEvent.Create(Bolt.GlobalTargets.Everyone)) {				
-							IEnumerator playerEntities = BoltNetwork.entities.GetEnumerator ();
-							while (playerEntities.MoveNext()) {
-								if (playerEntities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
-									BoltEntity be = (BoltEntity)playerEntities.Current as BoltEntity;
-									if (be.gameObject == coll.gameObject) {
-										evnt.TargEnt = be;
-									}
+						var evnt = BeeHiveTrapEvent.Create(Bolt.GlobalTargets.Everyone);			
+						IEnumerator playerEntities = BoltNetwork.entities.GetEnumerator ();
+						while (playerEntities.MoveNext()) {
+							if (playerEntities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+								BoltEntity be = (BoltEntity)playerEntities.Current as BoltEntity;
+								if (be.gameObject == coll.gameObject) {
+									evnt.TargEnt = be;
 								}
 							}
-							evnt.TrapDamage = (coll.GetComponent<PlayerStats> ().maxHealth * 10) / 100;
-						} 
+						}
+                        evnt.TrapDamage = (coll.GetComponent<PlayerStats>().maxHealth * 10) / 100;
+                        evnt.Send();
 					}
 				}
 			}

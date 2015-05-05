@@ -99,19 +99,19 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				if (boltEnt.gameObject.tag == "player") {
 					if (boltEnt.gameObject.GetComponent<PlayerStats> ().teamNumber == 1) {
 
-						using (var evnt = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone)) {
-							// High Hp = low Tail
-							// High Boom = low Aoe
-							evnt.MaxHp = (float)sp.hpValues [currentPlayerIndex];
-							evnt.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
-							evnt.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
-							evnt.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
-							evnt.TargEnt = boltEnt;
-						}
-						using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone)) {
-							evnt.Scale = (float)sp.scaleFactor;
-							evnt.TargEnt = boltEnt;
-						}
+						var evnt1 = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone);
+						// High Hp = low Tail
+						// High Boom = low Aoe
+						evnt1.MaxHp = (float)sp.hpValues [currentPlayerIndex];
+						evnt1.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
+						evnt1.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
+						evnt1.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
+                        evnt1.TargEnt = boltEnt;
+                        evnt1.Send();
+						var evnt2 = ScaleEvent.Create(Bolt.GlobalTargets.Everyone);
+						evnt2.Scale = (float)sp.scaleFactor;
+                        evnt2.TargEnt = boltEnt;
+                        evnt2.Send();
 						currentPlayerIndex++;
 
 					}
@@ -155,19 +155,19 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				if (boltEnt.gameObject.tag == "player") {
 					if (boltEnt.gameObject.GetComponent<PlayerStats> ().teamNumber == 2) {
 						
-						using (var evnt = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone)) {
-							// High Hp = low Tail
-							// High Boom = low Aoe
-							evnt.MaxHp = (float)sp.hpValues [currentPlayerIndex];
-							evnt.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
-							evnt.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
-							evnt.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
-							evnt.TargEnt = boltEnt;
-						}
-						using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone)) {
-							evnt.Scale = (float)sp.scaleFactor;
-							evnt.TargEnt = boltEnt;
-						}
+						var evnt1 = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone);
+						// High Hp = low Tail
+						// High Boom = low Aoe
+						evnt1.MaxHp = (float)sp.hpValues [currentPlayerIndex];
+						evnt1.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
+						evnt1.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
+						evnt1.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
+                        evnt1.TargEnt = boltEnt;
+                        evnt1.Send();
+						var evnt2 = ScaleEvent.Create(Bolt.GlobalTargets.Everyone);
+						evnt2.Scale = (float)sp.scaleFactor;
+                        evnt2.TargEnt = boltEnt;
+                        evnt2.Send();
 						currentPlayerIndex++;
 						
 					}
