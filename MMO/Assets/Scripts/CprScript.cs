@@ -125,6 +125,7 @@ public class CprScript : MonoBehaviour
 		StateController sc = this.gameObject.GetComponentInParent<StateController> ();
 		Debug.Log ("I AM BEING RESSED!");
 		this.gameObject.GetComponentInParent<PlayerStats> ().hp = this.gameObject.GetComponentInParent<PlayerStats> ().maxHealth;
+		var evnt = IdleAnimEvent.Create(this.gameObject.GetComponentInParent<TestPlayerBehaviour>().entity);
 		sc.isDead = false;
 		sc.isStunned = false;
 		sc.ressStarted = false;

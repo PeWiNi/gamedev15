@@ -51,6 +51,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public bool isInsideHidingGrass;
 	private bool isAnimatingWalk = false;
 	public Animation animation;
+	public bool resetAnim = false;
 //
 	private AnimationState idle;
 	private AnimationState thefish;
@@ -135,6 +136,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
         state.AddCallback("TeamMemberId", TeamSelection);
         state.AddCallback("TestPlayerName", NameSelection);
 		this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
+		//ps.respawnPosition = transform.position;
 	}
 
 	public override void SimulateController ()
@@ -360,6 +362,16 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			animation.PlayQueued ("M_Walk");
 			isAnimatingWalk = true;
 			animation.wrapMode = WrapMode.Loop;
+		}
+		if(sc.isDead){
+			resetAnim = true;
+		}
+		if(!sc.isDead && resetAnim){
+			var evnt = IdleAnimEvent.Create (Bolt.GlobalTargets.Everyone);
+			evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+			evnt.Send ();
+			resetAnim = false;
+
 		}
 //		if(!sc.isMoving){
 //			isAnimatingWalk = false;

@@ -63,7 +63,7 @@ public class PlayerObject
 	{
 		float x = Random.Range (-10f, +10f);
 		float z = Random.Range (-10f, +10f);
-		character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 100, 15f, z + 100);
+		character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 580, 15f, z + 200);
 		return new Vector3 (x + 580, 5f, z + 200);
 	}
 		
@@ -71,7 +71,7 @@ public class PlayerObject
 	{
 		float x = Random.Range (-10f, +10f);
 		float z = Random.Range (-10f, +10f);
-		character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x + 100, 15f, z + 100);
+		character.gameObject.GetComponent<PlayerStats> ().respawnPosition = new Vector3 (x - 600, 15f, z - 200);
 		return new Vector3 (x + (-600), 5f, z + (-200));
 	}
 }

@@ -457,6 +457,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	{
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.GetComponentInChildren<CprScript> ().ress ();
+		target.gameObject.GetComponentInChildren<TestPlayerBehaviour>().animation.Play("M_Idle");
 	}
     
 	public void DealDamage (GameObject reciever, float damage)
