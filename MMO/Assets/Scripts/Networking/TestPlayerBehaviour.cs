@@ -15,12 +15,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 	public KeyCode moveRight = KeyCode.D;
 	public KeyCode moveLeft = KeyCode.A;
-
 	public KeyCode tailSlapKey;
 	public KeyCode boomNanaKey;
-
 	private Animator anim;
-
 	public KeyCode ccKey;
 	public KeyCode cprKey;
 	public KeyCode aoeKey;
@@ -41,7 +38,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	Vector3 camPos;
 	public float playerBuffDmg;
 	public float tailSlapDmg;
-	public float boomnanaDmg; 
+	public float boomnanaDmg;
 	public float aoeDmg;
 	public float ccDuration;
 	public float buffedTailSlapDmg;
@@ -52,8 +49,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public bool boomUsed = false;
 	public bool BoomNanaUsedInHidingGrass;
 	public bool isInsideHidingGrass;
-
+	private bool isAnimatingWalk = false;
 	public Animation animation;
+	public bool resetAnim = false;
 //
 	private AnimationState idle;
 	private AnimationState thefish;
@@ -138,6 +136,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
         state.AddCallback("TeamMemberId", TeamSelection);
         state.AddCallback("TestPlayerName", NameSelection);
 		this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
+		//ps.respawnPosition = transform.position;
 	}
 
 	public override void SimulateController ()
@@ -159,16 +158,16 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		} 
 		position = player.transform.position;
 
-		if (Input.GetKeyUp (boomNanaKey) && !GetComponent<StateController>().isDead && !sc.isStunned && ! sc.isChanneling) {
+		if (Input.GetKeyUp (boomNanaKey) && !GetComponent<StateController> ().isDead && !sc.isStunned && ! sc.isChanneling) {
 
 			Debug.Log ("BOOOOMNANAAAAA");
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			if (isInsideHidingGrass == true) {
 				BoomNanaUsedInHidingGrass = true;
 			}
-			var evnt = BoomAnimEvent.Create(Bolt.GlobalTargets.Everyone);
-            evnt.TargEnt = this.entity;
-            evnt.Send();
+			var evnt = BoomAnimEvent.Create (Bolt.GlobalTargets.Everyone);
+			evnt.TargEnt = this.entity;
+			evnt.Send ();
 //			animation.wrapMode = WrapMode.Once;
 //			animation.Play ("M_BM");
 
@@ -246,8 +245,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				Vector3 endPos = (transform.position) - (rotation * offset);
 				Debug.Log ("EndPos = " + endPos.x + "," + endPos.y + "," + endPos.z);
 				Debug.Log ("FIRING BOOMNANA FROM PLAYERBEHAVIOUR");
-                Vector3 newPosBoom = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
-                boomscript.spawn(this.gameObject, boom, newPosBoom
+				Vector3 newPosBoom = new Vector3 (transform.position.x, transform.position.y + 10, transform.position.z);
+				boomscript.spawn (this.gameObject, boom, newPosBoom
 				                  ,/* startDir,*/endPos);
 				timeSinceLastBoom = Time.time * 1000;
 				sound.getSoundPlayer ().PlayOneShot (sound.boomnanathrowclip);
@@ -299,34 +298,37 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		}
 
 
-		if(up){
+		if (up) {
 			if (sc.canMove) {
-				if(right){
-					position = position + (transform.forward * sc.movementspeed * Time.deltaTime)/2;
-					position = position + (transform.right * sc.movementspeed * Time.deltaTime)/2;
-				}else if(left){
-					position = position + (transform.forward * sc.movementspeed * Time.deltaTime)/2;
-					position = position - (transform.right * sc.movementspeed * Time.deltaTime)/2;
-				}else{
+				if (right) {
+					position = position + (transform.forward * sc.movementspeed * Time.deltaTime) / 2;
+					position = position + (transform.right * sc.movementspeed * Time.deltaTime) / 2;
+				} else if (left) {
+					position = position + (transform.forward * sc.movementspeed * Time.deltaTime) / 2;
+					position = position - (transform.right * sc.movementspeed * Time.deltaTime) / 2;
+				} else {
 					position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
 				}
 			}
-		}else 
-		if(down){
+		} else 
+		if (down) {
 			if (sc.canMove) {
-				if(right){
-					position = position - (transform.forward * sc.movementspeed * Time.deltaTime)/2;
-					position = position + (transform.right * sc.movementspeed * Time.deltaTime)/2;
-				}else if(left){
-					position = position - (transform.forward * sc.movementspeed * Time.deltaTime)/2;
-					position = position - (transform.right * sc.movementspeed * Time.deltaTime)/2;
-				}else{
+				if (right) {
+					position = position - (transform.forward * sc.movementspeed * Time.deltaTime) / 2;
+					position = position + (transform.right * sc.movementspeed * Time.deltaTime) / 2;
+				} else if (left) {
+					position = position - (transform.forward * sc.movementspeed * Time.deltaTime) / 2;
+					position = position - (transform.right * sc.movementspeed * Time.deltaTime) / 2;
+				} else {
 					position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
 				}
 			}
-		}else 
-		if(right){position = position + (transform.right * sc.movementspeed * Time.deltaTime);}
-		else if(left){position = position - (transform.right * sc.movementspeed * Time.deltaTime);}
+		} else 
+		if (right) {
+			position = position + (transform.right * sc.movementspeed * Time.deltaTime);
+		} else if (left) {
+			position = position - (transform.right * sc.movementspeed * Time.deltaTime);
+		}
 
 		if (position != Vector3.zero) {
 			transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
@@ -349,16 +351,41 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (!Input.GetKey (moveLeft) && !Input.GetKey (moveRight) && !Input.GetKey (moveUp) && !Input.GetKey (moveDown)) {
 			sc.isMoving = false;
 		}
-		if (sc.isMoving) {
+		if (sc.isMoving && !isAnimatingWalk) {
+
+//			var evnt = WalkAnimEvent.Create(Bolt.GlobalTargets.Everyone) ;
+//			evnt.TargEnt = this.entity;
+//			evnt.Send();
+
 			walk.speed = 6;
 			animation ["M_Walk"].speed = 6;
 			animation.PlayQueued ("M_Walk");
-			//animation.wrapMode = WrapMode.Loop;
+			isAnimatingWalk = true;
+			animation.wrapMode = WrapMode.Loop;
 		}
+		if(sc.isDead){
+			resetAnim = true;
+		}
+		if(!sc.isDead && resetAnim){
+			var evnt = IdleAnimEvent.Create (Bolt.GlobalTargets.Everyone);
+			evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+			evnt.Send ();
+			resetAnim = false;
+
+		}
+//		if(!sc.isMoving){
+//			isAnimatingWalk = false;
+//		}
+//		if (!isAnimatingWalk && sc.isMoving) {
+//			var evnt = WalkAnimEvent.Create (Bolt.GlobalTargets.Everyone);
+//			evnt.TargEnt = this.entity;
+//			evnt.Send ();
+//			isAnimatingWalk = true;
+//		}
 		if (!sc.isMoving && animation.IsPlaying ("M_Walk")) {
-			var evnt = IdleAnimEvent.Create(Bolt.GlobalTargets.Everyone);
-            evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour>().entity;
-            evnt.Send();
+			var evnt = IdleAnimEvent.Create (Bolt.GlobalTargets.Everyone);
+			evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+			evnt.Send ();
 //			animation.wrapMode = WrapMode.Once;
 //			animation.Play ("M_Idle");
 		}
@@ -412,10 +439,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						// Create Event and use the be, if it is the one that is colliding.
 						//CoconutEffect buff the player
 						if (be.gameObject == this.gameObject) {
-							var evnt = PlayerBeingBuffedEvent.Create(Bolt.GlobalTargets.Everyone);
+							var evnt = PlayerBeingBuffedEvent.Create (Bolt.GlobalTargets.Everyone);
 							evnt.TargEnt = be;
-                            evnt.CanPickUpCoconut = false;
-                            evnt.Send();
+							evnt.CanPickUpCoconut = false;
+							evnt.Send ();
 						}
 					}
 				
@@ -921,7 +948,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				// Create Event and use the be, if it is the one that is colliding.
 				//CoconutEffect buff the player
 				if (be.gameObject == this.gameObject) {
-					var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone);
+					var evnt = CoconutEffectEvent.Create (Bolt.GlobalTargets.Everyone);
 					evnt.TargEnt = be;	
 					evnt.isAffectedByCoconut = true;
 					evnt.CoconutEffectDuration = Time.time;
@@ -929,8 +956,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 					evnt.CoconutTailSlapDmgBuff = buffedTailSlapDmg;
 					evnt.CoconutBoomnanaDmgBuff = buffedBoomnanaDmg;
 					evnt.CoconutAOEDmgBuff = buffedAOEBuffDmg;
-                    evnt.StoppedInCoconutConsume = true;
-                    evnt.Send();
+					evnt.StoppedInCoconutConsume = true;
+					evnt.Send ();
 				}
 			}
 						
@@ -946,19 +973,19 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				// Create Event and use the be, if it is the one that is colliding.
 				//CoconutEffect buff expire from the player
 				if (be.gameObject == this.gameObject) {
-					var evnt1 = PlayerBeingBuffedEvent.Create(Bolt.GlobalTargets.Everyone);
+					var evnt1 = PlayerBeingBuffedEvent.Create (Bolt.GlobalTargets.Everyone);
 					evnt1.TargEnt = be;
-                    evnt1.CanPickUpCoconut = true;
-                    evnt1.Send();
-					var evnt2 = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone);
+					evnt1.CanPickUpCoconut = true;
+					evnt1.Send ();
+					var evnt2 = CoconutEffectEvent.Create (Bolt.GlobalTargets.Everyone);
 					evnt2.TargEnt = be;	
 					evnt2.isAffectedByCoconut = false;
 					evnt2.CoconutTailSlapDmgBuff = tailSlapDmg;
 					evnt2.CoconutBoomnanaDmgBuff = boomnanaDmg;
 					evnt2.CoconutAOEDmgBuff = aoeDmg;
 					evnt2.CoconutCCBuffDuration = ccDuration;
-                    evnt2.StoppedInCoconutConsume = false;
-                    evnt2.Send();
+					evnt2.StoppedInCoconutConsume = false;
+					evnt2.Send ();
 				}
 			}
 		}
@@ -972,15 +999,15 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 				// Create Event and use the be, if it is the one that is colliding.
 				if (be.gameObject == this.gameObject) {
-					var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone);
+					var evnt = CoconutEffectEvent.Create (Bolt.GlobalTargets.Everyone);
 					evnt.TargEnt = be;
 					evnt.isAffectedByCoconut = false;
 					evnt.CoconutTailSlapDmgBuff = tailSlapDmg;
 					evnt.CoconutBoomnanaDmgBuff = boomnanaDmg;
 					evnt.CoconutAOEDmgBuff = aoeDmg;
 					evnt.CoconutCCBuffDuration = ccDuration;
-                    evnt.StoppedInCoconutConsume = false;
-                    evnt.Send();
+					evnt.StoppedInCoconutConsume = false;
+					evnt.Send ();
 				}
 			}
 		}

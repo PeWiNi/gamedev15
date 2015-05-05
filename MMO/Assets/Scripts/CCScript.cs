@@ -99,7 +99,7 @@ public class CCScript : MonoBehaviour
 
                                 hs.announcementText.text = "Stunning!";
 								Debug.Log ("TeamNumber: " + be.gameObject.GetComponent<PlayerStats> ().teamNumber + ", ps.teamNumber = " + ps.teamNumber);
-								evnt.TargEnt = coll.gameObject.GetComponent<TestPlayerBehaviour> ().entity;
+								evnt.TargEnt = be;//coll.gameObject.GetComponent<TestPlayerBehaviour> ().entity;
 								evnt.Duration = ps.ccDuration;
                                 Debug.Log(ps.ccDuration + " = Duration");
                                 evnt.Send();
