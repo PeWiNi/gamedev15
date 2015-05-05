@@ -73,7 +73,6 @@ public class AOE : MonoBehaviour
 			sc.isChanneling = true;
 			available = false;
 			lastTick = Time.time;
-<<<<<<< HEAD
             if(gameObject.transform.parent.tag == "TutorialPlayer") {
                 GetComponentInParent<TutorialPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
                 GetComponentInParent<TutorialPlayerBehaviour> ().animation.Play ("M_BP_Start");
@@ -82,7 +81,6 @@ public class AOE : MonoBehaviour
 			    GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
                 GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
             }
-=======
 
 			//Using AOESTARTANIM
             var evnt = AoeStartAnimEvent.Create(Bolt.GlobalTargets.Everyone);
@@ -90,7 +88,6 @@ public class AOE : MonoBehaviour
             evnt.Send();
 //			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
 //			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
->>>>>>> origin/master
 			animating = true;
 			
 //			GetComponentInParent<TestPlayerBehaviour>().animation.PlayQueued("M_BP_End");
@@ -104,7 +101,6 @@ public class AOE : MonoBehaviour
 
 		if (Time.time - lastUsed >= (ps.aoeDuration - 0.5f) && animating) {
 			Debug.Log ("gonna start END ANIM");
-<<<<<<< HEAD
             if(gameObject.transform.parent.tag == "TutorialPlayer") {
                 GetComponentInParent<TutorialPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
                 GetComponentInParent<TutorialPlayerBehaviour> ().animation.Play ("M_BP_End");
@@ -115,14 +111,12 @@ public class AOE : MonoBehaviour
 			    GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
                 GetComponentInParent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
             }
-=======
             var evnt = AoeEndAnimEvent.Create(Bolt.GlobalTargets.Everyone) ;
 			evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
             evnt.Send();
 //			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
 //			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
 //			GetComponentInParent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
->>>>>>> origin/master
 			animating = false;
 		}
                 
@@ -182,17 +176,6 @@ public class AOE : MonoBehaviour
 							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
 								// deal full damage!!!
 								Debug.Log ("Sending Event with dmg = " + ps.aoeTickDamageFactor);
-<<<<<<< HEAD
-								using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone)) {
-									GameObject go = GameObject.Find ("Canvas");
-									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-                                    
-                                    hs.announcementText.text = "" + ps.aoeTickDamageFactor;
-									evnt.TargEnt = be;
-									evnt.TickDamage = ps.aoeTickDamageFactor;
-									Debug.Log ("Ticking for " + ps.aoeTickDamageFactor + ".");
-								}
-=======
 								var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone);
 								GameObject go = GameObject.Find ("Canvas");
 								HUDScript hs = go.GetComponentInChildren<HUDScript> ();
@@ -203,7 +186,6 @@ public class AOE : MonoBehaviour
 								Debug.Log ("Ticking for " + ps.aoeTickDamageFactor + ".");
 
                                 evnt.Send();
->>>>>>> origin/master
 							} else { // check for friendly player, deal 50% dmg.
 								// deal half damage!!!
                                 var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone);
