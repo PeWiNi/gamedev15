@@ -105,7 +105,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 						evnt1.MaxHp = (float)sp.hpValues [currentPlayerIndex];
 						evnt1.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
 						evnt1.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
-						evnt1.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
+						evnt1.AoeDamage = (float)sp.aoeValues [currentPlayerIndex];
                         evnt1.TargEnt = boltEnt;
                         evnt1.Send();
 						var evnt2 = ScaleEvent.Create(Bolt.GlobalTargets.Everyone);
@@ -272,6 +272,15 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		//updateStats(); 
 		//PlayerObjectReg.createCoconutObject ().Spawn ();
 		Debug.Log ("objects" + por.playerObjects.Count);
+	}
+
+	public override void OnEvent(WalkAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		//walk.speed = 6;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation ["M_Walk"].speed = 6;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Loop;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.PlayQueued ("M_Walk");
+
 	}
 
 	public override void OnEvent(TailAnimEvent evnt){
