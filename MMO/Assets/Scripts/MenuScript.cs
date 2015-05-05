@@ -186,15 +186,12 @@ public class MenuScript : MonoBehaviour
 			bool conflict = false;
 			for (int i = 0; i < KeyBindings.Length; i++)
 				for (int j = 0; j < KeyBindings.Length; j++) {
-					if (!conflict && i != j && (KeyBindings [i] == KeyBindings [j] || 
-						KeyBindings [i] == KeyCode.W || KeyBindings [i] == KeyCode.A || KeyBindings [i] == KeyCode.S || KeyBindings [i] == KeyCode.D)) {
+					if (!conflict && i != j && (KeyBindings [i] == KeyBindings [j] ||
+                        KeyBindings[i] == KeyCode.W || KeyBindings[i] == KeyCode.A || KeyBindings[i] == KeyCode.S || KeyBindings[i] == KeyCode.D || KeyBindings[i] == KeyCode.T)) {
 						BackButton.SetActive (false);
-						Debug.Log ("CONFLICT FOUND");
 						conflict = true;
 					} else if (!conflict) {
 						BackButton.SetActive (true);
-						Debug.Log ("Keybinds are " + KeyBindings [i].ToString () + " and " + KeyBindings [j].ToString () + " (i, j) = (" + i + ", " + j + ")");
-						Debug.Log ("CONFLICT NOT FOUND");
 					}
 				}
 		}

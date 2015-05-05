@@ -10,7 +10,8 @@ public class PlayerStats : MonoBehaviour
 	//Stats
 	public float maxHealth;
 	float playerHp;
-	public int teamNumber;
+    public int teamNumber;
+    public string playerName;
 	float movementSpeed;
 	//Damages 
 	public float tailSlapDamage;

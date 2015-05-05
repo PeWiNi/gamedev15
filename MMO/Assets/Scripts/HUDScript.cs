@@ -103,22 +103,6 @@ public class HUDScript : MonoBehaviour
             takingDamageHUD.enabled = true;
         }
 
-        monguin.GetComponentInChildren<Text>().text = MenuScript.playerName;
-        if (MenuScript.hasPickedTeamOne) { //Fish
-            foreach (SkinnedMeshRenderer smr in monguin.GetComponentsInChildren<SkinnedMeshRenderer>())
-            {
-                smr.material.mainTexture = Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Fish");
-                smr.material.SetTexture(1, Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Fish_normal"));
-            }
-        }
-        if (MenuScript.hasPickedTeamTwo) { //Banana
-            foreach (SkinnedMeshRenderer smr in monguin.GetComponentsInChildren<SkinnedMeshRenderer>())
-            {
-                smr.material.mainTexture = Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Banana");
-                smr.material.SetTexture(1, Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Banana_normal"));
-            }
-        }
-
         #region ActionBar
         UpdateActionBarText();
         ActionBarOnPress (ref a1Over, a1Key, ref a1Cooldown, a1Time); // Tail

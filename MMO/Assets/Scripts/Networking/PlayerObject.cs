@@ -23,10 +23,22 @@ public class PlayerObject
 			character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3dWithColliders);
 			if (MenuScript.hasPickedTeamOne) {
 				//character.renderer.material.color = Color.red;
-				teamId = 1;
+                teamId = 1;
+
+                foreach (SkinnedMeshRenderer smr in character.GetComponentsInChildren<SkinnedMeshRenderer>())
+                {
+                    smr.material.mainTexture = Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Fish");
+                    smr.material.SetTexture(1, Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Fish_normal"));
+                }
 			} else if (MenuScript.hasPickedTeamTwo) {
 				// character.renderer.material.color = Color.green;
-				teamId = 2;
+                teamId = 2;
+
+                foreach (SkinnedMeshRenderer smr in character.GetComponentsInChildren<SkinnedMeshRenderer>())
+                {
+                    smr.material.mainTexture = Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Banana");
+                    smr.material.SetTexture(1, Resources.Load<Texture>("Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Banana_normal"));
+                }
 			}
 			if (isServer) {
 				//character = BoltNetwork.Instantiate (BoltPrefabs.PlayerObject3d);
@@ -43,7 +55,7 @@ public class PlayerObject
 		if (MenuScript.hasPickedTeamOne == true) {
 			character.transform.position = SpawnRandomPositionTeamOne ();
 		} else if (MenuScript.hasPickedTeamTwo == true) {
-			character.transform.position = SpawnRandomPositionTeamTwo ();
+            character.transform.position = SpawnRandomPositionTeamTwo();
 		}
 	}
 	

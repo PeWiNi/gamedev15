@@ -136,6 +136,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		state.AddCallback ("TeamMemberId", TeamSelection);
 		this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
 
+        // MenuScript.playerName;
 	}
 
 	public override void SimulateController ()
@@ -157,16 +158,6 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		} 
 		position = player.transform.position;
 
-		if (Input.GetKeyDown (boomNanaKey)) {
-			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
-			Transform aim = this.transform.GetChild (6);
-			aim.GetComponent<Renderer> ().enabled = true;
-			aim.localScale = new Vector3 (1f, 0, ps.boomnanaRange / 4);
-			aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 2));
-			aim.localEulerAngles = new Quaternion (90.0f, 0.0f, 0.0f, 0).eulerAngles;
-			//vfx.aim.renderer.enabled = true;
-			//aimOverlay(1, range, 0.5f);
-		}
 		if (Input.GetKeyUp (boomNanaKey) && !GetComponent<StateController>().isDead && !sc.isStunned && ! sc.isChanneling) {
 
 			Debug.Log ("BOOOOMNANAAAAA");
