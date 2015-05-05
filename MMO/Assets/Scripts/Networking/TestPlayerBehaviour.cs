@@ -131,14 +131,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
             state.TestPlayerName = MenuScript.playerName;
         }
 
-<<<<<<< HEAD
-		// MenuScript.playerName;
-=======
 		state.AddCallback("TestPlayerMaterial", MaterialChange);
         state.AddCallback("TeamMemberId", TeamSelection);
         state.AddCallback("TestPlayerName", NameSelection);
 		this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
->>>>>>> 41eeca9f34021704b8ea7100e7133a6957ee5f85
 	}
 
 	public override void SimulateController ()

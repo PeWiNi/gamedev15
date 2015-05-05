@@ -37,7 +37,7 @@ public class CprScript : MonoBehaviour
 //				using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
 //					evnt.TargEnt = self;
 //				}
-//				available = false;
+				available = false;
 //				this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
 				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 				//int teammates = 0;
