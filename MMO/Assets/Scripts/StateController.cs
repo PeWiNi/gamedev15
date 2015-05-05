@@ -165,8 +165,11 @@ public class StateController : MonoBehaviour
 	{
 		if (GetComponent<PlayerStats> ().hp <= 0) {
 			if(checkIfDying ()){
-				GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
-				GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_Death");
+				using (var evnt = DeathAnimEvent.Create(Bolt.GlobalTargets.Everyone)) {
+					evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+				}
+//				GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+//				GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_Death");
 			}
 			isDead = true;
 			isStunned = true;

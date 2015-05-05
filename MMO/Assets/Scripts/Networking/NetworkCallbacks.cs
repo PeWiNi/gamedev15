@@ -274,6 +274,43 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		Debug.Log ("objects" + por.playerObjects.Count);
 	}
 
+	public override void OnEvent(TailAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_TS");
+	}
+	public override void OnEvent(CCAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().gameObject.transform.FindChild ("fish_forFS_withanimation").gameObject.GetComponent<FishAnimScript> ()
+			.playAnimation ();
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play("M_FS");
+	}
+	public override void OnEvent(BoomAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_BM");
+	}
+	public override void OnEvent(DeathAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_Death");
+	}
+	public override void OnEvent(IdleAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_Idle");
+	}
+	public override void OnEvent(AoeStartAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
+	}
+	public override void OnEvent(AoeEndAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+	}
+
 	public override void OnEvent (ScaleEvent evnt)
 	{
 		BoltEntity target = evnt.TargEnt;

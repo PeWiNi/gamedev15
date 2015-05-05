@@ -174,8 +174,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			if (isInsideHidingGrass == true) {
 				BoomNanaUsedInHidingGrass = true;
 			}
-			animation.wrapMode = WrapMode.Once;
-			animation.Play ("M_BM");
+			using (var evnt = BoomAnimEvent.Create(Bolt.GlobalTargets.Everyone)) {
+				evnt.TargEnt = this.entity;
+			}
+//			animation.wrapMode = WrapMode.Once;
+//			animation.Play ("M_BM");
 
 			// Mouse0 = Left Click
 			//Debug.Log("Player pos: "+transform.position);
@@ -360,8 +363,11 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			//animation.wrapMode = WrapMode.Loop;
 		}
 		if (!sc.isMoving && animation.IsPlaying ("M_Walk")) {
-			animation.wrapMode = WrapMode.Once;
-			animation.Play ("M_Idle");
+			using (var evnt = IdleAnimEvent.Create(Bolt.GlobalTargets.Everyone)) {
+				evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+			}
+//			animation.wrapMode = WrapMode.Once;
+//			animation.Play ("M_Idle");
 		}
 //		if(!sc.isChanneling && animation.IsPlaying("M_BP_Start")){
 //			animation.wrapMode = WrapMode.Once;

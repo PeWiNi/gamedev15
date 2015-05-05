@@ -54,10 +54,12 @@ public class CCScript : MonoBehaviour
 		}
 		if (Input.GetKeyDown (tpb.ccKey) && available && !GetComponentInParent<StateController>().isDead) {
 			inUse = true;
-
-			GetComponentInParent<TestPlayerBehaviour> ().gameObject.transform.FindChild ("fish_forFS_withanimation").gameObject.GetComponent<FishAnimScript> ()
-			.playAnimation ();
-			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_FS");
+			using (var evnt = CCAnimEvent.Create(Bolt.GlobalTargets.Everyone)) {
+				evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+			}
+//			GetComponentInParent<TestPlayerBehaviour> ().gameObject.transform.FindChild ("fish_forFS_withanimation").gameObject.GetComponent<FishAnimScript> ()
+//			.playAnimation ();
+//			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_FS");
 		}
 
 

@@ -25,7 +25,10 @@ public class TailSlap : MonoBehaviour
 			available = true;
 		}
 		if (Input.GetKeyDown (tpb.tailSlapKey) && !sc.isStunned && !sc.isChanneling && !sc.isDead) {
-			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_TS");
+			using (var evnt = TailAnimEvent.Create(Bolt.GlobalTargets.Everyone)) {
+				evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+			}
+//			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_TS");
 		}
 	}
 
