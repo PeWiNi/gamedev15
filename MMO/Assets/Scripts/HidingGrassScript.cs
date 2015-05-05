@@ -24,10 +24,14 @@ public class HidingGrassScript : MonoBehaviour
 	void OnTriggerStay (Collider coll)
 	{
 		// should also consider unit size!
-		if (coll.gameObject.tag == "player") {
-			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+        if (coll.gameObject.tag == "player" || coll.gameObject.tag == "TutorialPlayer") {
+//			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 			if (coll.transform.localScale != biggestScaledMonguin) {
-				coll.GetComponent<TestPlayerBehaviour> ().isInsideHidingGrass = true;
+                if(coll.gameObject.tag == "TutorialPlayer") {
+                    coll.GetComponent<TutorialPlayerBehaviour>().isInsideHidingGrass = true;
+                } else {
+                    coll.GetComponent<TestPlayerBehaviour> ().isInsideHidingGrass = true;
+                }
 				var meshChild = coll.transform.GetChild (2);
 				var canvasChild = coll.transform.GetChild (8);
 				var fishChild = coll.transform.GetChild (9);
@@ -125,9 +129,9 @@ public class HidingGrassScript : MonoBehaviour
 					if (hideReenabledTimer >= hideUnenabledAOETime) {
 						coll.GetComponentInChildren<AOE> ().AOEUsedInHidingGrass = false;
 						hideReenabledTimer = 0;
-						Debug.Log ("");
 					}
-				} else if (coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass == true) {
+                } else if ((coll.GetComponentInParent<TestPlayerBehaviour> () != null && coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass == true)
+                           || (coll.GetComponentInParent<TutorialPlayerBehaviour> () != null && coll.GetComponentInParent<TutorialPlayerBehaviour> ().BoomNanaUsedInHidingGrass == true)) {
 					meshChild.gameObject.SetActive (true);
 					canvasChild.GetComponent<Canvas> ().enabled = true;
 					fishChild.gameObject.SetActive (true);
@@ -143,7 +147,11 @@ public class HidingGrassScript : MonoBehaviour
 //					}
 					hideReenabledTimer += Time.deltaTime;
 					if (hideReenabledTimer >= hideUnenabledTime) {
-						coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass = false;
+                        if(coll.gameObject.tag == "TutorialPlayer") {
+                            coll.GetComponentInParent<TutorialPlayerBehaviour> ().BoomNanaUsedInHidingGrass = false;
+                        } else {
+                            coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass = false;
+                        }
 						hideReenabledTimer = 0;
 					}
 				} else {
@@ -168,10 +176,14 @@ public class HidingGrassScript : MonoBehaviour
 	void OnTriggerExit (Collider coll)
 	{
 		// should also consider unit size!
-		if (coll.gameObject.tag == "player") {
-			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
+		if (coll.gameObject.tag == "player" || coll.gameObject.tag == "TutorialPlayer") {
+//			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 			if (coll.transform.localScale != biggestScaledMonguin) {
-				coll.GetComponent<TestPlayerBehaviour> ().isInsideHidingGrass = false;
+                if(coll.gameObject.tag == "TutorialPlayer") {
+                    coll.GetComponent<TutorialPlayerBehaviour>().isInsideHidingGrass = false;
+                } else {
+                    coll.GetComponent<TestPlayerBehaviour> ().isInsideHidingGrass = false;
+                }
 				var meshChild = coll.transform.GetChild (2);
 				var canvasChild = coll.transform.GetChild (8);
 				var fishChild = coll.transform.GetChild (9);
@@ -200,8 +212,12 @@ public class HidingGrassScript : MonoBehaviour
 				if (coll.GetComponentInChildren<AOE> ().AOEUsedInHidingGrass == true) {
 					coll.GetComponentInChildren<AOE> ().AOEUsedInHidingGrass = false;
 				}
-				if (coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass == true) {
-					coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass = false;
+                if (coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass == true) {
+                    if(coll.gameObject.tag == "TutorialPlayer") {
+                        coll.GetComponentInParent<TutorialPlayerBehaviour> ().BoomNanaUsedInHidingGrass = false;
+                    } else {
+                        coll.GetComponentInParent<TestPlayerBehaviour> ().BoomNanaUsedInHidingGrass = false;
+                    }
 				}
 			}
 		}

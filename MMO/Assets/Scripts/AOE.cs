@@ -7,7 +7,8 @@ public class AOE : MonoBehaviour
 	bool available = true;
 	StateController sc;
 	PlayerStats ps;
-	TestPlayerBehaviour tpb;
+    TestPlayerBehaviour tpb;
+	TutorialPlayerBehaviour tpbTutorial;
 	float lastUsed;
 	float lastTick;
 	float tickTimer;
@@ -55,9 +56,16 @@ public class AOE : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		sc = this.gameObject.GetComponentInParent<StateController> ();
-		ps = this.gameObject.GetComponentInParent<PlayerStats> ();
-		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
+        if (sc == null || ps == null || tpb == null || tpbTutorial == null)
+        {
+            sc = this.gameObject.GetComponentInParent<StateController>();
+            ps = this.gameObject.GetComponentInParent<PlayerStats>();
+            if(gameObject.transform.parent.tag == "TutorialPlayer") {
+                tpbTutorial = this.gameObject.GetComponentInParent<TutorialPlayerBehaviour>();
+            } else {
+                tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+            }
+        }
 		if (Input.GetKeyDown (tpb.aoeKey) && available && !sc.isStunned && !sc.isDead) {
 			Debug.Log ("CASTING AOE!!");
 			sc.canMove = false;
@@ -65,8 +73,14 @@ public class AOE : MonoBehaviour
 			sc.isChanneling = true;
 			available = false;
 			lastTick = Time.time;
-			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
-			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
+            if(gameObject.transform.parent.tag == "TutorialPlayer") {
+                GetComponentInParent<TutorialPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+                GetComponentInParent<TutorialPlayerBehaviour> ().animation.Play ("M_BP_Start");
+            }
+            else {
+			    GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+                GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
+            }
 			animating = true;
 			
 //			GetComponentInParent<TestPlayerBehaviour>().animation.PlayQueued("M_BP_End");
@@ -80,9 +94,16 @@ public class AOE : MonoBehaviour
 
 		if (Time.time - lastUsed >= (ps.aoeDuration - 0.5f) && animating) {
 			Debug.Log ("gonna start END ANIM");
-			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
-			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
-			GetComponentInParent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+            if(gameObject.transform.parent.tag == "TutorialPlayer") {
+                GetComponentInParent<TutorialPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+                GetComponentInParent<TutorialPlayerBehaviour> ().animation.Play ("M_BP_End");
+                GetComponentInParent<TutorialPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+            }
+            else {
+			    GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+			    GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
+                GetComponentInParent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+            }
 			animating = false;
 		}
                 
@@ -98,28 +119,40 @@ public class AOE : MonoBehaviour
 			available = true;
 		}
 		currentTimer = Time.time;
-		if (sc.isChanneling && GetComponentInParent<TestPlayerBehaviour> ().animation.IsPlaying ("M_BP_Start")) {
+//		if (sc.isChanneling && GetComponentInParent<TestPlayerBehaviour> ().animation.IsPlaying ("M_BP_Start")) {
 //			GetComponentInParent<TestPlayerBehaviour>().animation.CrossFadeQueued("M_BP_End", 0.05f, QueueMode.PlayNow);
 //			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
 
 			//GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
 			//GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_BP_End", PlayMode.StopSameLayer);
-		}
+//		}
 	}
 
 
 	void OnTriggerStay (Collider coll)
 	{
 		if (coll.gameObject.tag == "grass") {
-			if (Input.GetKeyDown (tpb.aoeKey) && available) {
-				AOEUsedInHidingGrass = true;
-			}
+            if(tpbTutorial != null){
+                if (Input.GetKeyDown (tpbTutorial.aoeKey) && available) {
+                    AOEUsedInHidingGrass = true;
+                }
+            } else {
+                if (Input.GetKeyDown (tpb.aoeKey) && available) {
+                    AOEUsedInHidingGrass = true;
+                }
+            }
 		}
 		if (sc.isChanneling && ((currentTimer - lastTick) > tickTimer) || (lastTick == lastUsed)) {
 			Debug.Log ("Ticking");   
 			lastTick = Time.time;
 			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-			if (coll.gameObject.tag == "player" && sc.isChanneling) {
+            if (coll.gameObject.tag == "player" || coll.gameObject.tag == "TutorialEnemeyDummy" && sc.isChanneling) {
+                Debug.Log("Tagsies = " + coll.gameObject.tag);
+                if(coll.gameObject.transform.parent.tag == "TutorialPlayer") {
+                    if (coll.gameObject.tag != gameObject.transform.parent.tag) {// Check to see if the Dummy receives DMG.
+                        Debug.Log("SHEEEEEEIT");
+                    }
+                } else {
 				while (entities.MoveNext()) {
 					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
@@ -133,7 +166,7 @@ public class AOE : MonoBehaviour
 								using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone)) {
 									GameObject go = GameObject.Find ("Canvas");
 									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-
+                                    
                                     hs.announcementText.text = "" + ps.aoeTickDamageFactor;
 									evnt.TargEnt = be;
 									evnt.TickDamage = ps.aoeTickDamageFactor;
@@ -152,12 +185,10 @@ public class AOE : MonoBehaviour
 							}
 							sc.initiateCombat ();
 						}
-
 					}
-				}
-
+                    }
+                }
 			}
-                
 		}
 	}
 }
