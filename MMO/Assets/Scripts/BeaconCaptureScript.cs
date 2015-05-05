@@ -311,29 +311,29 @@ public class BeaconCaptureScript : MonoBehaviour
 				if (captureValue > 30 && captureValue < 70) {
 					if (beaconIsNeutral == false) {
 						if (be.gameObject == this.gameObject) {
-							using (var evnt = BeaconUnderControlEvent.Create(Bolt.GlobalTargets.Everyone)) {
-								evnt.TargEnt = be;
-								evnt.BeaconIsNeutral = true;
-								evnt.BeaconUnderTeamOneControl = false;
-								evnt.BeaconUnderTeamTwoControl = false;
-								evnt.TeamOneIsCapturing = false;
-								evnt.TeamTwoIsCapturing = false;
-								evnt.BonusPointsGiven = false;
-							}
+							var evnt = BeaconUnderControlEvent.Create(Bolt.GlobalTargets.Everyone);
+							evnt.TargEnt = be;
+							evnt.BeaconIsNeutral = true;
+							evnt.BeaconUnderTeamOneControl = false;
+							evnt.BeaconUnderTeamTwoControl = false;
+							evnt.TeamOneIsCapturing = false;
+							evnt.TeamTwoIsCapturing = false;
+							evnt.BonusPointsGiven = false;
+                            evnt.Send();
 						}
 					}
 				}
 				if (captureValue <= 30 && captureValue > 0) {
 					if (teamOneIsCapturing == false) {
 						if (be.gameObject == this.gameObject) {
-							using (var evnt = BeaconUnderControlEvent.Create(Bolt.GlobalTargets.Everyone)) {
-								evnt.TargEnt = be;
-								evnt.BeaconIsNeutral = false;
-								evnt.BeaconUnderTeamOneControl = false;
-								evnt.BeaconUnderTeamTwoControl = false;
-								evnt.TeamOneIsCapturing = true;
-								evnt.BonusPointsGiven = false;
-							}
+							var evnt = BeaconUnderControlEvent.Create(Bolt.GlobalTargets.Everyone);
+							evnt.TargEnt = be;
+							evnt.BeaconIsNeutral = false;
+							evnt.BeaconUnderTeamOneControl = false;
+							evnt.BeaconUnderTeamTwoControl = false;
+							evnt.TeamOneIsCapturing = true;
+							evnt.BonusPointsGiven = false;
+                            evnt.Send();
 						}
 					}
 				}
@@ -341,27 +341,27 @@ public class BeaconCaptureScript : MonoBehaviour
 					// Create Event and use the be, if it is the one that is colliding.
 					if (beaconUnderTeamOneControl == false) {
 						if (be.gameObject == this.gameObject) {
-							using (var evnt = BeaconUnderControlEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-								evnt.TargEnt = be;
-								evnt.BeaconIsNeutral = false;
-								evnt.BeaconUnderTeamOneControl = true;
-								evnt.BeaconUnderTeamTwoControl = false;
-								evnt.TeamOneIsCapturing = false;
-							}
+							var evnt = BeaconUnderControlEvent.Create(Bolt.GlobalTargets.Everyone);							
+							evnt.TargEnt = be;
+							evnt.BeaconIsNeutral = false;
+							evnt.BeaconUnderTeamOneControl = true;
+							evnt.BeaconUnderTeamTwoControl = false;
+							evnt.TeamOneIsCapturing = false;
+                            evnt.Send();
 						}
 					}
 				}
 				if (captureValue >= 70 && captureValue < 100) {
 					if (teamTwoIsCapturing == false) {
 						if (be.gameObject == this.gameObject) {
-							using (var evnt = BeaconUnderControlEvent.Create(Bolt.GlobalTargets.Everyone)) {
-								evnt.TargEnt = be;
-								evnt.BeaconIsNeutral = false;
-								evnt.TeamTwoIsCapturing = true;
-								evnt.BeaconUnderTeamOneControl = false;
-								evnt.BeaconUnderTeamTwoControl = false;
-								evnt.BonusPointsGiven = false;
-							}
+							var evnt = BeaconUnderControlEvent.Create(Bolt.GlobalTargets.Everyone);
+							evnt.TargEnt = be;
+							evnt.BeaconIsNeutral = false;
+							evnt.TeamTwoIsCapturing = true;
+							evnt.BeaconUnderTeamOneControl = false;
+							evnt.BeaconUnderTeamTwoControl = false;
+                            evnt.BonusPointsGiven = false;
+                            evnt.Send();
 						}
 					}
 				}
@@ -369,13 +369,13 @@ public class BeaconCaptureScript : MonoBehaviour
 					// Create Event and use the be, if it is the one that is colliding.
 					if (beaconUnderTeamTwoControl == false) {
 						if (be.gameObject == this.gameObject) {
-							using (var evnt = BeaconUnderControlEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-								evnt.TargEnt = be;
-								evnt.BeaconIsNeutral = false;
-								evnt.BeaconUnderTeamTwoControl = true;
-								evnt.BeaconUnderTeamOneControl = false;
-								evnt.TeamTwoIsCapturing = false;
-							}
+							var evnt = BeaconUnderControlEvent.Create(Bolt.GlobalTargets.Everyone);						
+							evnt.TargEnt = be;
+							evnt.BeaconIsNeutral = false;
+							evnt.BeaconUnderTeamTwoControl = true;
+							evnt.BeaconUnderTeamOneControl = false;
+                            evnt.TeamTwoIsCapturing = false;
+                            evnt.Send();
 						}
 					}
 				}
@@ -402,34 +402,34 @@ public class BeaconCaptureScript : MonoBehaviour
 								if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) == 1 || (teamOneCaptureList.Count - teamTwoCaptureList.Count) == 2) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
-										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-											evnt.TargEnt = be;
-											evnt.CaptureValue = captureValue - 1;
-										}
+										var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone);							
+										evnt.TargEnt = be;
+                                        evnt.CaptureValue = captureValue - 1;
+                                        evnt.Send();
 									}
 								} else if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) == 3 || (teamOneCaptureList.Count - teamTwoCaptureList.Count) == 4) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
-										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-											evnt.TargEnt = be;
-											evnt.CaptureValue = captureValue - 2;
-										}
+										var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone);						
+										evnt.TargEnt = be;
+                                        evnt.CaptureValue = captureValue - 2;
+                                        evnt.Send();
 									}
 								} else if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) == 5 || (teamOneCaptureList.Count - teamTwoCaptureList.Count) == 6) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
-										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-											evnt.TargEnt = be;
-											evnt.CaptureValue = captureValue - 4;
-										}	
+										var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone);						
+										evnt.TargEnt = be;
+                                        evnt.CaptureValue = captureValue - 4;
+                                        evnt.Send();
 									}
 								} else if ((teamOneCaptureList.Count - teamTwoCaptureList.Count) > 6) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
-										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-											evnt.TargEnt = be;
-											evnt.CaptureValue = captureValue - 8;
-										}	
+										var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone);							
+										evnt.TargEnt = be;
+                                        evnt.CaptureValue = captureValue - 8;
+                                        evnt.Send();
 									}
 								} 
 							}	
@@ -452,34 +452,34 @@ public class BeaconCaptureScript : MonoBehaviour
 								if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) == 1 || (teamTwoCaptureList.Count - teamOneCaptureList.Count) == 2) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
-										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-											evnt.TargEnt = be;
-											evnt.CaptureValue = captureValue + 1;
-										}
+										var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone);							
+										evnt.TargEnt = be;
+                                        evnt.CaptureValue = captureValue + 1;
+                                        evnt.Send();
 									}
 								} else if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) == 3 || (teamTwoCaptureList.Count - teamOneCaptureList.Count) == 4) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
-										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-											evnt.TargEnt = be;
-											evnt.CaptureValue = captureValue + 2;
-										}
+										var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone);							
+										evnt.TargEnt = be;
+                                        evnt.CaptureValue = captureValue + 2;
+                                        evnt.Send();
 									}
 								} else if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) == 5 || (teamTwoCaptureList.Count - teamOneCaptureList.Count) == 6) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
-										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-											evnt.TargEnt = be;
-											evnt.CaptureValue = captureValue + 4;
-										}
+										var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone);						
+										evnt.TargEnt = be;
+                                        evnt.CaptureValue = captureValue + 4;
+                                        evnt.Send();
 									}
 								} else if ((teamTwoCaptureList.Count - teamOneCaptureList.Count) > 6) {
 									// Create Event and use the be, if it is the one that is colliding.
 									if (be.gameObject == this.gameObject) {
-										using (var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-											evnt.TargEnt = be;
-											evnt.CaptureValue = captureValue + 8;
-										}
+										var evnt = BeaconCapturingEvent.Create(Bolt.GlobalTargets.Everyone);							
+										evnt.TargEnt = be;
+                                        evnt.CaptureValue = captureValue + 8;
+                                        evnt.Send();
 									}
 								}
 							}
@@ -518,9 +518,9 @@ public class BeaconCaptureScript : MonoBehaviour
 					haveCalculated = true;
 				}
 				if (haveCalculated == true) {
-					using (var evnt = TeamOneScoreEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TeamOneTotalScore = beacon01.GetComponent<BeaconCaptureScript> ().teamOneScore01 + beacon02.GetComponent<BeaconCaptureScript> ().teamOneScore02 + beacon03.GetComponent<BeaconCaptureScript> ().teamOneScore03 + beacon04.GetComponent<BeaconCaptureScript> ().teamOneScore04;
-					}
+					var evnt = TeamOneScoreEvent.Create(Bolt.GlobalTargets.Everyone);
+                    evnt.TeamOneTotalScore = beacon01.GetComponent<BeaconCaptureScript>().teamOneScore01 + beacon02.GetComponent<BeaconCaptureScript>().teamOneScore02 + beacon03.GetComponent<BeaconCaptureScript>().teamOneScore03 + beacon04.GetComponent<BeaconCaptureScript>().teamOneScore04;
+                    evnt.Send();
 					bonusPointsGiven = true;
 				}
 			}
@@ -557,9 +557,9 @@ public class BeaconCaptureScript : MonoBehaviour
 					haveCalculated = true;
 				}
 				if (haveCalculated == true) {
-					using (var evnt = TeamTwoScoreEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TeamTwoTotalScore = beacon01.GetComponent<BeaconCaptureScript> ().teamTwoScore01 + beacon02.GetComponent<BeaconCaptureScript> ().teamTwoScore02 + beacon03.GetComponent<BeaconCaptureScript> ().teamTwoScore03 + beacon04.GetComponent<BeaconCaptureScript> ().teamTwoScore04;
-					}
+					var evnt = TeamTwoScoreEvent.Create(Bolt.GlobalTargets.Everyone);
+                    evnt.TeamTwoTotalScore = beacon01.GetComponent<BeaconCaptureScript>().teamTwoScore01 + beacon02.GetComponent<BeaconCaptureScript>().teamTwoScore02 + beacon03.GetComponent<BeaconCaptureScript>().teamTwoScore03 + beacon04.GetComponent<BeaconCaptureScript>().teamTwoScore04;
+                    evnt.Send();
 					bonusPointsGiven = true;
 				}
 			}
@@ -647,9 +647,9 @@ public class BeaconCaptureScript : MonoBehaviour
 				if (lastTimeOne >= scoreTimer) {
 					if (checkOne == true) {
 						totalScoreTeamOne = beacon01.GetComponent<BeaconCaptureScript> ().teamOneScore01 + beacon02.GetComponent<BeaconCaptureScript> ().teamOneScore02 + beacon03.GetComponent<BeaconCaptureScript> ().teamOneScore03 + beacon04.GetComponent<BeaconCaptureScript> ().teamOneScore04;
-						using (var evnt = TeamOneScoreEvent.Create(Bolt.GlobalTargets.Everyone)) {
-							evnt.TeamOneTotalScore = totalScoreTeamOne;
-						}
+						var evnt = TeamOneScoreEvent.Create(Bolt.GlobalTargets.Everyone);
+                        evnt.TeamOneTotalScore = totalScoreTeamOne;
+                        evnt.Send();
 						checkOne = false;
 					}
 					lastTimeOne = 0;
@@ -669,9 +669,9 @@ public class BeaconCaptureScript : MonoBehaviour
 				if (lastTimeTwo >= scoreTimer) {
 					if (checkTwo == true) {
 						totalScoreTeamTwo = beacon01.GetComponent<BeaconCaptureScript> ().teamTwoScore01 + beacon02.GetComponent<BeaconCaptureScript> ().teamTwoScore02 + beacon03.GetComponent<BeaconCaptureScript> ().teamTwoScore03 + beacon04.GetComponent<BeaconCaptureScript> ().teamTwoScore04;
-						using (var evnt = TeamTwoScoreEvent.Create(Bolt.GlobalTargets.Everyone)) {
-							evnt.TeamTwoTotalScore = totalScoreTeamTwo;
-						}
+						var evnt = TeamTwoScoreEvent.Create(Bolt.GlobalTargets.Everyone);
+                        evnt.TeamTwoTotalScore = totalScoreTeamTwo;
+                        evnt.Send();
 						checkTwo = false;
 					}
 					lastTimeTwo = 0;

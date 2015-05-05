@@ -112,17 +112,17 @@ public class Coconut : Bolt.EntityBehaviour<ICoconutState>
 			//    //transform.position = position;	
 
 			//						CoconutEvent.Create (Bolt.GlobalTargets.Everyone).CoconutPosition = position;
-			using (var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone)) {
-				evnt.isPickedUp = true;
-				//state.CoconutTransform.Position = transform.position;
-				if (go == null) {
-					evnt.CoconutPosition = this.gameObject.transform.position;
-					removeCapture (new Vector3 (0, 0, 0));
-				} else {
-					//Debug.Log ("Owner Pos: " + go.transform.position);
-					evnt.CoconutPosition = go.transform.position; //set y
-				}
-			}
+			var evnt = CoconutEvent.Create(Bolt.GlobalTargets.Everyone);
+			evnt.isPickedUp = true;
+			//state.CoconutTransform.Position = transform.position;
+			if (go == null) {
+				evnt.CoconutPosition = this.gameObject.transform.position;
+				removeCapture (new Vector3 (0, 0, 0));
+			} else {
+				//Debug.Log ("Owner Pos: " + go.transform.position);
+				evnt.CoconutPosition = go.transform.position; //set y
+            }
+            evnt.Send();
 			//Debug.Log("It is held!");
 			//						WASD aa = go.GetComponent<WASD> ();
 			//						//int a = wasd.getFacing();

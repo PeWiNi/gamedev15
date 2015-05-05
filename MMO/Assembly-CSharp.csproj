@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\EntranceScript.cs" />
      <Compile Include="Assets\FishAnimScript.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\NewBehaviourScript1.cs" />
@@ -107,12 +108,12 @@
      <Compile Include="Assets\SimpleMovement.cs" />
      <Compile Include="Assets\VFXProjector.cs" />
      <Compile Include="Assets\bananaAnimScript.cs" />
+     <Compile Include="Assets\bolt\scripts\BoltConsoleWriter.cs" />
      <Compile Include="Assets\bolt\scripts\BoltDebugStart.cs" />
      <Compile Include="Assets\bolt\scripts\BoltDebugStartSettings.cs" />
      <Compile Include="Assets\bolt\scripts\BoltInit.cs" />
      <Compile Include="Assets\bolt\scripts\BoltLauncher.cs" />
      <Compile Include="Assets\bolt\scripts\BoltNetworkUtils.cs" />
-     <Compile Include="Assets\bolt\scripts\BoltShutdownPoll.cs" />
      <Compile Include="Assets\bolt\scripts\BoltUnityDebugDrawer.cs" />
      <Compile Include="Assets\bolt\scripts\aoi\BoltAOI.cs" />
      <Compile Include="Assets\bolt\scripts\aoi\BoltPOI.cs" />
@@ -124,8 +125,12 @@
      <Compile Include="Assets\bolt\scripts\udpkit\Native\NativeSocket.cs" />
      <Compile Include="Assets\bolt\scripts\udpkit\Null\NullPlatform.cs" />
      <Compile Include="Assets\bolt\scripts\udpkit\Null\NullSocket.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\WP8\Wp8Interface.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\WP8\Wp8Platform.cs" />
+     <Compile Include="Assets\bolt\scripts\udpkit\WP8\Wp8Socket.cs" />
      <Compile Include="Assets\bolt\scripts\upnp\BoltUPnP.cs" />
      <Compile Include="Assets\bolt_tutorial\scripts\Player\PlayerCam.cs" />
+     <None Include="Assets\bolt\assemblies\upnp\Mono.Nat.LICENSE 1.txt" />
      <None Include="Assets\Shaders\Projection.shader" />
      <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
      <None Include="Assets\Shaders\Grayscale.shader" />
@@ -135,6 +140,7 @@
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Shaders\SwampDisplacementShader.shader" />
      <None Include="Assets\bolt\assemblies\upnp\Mono.Nat.LICENSE.txt" />
+     <None Include="Assets\bolt\DOCUMENTATION.txt" />
      <None Include="Assets\Shaders\SimpleShader.shader" />
      <None Include="Assets\Shaders\LeavesShader.shader" />
      <None Include="Assets\bolt\documentation\DOCUMENTATION.txt" />
@@ -159,6 +165,9 @@
  </Reference>
  <Reference Include="udpkit">
  <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.dll</HintPath>
+ </Reference>
+ <Reference Include="udpkit_wp8">
+ <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/Plugins/udpkit_wp8.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -21,6 +21,8 @@ public class HealthSlider : MonoBehaviour
 	{
 		healthText.text = (int)ps.hp + "/" + ps.maxHealth;
 		healthSlider.value = (int)((float)(ps.hp / ps.maxHealth) * 100);
+
+        gameObject.GetComponentInParent<Canvas>().GetComponentInChildren<UnityEngine.UI.Text>().text = ps.playerName;
 	}
 }
  
