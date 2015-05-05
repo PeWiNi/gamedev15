@@ -19,10 +19,11 @@ public class BananaScript : MonoBehaviour
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 						if (be.gameObject == this.gameObject) {
 							this.gameObject.GetComponentInChildren<ParticleSystem> ().enableEmission = false;
-							using (var evnt = BananaUnavailableEvent.Create(Bolt.GlobalTargets.Everyone)) {
-								evnt.TargEnt = be;
-								evnt.BananaIsNotUp = true;
-							}
+                            var evnt = BananaUnavailableEvent.Create(Bolt.GlobalTargets.Everyone);
+							evnt.TargEnt = be;
+							evnt.BananaIsNotUp = true;
+                            evnt.Send();
+							
 						}
 					}
 					StartCoroutine ("BananaSpawner");
@@ -42,10 +43,10 @@ public class BananaScript : MonoBehaviour
 				BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 				if (be.gameObject == this.gameObject) {
 					this.gameObject.GetComponentInChildren<ParticleSystem> ().enableEmission = true;
-					using (var evnt = BananaAvailableEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TargEnt = be;
-						evnt.BananaIsNotUp = false;
-					}
+					var evnt = BananaAvailableEvent.Create(Bolt.GlobalTargets.Everyone);
+					evnt.TargEnt = be;
+					evnt.BananaIsNotUp = false;
+                    evnt.Send();
 				}
 			}
 		}

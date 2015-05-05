@@ -37,7 +37,7 @@ public class CprScript : MonoBehaviour
 //				using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
 //					evnt.TargEnt = self;
 //				}
-//				available = false;
+				available = false;
 //				this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
 				IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 				//int teammates = 0;
@@ -48,9 +48,9 @@ public class CprScript : MonoBehaviour
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 						// Create Event and use the be, if it is the one that is colliding.
 						if (be.isOwner) {
-							using (var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone)) {
-								evnt.TargEnt = be;
-							}
+							var evnt = CprEvent.Create(Bolt.GlobalTargets.Everyone);
+                            evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour>().entity;
+                            evnt.Send();
 							available = false;
 							this.gameObject.GetComponentInParent<PlayerStats> ().cprBananas--;
 						}
@@ -125,6 +125,7 @@ public class CprScript : MonoBehaviour
 		StateController sc = this.gameObject.GetComponentInParent<StateController> ();
 		Debug.Log ("I AM BEING RESSED!");
 		this.gameObject.GetComponentInParent<PlayerStats> ().hp = this.gameObject.GetComponentInParent<PlayerStats> ().maxHealth;
+		var evnt = IdleAnimEvent.Create(this.gameObject.GetComponentInParent<TestPlayerBehaviour>().entity);
 		sc.isDead = false;
 		sc.isStunned = false;
 		sc.ressStarted = false;

@@ -99,19 +99,19 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				if (boltEnt.gameObject.tag == "player") {
 					if (boltEnt.gameObject.GetComponent<PlayerStats> ().teamNumber == 1) {
 
-						using (var evnt = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone)) {
-							// High Hp = low Tail
-							// High Boom = low Aoe
-							evnt.MaxHp = (float)sp.hpValues [currentPlayerIndex];
-							evnt.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
-							evnt.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
-							evnt.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
-							evnt.TargEnt = boltEnt;
-						}
-						using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone)) {
-							evnt.Scale = (float)sp.scaleFactor;
-							evnt.TargEnt = boltEnt;
-						}
+						var evnt1 = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone);
+						// High Hp = low Tail
+						// High Boom = low Aoe
+						evnt1.MaxHp = (float)sp.hpValues [currentPlayerIndex];
+						evnt1.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
+						evnt1.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
+						evnt1.AoeDamage = (float)sp.aoeValues [currentPlayerIndex];
+                        evnt1.TargEnt = boltEnt;
+                        evnt1.Send();
+						var evnt2 = ScaleEvent.Create(Bolt.GlobalTargets.Everyone);
+						evnt2.Scale = (float)sp.scaleFactor;
+                        evnt2.TargEnt = boltEnt;
+                        evnt2.Send();
 						currentPlayerIndex++;
 
 					}
@@ -155,19 +155,19 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 				if (boltEnt.gameObject.tag == "player") {
 					if (boltEnt.gameObject.GetComponent<PlayerStats> ().teamNumber == 2) {
 						
-						using (var evnt = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone)) {
-							// High Hp = low Tail
-							// High Boom = low Aoe
-							evnt.MaxHp = (float)sp.hpValues [currentPlayerIndex];
-							evnt.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
-							evnt.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
-							evnt.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
-							evnt.TargEnt = boltEnt;
-						}
-						using (var evnt = ScaleEvent.Create(Bolt.GlobalTargets.Everyone)) {
-							evnt.Scale = (float)sp.scaleFactor;
-							evnt.TargEnt = boltEnt;
-						}
+						var evnt1 = StatUpdateEvent.Create(Bolt.GlobalTargets.Everyone);
+						// High Hp = low Tail
+						// High Boom = low Aoe
+						evnt1.MaxHp = (float)sp.hpValues [currentPlayerIndex];
+						evnt1.TailDamage = (float)sp.tailValues [(sp.tailValues.Count - 1) - currentPlayerIndex];
+						evnt1.BoomDamage = (float)sp.boomValues [currentPlayerIndex];
+						evnt1.AoeDamage = (float)sp.aoeValues [(sp.aoeValues.Count - 1) - currentPlayerIndex];
+                        evnt1.TargEnt = boltEnt;
+                        evnt1.Send();
+						var evnt2 = ScaleEvent.Create(Bolt.GlobalTargets.Everyone);
+						evnt2.Scale = (float)sp.scaleFactor;
+                        evnt2.TargEnt = boltEnt;
+                        evnt2.Send();
 						currentPlayerIndex++;
 						
 					}
@@ -272,6 +272,52 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		//updateStats(); 
 		//PlayerObjectReg.createCoconutObject ().Spawn ();
 		Debug.Log ("objects" + por.playerObjects.Count);
+	}
+
+	public override void OnEvent(WalkAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		//walk.speed = 6;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation ["M_Walk"].speed = 6;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Loop;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.PlayQueued ("M_Walk");
+
+	}
+
+	public override void OnEvent(TailAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_TS");
+	}
+	public override void OnEvent(CCAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().gameObject.transform.FindChild ("fish_forFS_withanimation").gameObject.GetComponent<FishAnimScript> ()
+			.playAnimation ();
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play("M_FS");
+	}
+	public override void OnEvent(BoomAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_BM");
+	}
+	public override void OnEvent(DeathAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_Death");
+	}
+	public override void OnEvent(IdleAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_Idle");
+	}
+	public override void OnEvent(AoeStartAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
+	}
+	public override void OnEvent(AoeEndAnimEvent evnt){
+		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
 	}
 
 	public override void OnEvent (ScaleEvent evnt)
@@ -411,6 +457,7 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 	{
 		BoltEntity target = evnt.TargEnt;
 		target.gameObject.GetComponentInChildren<CprScript> ().ress ();
+		target.gameObject.GetComponentInChildren<TestPlayerBehaviour>().animation.Play("M_Idle");
 	}
     
 	public void DealDamage (GameObject reciever, float damage)

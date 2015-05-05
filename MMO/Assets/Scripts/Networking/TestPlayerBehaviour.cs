@@ -15,12 +15,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public KeyCode moveDown = KeyCode.S;// = KeyCode.S;
 	public KeyCode moveRight = KeyCode.D;
 	public KeyCode moveLeft = KeyCode.A;
-
 	public KeyCode tailSlapKey;
 	public KeyCode boomNanaKey;
-
 	private Animator anim;
-
 	public KeyCode ccKey;
 	public KeyCode cprKey;
 	public KeyCode aoeKey;
@@ -41,7 +38,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	Vector3 camPos;
 	public float playerBuffDmg;
 	public float tailSlapDmg;
-	public float boomnanaDmg; 
+	public float boomnanaDmg;
 	public float aoeDmg;
 	public float ccDuration;
 	public float buffedTailSlapDmg;
@@ -52,8 +49,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public bool boomUsed = false;
 	public bool BoomNanaUsedInHidingGrass;
 	public bool isInsideHidingGrass;
-
+	private bool isAnimatingWalk = false;
 	public Animation animation;
+	public bool resetAnim = false;
 //
 	private AnimationState idle;
 	private AnimationState thefish;
@@ -121,21 +119,24 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (entity.isOwner) {
 			if (MenuScript.hasPickedTeamOne == true) {
 				state.TeamMemberId = 1;
-				state.TestPlayerColor = new Color (0, 1, 0, 1);
+                state.TestPlayerMaterial = "Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Fish";
 				Debug.Log ("Team nr." + state.TeamMemberId.ToString ());
 			}
 			if (MenuScript.hasPickedTeamTwo == true) {
-				state.TeamMemberId = 2;
-				state.TestPlayerColor = new Color (1, 0, 0, 1);
+                state.TeamMemberId = 2;
+                state.TestPlayerMaterial = "Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Banana";
 				Debug.Log ("Team nr." + state.TeamMemberId.ToString ());
 			}
 			//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
-			//state.TeamMemberId = BoltInit.teamMemberId;
-		}  
-		state.AddCallback ("TestPlayerColor", ColorChanged);
-		state.AddCallback ("TeamMemberId", TeamSelection);
-		this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
+            //state.TeamMemberId = BoltInit.teamMemberId;
+            state.TestPlayerName = MenuScript.playerName;
+        }
 
+		state.AddCallback("TestPlayerMaterial", MaterialChange);
+        state.AddCallback("TeamMemberId", TeamSelection);
+        state.AddCallback("TestPlayerName", NameSelection);
+		this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
+		//ps.respawnPosition = transform.position;
 	}
 
 	public override void SimulateController ()
@@ -157,25 +158,18 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		} 
 		position = player.transform.position;
 
-		if (Input.GetKeyDown (boomNanaKey)) {
-			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
-			Transform aim = this.transform.GetChild (6);
-			aim.GetComponent<Renderer> ().enabled = true;
-			aim.localScale = new Vector3 (1f, 0, ps.boomnanaRange / 4);
-			aim.localPosition = new Vector3 (0, 0, (ps.boomnanaRange / 2));
-			aim.localEulerAngles = new Quaternion (90.0f, 0.0f, 0.0f, 0).eulerAngles;
-			//vfx.aim.renderer.enabled = true;
-			//aimOverlay(1, range, 0.5f);
-		}
-		if (Input.GetKeyUp (boomNanaKey) && !GetComponent<StateController>().isDead && !sc.isStunned && ! sc.isChanneling) {
+		if (Input.GetKeyUp (boomNanaKey) && !GetComponent<StateController> ().isDead && !sc.isStunned && ! sc.isChanneling) {
 
 			Debug.Log ("BOOOOMNANAAAAA");
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();
 			if (isInsideHidingGrass == true) {
 				BoomNanaUsedInHidingGrass = true;
 			}
-			animation.wrapMode = WrapMode.Once;
-			animation.Play ("M_BM");
+			var evnt = BoomAnimEvent.Create (Bolt.GlobalTargets.Everyone);
+			evnt.TargEnt = this.entity;
+			evnt.Send ();
+//			animation.wrapMode = WrapMode.Once;
+//			animation.Play ("M_BM");
 
 			// Mouse0 = Left Click
 			//Debug.Log("Player pos: "+transform.position);
@@ -250,8 +244,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 
 				Vector3 endPos = (transform.position) - (rotation * offset);
 				Debug.Log ("EndPos = " + endPos.x + "," + endPos.y + "," + endPos.z);
-				Debug.Log ("FIRING BOOMNANA FROM PLAYERBEHAVIOUR");  
-				boomscript.spawn (this.gameObject, boom, transform.position
+				Debug.Log ("FIRING BOOMNANA FROM PLAYERBEHAVIOUR");
+				Vector3 newPosBoom = new Vector3 (transform.position.x, transform.position.y + 10, transform.position.z);
+				boomscript.spawn (this.gameObject, boom, newPosBoom
 				                  ,/* startDir,*/endPos);
 				timeSinceLastBoom = Time.time * 1000;
 				sound.getSoundPlayer ().PlayOneShot (sound.boomnanathrowclip);
@@ -303,34 +298,37 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		}
 
 
-		if(up){
+		if (up) {
 			if (sc.canMove) {
-				if(right){
-					position = position + (transform.forward * sc.movementspeed * Time.deltaTime)/2;
-					position = position + (transform.right * sc.movementspeed * Time.deltaTime)/2;
-				}else if(left){
-					position = position + (transform.forward * sc.movementspeed * Time.deltaTime)/2;
-					position = position - (transform.right * sc.movementspeed * Time.deltaTime)/2;
-				}else{
+				if (right) {
+					position = position + (transform.forward * sc.movementspeed * Time.deltaTime) / 2;
+					position = position + (transform.right * sc.movementspeed * Time.deltaTime) / 2;
+				} else if (left) {
+					position = position + (transform.forward * sc.movementspeed * Time.deltaTime) / 2;
+					position = position - (transform.right * sc.movementspeed * Time.deltaTime) / 2;
+				} else {
 					position = position + (transform.forward * sc.movementspeed * Time.deltaTime);
 				}
 			}
-		}else 
-		if(down){
+		} else 
+		if (down) {
 			if (sc.canMove) {
-				if(right){
-					position = position - (transform.forward * sc.movementspeed * Time.deltaTime)/2;
-					position = position + (transform.right * sc.movementspeed * Time.deltaTime)/2;
-				}else if(left){
-					position = position - (transform.forward * sc.movementspeed * Time.deltaTime)/2;
-					position = position - (transform.right * sc.movementspeed * Time.deltaTime)/2;
-				}else{
+				if (right) {
+					position = position - (transform.forward * sc.movementspeed * Time.deltaTime) / 2;
+					position = position + (transform.right * sc.movementspeed * Time.deltaTime) / 2;
+				} else if (left) {
+					position = position - (transform.forward * sc.movementspeed * Time.deltaTime) / 2;
+					position = position - (transform.right * sc.movementspeed * Time.deltaTime) / 2;
+				} else {
 					position = position - (transform.forward * sc.movementspeed * Time.deltaTime);
 				}
 			}
-		}else 
-		if(right){position = position + (transform.right * sc.movementspeed * Time.deltaTime);}
-		else if(left){position = position - (transform.right * sc.movementspeed * Time.deltaTime);}
+		} else 
+		if (right) {
+			position = position + (transform.right * sc.movementspeed * Time.deltaTime);
+		} else if (left) {
+			position = position - (transform.right * sc.movementspeed * Time.deltaTime);
+		}
 
 		if (position != Vector3.zero) {
 			transform.position = transform.position + (position.normalized * sc.getSpeed () * BoltNetwork.frameDeltaTime);
@@ -353,15 +351,43 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (!Input.GetKey (moveLeft) && !Input.GetKey (moveRight) && !Input.GetKey (moveUp) && !Input.GetKey (moveDown)) {
 			sc.isMoving = false;
 		}
-		if (sc.isMoving) {
+		if (sc.isMoving && !isAnimatingWalk) {
+
+//			var evnt = WalkAnimEvent.Create(Bolt.GlobalTargets.Everyone) ;
+//			evnt.TargEnt = this.entity;
+//			evnt.Send();
+
 			walk.speed = 6;
 			animation ["M_Walk"].speed = 6;
 			animation.PlayQueued ("M_Walk");
-			//animation.wrapMode = WrapMode.Loop;
+			isAnimatingWalk = true;
+			animation.wrapMode = WrapMode.Loop;
 		}
+		if(sc.isDead){
+			resetAnim = true;
+		}
+		if(!sc.isDead && resetAnim){
+			var evnt = IdleAnimEvent.Create (Bolt.GlobalTargets.Everyone);
+			evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+			evnt.Send ();
+			resetAnim = false;
+
+		}
+//		if(!sc.isMoving){
+//			isAnimatingWalk = false;
+//		}
+//		if (!isAnimatingWalk && sc.isMoving) {
+//			var evnt = WalkAnimEvent.Create (Bolt.GlobalTargets.Everyone);
+//			evnt.TargEnt = this.entity;
+//			evnt.Send ();
+//			isAnimatingWalk = true;
+//		}
 		if (!sc.isMoving && animation.IsPlaying ("M_Walk")) {
-			animation.wrapMode = WrapMode.Once;
-			animation.Play ("M_Idle");
+			var evnt = IdleAnimEvent.Create (Bolt.GlobalTargets.Everyone);
+			evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+			evnt.Send ();
+//			animation.wrapMode = WrapMode.Once;
+//			animation.Play ("M_Idle");
 		}
 //		if(!sc.isChanneling && animation.IsPlaying("M_BP_Start")){
 //			animation.wrapMode = WrapMode.Once;
@@ -413,10 +439,10 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 						// Create Event and use the be, if it is the one that is colliding.
 						//CoconutEffect buff the player
 						if (be.gameObject == this.gameObject) {
-							using (var evnt = PlayerBeingBuffedEvent.Create(Bolt.GlobalTargets.Everyone)) {
-								evnt.TargEnt = be;
-								evnt.CanPickUpCoconut = false;
-							}
+							var evnt = PlayerBeingBuffedEvent.Create (Bolt.GlobalTargets.Everyone);
+							evnt.TargEnt = be;
+							evnt.CanPickUpCoconut = false;
+							evnt.Send ();
 						}
 					}
 				
@@ -893,10 +919,23 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		this.gameObject.GetComponent<PlayerStats> ().teamNumber = state.TeamMemberId; 
 	}
     
-	public void ColorChanged ()
+	public void MaterialChange ()
 	{
-		//GetComponent<Renderer> ().material.color = state.TestPlayerColor;
+        foreach (SkinnedMeshRenderer smr in this.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            smr.material.mainTexture = Resources.Load<Texture>(state.TestPlayerMaterial);
+            smr.material.SetTexture(1, Resources.Load<Texture>(state.TestPlayerMaterial + "_normal"));
+        }
+        /*
+        GetComponent<Renderer>().material.SetTexture(0, Resources.Load<Texture>(state.TestPlayerMaterial));
+        GetComponent<Renderer>().material.SetTexture(1, Resources.Load<Texture>(state.TestPlayerMaterial + "_normal"));
+         */
 	}
+
+    public void NameSelection()
+    {
+        this.gameObject.GetComponent<PlayerStats>().playerName = state.TestPlayerName;
+    }
 
 	public void consumeCoconut ()
 	{
@@ -909,16 +948,16 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				// Create Event and use the be, if it is the one that is colliding.
 				//CoconutEffect buff the player
 				if (be.gameObject == this.gameObject) {
-					using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TargEnt = be;	
-						evnt.isAffectedByCoconut = true;
-						evnt.CoconutEffectDuration = Time.time;
-						evnt.CoconutCCBuffDuration = buffedCcDuration;
-						evnt.CoconutTailSlapDmgBuff = buffedTailSlapDmg;
-						evnt.CoconutBoomnanaDmgBuff = buffedBoomnanaDmg;
-						evnt.CoconutAOEDmgBuff = buffedAOEBuffDmg;
-						evnt.StoppedInCoconutConsume = true;
-					}
+					var evnt = CoconutEffectEvent.Create (Bolt.GlobalTargets.Everyone);
+					evnt.TargEnt = be;	
+					evnt.isAffectedByCoconut = true;
+					evnt.CoconutEffectDuration = Time.time;
+					evnt.CoconutCCBuffDuration = buffedCcDuration;
+					evnt.CoconutTailSlapDmgBuff = buffedTailSlapDmg;
+					evnt.CoconutBoomnanaDmgBuff = buffedBoomnanaDmg;
+					evnt.CoconutAOEDmgBuff = buffedAOEBuffDmg;
+					evnt.StoppedInCoconutConsume = true;
+					evnt.Send ();
 				}
 			}
 						
@@ -934,19 +973,19 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				// Create Event and use the be, if it is the one that is colliding.
 				//CoconutEffect buff expire from the player
 				if (be.gameObject == this.gameObject) {
-					using (var evnt = PlayerBeingBuffedEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TargEnt = be;
-						evnt.CanPickUpCoconut = true;
-					}
-					using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TargEnt = be;	
-						evnt.isAffectedByCoconut = false;
-						evnt.CoconutTailSlapDmgBuff = tailSlapDmg;
-						evnt.CoconutBoomnanaDmgBuff = boomnanaDmg;
-						evnt.CoconutAOEDmgBuff = aoeDmg;
-						evnt.CoconutCCBuffDuration = ccDuration;
-						evnt.StoppedInCoconutConsume = false;
-					}
+					var evnt1 = PlayerBeingBuffedEvent.Create (Bolt.GlobalTargets.Everyone);
+					evnt1.TargEnt = be;
+					evnt1.CanPickUpCoconut = true;
+					evnt1.Send ();
+					var evnt2 = CoconutEffectEvent.Create (Bolt.GlobalTargets.Everyone);
+					evnt2.TargEnt = be;	
+					evnt2.isAffectedByCoconut = false;
+					evnt2.CoconutTailSlapDmgBuff = tailSlapDmg;
+					evnt2.CoconutBoomnanaDmgBuff = boomnanaDmg;
+					evnt2.CoconutAOEDmgBuff = aoeDmg;
+					evnt2.CoconutCCBuffDuration = ccDuration;
+					evnt2.StoppedInCoconutConsume = false;
+					evnt2.Send ();
 				}
 			}
 		}
@@ -960,15 +999,15 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 				BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 				// Create Event and use the be, if it is the one that is colliding.
 				if (be.gameObject == this.gameObject) {
-					using (var evnt = CoconutEffectEvent.Create(Bolt.GlobalTargets.Everyone)) {
-						evnt.TargEnt = be;
-						evnt.isAffectedByCoconut = false;
-						evnt.CoconutTailSlapDmgBuff = tailSlapDmg;
-						evnt.CoconutBoomnanaDmgBuff = boomnanaDmg;
-						evnt.CoconutAOEDmgBuff = aoeDmg;
-						evnt.CoconutCCBuffDuration = ccDuration;
-						evnt.StoppedInCoconutConsume = false;
-					}
+					var evnt = CoconutEffectEvent.Create (Bolt.GlobalTargets.Everyone);
+					evnt.TargEnt = be;
+					evnt.isAffectedByCoconut = false;
+					evnt.CoconutTailSlapDmgBuff = tailSlapDmg;
+					evnt.CoconutBoomnanaDmgBuff = boomnanaDmg;
+					evnt.CoconutAOEDmgBuff = aoeDmg;
+					evnt.CoconutCCBuffDuration = ccDuration;
+					evnt.StoppedInCoconutConsume = false;
+					evnt.Send ();
 				}
 			}
 		}

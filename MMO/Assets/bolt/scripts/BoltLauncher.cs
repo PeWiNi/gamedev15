@@ -16,11 +16,20 @@ public static class BoltLauncher {
     SetUdpPlatform(new NullPlatform());
 
     // init server
-    Initialize(BoltNetworkModes.Server, UdpEndPoint.Any, config);
+    Initialize(BoltNetworkModes.Host, UdpEndPoint.Any, config);
   }
 
   public static void StartServer() {
     StartServer(UdpEndPoint.Any);
+  }
+
+  public static void StartServer(int port) {
+    if (port >= 0 && port <= ushort.MaxValue) {
+      StartServer(new UdpEndPoint(UdpIPv4Address.Any, (ushort)port));
+    }
+    else {
+      throw new ArgumentOutOfRangeException(string.Format("'port' must be >= 0 and <= {0}", ushort.MaxValue));
+    }
   }
 
   public static void StartServer(BoltConfig config) {
@@ -32,7 +41,7 @@ public static class BoltLauncher {
   }
 
   public static void StartServer(UdpEndPoint endpoint, BoltConfig config) {
-    Initialize(BoltNetworkModes.Server, endpoint, config);
+    Initialize(BoltNetworkModes.Host, endpoint, config);
   }
 
   public static void StartClient() {
@@ -51,20 +60,17 @@ public static class BoltLauncher {
     Initialize(BoltNetworkModes.Client, endpoint, config);
   }
 
-  public static System.Threading.ManualResetEvent Shutdown() {
-    return BoltNetworkInternal.__Shutdown();
-  }
-
-  public static void Shutdown(Action callback) {
-    if (callback == null) {
-      Shutdown();
+  public static void StartClient(int port) {
+    if (port >= 0 && port <= ushort.MaxValue) {
+      StartClient(new UdpEndPoint(UdpIPv4Address.Any, (ushort)port));
     }
     else {
-      GameObject go = new GameObject("BoltShutdownCallback");
-      BoltShutdownPoll poll = go.AddComponent<BoltShutdownPoll>();
-      poll.ShutdownEvent = Shutdown();
-      poll.Callback = callback;
+      throw new ArgumentOutOfRangeException(string.Format("'port' must be >= 0 and <= {0}", ushort.MaxValue));
     }
+  }
+
+  public static void Shutdown() {
+    BoltNetworkInternal.__Shutdown();
   }
 
   static void Initialize(BoltNetworkModes modes, UdpEndPoint endpoint, BoltConfig config) {
@@ -126,10 +132,12 @@ public static class BoltLauncher {
       return UserAssignedPlatform;
     }
 
-#if (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8) && !UNITY_EDITOR
+#if (UNITY_ANDROID || UNITY_IPHONE) && !UNITY_EDITOR
     return new NativePlatform();
 #elif (UNITY_PS4 || UNITY_PSM) && !UNITY_EDITOR
     return new DotNetPlatform();
+#elif (UNITY_WP8) && !UNITY_EDITOR
+    return new Wp8Platform();
 #else
     return new DotNetPlatform();
 #endif

@@ -40,10 +40,10 @@ public class AutoAttack : MonoBehaviour
 
 									if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
 										// deal full damage!!!
-										using (var evnt = AutoAttackEvent.Create(Bolt.GlobalTargets.Everyone)) {
-											evnt.TargEnt = be;
-											evnt.Damage = (2.0f);
-										}
+										var evnt = AutoAttackEvent.Create(Bolt.GlobalTargets.Everyone);
+										evnt.TargEnt = be;
+                                        evnt.Damage = (2.0f);
+                                        evnt.Send();
 										Debug.Log ("AutoAttacking");
 									}
 									lastTick = currentTimer;

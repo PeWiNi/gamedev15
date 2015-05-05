@@ -40,6 +40,7 @@ public class MenuScript : MonoBehaviour
 	public static bool hasPickedTeamTwo = false;
 	public static bool isServer = false;
 	public static bool isClient = false;
+    public static string playerName;
 
 	static string map;
 	string serverAddress = "";
@@ -101,18 +102,27 @@ public class MenuScript : MonoBehaviour
 		VideoMenu.SetActive (true);
 		RectTransform ScrollHandle = GameObject.Find ("ScrollHandle").GetComponent<RectTransform> ();
 		ScrollHandle.offsetMin = new Vector2 (-10, -10);
-		ScrollHandle.offsetMax = new Vector2 (10, 10);
+        ScrollHandle.offsetMax = new Vector2(10, 10);
+        RectTransform MasterFill = GameObject.Find("MasterFill").GetComponent<RectTransform>();
+        MasterFill.offsetMin = new Vector2(-5, 0);
+        MasterFill.offsetMax = new Vector2(5, 0);
+        RectTransform MusicFill = GameObject.Find("MusicFill").GetComponent<RectTransform>();
+        MusicFill.offsetMin = new Vector2(-5, 0);
+        MusicFill.offsetMax = new Vector2(5, 0);
+        RectTransform SFXFill = GameObject.Find("SFXFill").GetComponent<RectTransform>();
+        SFXFill.offsetMin = new Vector2(-5, 0);
+        SFXFill.offsetMax = new Vector2(5, 0);
 		Transform MasterHandle = GameObject.Find ("MasterHandle").transform;
-		MasterHandle.localPosition = new Vector3 (50, MasterHandle.localPosition.y, MasterHandle.localPosition.z);
+		MasterHandle.localPosition = new Vector3 (50, 0, 0);
 		Transform MusicHandle = GameObject.Find ("MusicHandle").transform;
-		MusicHandle.localPosition = new Vector3 (50, MusicHandle.localPosition.y, MusicHandle.localPosition.z);
+		MusicHandle.localPosition = new Vector3 (50, 0, 0);
 		Transform SFXHandle = GameObject.Find ("SFXHandle").transform;
-		SFXHandle.localPosition = new Vector3 (50, SFXHandle.localPosition.y, SFXHandle.localPosition.z);
+		SFXHandle.localPosition = new Vector3 (50, 0, 0);
 		RectTransform BrightnessFill = GameObject.Find ("BrightnessFill").GetComponent<RectTransform> ();
 		BrightnessFill.offsetMin = new Vector2 (-5, 0);
 		BrightnessFill.offsetMax = new Vector2 (5, 0);
 		Transform BrightnessHandle = GameObject.Find ("BrightnessHandle").transform;
-		BrightnessHandle.localPosition = new Vector3 (0, 0, BrightnessHandle.localPosition.z);
+		BrightnessHandle.localPosition = new Vector3 (0, 0, 0);
 		#endregion
 
 		ResolutionPanel.SetActive (false);
@@ -176,15 +186,12 @@ public class MenuScript : MonoBehaviour
 			bool conflict = false;
 			for (int i = 0; i < KeyBindings.Length; i++)
 				for (int j = 0; j < KeyBindings.Length; j++) {
-					if (!conflict && i != j && (KeyBindings [i] == KeyBindings [j] || 
-						KeyBindings [i] == KeyCode.W || KeyBindings [i] == KeyCode.A || KeyBindings [i] == KeyCode.S || KeyBindings [i] == KeyCode.D)) {
+					if (!conflict && i != j && (KeyBindings [i] == KeyBindings [j] ||
+                        KeyBindings[i] == KeyCode.W || KeyBindings[i] == KeyCode.A || KeyBindings[i] == KeyCode.S || KeyBindings[i] == KeyCode.D || KeyBindings[i] == KeyCode.T)) {
 						BackButton.SetActive (false);
-						Debug.Log ("CONFLICT FOUND");
 						conflict = true;
 					} else if (!conflict) {
 						BackButton.SetActive (true);
-						Debug.Log ("Keybinds are " + KeyBindings [i].ToString () + " and " + KeyBindings [j].ToString () + " (i, j) = (" + i + ", " + j + ")");
-						Debug.Log ("CONFLICT NOT FOUND");
 					}
 				}
 		}
@@ -301,7 +308,10 @@ public class MenuScript : MonoBehaviour
 	}
 	public void Connect ()
 	{
-		serverAddress = GameObject.Find ("ServerIP").GetComponent<Text> ().text;
+        string field = GameObject.Find("ServerIP").GetComponent<Text>().text;
+        serverAddress = field;
+        if(field.Equals("localhost"))
+            serverAddress = "127.0.0.1";
 		JoinGameMenu.SetActive (false);
 		TeamMenu.SetActive (true);
 	}
@@ -310,6 +320,8 @@ public class MenuScript : MonoBehaviour
     #region Bolt Server Functions
 	public void StartServer ()
 	{
+        playerName = GameObject.Find("NameField").GetComponent<InputField>().text;
+
 		state = State.Playing;
 		makeKeyBindings ();
 		foreach (string value in BoltScenes.AllScenes) 
@@ -318,7 +330,9 @@ public class MenuScript : MonoBehaviour
 		BoltNetwork.LoadScene (map);
 	}
 	void StartClient ()
-	{
+    {
+        playerName = GameObject.Find("NameField").GetComponent<InputField>().text;
+
 		state = State.Playing;
 		makeKeyBindings ();
 		BoltLauncher.StartClient (UdpEndPoint.Any);

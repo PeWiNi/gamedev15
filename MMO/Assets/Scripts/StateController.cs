@@ -165,8 +165,11 @@ public class StateController : MonoBehaviour
 	{
 		if (GetComponent<PlayerStats> ().hp <= 0) {
 			if(checkIfDying ()){
-				GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
-				GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_Death");
+				var evnt = DeathAnimEvent.Create(Bolt.GlobalTargets.Everyone);
+                evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour>().entity;
+                evnt.Send();
+//				GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+//				GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_Death");
 			}
 			isDead = true;
 			isStunned = true;
@@ -178,14 +181,15 @@ public class StateController : MonoBehaviour
 
 			switch (teamNumber) {
 			case 1:
-				using (var evnt = KillScoreOneEvent.Create(Bolt.GlobalTargets.Everyone)) { 
-					evnt.Score = 5;
-				}
+				var evnt1 = KillScoreOneEvent.Create(Bolt.GlobalTargets.Everyone); 
+				evnt1.Score = 5;
+                evnt1.Send();
+
 				break;
 			case 2:
-				using (var evnt = KillScoreOneEvent.Create(Bolt.GlobalTargets.Everyone)) { 
-					evnt.Score = 5;
-				}
+				var evnt2 = KillScoreOneEvent.Create(Bolt.GlobalTargets.Everyone); 
+				evnt2.Score = 5;
+                evnt2.Send();
 				break;
 			}
             
