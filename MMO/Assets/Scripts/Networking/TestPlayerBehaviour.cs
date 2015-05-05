@@ -118,22 +118,27 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		if (entity.isOwner) {
 			if (MenuScript.hasPickedTeamOne == true) {
 				state.TeamMemberId = 1;
-				state.TestPlayerColor = new Color (0, 1, 0, 1);
+                state.TestPlayerMaterial = "Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Fish";
 				Debug.Log ("Team nr." + state.TeamMemberId.ToString ());
 			}
 			if (MenuScript.hasPickedTeamTwo == true) {
-				state.TeamMemberId = 2;
-				state.TestPlayerColor = new Color (1, 0, 0, 1);
+                state.TeamMemberId = 2;
+                state.TestPlayerMaterial = "Textures/Layer_lambert1_u1_v2_Diffuse_merged_wNoise_Banana";
 				Debug.Log ("Team nr." + state.TeamMemberId.ToString ());
 			}
 			//state.TestPlayerColor = new Color (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
-			//state.TeamMemberId = BoltInit.teamMemberId;
-		}  
-		state.AddCallback ("TestPlayerColor", ColorChanged);
-		state.AddCallback ("TeamMemberId", TeamSelection);
-		this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
+            //state.TeamMemberId = BoltInit.teamMemberId;
+            state.TestPlayerName = MenuScript.playerName;
+        }
 
+<<<<<<< HEAD
 		// MenuScript.playerName;
+=======
+		state.AddCallback("TestPlayerMaterial", MaterialChange);
+        state.AddCallback("TeamMemberId", TeamSelection);
+        state.AddCallback("TestPlayerName", NameSelection);
+		this.gameObject.GetComponent<PlayerStats> ().makeTheStatChange ();
+>>>>>>> 41eeca9f34021704b8ea7100e7133a6957ee5f85
 	}
 
 	public override void SimulateController ()
@@ -906,10 +911,23 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		this.gameObject.GetComponent<PlayerStats> ().teamNumber = state.TeamMemberId; 
 	}
     
-	public void ColorChanged ()
+	public void MaterialChange ()
 	{
-		//GetComponent<Renderer> ().material.color = state.TestPlayerColor;
+        foreach (SkinnedMeshRenderer smr in this.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            smr.material.mainTexture = Resources.Load<Texture>(state.TestPlayerMaterial);
+            smr.material.SetTexture(1, Resources.Load<Texture>(state.TestPlayerMaterial + "_normal"));
+        }
+        /*
+        GetComponent<Renderer>().material.SetTexture(0, Resources.Load<Texture>(state.TestPlayerMaterial));
+        GetComponent<Renderer>().material.SetTexture(1, Resources.Load<Texture>(state.TestPlayerMaterial + "_normal"));
+         */
 	}
+
+    public void NameSelection()
+    {
+        this.gameObject.GetComponent<PlayerStats>().playerName = state.TestPlayerName;
+    }
 
 	public void consumeCoconut ()
 	{
