@@ -85,7 +85,6 @@ public class HUDScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-
 		announcementText.color = new Color (announcementText.color.r, announcementText.color.g, announcementText.color.b, announcementText.color.a - (1.0f / FadeFactor * Time.deltaTime));
 		
 		#region Damage Effect
@@ -94,14 +93,18 @@ public class HUDScript : MonoBehaviour
 		takingDamageHUD.color = new Color (takingDamageHUD.color.r, takingDamageHUD.color.g, takingDamageHUD.color.b, HUDTimer);
         HUDTimer -= HUDEffectDecay;
         #endregion
-        GameObject monguin = GameObject.Find("PlayerObject3dWithColliders(Clone)");
-        StateController sc = monguin.GetComponent<StateController>();
-        if (sc.respawnTime > 0 && sc.ressStarted) {
-            announcementText.text = "You are dead.. Respawning in " + System.Math.Floor(sc.respawnTime) + " seconds";
-            announcementText.color = new Color(announcementText.color.r, announcementText.color.g, announcementText.color.b, 1.0f);
-            HUDTimer = 1.0f;
-            takingDamageHUD.enabled = true;
-        }
+        try {
+            GameObject monguin = GameObject.Find("PlayerObject3dWithColliders(Clone)");
+            StateController sc = monguin.GetComponent<StateController>();
+            DeathSpawner ds = monguin.GetComponent<DeathSpawner>();
+            if (ds.remain > 0 && sc.ressStarted) {
+                HUDTimer = 1.0f;
+                takingDamageHUD.enabled = true;
+                announcementText.text = "You are dead.. Respawning in " + ds.remain + " seconds";
+                announcementText.color = new Color(announcementText.color.r, announcementText.color.g, announcementText.color.b, HUDTimer);
+                HUDTimer = HUDEffectIntensity;
+            }
+        } catch { }
 
         #region ActionBar
         UpdateActionBarText();

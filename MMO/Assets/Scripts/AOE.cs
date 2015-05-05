@@ -8,6 +8,7 @@ public class AOE : MonoBehaviour
 	StateController sc;
 	PlayerStats ps;
 	TestPlayerBehaviour tpb;
+    GameObject puke;
 	float lastUsed;
 	float lastTick;
 	float tickTimer;
@@ -49,6 +50,8 @@ public class AOE : MonoBehaviour
 		sc = this.gameObject.GetComponentInParent<StateController> ();
 		ps = this.gameObject.GetComponentInParent<PlayerStats> ();
 		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
+        puke = GameObject.Find("puke");
+        puke.SetActive(false);
 		tickTimer = ps.tickTime;
 	}
 	
@@ -59,6 +62,7 @@ public class AOE : MonoBehaviour
 		ps = this.gameObject.GetComponentInParent<PlayerStats> ();
 		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
 		if (Input.GetKeyDown (tpb.aoeKey) && available && !sc.isStunned && !sc.isDead) {
+            puke.SetActive(true);
 			Debug.Log ("CASTING AOE!!");
 			sc.canMove = false;
 			lastUsed = Time.time;
@@ -77,7 +81,8 @@ public class AOE : MonoBehaviour
 //			GetComponentInParent<TestPlayerBehaviour>().animation.PlayQueued("M_BP_End");
 //			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
 		}
-		if (sc.isJumping && !available) {
+        if (sc.isJumping && !available) {
+            puke.SetActive(false);
 			sc.canMove = true;
 			sc.isChanneling = false;
 						
@@ -95,7 +100,8 @@ public class AOE : MonoBehaviour
 		}
                 
 		// check timer for duration and Cooldown
-		if (Time.time - lastUsed >= (ps.aoeDuration + 0.0001f) && !available) {
+        if (Time.time - lastUsed >= (ps.aoeDuration + 0.0001f) && !available) {
+            puke.SetActive(false);
 			sc.canMove = true;
 			sc.isChanneling = false;
 

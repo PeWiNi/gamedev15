@@ -17,8 +17,6 @@ public class VFXProjector : MonoBehaviour
 
     float timer;
 
-    public static bool rotated = false;
-
 	// Use this for initialization
 	void Start () {
         tailAim = Resources.Load<Texture>("Images/AimTail");
@@ -35,37 +33,27 @@ public class VFXProjector : MonoBehaviour
 	void Update () {
         if (timer <= 0) {
             projector.enabled = false;
-        }
-        else {
+        } else if (Input.anyKeyDown) {
             timer -= Time.deltaTime;
         }
         if (Input.GetKeyDown(MenuScript.KeyBindings[0])) { //Tail
-            castProjection(tailAim, 2, 30, 2, 1.5f);
+            castProjection(tailAim, 0.35f, 65, 5, 1.5f);
         }
         if (Input.GetKeyDown(MenuScript.KeyBindings[1])) { //Boomnana
-            castProjection(boomAim, 10, 20, 13, 3, true);
+            castProjection(boomAim, 0.2f, 220, 15, 3);
         }
         if (Input.GetKeyDown(MenuScript.KeyBindings[2])) { //Puke
-            castProjection(pukeAim, 1, 40, 5, 4);
+            castProjection(pukeAim, 1, 60, 5, 4);
         }
         if (Input.GetKeyDown(MenuScript.KeyBindings[3])) { //Fish
             castProjection(fishAim, 1, 40, 2, 2);
         }
 	}
-    void castProjection(Texture txt, float aRatio, float height, float distance, float activeTime, bool rotate = false)
-    {
-        if (rotated) {
-            projector.transform.Rotate(0, 0, 270);
-            rotated = false;
-        }
+    void castProjection(Texture txt, float aRatio, float height, float distance, float activeTime) {
         projector.material.mainTexture = txt;
         projector.aspectRatio = aRatio;
         projector.transform.localPosition = new Vector3(0, height, distance);
         projector.enabled = true;
         timer = activeTime;
-        if (rotate) {
-            projector.transform.Rotate(0, 0, 90);
-            rotated = true;
-        }
     }
 }
