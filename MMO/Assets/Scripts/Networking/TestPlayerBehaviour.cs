@@ -53,6 +53,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	public Animation animation;
 	public bool resetAnim = false;
 //
+    private ParticleSystem stunSystem;
+
 	private AnimationState idle;
 	private AnimationState thefish;
 	private AnimationState walk;
@@ -414,8 +416,13 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			if ((Time.time - wasd.stunnedStart) <= sc.stunnedTimer && !sound.getStunnedPlayer ().isPlaying) {//if(!stunnedPlayer.isPlaying){
 				sound.getStunnedPlayer ().clip = sound.stunnedclip;
 				sound.getStunnedPlayer ().Play ();
+
+                stunSystem.Play();
+                stunSystem.transform.position = new Vector3(player.transform.position.x, (player.transform.position.y + (player.GetComponent<Collider>().bounds.size.y / 2)), player.transform.position.z);
 			} else if (Time.time - wasd.stunnedStart >= sc.stunnedTimer) {
 				sc.isStunned = false;
+
+                stunSystem.Stop();
 			}
 			
 		}
@@ -515,6 +522,8 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		coconut = GameObject.FindGameObjectWithTag ("nut");
 
 
+        stunSystem = ((GameObject)Instantiate(Resources.Load("Prefabs/VFX_Burdened"))).GetComponent<ParticleSystem>();
+        stunSystem.Stop();
 		/*
 		childObject = Camera.main.gameObject;
 		childAnim = childObject.animation;
