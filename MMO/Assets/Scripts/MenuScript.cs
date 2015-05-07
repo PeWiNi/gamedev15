@@ -310,6 +310,7 @@ public class MenuScript : MonoBehaviour
 	}
     public void StartTutorial() 
     {
+		map = "TutorialLevel";
         state = State.Tutorial;
         isServer = true;
         isClient = false;
@@ -317,8 +318,8 @@ public class MenuScript : MonoBehaviour
         hasPickedTeamTwo = true;
         state = State.Playing;
         makeKeyBindings ();
-        BoltLauncher.StartServer (new UdpEndPoint (UdpIPv4Address.Any, (ushort)27001));
-        BoltNetwork.LoadScene ("TutorialLevel");
+        BoltLauncher.StartServer (new UdpEndPoint (UdpIPv4Address.Any, (ushort)serverPort));
+        BoltNetwork.LoadScene (map);
     }
     public void Connect ()
 	{
@@ -334,6 +335,7 @@ public class MenuScript : MonoBehaviour
     #region Bolt Server Functions
 	public void StartServer ()
 	{
+		map = "Scene1TestNew";
         playerName = GameObject.Find("NameField").GetComponent<InputField>().text;
 
 		state = State.Playing;

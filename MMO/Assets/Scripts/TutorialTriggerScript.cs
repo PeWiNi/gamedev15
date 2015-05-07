@@ -13,24 +13,25 @@ public class TutorialTriggerScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-        if (col.gameObject.tag.Equals("TutorialPlayer"))
+		if (col.gameObject.tag.Equals("player"))
         {
             triggerText.enabled = true;
         }
 	}
 
     void OnTriggerStay(Collider col) {
-        if (col.gameObject.tag.Equals("TutorialPlayer") && !hasBeenDisplayed)//Detect if the player moved.
+        if (col.gameObject.tag.Equals("player") && !hasBeenDisplayed)//Detect if the player moved.
         {
-            StartCoroutine("DisplayText");
+            triggerText.enabled = true;
+//            StartCoroutine("DisplayText");
         }
     }
 
     void OnTriggerExit(Collider col) {
-        if (col.gameObject.tag.Equals("TutorialPlayer"))//Detect if the player moved.
+		if (col.gameObject.tag.Equals("player"))//Detect if the player moved.
         {
             triggerText.enabled = false;
-            StopCoroutine("DisplayText");
+//            StopCoroutine("DisplayText");
         }
     }
 

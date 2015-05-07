@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[BoltGlobalBehaviour("Scene1Test")]
+//[BoltGlobalBehaviour("Scene1Test")]
+[BoltGlobalBehaviour("TutorialLevel", "Scene1TestNew")]
 public class PlayerCallbacks : Bolt.GlobalEventListener
 {
 	public override void SceneLoadLocalDone (string map)
