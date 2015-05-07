@@ -33,7 +33,7 @@ public class VFXProjector : MonoBehaviour
 	void Update () {
         if (timer <= 0) {
             projector.enabled = false;
-        } else if (Input.anyKeyDown) {
+        } else if (!Input.anyKey) {
             timer -= Time.deltaTime;
         }
         if (Input.GetKeyDown(MenuScript.KeyBindings[0])) { //Tail

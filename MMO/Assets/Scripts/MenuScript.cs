@@ -44,7 +44,7 @@ public class MenuScript : MonoBehaviour
 	public static bool isClient = false;
     public static string playerName;
 
-	static string map;
+	static string map = "Scene1TestNew";
 	string serverAddress = "";
 	int serverPort = 27000;
 
@@ -311,7 +311,6 @@ public class MenuScript : MonoBehaviour
     public void StartTutorial() 
     {
         state = State.Tutorial;
-        PlayMenu.SetActive(false);
         isServer = true;
         isClient = false;
         hasPickedTeamOne = false;
@@ -339,8 +338,6 @@ public class MenuScript : MonoBehaviour
 
 		state = State.Playing;
 		makeKeyBindings ();
-		foreach (string value in BoltScenes.AllScenes) 
-			map = value;
 		BoltLauncher.StartServer (new UdpEndPoint (UdpIPv4Address.Any, (ushort)serverPort));
 		BoltNetwork.LoadScene (map);
 	}
