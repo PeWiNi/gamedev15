@@ -53,16 +53,20 @@ public class AOE : MonoBehaviour
         puke = GameObject.Find("puke");
         puke.SetActive(false);
 		tickTimer = ps.tickTime;
+		lastUsed = tickTimer;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		sc = this.gameObject.GetComponentInParent<StateController>();
+		ps = this.gameObject.GetComponentInParent<PlayerStats>();
+		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
         if (sc == null || ps == null || tpb == null )//|| tpbTutorial == null)
         {
-            sc = this.gameObject.GetComponentInParent<StateController>();
-            ps = this.gameObject.GetComponentInParent<PlayerStats>();
-            tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+			sc = this.gameObject.GetComponentInParent<StateController>();
+			ps = this.gameObject.GetComponentInParent<PlayerStats>();
+			tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
         }
 		if (Input.GetKeyDown (tpb.aoeKey) && available && !sc.isStunned && !sc.isDead) {
             puke.SetActive(true);
@@ -133,6 +137,11 @@ public class AOE : MonoBehaviour
 
 	void OnTriggerStay (Collider coll)
 	{
+		sc = this.gameObject.GetComponentInParent<StateController>();
+//		if(sc.isChanneling){Debug.Log("IS CHANNELING");}
+//		if((currentTimer-lastTick) > tickTimer){Debug.Log("TickTimer OK");}
+//		if(lastTick==lastUsed){Debug.Log("Tick = lastused");}
+
 		if (coll.gameObject.tag == "grass") {
             //if(tpbTutorial != null){
               //  if (Input.GetKeyDown (tpbTutorial.aoeKey) && available) {
@@ -144,11 +153,15 @@ public class AOE : MonoBehaviour
                 //}
             }
 		}
-		if (sc.isChanneling && ((currentTimer - lastTick) > tickTimer) || (lastTick == lastUsed)) {
+		if (sc.isChanneling && (((currentTimer - lastTick) > tickTimer) || (lastTick == lastUsed))) {
 			Debug.Log ("Ticking");   
 			lastTick = Time.time;
 			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-            if (coll.gameObject.tag == "player" && sc.isChanneling) {
+			if(coll.tag == "player"){
+				Debug.Log("PLAYER TAG");
+			}
+            if (coll.tag == "player" && sc.isChanneling) {
+				Debug.Log("found Player Tag");
 				while (entities.MoveNext()) {
 					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;

@@ -64,7 +64,7 @@ public class Boomnana : MonoBehaviour
 							var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone);
 							GameObject go = GameObject.Find ("Canvas");
 							HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-							float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.25f);
+							float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.20f);
                             hs.announcementText.text = "";
 							evnt.TargEnt = be;
 							evnt.Damage = damageDealt;
@@ -77,7 +77,7 @@ public class Boomnana : MonoBehaviour
 								var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone);
 								GameObject go = GameObject.Find ("Canvas");
 								HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-								float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.85f);
+								float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.60f);
                                 hs.announcementText.text = "" + damageDealt;// 85% of target health//this.owner.GetComponent<PlayerStats> ().boomNanaDamage;
 								evnt.TargEnt = be;
                                 evnt.Damage = damageDealt;

@@ -17,8 +17,8 @@ public class StatSplitter : MonoBehaviour
      */
 	int maximumHp = 1000;
 	int maximumBoom = 150;
-	int maximumTail = 75;
-	int maximumAOE = 20;
+	int maximumTail = 90;
+	int maximumAOE = 50;
 	public float scaleFactor = 3;
 	public ArrayList hpValues = new ArrayList ();
 	public ArrayList boomValues = new ArrayList ();
