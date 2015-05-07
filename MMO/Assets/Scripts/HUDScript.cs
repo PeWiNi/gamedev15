@@ -102,6 +102,7 @@ public class HUDScript : MonoBehaviour
                 takingDamageHUD.enabled = true;
                 announcementText.text = "You are dead.. Respawning in " + ds.remain + " seconds";
                 announcementText.color = new Color(announcementText.color.r, announcementText.color.g, announcementText.color.b, HUDTimer);
+            } else if (ds.remain == 0 && HUDTimer > HUDEffectIntensity) {
                 HUDTimer = HUDEffectIntensity;
             }
         } catch { }
