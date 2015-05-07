@@ -62,11 +62,7 @@ public class AOE : MonoBehaviour
         {
             sc = this.gameObject.GetComponentInParent<StateController>();
             ps = this.gameObject.GetComponentInParent<PlayerStats>();
-            if(gameObject.transform.parent.tag == "TutorialPlayer") {
-                //tpbTutorial = this.gameObject.GetComponentInParent<TutorialPlayerBehaviour>();
-            } else {
-                tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
-            }
+            tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
         }
 		if (Input.GetKeyDown (tpb.aoeKey) && available && !sc.isStunned && !sc.isDead) {
             puke.SetActive(true);
@@ -76,14 +72,8 @@ public class AOE : MonoBehaviour
 			sc.isChanneling = true;
 			available = false;
 			lastTick = Time.time;
-            if(gameObject.transform.parent.tag == "TutorialPlayer") {
-                GetComponentInParent<TutorialPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
-                GetComponentInParent<TutorialPlayerBehaviour> ().animation.Play ("M_BP_Start");
-            }
-            else {
-			    GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
-                GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
-            }
+			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+            GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
 
 			//Using AOESTARTANIM
             var evnt = AoeStartAnimEvent.Create(Bolt.GlobalTargets.Everyone);
@@ -106,16 +96,9 @@ public class AOE : MonoBehaviour
 
 		if (Time.time - lastUsed >= (ps.aoeDuration - 0.5f) && animating) {
 			Debug.Log ("gonna start END ANIM");
-            if(gameObject.transform.parent.tag == "TutorialPlayer") {
-                GetComponentInParent<TutorialPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
-                GetComponentInParent<TutorialPlayerBehaviour> ().animation.Play ("M_BP_End");
-                GetComponentInParent<TutorialPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
-            }
-            else {
-			    GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
-			    GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
-                GetComponentInParent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
-            }
+			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
+            GetComponentInParent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
             var evnt = AoeEndAnimEvent.Create(Bolt.GlobalTargets.Everyone) ;
 			evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
             evnt.Send();
@@ -165,13 +148,7 @@ public class AOE : MonoBehaviour
 			Debug.Log ("Ticking");   
 			lastTick = Time.time;
 			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-            if (coll.gameObject.tag == "player" || coll.gameObject.tag == "TutorialEnemeyDummy" && sc.isChanneling) {
-                Debug.Log("Tagsies = " + coll.gameObject.tag);
-                if(coll.gameObject.transform.parent.tag == "TutorialPlayer") {
-                    if (coll.gameObject.tag != gameObject.transform.parent.tag) {// Check to see if the Dummy receives DMG.
-                        Debug.Log("SHEEEEEEIT");
-                    }
-                } else {
+            if (coll.gameObject.tag == "player" && sc.isChanneling) {
 				while (entities.MoveNext()) {
 					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
@@ -207,7 +184,6 @@ public class AOE : MonoBehaviour
 							sc.initiateCombat ();
 						}
 					}
-                    }
                 }
 			}
 		}
