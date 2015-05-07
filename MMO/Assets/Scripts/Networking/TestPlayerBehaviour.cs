@@ -359,9 +359,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 
 			walk.speed = 6;
 			animation ["M_Walk"].speed = 6;
+			animation.wrapMode = WrapMode.Once;
 			animation.PlayQueued ("M_Walk");
 			isAnimatingWalk = true;
-			animation.wrapMode = WrapMode.Loop;
 		}
 		if(sc.isDead){
 			resetAnim = true;
@@ -372,6 +372,9 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			evnt.Send ();
 			resetAnim = false;
 
+		}
+		if(!animation.IsPlaying("M_Walk")){
+			isAnimatingWalk = false;
 		}
 //		if(!sc.isMoving){
 //			isAnimatingWalk = false;

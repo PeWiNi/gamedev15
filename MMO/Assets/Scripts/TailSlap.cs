@@ -21,6 +21,7 @@ public class TailSlap : MonoBehaviour
 	void Update ()
 	{
 		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
+		sc = this.gameObject.GetComponentInParent<StateController> ();
 		if ((Time.time - lastUsed) >= gameObject.GetComponentInParent<PlayerStats> ().tailSlapCooldown) {
 			available = true;
 		}

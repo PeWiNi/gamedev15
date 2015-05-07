@@ -278,13 +278,14 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		BoltEntity target = evnt.TargEnt;
 		//walk.speed = 6;
 		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation ["M_Walk"].speed = 6;
-		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Loop;
+		//target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Loop;
 		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.PlayQueued ("M_Walk");
 
 	}
 
 	public override void OnEvent(TailAnimEvent evnt){
 		BoltEntity target = evnt.TargEnt;
+		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
 		target.gameObject.GetComponent<TestPlayerBehaviour> ().animation.Play ("M_TS");
 	}
 	public override void OnEvent(CCAnimEvent evnt){
