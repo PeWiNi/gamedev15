@@ -62,8 +62,9 @@ public class Boomnana : MonoBehaviour
 						// CHECKS IF IT HIT ITSELF
 						if (coll.gameObject == owner && movingBack) {// STUN THE OWNER
 							var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone);
-							GameObject go = GameObject.Find ("Canvas");
-							HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+							GameObject go = GameObject.Find ("HUD");
+							HUDScript hs = go.GetComponent<HUDScript> ();
+							Debug.Log (hs);
 							float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.20f);
                             hs.announcementText.text = "";
 							evnt.TargEnt = be;

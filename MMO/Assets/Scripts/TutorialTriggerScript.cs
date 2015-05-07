@@ -16,6 +16,7 @@ public class TutorialTriggerScript : MonoBehaviour {
 		if (col.gameObject.tag.Equals("player"))
         {
             triggerText.enabled = true;
+			hasBeenDisplayed = true;
         }
 	}
 
@@ -23,6 +24,7 @@ public class TutorialTriggerScript : MonoBehaviour {
         if (col.gameObject.tag.Equals("player") && !hasBeenDisplayed)//Detect if the player moved.
         {
             triggerText.enabled = true;
+			hasBeenDisplayed = true;
 //            StartCoroutine("DisplayText");
         }
     }
@@ -31,6 +33,7 @@ public class TutorialTriggerScript : MonoBehaviour {
 		if (col.gameObject.tag.Equals("player"))//Detect if the player moved.
         {
             triggerText.enabled = false;
+			hasBeenDisplayed = false;
 //            StopCoroutine("DisplayText");
         }
     }
