@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\AnimationHelper.cs" />
      <Compile Include="Assets\bolt\scripts\editor\BoltExecutionOrderManager.cs" />
+     <None Include="Assets\bolt\assemblies\upnp\Mono.Nat.LICENSE 1.txt" />
      <None Include="Assets\Shaders\Projection.shader" />
      <None Include="Assets\bolt\assemblies\editor\protobuf-net.LICENSE.txt" />
      <None Include="Assets\Shaders\Grayscale.shader" />
@@ -57,6 +58,7 @@
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Shaders\SwampDisplacementShader.shader" />
      <None Include="Assets\bolt\assemblies\upnp\Mono.Nat.LICENSE.txt" />
+     <None Include="Assets\bolt\DOCUMENTATION.txt" />
      <None Include="Assets\Shaders\SimpleShader.shader" />
      <None Include="Assets\Shaders\LeavesShader.shader" />
      <None Include="Assets\bolt\documentation\DOCUMENTATION.txt" />
@@ -93,6 +95,9 @@
  </Reference>
  <Reference Include="udpkit">
  <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/bolt/assemblies/udpkit/udpkit.dll</HintPath>
+ </Reference>
+ <Reference Include="udpkit_wp8">
+ <HintPath>C:/Users/Mats/Desktop/GameDev15/gamedev15/MMO/Assets/Plugins/udpkit_wp8.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

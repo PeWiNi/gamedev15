@@ -25,7 +25,10 @@ public class TailSlap : MonoBehaviour
 			available = true;
 		}
 		if (Input.GetKeyDown (tpb.tailSlapKey) && !sc.isStunned && !sc.isChanneling && !sc.isDead) {
-			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_TS");
+			var evnt = TailAnimEvent.Create(Bolt.GlobalTargets.Everyone);
+            evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour>().entity;
+            evnt.Send();
+//			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_TS");
 		}
 	}
 
@@ -58,20 +61,20 @@ public class TailSlap : MonoBehaviour
 								Debug.Log ("SLAPPING DA TAIL");
 								if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
 									// deal full damage!!!
-									using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone)) {
-                                        hs.announcementText.text = "" + this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage;
-										evnt.TargEnt = be; 
-										evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage;
-									}
+									var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone);
+                                    hs.announcementText.text = "" + this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage;
+									evnt.TargEnt = be;
+                                    evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage;
+                                    evnt.Send();
 								} else if (!be.isOwner) {
 									//Do nothing.
 								} else { // check for friendly player, deal 50% dmg.
 									// deal half damage!!!
-									using (var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone)) {
-                                        hs.announcementText.text = "" + this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage / 2;
-										evnt.TargEnt = be;
-										evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats> ().tailSlapDamage / 2;
-									}
+									var evnt = TailSlapEvent.Create(Bolt.GlobalTargets.Everyone);
+                                    hs.announcementText.text = "" + this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage / 2;
+									evnt.TargEnt = be;
+                                    evnt.Damage = this.gameObject.GetComponentInParent<PlayerStats>().tailSlapDamage / 2;
+                                    evnt.Send();
 								}
 
 								available = false;

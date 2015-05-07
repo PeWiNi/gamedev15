@@ -42,9 +42,9 @@ public class GameTimer : MonoBehaviour
 					gameTimerLimit = timeLimit - gameTimer;
 					lastTime = Time.time;
 				}
-				using (var evnt = GameTimerEvent.Create(Bolt.GlobalTargets.Everyone)) {				
-					evnt.GameTime = gameTimerLimit; 
-				}
+				var evnt = GameTimerEvent.Create(Bolt.GlobalTargets.Everyone);
+                evnt.GameTime = gameTimerLimit;
+                evnt.Send();
 			}
 			isTimerDecreasing = false;
 		}

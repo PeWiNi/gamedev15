@@ -16,7 +16,7 @@ public class SwampScript : MonoBehaviour
 	/// <param name="coll">Coll.</param>
 	void OnTriggerEnter (Collider coll)
 	{				
-		if (coll.gameObject.tag == "player" && this.gameObject.name == "Swamp") {
+        if (coll.gameObject.tag == "player" || coll.gameObject.tag == "TutorialPlayer" && this.gameObject.name == "Swamp") {
 			speed = (coll.GetComponent<StateController> ().movementspeed * 40f) / 100f;
 			Debug.Log (speed);
 			coll.GetComponent<StateController> ().movementspeed = speed;
@@ -29,7 +29,7 @@ public class SwampScript : MonoBehaviour
 	/// <param name="coll">Coll.</param>
 	void OnTriggerExit (Collider coll)
 	{
-		if (coll.gameObject.tag == "player" && this.gameObject.name == "Swamp") {
+        if (coll.gameObject.tag == "player" || coll.gameObject.tag == "TutorialPlayer" && this.gameObject.name == "Swamp") {
 			speed = (coll.GetComponent<StateController> ().movementspeed * 100f) / 40f;
 			coll.GetComponent<StateController> ().movementspeed = speed;
 		}

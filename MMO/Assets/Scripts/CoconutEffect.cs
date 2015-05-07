@@ -34,10 +34,10 @@ public class CoconutEffect : MonoBehaviour
 								//The Coconut is consumed
 								if (be.gameObject == this.gameObject) {
 									this.gameObject.GetComponent<Light> ().enabled = false;
-									using (var evnt = CoconutUnavailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-										evnt.TargEnt = be;
-										evnt.isCoconutNotConsumed = false;
-									}
+									var evnt = CoconutUnavailableEvent.Create(Bolt.GlobalTargets.Everyone);						
+									evnt.TargEnt = be;
+                                    evnt.isCoconutNotConsumed = false;
+                                    evnt.Send();
 								}
 							}
 						}
@@ -71,10 +71,10 @@ public class CoconutEffect : MonoBehaviour
 				//The Coconut respawns
 				if (be.gameObject == this.gameObject) {
 					this.gameObject.GetComponent<Light> ().enabled = true;
-					using (var evnt = CoconutAvailableEvent.Create(Bolt.GlobalTargets.Everyone)) {							
-						evnt.TargEnt = be;
-						evnt.isCoconutNotConsumed = true;
-					}
+					var evnt = CoconutAvailableEvent.Create(Bolt.GlobalTargets.Everyone);						
+					evnt.TargEnt = be;
+                    evnt.isCoconutNotConsumed = true;
+                    evnt.Send();
 				}
 			}
 		}

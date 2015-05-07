@@ -61,27 +61,27 @@ public class Boomnana : MonoBehaviour
 					if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
 						// CHECKS IF IT HIT ITSELF
 						if (coll.gameObject == owner && movingBack) {// STUN THE OWNER
-							using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone)) { 
-								GameObject go = GameObject.Find ("Canvas");
-								HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-								float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.25f);
-                                hs.announcementText.text = "";
-								evnt.TargEnt = be;
-								evnt.Damage = damageDealt;
-								Destroy (this.gameObject);
-							}
+							var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone);
+							GameObject go = GameObject.Find ("Canvas");
+							HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+							float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.25f);
+                            hs.announcementText.text = "";
+							evnt.TargEnt = be;
+							evnt.Damage = damageDealt;
+                            Destroy(this.gameObject);
+                            evnt.Send();
                             
 						} else { // CHECK IF FRIENDLY OR FOE
 							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != owner.GetComponentInParent<PlayerStats> ().teamNumber) {
 								// deal full damage!!!
-								using (var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone)) {
-									GameObject go = GameObject.Find ("Canvas");
-									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-									float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.85f);
-                                    hs.announcementText.text = "" + damageDealt;// 85% of target health//this.owner.GetComponent<PlayerStats> ().boomNanaDamage;
-									evnt.TargEnt = be;
-									evnt.Damage = damageDealt;
-								}
+								var evnt = BoomEvent.Create(Bolt.GlobalTargets.Everyone);
+								GameObject go = GameObject.Find ("Canvas");
+								HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+								float damageDealt = Mathf.Floor(coll.gameObject.GetComponent<PlayerStats>().hp * 0.85f);
+                                hs.announcementText.text = "" + damageDealt;// 85% of target health//this.owner.GetComponent<PlayerStats> ().boomNanaDamage;
+								evnt.TargEnt = be;
+                                evnt.Damage = damageDealt;
+                                evnt.Send();
 								Destroy (this.gameObject);
 							}
 						}

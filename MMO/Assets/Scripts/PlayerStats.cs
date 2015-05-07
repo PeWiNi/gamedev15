@@ -10,7 +10,8 @@ public class PlayerStats : MonoBehaviour
 	//Stats
 	public float maxHealth;
 	float playerHp;
-	public int teamNumber;
+    public int teamNumber;
+    public string playerName;
 	float movementSpeed;
 	//Damages 
 	public float tailSlapDamage;
@@ -68,16 +69,16 @@ public class PlayerStats : MonoBehaviour
 
 	public void makeTheStatChange ()
 	{
-		using (var evnt = StatStartEvent.Create(Bolt.GlobalTargets.Everyone)) {
-			//IEnumerator enumer = BoltNetwork.entities.GetEnumerator();
-			//while(enumer.MoveNext()){
-			//    if(enumer.Current.GetType().IsInstanceOfType(new BoltEntity())){
-			//        if(((BoltEntity)enumer.Current as BoltEntity).gameObject == this.gameObject){
-			//            evnt.TargEnt = (BoltEntity)enumer.Current as BoltEntity;
-			//        }
-			//    }
-			//}
-		}
+		var evnt = StatStartEvent.Create(Bolt.GlobalTargets.Everyone);
+		//IEnumerator enumer = BoltNetwork.entities.GetEnumerator();
+		//while(enumer.MoveNext()){
+		//    if(enumer.Current.GetType().IsInstanceOfType(new BoltEntity())){
+		//        if(((BoltEntity)enumer.Current as BoltEntity).gameObject == this.gameObject){
+		//            evnt.TargEnt = (BoltEntity)enumer.Current as BoltEntity;
+		//        }
+		//    }
+        //}
+        evnt.Send();
 	}
 
 	public IEnumerator getEntities ()

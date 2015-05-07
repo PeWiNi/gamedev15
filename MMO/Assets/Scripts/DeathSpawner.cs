@@ -18,18 +18,21 @@ public class DeathSpawner : MonoBehaviour
 
 	float ToD = -1;
 	float respawnTimer;
+    public int remain;
 
 
 	// Use this for initialization
 	void Start ()
 	{
 		respawnTimer = this.gameObject.GetComponent<StateController> ().respawnTime;
+        remain = (int)respawnTimer;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		if (ToD != -1) {
+            remain = (int)(respawnTimer - (Time.time - ToD));
 			if (Time.time - ToD >= respawnTimer) {
 				PlayerStats ps = this.gameObject.GetComponent<PlayerStats> ();
 				ps.hp = ps.maxHealth;

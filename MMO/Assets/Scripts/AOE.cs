@@ -7,7 +7,8 @@ public class AOE : MonoBehaviour
 	bool available = true;
 	StateController sc;
 	PlayerStats ps;
-	TestPlayerBehaviour tpb;
+    TestPlayerBehaviour tpb;
+    GameObject puke;
 	float lastUsed;
 	float lastTick;
 	float tickTimer;
@@ -49,30 +50,54 @@ public class AOE : MonoBehaviour
 		sc = this.gameObject.GetComponentInParent<StateController> ();
 		ps = this.gameObject.GetComponentInParent<PlayerStats> ();
 		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
+        puke = GameObject.Find("puke");
+        puke.SetActive(false);
 		tickTimer = ps.tickTime;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		sc = this.gameObject.GetComponentInParent<StateController> ();
-		ps = this.gameObject.GetComponentInParent<PlayerStats> ();
-		tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour> ();
+        if (sc == null || ps == null || tpb == null )//|| tpbTutorial == null)
+        {
+            sc = this.gameObject.GetComponentInParent<StateController>();
+            ps = this.gameObject.GetComponentInParent<PlayerStats>();
+            if(gameObject.transform.parent.tag == "TutorialPlayer") {
+                //tpbTutorial = this.gameObject.GetComponentInParent<TutorialPlayerBehaviour>();
+            } else {
+                tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
+            }
+        }
 		if (Input.GetKeyDown (tpb.aoeKey) && available && !sc.isStunned && !sc.isDead) {
+            puke.SetActive(true);
 			Debug.Log ("CASTING AOE!!");
 			sc.canMove = false;
 			lastUsed = Time.time;
 			sc.isChanneling = true;
 			available = false;
 			lastTick = Time.time;
-			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
-			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
+            if(gameObject.transform.parent.tag == "TutorialPlayer") {
+                GetComponentInParent<TutorialPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+                GetComponentInParent<TutorialPlayerBehaviour> ().animation.Play ("M_BP_Start");
+            }
+            else {
+			    GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+                GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
+            }
+
+			//Using AOESTARTANIM
+            var evnt = AoeStartAnimEvent.Create(Bolt.GlobalTargets.Everyone);
+		    evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+            evnt.Send();
+//			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+//			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
 			animating = true;
 			
 //			GetComponentInParent<TestPlayerBehaviour>().animation.PlayQueued("M_BP_End");
 //			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
 		}
-		if (sc.isJumping && !available) {
+        if (sc.isJumping && !available) {
+            puke.SetActive(false);
 			sc.canMove = true;
 			sc.isChanneling = false;
 						
@@ -80,14 +105,28 @@ public class AOE : MonoBehaviour
 
 		if (Time.time - lastUsed >= (ps.aoeDuration - 0.5f) && animating) {
 			Debug.Log ("gonna start END ANIM");
-			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
-			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
-			GetComponentInParent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+            if(gameObject.transform.parent.tag == "TutorialPlayer") {
+                GetComponentInParent<TutorialPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+                GetComponentInParent<TutorialPlayerBehaviour> ().animation.Play ("M_BP_End");
+                GetComponentInParent<TutorialPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+            }
+            else {
+			    GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+			    GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
+                GetComponentInParent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
+            }
+            var evnt = AoeEndAnimEvent.Create(Bolt.GlobalTargets.Everyone) ;
+			evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour> ().entity;
+            evnt.Send();
+//			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
+//			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_End");
+//			GetComponentInParent<TestPlayerBehaviour> ().animation.CrossFadeQueued ("M_Idle", 0.2f, QueueMode.CompleteOthers, PlayMode.StopSameLayer);
 			animating = false;
 		}
                 
 		// check timer for duration and Cooldown
-		if (Time.time - lastUsed >= (ps.aoeDuration + 0.0001f) && !available) {
+        if (Time.time - lastUsed >= (ps.aoeDuration + 0.0001f) && !available) {
+            puke.SetActive(false);
 			sc.canMove = true;
 			sc.isChanneling = false;
 
@@ -98,28 +137,40 @@ public class AOE : MonoBehaviour
 			available = true;
 		}
 		currentTimer = Time.time;
-		if (sc.isChanneling && GetComponentInParent<TestPlayerBehaviour> ().animation.IsPlaying ("M_BP_Start")) {
+//		if (sc.isChanneling && GetComponentInParent<TestPlayerBehaviour> ().animation.IsPlaying ("M_BP_Start")) {
 //			GetComponentInParent<TestPlayerBehaviour>().animation.CrossFadeQueued("M_BP_End", 0.05f, QueueMode.PlayNow);
 //			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
 
 			//GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
 			//GetComponentInParent<TestPlayerBehaviour>().animation.Play("M_BP_End", PlayMode.StopSameLayer);
-		}
+//		}
 	}
 
 
 	void OnTriggerStay (Collider coll)
 	{
 		if (coll.gameObject.tag == "grass") {
-			if (Input.GetKeyDown (tpb.aoeKey) && available) {
-				AOEUsedInHidingGrass = true;
-			}
+            //if(tpbTutorial != null){
+              //  if (Input.GetKeyDown (tpbTutorial.aoeKey) && available) {
+                //    AOEUsedInHidingGrass = true;
+               // }
+            //} else {
+                if (Input.GetKeyDown (tpb.aoeKey) && available) {
+                    AOEUsedInHidingGrass = true;
+                //}
+            }
 		}
 		if (sc.isChanneling && ((currentTimer - lastTick) > tickTimer) || (lastTick == lastUsed)) {
 			Debug.Log ("Ticking");   
 			lastTick = Time.time;
 			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-			if (coll.gameObject.tag == "player" && sc.isChanneling) {
+            if (coll.gameObject.tag == "player" || coll.gameObject.tag == "TutorialEnemeyDummy" && sc.isChanneling) {
+                Debug.Log("Tagsies = " + coll.gameObject.tag);
+                if(coll.gameObject.transform.parent.tag == "TutorialPlayer") {
+                    if (coll.gameObject.tag != gameObject.transform.parent.tag) {// Check to see if the Dummy receives DMG.
+                        Debug.Log("SHEEEEEEIT");
+                    }
+                } else {
 				while (entities.MoveNext()) {
 					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
@@ -130,34 +181,34 @@ public class AOE : MonoBehaviour
 							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
 								// deal full damage!!!
 								Debug.Log ("Sending Event with dmg = " + ps.aoeTickDamageFactor);
-								using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone)) {
-									GameObject go = GameObject.Find ("Canvas");
-									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+								var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone);
+								GameObject go = GameObject.Find ("Canvas");
+								HUDScript hs = go.GetComponentInChildren<HUDScript> ();
 
-                                    hs.announcementText.text = "" + ps.aoeTickDamageFactor;
-									evnt.TargEnt = be;
-									evnt.TickDamage = ps.aoeTickDamageFactor;
-									Debug.Log ("Ticking for " + ps.aoeTickDamageFactor + ".");
-								}
+                                hs.announcementText.text = "" + ps.aoeTickDamageFactor;
+								evnt.TargEnt = be;
+								evnt.TickDamage = ps.aoeTickDamageFactor;
+								Debug.Log ("Ticking for " + ps.aoeTickDamageFactor + ".");
+
+                                evnt.Send();
 							} else { // check for friendly player, deal 50% dmg.
 								// deal half damage!!!
-								using (var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone)) {
-									GameObject go = GameObject.Find ("Canvas");
-									HUDScript hs = go.GetComponentInChildren<HUDScript> ();
+                                var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone);
+								GameObject go = GameObject.Find ("Canvas");
+								HUDScript hs = go.GetComponentInChildren<HUDScript> ();
 
-                                    hs.announcementText.text = "" + ps.aoeTickDamageFactor / 2;
-									evnt.TargEnt = be;
-									evnt.TickDamage = ps.aoeTickDamageFactor / 2;
-								}
+                                hs.announcementText.text = "" + ps.aoeTickDamageFactor / 2;
+								evnt.TargEnt = be;
+								evnt.TickDamage = ps.aoeTickDamageFactor / 2;
+
+                                evnt.Send();
 							}
 							sc.initiateCombat ();
 						}
-
 					}
-				}
-
+                    }
+                }
 			}
-                
 		}
 	}
 }
