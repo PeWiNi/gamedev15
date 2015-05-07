@@ -92,7 +92,8 @@ public class AOE : MonoBehaviour
 //			GetComponentInParent<TestPlayerBehaviour> ().animation.wrapMode = WrapMode.Once;
 //			GetComponentInParent<TestPlayerBehaviour> ().animation.Play ("M_BP_Start");
 			animating = true;
-			
+			SoundController soundz =  GetComponentInParent<TestPlayerBehaviour> ().sound;
+			soundz.getPukePlayer().PlayOneShot(soundz.pukeClip);
 //			GetComponentInParent<TestPlayerBehaviour>().animation.PlayQueued("M_BP_End");
 //			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
 		}

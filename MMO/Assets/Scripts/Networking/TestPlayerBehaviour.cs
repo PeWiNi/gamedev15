@@ -8,7 +8,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 	WASD wasd;
 	StateController sc;
 	PlayerStats ps;
-	SoundController sound;
+	public SoundController sound;
 	CoconutEffect cf;
 	public int playerId;
 	public KeyCode moveUp = KeyCode.W;// = KeyCode.W;
@@ -158,7 +158,7 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 		} 
 		position = player.transform.position;
 
-		if (Input.GetKeyUp (boomNanaKey) && !GetComponent<StateController> ().isDead && !sc.isStunned && ! sc.isChanneling) {
+		if (Input.GetKeyUp (boomNanaKey) && !GetComponent<StateController> ().isDead && !sc.isStunned && !sc.isChanneling) {
 
 			Debug.Log ("BOOOOMNANAAAAA");
 			VFXScript vfx = gameObject.GetComponent<VFXScript> ();

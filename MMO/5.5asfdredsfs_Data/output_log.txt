@@ -1,0 +1,151 @@
+Initialize engine version: 5.0.1f1 (5a2e8fe35a68)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\bolt.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\bolt.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\bolt.user.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\bolt.user.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\udpkit.common.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\udpkit.common.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\udpkit.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\udpkit.dll into Unity Child Domain
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\udpkit_wp8.dll (this message is harmless)
+Loading C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\udpkit_wp8.dll into Unity Child Domain
+- Completed reload, in  0.112 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Mats\Desktop\GameDev15\gamedev15\MMO\5.5asfdredsfs_Data\Managed\System.Core.dll (this message is harmless)
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1560)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1713)
+
+Shader 'Custom/Projection Shader': fallback shader 'Projector/Light' not found
+BoltException: Duplicate [PrefabId:26] for [DetachedEntity [PrefabId:26] SceneId=[UniqueId NONE] SerializerId=[UniqueId 8335e01e-24ae-42af-a7d3-f7795cbcc5d9] Coconut 1_Scaled] and [DetachedEntity [PrefabId:26] SceneId=[UniqueId NONE] SerializerId=[UniqueId 8335e01e-24ae-42af-a7d3-f7795cbcc5d9] Coconut 1 Shrine Location]
+  at Bolt.PrefabDatabase.UpdateLookup () [0x00000] in <filename unknown>:0 
+  at Bolt.PrefabDatabase.BuildCache () [0x00000] in <filename unknown>:0 
+  at BoltCore.BeginStart (Bolt.ControlCommandStart cmd) [0x00000] in <filename unknown>:0 
+  at Bolt.ControlCommandStart.Run () [0x00000] in <filename unknown>:0 
+  at Bolt.ControlBehaviour.Update () [0x00000] in <filename unknown>:0 
+UnityEngine.Debug:Internal_LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+Bolt.ControlBehaviour:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.RectTransform:INTERNAL_set_anchorMin (UnityEngine.Vector2&)
+  at UnityEngine.RectTransform.set_anchorMin (Vector2 value) [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Slider.UpdateVisuals () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Slider.OnRectTransformDimensionsChange () [0x00000] in <filename unknown>:0 
+UnityEngine.Canvas:set_scaleFactor(Single)
+UnityEngine.UI.CanvasScaler:SetScaleFactor(Single)
+UnityEngine.UI.CanvasScaler:OnDisable()
+ 
+(Filename:  Line: -1)
+
