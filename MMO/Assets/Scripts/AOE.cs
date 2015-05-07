@@ -148,7 +148,11 @@ public class AOE : MonoBehaviour
 			Debug.Log ("Ticking");   
 			lastTick = Time.time;
 			IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
-            if (coll.gameObject.tag == "player" && sc.isChanneling) {
+			if(coll.tag == "player"){
+				Debug.Log("PLAYER TAG");
+			}
+            if (coll.tag == "player" && sc.isChanneling) {
+				Debug.Log("found Player Tag");
 				while (entities.MoveNext()) {
 					if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
 						BoltEntity be = (BoltEntity)entities.Current as BoltEntity;

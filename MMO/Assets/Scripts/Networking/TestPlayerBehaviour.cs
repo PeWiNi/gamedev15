@@ -325,9 +325,13 @@ public class TestPlayerBehaviour : Bolt.EntityBehaviour<ITestPlayerState>
 			}
 		} else 
 		if (right) {
-			position = position + (transform.right * sc.movementspeed * Time.deltaTime);
+			if(sc.canMove){
+				position = position + (transform.right * sc.movementspeed * Time.deltaTime);
+			}
 		} else if (left) {
-			position = position - (transform.right * sc.movementspeed * Time.deltaTime);
+			if(sc.canMove){
+				position = position - (transform.right * sc.movementspeed * Time.deltaTime);
+			}
 		}
 
 		if (position != Vector3.zero) {
