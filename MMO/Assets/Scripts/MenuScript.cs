@@ -12,7 +12,8 @@ public class MenuScript : MonoBehaviour
 	GameObject JoinGameMenu;
 	GameObject AudioMenu;
 	GameObject VideoMenu;
-	GameObject ControlsMenu;
+    GameObject ControlsMenu;
+	GameObject TutorialMenu;
 
 	enum State
 	{
@@ -26,6 +27,7 @@ public class MenuScript : MonoBehaviour
 		Controls,
 		Pause,
 		Playing,
+        Tutorial,
 	}
 	State state;
 
@@ -299,7 +301,20 @@ public class MenuScript : MonoBehaviour
 		VideoMenu.SetActive (false);
 		ControlsMenu.SetActive (false);
 	}
-	public void Connect ()
+    public void StartTutorial() 
+    {
+        state = State.Tutorial;
+        PlayMenu.SetActive(false);
+        isServer = true;
+        isClient = false;
+        hasPickedTeamOne = false;
+        hasPickedTeamTwo = true;
+        state = State.Playing;
+        makeKeyBindings ();
+        BoltLauncher.StartServer (new UdpEndPoint (UdpIPv4Address.Any, (ushort)27001));
+        BoltNetwork.LoadScene ("TutorialLevel");
+    }
+    public void Connect ()
 	{
 		serverAddress = GameObject.Find ("ServerIP").GetComponent<Text> ().text;
 		JoinGameMenu.SetActive (false);
