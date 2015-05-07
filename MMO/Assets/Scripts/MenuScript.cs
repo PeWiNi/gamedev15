@@ -459,4 +459,9 @@ public class MenuScript : MonoBehaviour
 	{
 		Application.Quit ();
 	}
+
+	public void BackToMainMenu() {
+		Application.LoadLevel ("MenuScene");
+		BoltLauncher.Shutdown ();
+	}
 }

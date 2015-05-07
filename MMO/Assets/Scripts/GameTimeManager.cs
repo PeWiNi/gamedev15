@@ -36,7 +36,7 @@ public class GameTimeManager : MonoBehaviour
 			checkWinningTeamByBeacon ();
 		}
 		if (!wonByBeacon) {
-			if (time > 0) {
+			if (time >= 0) {
 				setGameTimer (time);
 				text.text = "Game Ends In: " + time + " minutes";
 			}
@@ -79,7 +79,7 @@ public class GameTimeManager : MonoBehaviour
 			} else if (ScoreOneManager.totalOneScore < ScoreTwoManager.totalTwoScore) {
 				text.text = "TEAM BANANA WINS ON POINTS!";
 				wonByScore = true;
-			} 
+			}
 		}
 	}
 }
