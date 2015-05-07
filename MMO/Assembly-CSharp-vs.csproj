@@ -90,10 +90,8 @@
      <Compile Include="Assets\Scripts\Networking\TerrainController.cs" />
      <Compile Include="Assets\Scripts\Networking\TestPlayerBehaviour.cs" />
      <Compile Include="Assets\Scripts\Networking\coconutObjectOld.cs" />
-     <Compile Include="Assets\Scripts\PlaceBushesGenerator.cs" />
-     <Compile Include="Assets\Scripts\PlaceSakuraTreeGenerator.cs" />
-     <Compile Include="Assets\Scripts\PlaceShroomTreeGenerator.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\RandomPlacementGenerator.cs" />
      <Compile Include="Assets\Scripts\RotateGO.cs" />
      <Compile Include="Assets\Scripts\ScoreOneManager.cs" />
      <Compile Include="Assets\Scripts\ScoreTwoManager.cs" />
@@ -104,6 +102,9 @@
      <Compile Include="Assets\Scripts\SwampScript.cs" />
      <Compile Include="Assets\Scripts\TailSlap.cs" />
      <Compile Include="Assets\Scripts\ThornyVineScript.cs" />
+     <Compile Include="Assets\Scripts\TutorialPlayerBehaviour.cs" />
+     <Compile Include="Assets\Scripts\TutorialPlayerCam.cs" />
+     <Compile Include="Assets\Scripts\TutorialTriggerScript.cs" />
      <Compile Include="Assets\Scripts\VFXScript.cs" />
      <Compile Include="Assets\Scripts\WASD.cs" />
      <Compile Include="Assets\SimpleMovement.cs" />

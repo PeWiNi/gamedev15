@@ -58,12 +58,12 @@ public class AOE : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-        if (sc == null || ps == null || tpb == null || tpbTutorial == null)
+        if (sc == null || ps == null || tpb == null )//|| tpbTutorial == null)
         {
             sc = this.gameObject.GetComponentInParent<StateController>();
             ps = this.gameObject.GetComponentInParent<PlayerStats>();
             if(gameObject.transform.parent.tag == "TutorialPlayer") {
-                tpbTutorial = this.gameObject.GetComponentInParent<TutorialPlayerBehaviour>();
+                //tpbTutorial = this.gameObject.GetComponentInParent<TutorialPlayerBehaviour>();
             } else {
                 tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
             }
@@ -150,14 +150,14 @@ public class AOE : MonoBehaviour
 	void OnTriggerStay (Collider coll)
 	{
 		if (coll.gameObject.tag == "grass") {
-            if(tpbTutorial != null){
-                if (Input.GetKeyDown (tpbTutorial.aoeKey) && available) {
-                    AOEUsedInHidingGrass = true;
-                }
-            } else {
+            //if(tpbTutorial != null){
+              //  if (Input.GetKeyDown (tpbTutorial.aoeKey) && available) {
+                //    AOEUsedInHidingGrass = true;
+               // }
+            //} else {
                 if (Input.GetKeyDown (tpb.aoeKey) && available) {
                     AOEUsedInHidingGrass = true;
-                }
+                //}
             }
 		}
 		if (sc.isChanneling && ((currentTimer - lastTick) > tickTimer) || (lastTick == lastUsed)) {
