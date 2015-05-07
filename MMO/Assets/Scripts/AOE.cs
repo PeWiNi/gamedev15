@@ -69,7 +69,8 @@ public class AOE : MonoBehaviour
 			tpb = this.gameObject.GetComponentInParent<TestPlayerBehaviour>();
         }
 		if (Input.GetKeyDown (tpb.aoeKey) && available && !sc.isStunned && !sc.isDead) {
-            puke.SetActive(true);
+            if (puke.GetComponentInParent<TestPlayerBehaviour>().entity.hasControl) 
+                puke.SetActive(true);
 			Debug.Log ("CASTING AOE!!");
 			sc.canMove = false;
 			lastUsed = Time.time;
@@ -92,7 +93,8 @@ public class AOE : MonoBehaviour
 //			GetComponentInParent<TestPlayerBehaviour>().animation.wrapMode = WrapMode.Loop;
 		}
         if (sc.isJumping && !available) {
-            puke.SetActive(false);
+            if (puke.GetComponentInParent<TestPlayerBehaviour>().entity.hasControl) 
+                puke.SetActive(false);
 			sc.canMove = true;
 			sc.isChanneling = false;
 						
@@ -114,7 +116,8 @@ public class AOE : MonoBehaviour
                 
 		// check timer for duration and Cooldown
         if (Time.time - lastUsed >= (ps.aoeDuration + 0.0001f) && !available) {
-            puke.SetActive(false);
+            if (puke.GetComponentInParent<TestPlayerBehaviour>().entity.hasControl) 
+                puke.SetActive(false);
 			sc.canMove = true;
 			sc.isChanneling = false;
 
@@ -168,8 +171,8 @@ public class AOE : MonoBehaviour
 						// Create Event and use the be, if it is the one that is colliding.
 						if (be.gameObject == coll.gameObject/* && coll.gameObject != this.gameObject.GetComponentInParent<TestPlayerBehaviour> ().gameObject*/) { // Check for enemy, deal full damage
 							//Debug.Log("AOE TICKING");
-							Debug.Log ("Found the colliding GO");
-							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponentInParent<PlayerStats> ().teamNumber) {
+                            Debug.Log("Found the colliding GO");
+							if (coll.gameObject.GetComponent<PlayerStats> ().teamNumber != this.gameObject.GetComponent<PlayerStats> ().teamNumber) {
 								// deal full damage!!!
 								Debug.Log ("Sending Event with dmg = " + ps.aoeTickDamageFactor);
 								var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone);
@@ -182,7 +185,7 @@ public class AOE : MonoBehaviour
 								Debug.Log ("Ticking for " + ps.aoeTickDamageFactor + ".");
 
                                 evnt.Send();
-							} else { // check for friendly player, deal 50% dmg.
+							} /* else { // check for friendly player, deal 50% dmg.
 								// deal half damage!!!
                                 var evnt = AoeEvent.Create(Bolt.GlobalTargets.Everyone);
 								GameObject go = GameObject.Find ("Canvas");
@@ -193,7 +196,7 @@ public class AOE : MonoBehaviour
 								evnt.TickDamage = ps.aoeTickDamageFactor / 2;
 
                                 evnt.Send();
-							}
+							} */
 							sc.initiateCombat ();
 						}
 					}
