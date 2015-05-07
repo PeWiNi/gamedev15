@@ -8,11 +8,13 @@ public class SoundController : MonoBehaviour
 	private AudioSource movementPlayer;
 	private AudioSource jumpPlayer;
 	private AudioSource stunnedPlayer;
+	private AudioSource pukePlayer;
 	// Audioclips
 	public AudioClip boomnanathrowclip;
 	public AudioClip jumpclip;
 	public AudioClip movementclip;
 	public AudioClip stunnedclip; 
+	public AudioClip pukeClip;
 
 	// Use this for initialization 
 	void Start ()
@@ -29,6 +31,10 @@ public class SoundController : MonoBehaviour
 		                            new Vector3 (-1000, 0, -1000), Quaternion.identity) as GameObject;
 		stunnedPlayer = sP.GetComponent<AudioSource> ();
 
+		GameObject pP = Instantiate (Resources.Load ("Prefabs/SoundMgr", typeof(GameObject)) as GameObject,
+		                             new Vector3 (-1000, 0, -1000), Quaternion.identity) as GameObject;
+		pukePlayer = pP.GetComponent<AudioSource> ();
+
 		soundPlayer = gameObject.GetComponent<AudioSource> ();
 		//Debug.Log (nut.name + "  " + coconut.name);
 	}
@@ -36,6 +42,10 @@ public class SoundController : MonoBehaviour
 	public AudioSource getSoundPlayer ()
 	{
 		return soundPlayer;
+	}
+
+	public AudioSource getPukePlayer(){
+		return pukePlayer;
 	}
 
 	public AudioSource getMovementPlayer ()

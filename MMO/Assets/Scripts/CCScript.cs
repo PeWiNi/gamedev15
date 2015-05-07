@@ -52,7 +52,7 @@ public class CCScript : MonoBehaviour
 		if (Time.time - lastUsed >= ps.ccCooldown) {
 			available = true;
 		}
-		if (Input.GetKeyDown (tpb.ccKey) && available && !GetComponentInParent<StateController>().isDead) {
+		if (Input.GetKeyDown (tpb.ccKey) && available && !GetComponentInParent<StateController>().isDead && !GetComponentInParent<StateController>().isChanneling) {
 			inUse = true;
 			var evnt = CCAnimEvent.Create(Bolt.GlobalTargets.Everyone);
             evnt.TargEnt = GetComponentInParent<TestPlayerBehaviour>().entity;

@@ -249,9 +249,9 @@ public class HUDScript : MonoBehaviour
 				}
 				if (key == a6Key) {
 					announcementText.text = "Resurrecting!";
-					Text a = castBar.GetComponentInChildren<Text> ();
-					a.color = Color.red;
-					a.text = "Monguin CPR";
+//					Text a = castBar.GetComponentInChildren<Text> ();
+//					a.color = Color.red;
+//					a.text = "Monguin CPR";
 				}
 
 			}
