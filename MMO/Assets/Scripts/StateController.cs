@@ -83,7 +83,8 @@ public class StateController : MonoBehaviour
 		// FIND HUD AND ANIMATE DAMAGE EFFECT.
 		GameObject go = GameObject.Find ("Canvas");
 		HUDScript hs = go.GetComponentInChildren<HUDScript> ();
-		hs.damageEff ();
+        if (transform.GetComponentInParent<TestPlayerBehaviour>().entity.hasControl) 
+		    hs.damageEff ();
         hs.announcementText.text = "- " + damage;
 		//TestPlayerBehaviour tpb = this.gameObject.GetComponent<TestPlayerBehaviour>();
 		//  Debug.Log(tpb.mainCam.GetComponentInChildren<HUDScript>());   
