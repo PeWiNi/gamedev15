@@ -87,6 +87,11 @@ public class Boomnana : MonoBehaviour
 							}
 						}
 						//  Debug.Log("BoltEntity.gameObject matches coll.gameObject");
+                        if (!(coll.gameObject == owner && !movingBack)) { // Ensure that the collision when just thrown doesn't trigger the effect
+                            GameObject scorch = (GameObject)Instantiate(Resources.Load("Prefabs/VFX_Scorch_Projector"));
+                            scorch.transform.position = new Vector3(transform.position.x, 70, transform.position.z);
+                            Destroy(scorch, 15f);
+                        }
 					}
 				}
 			}
