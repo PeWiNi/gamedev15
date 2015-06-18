@@ -44,7 +44,7 @@ public class MenuScript : MonoBehaviour
 	public static bool isClient = false;
     public static string playerName;
 
-	static string map = "Scene1TestNew";
+    static string map = "PostBeta_LevelScene01"; //Scene1TestNew
 	string serverAddress = "";
 	int serverPort = 27000;
 
@@ -335,7 +335,8 @@ public class MenuScript : MonoBehaviour
     #region Bolt Server Functions
 	public void StartServer ()
 	{
-		map = "Scene1TestNew";
+        //map = "Scene1TestNew";
+        map = "PostBeta_LevelScene01";
         playerName = GameObject.Find("NameField").GetComponent<InputField>().text;
 
 		state = State.Playing;
