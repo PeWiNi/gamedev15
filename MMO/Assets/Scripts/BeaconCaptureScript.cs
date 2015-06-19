@@ -306,7 +306,8 @@ public class BeaconCaptureScript : MonoBehaviour
 	{
 		IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 		while (entities.MoveNext()) {
-			if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+//			if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+			if (entities.Current.GetType () == typeof(BoltEntity)) {
 				BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 				if (captureValue > 30 && captureValue < 70) {
 					if (beaconIsNeutral == false) {

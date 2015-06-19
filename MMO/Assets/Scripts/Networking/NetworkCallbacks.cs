@@ -150,7 +150,8 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		players = por.allPlayerObjects.GetEnumerator ();
 		IEnumerator boltEnumThree = BoltNetwork.entities.GetEnumerator ();
 		while (boltEnumThree.MoveNext()) {
-			if (boltEnumThree.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+//			if (boltEnumThree.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+			if (boltEnumThree.Current.GetType () == typeof(BoltEntity)) {
 				BoltEntity boltEnt = (BoltEntity)boltEnumThree.Current as BoltEntity;
 				if (boltEnt.gameObject.tag == "player") {
 					if (boltEnt.gameObject.GetComponent<PlayerStats> ().teamNumber == 2) {

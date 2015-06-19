@@ -55,7 +55,8 @@ public class Boomnana : MonoBehaviour
 		IEnumerator entities = BoltNetwork.entities.GetEnumerator ();
 		if (coll.gameObject.tag == "player") {
 			while (entities.MoveNext()) {
-				if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+//				if (entities.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+				if (entities.Current.GetType () == typeof (BoltEntity)) {
 					BoltEntity be = (BoltEntity)entities.Current as BoltEntity;
 					// Create Event and use the be, if it is the one that is colliding.
 					if (be.gameObject == coll.gameObject) { // Check for enemy, deal full damage
