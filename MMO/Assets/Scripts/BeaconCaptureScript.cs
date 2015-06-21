@@ -687,30 +687,35 @@ public class BeaconCaptureScript : MonoBehaviour
 	/// </summary>
 	void ShrineSpawner ()
 	{
+        GameObject shrine = null;
 		if (teamOneIsCapturing) {
-			GameObject shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Fish"));
-			shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
-			Destroy (shrine, shrineSpawnerReapeatRate);
+            //shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Fish"));
+            shrine = (GameObject)Instantiate(Resources.Load("Prefabs/Polished_PostBeta/FX_Captured_Beam_Fish"));
+            shrine.GetComponent<ParticleSystem>().emissionRate = ((100 - captureValue) - 50);
+            shrine.GetComponent<ParticleSystem>().Play();
+            shrine.transform.Find("Fish_Display").gameObject.GetComponent<ParticleSystem>().Stop();
 		}
 		else if (teamTwoIsCapturing) {
-			GameObject shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Banana"));
-			shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
-			Destroy (shrine, shrineSpawnerReapeatRate);
+            //shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Banana"));
+            shrine = (GameObject)Instantiate(Resources.Load("Prefabs/Polished_PostBeta/FX_Captured_Beam_Banana"));
+            shrine.GetComponent<ParticleSystem>().emissionRate = ((captureValue) - 50);
+            shrine.GetComponent<ParticleSystem>().Play();
+            shrine.transform.Find("Banana_Display").gameObject.GetComponent<ParticleSystem>().Stop();
 		}
 		else if (beaconUnderTeamOneControl) {
-			GameObject shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_Captured_Beam_Fish"));
-			shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
-			Destroy (shrine, shrineSpawnerReapeatRate);
+			shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_Captured_Beam_Fish"));
+            shrine.GetComponent<ParticleSystem>().emissionRate = 999;
+            shrine.GetComponent<ParticleSystem>().Play();
 		}
 		else if (beaconUnderTeamTwoControl) {
-			GameObject shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_Captured_Beam_Banana"));
-			shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
-			Destroy (shrine, shrineSpawnerReapeatRate);
+			shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_Captured_Beam_Banana"));
+            shrine.GetComponent<ParticleSystem>().emissionRate = 999;
+            shrine.GetComponent<ParticleSystem>().Play();
 		}
 		else {
-			GameObject shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Default"));
-			shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
-			Destroy (shrine, shrineSpawnerReapeatRate);
-		}
+			shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Default"));
+        }
+        shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+        Destroy(shrine, shrineSpawnerReapeatRate);
 	}
 }
