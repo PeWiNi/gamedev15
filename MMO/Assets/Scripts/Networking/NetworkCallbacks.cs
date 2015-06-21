@@ -25,7 +25,8 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 		int a = 0;
 		IEnumerator theEnum = null;
 		while (boltEnum.MoveNext()) {
-			if (boltEnum.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+//			if (boltEnum.Current.GetType ().IsInstanceOfType (new BoltEntity ())) {
+			if (boltEnum.Current.GetType () == typeof(BoltEntity)) {
 				BoltEntity boltEnt = (BoltEntity)boltEnum.Current as BoltEntity;
 				if (boltEnt.gameObject.tag == "player") {
 					if (boltEnt.gameObject.GetComponent<PlayerStats> ().teamNumber == 1) {

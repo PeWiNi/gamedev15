@@ -100,7 +100,7 @@ public class BeaconCaptureScript : MonoBehaviour
 	GameObject beacon04;
 	bool checkOne;
 	bool checkTwo;
-
+	float shrineSpawnerReapeatRate = 5f;
 
 
 
@@ -114,6 +114,7 @@ public class BeaconCaptureScript : MonoBehaviour
 		beacon02 = GameObject.Find ("BeaconSouth");
 		beacon03 = GameObject.Find ("BeaconWest");
 		beacon04 = GameObject.Find ("BeaconEast");
+		InvokeRepeating ("ShrineSpawner", 0f, shrineSpawnerReapeatRate);
 	}
 	
 	// Update is called once per frame
@@ -681,4 +682,35 @@ public class BeaconCaptureScript : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Shrines the spawner.
+	/// </summary>
+	void ShrineSpawner ()
+	{
+		if (teamOneIsCapturing) {
+			GameObject shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Fish"));
+			shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+			Destroy (shrine, shrineSpawnerReapeatRate);
+		}
+		else if (teamTwoIsCapturing) {
+			GameObject shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Banana"));
+			shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+			Destroy (shrine, shrineSpawnerReapeatRate);
+		}
+		else if (beaconUnderTeamOneControl) {
+			GameObject shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_Captured_Beam_Fish"));
+			shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+			Destroy (shrine, shrineSpawnerReapeatRate);
+		}
+		else if (beaconUnderTeamTwoControl) {
+			GameObject shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_Captured_Beam_Banana"));
+			shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+			Destroy (shrine, shrineSpawnerReapeatRate);
+		}
+		else {
+			GameObject shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Default"));
+			shrine.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+			Destroy (shrine, shrineSpawnerReapeatRate);
+		}
+	}
 }
