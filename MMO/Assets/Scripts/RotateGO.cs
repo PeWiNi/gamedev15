@@ -21,14 +21,20 @@ public class RotateGO : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (rotateAround == Axis.Y) {
-			gameObject.transform.RotateAround (transform.position, transform.right, Time.deltaTime * 90f);
-		}
-		if (rotateAround == Axis.X) {
-			gameObject.transform.RotateAround (transform.position, transform.up, Time.deltaTime * 90f);
-		}
-		if (rotateAround == Axis.Z) {
-			gameObject.transform.RotateAround (transform.position, transform.forward, Time.deltaTime * 90f);
+		switch(rotateAround) 
+		{
+			case Axis.Y:
+				gameObject.transform.RotateAround (transform.position, transform.right, Time.deltaTime * 90f);
+				break;
+			case Axis.X:
+				gameObject.transform.RotateAround (transform.position, transform.up, Time.deltaTime * 90f);
+				break;
+			case Axis.Z:
+				gameObject.transform.RotateAround (transform.position, transform.forward, Time.deltaTime * 90f);
+				break;
+			default:
+				gameObject.transform.RotateAround (transform.position, transform.right, Time.deltaTime * 90f);
+				break;
 		}
 	}
 }
