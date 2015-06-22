@@ -689,14 +689,18 @@ public class BeaconCaptureScript : MonoBehaviour
 	{
         GameObject shrine = null;
 		if (teamOneIsCapturing) {
-            //shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Fish"));
+            GameObject shriny = (GameObject)Instantiate(Resources.Load("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Fish"));
+            shriny.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+            Destroy(shriny, shrineSpawnerReapeatRate);
             shrine = (GameObject)Instantiate(Resources.Load("Prefabs/Polished_PostBeta/FX_Captured_Beam_Fish"));
             shrine.GetComponent<ParticleSystem>().emissionRate = ((100 - captureValue) - 50);
             shrine.GetComponent<ParticleSystem>().Play();
             shrine.transform.Find("Fish_Display").gameObject.GetComponent<ParticleSystem>().Stop();
 		}
 		else if (teamTwoIsCapturing) {
-            //shrine = (GameObject)Instantiate (Resources.Load ("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Banana"));
+            GameObject shriny = (GameObject)Instantiate(Resources.Load("Prefabs/Polished_PostBeta/FX_CapturingShrine_Team_Banana"));
+            shriny.transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+            Destroy(shriny, shrineSpawnerReapeatRate);
             shrine = (GameObject)Instantiate(Resources.Load("Prefabs/Polished_PostBeta/FX_Captured_Beam_Banana"));
             shrine.GetComponent<ParticleSystem>().emissionRate = ((captureValue) - 50);
             shrine.GetComponent<ParticleSystem>().Play();
